@@ -1,0 +1,9 @@
+{
+  "app_key": "your_32_hex_char_app_key_here____",
+  "device_key": "",
+  "iv_index": 0,
+  "network_key": "your_32_hex_char_network_key_here",
+  "node_address": 2,
+  "provisioner_address": 1,
+  "sequence_number": 300000
+}

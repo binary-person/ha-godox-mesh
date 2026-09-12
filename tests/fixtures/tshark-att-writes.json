@@ -1,0 +1,44 @@
+[
+  {
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.time_epoch": "1777760400.100000000"
+        },
+        "btatt": {
+          "btatt.opcode": "0x52",
+          "btatt.handle": "0x0016",
+          "btatt.value": "aa:bb:01:32"
+        }
+      }
+    }
+  },
+  {
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.time_epoch": "1777760401.250000000"
+        },
+        "btatt": {
+          "btatt.opcode": "0x12",
+          "btatt.handle": "0x002c",
+          "btatt.value": "aa:bb:15:e0"
+        }
+      }
+    }
+  },
+  {
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.time_epoch": "1777760402.000000000"
+        },
+        "btatt": {
+          "btatt.opcode": "0x1b",
+          "btatt.handle": "0x0028",
+          "btatt.value": "ignored"
+        }
+      }
+    }
+  }
+]

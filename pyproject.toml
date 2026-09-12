@@ -1,0 +1,62 @@
+[project]
+name = "godox-mesh-bt"
+version = "1.0.0"
+description = "Python BLE library and CLI for Godox Bluetooth Mesh LED lights"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [{name = "Matt Harrison"}]
+keywords = ["godox", "bluetooth", "ble", "mesh", "led", "lighting"]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.14",
+  "Topic :: Home Automation",
+  "Topic :: System :: Hardware",
+]
+dependencies = [
+    "bleak>=3.0.2",
+    "cryptography>=47.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/binary-person/ha-godox-mesh"
+Repository = "https://github.com/binary-person/ha-godox-mesh"
+"Bug Tracker" = "https://github.com/binary-person/ha-godox-mesh/issues"
+"Upstream" = "https://github.com/mattharrison/godox-ul60bi-bt"
+
+[project.scripts]
+godox-mesh = "godox_mesh_bt.cli:run"
+godox-parse-capture = "godox_mesh_bt.research.parse_capture:main"
+
+# The integration imports Home Assistant, which cannot be installed alongside
+# this package's own dependency set (it requires Python 3.14+ while this
+# library supports 3.10+), so it is excluded from this project's type checking.
+#
+# It is **not** type checked anywhere else either. An earlier version of this
+# comment claimed it was "type checked in the Home Assistant environment
+# instead; see requirements-ha-test.txt" -- that file installs no type checker
+# and neither CI workflow runs one. It is covered by tests_ha, not by types.
+[tool.ty.src]
+exclude = ["custom_components", "tests_ha", "tools"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+# tests_ha/ needs Home Assistant, which requires Python 3.14+ and so cannot be
+# a dependency group here. Run it with requirements-ha-test.txt instead.
+testpaths = ["tests"]
+
+[build-system]
+requires = ["uv_build>=0.11.8,<0.12.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "prek>=0.3.11",
+    "pytest>=9.0.3",
+    "pytest-asyncio",
+    "ruff>=0.15.12",
+    "ty>=0.0.34",
+]

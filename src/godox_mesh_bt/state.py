@@ -1,0 +1,488 @@
+"""Load, save, and resolve Bluetooth Mesh state files.
+
+Examples
+--------
+>>> state = MeshState(
+...     network_key="00" * 16,
+...     app_key="11" * 16,
+...     provisioner_address=1,
+...     node_address=2,
+...     sequence_number=10,
+...     iv_index=0,
+... )
+>>> state.next_sequence(3).sequence_number
+13
+"""
+
+from __future__ import annotations
+
+import logging
+import json
+import os
+from collections.abc import Mapping
+from dataclasses import dataclass
+from pathlib import Path
+from xml.etree import ElementTree as ET
+
+logger = logging.getLogger(__name__)
+
+MESH_STATE_FILENAME = "mesh_state.json"
+STATE_PATH_ENV_VAR = "GODOX_MESH_BT_STATE"
+CONFIG_DIR_ENV_VAR = "GODOX_MESH_BT_CONFIG_DIR"
+APP_CONFIG_DIR_NAME = "godox-mesh-bt"
+
+
+@dataclass(frozen=True, slots=True)
+class MeshState:
+    """Persisted Bluetooth Mesh keys and addressing state.
+
+    Parameters
+    ----------
+    network_key
+        16-byte Bluetooth Mesh Network Key encoded as 32 hexadecimal characters.
+    app_key
+        16-byte Bluetooth Mesh Application Key encoded as 32 hexadecimal
+        characters.
+    provisioner_address
+        Unicast source address used by this library when sending mesh PDUs.
+    node_address
+        Unicast destination address of the Godox light node.
+    num_elements
+        How many consecutive unicast addresses this node occupies.
+    sequence_number
+        Next mesh sequence number to send.
+    iv_index
+        Bluetooth Mesh IV Index for the provisioned network.
+    device_key
+        Optional 16-byte Device Key encoded as 32 hexadecimal characters.
+
+    Examples
+    --------
+    >>> MeshState("00" * 16, "11" * 16, 1, 2, 7, 0).to_dict()["node_address"]
+    2
+    """
+
+    network_key: str
+    app_key: str
+    provisioner_address: int
+    node_address: int
+    sequence_number: int
+    iv_index: int
+    device_key: str = ""
+    device_address: str = ""
+    #: Elements this node occupies, from its Provisioning Capabilities PDU. A
+    #: node holds this many consecutive unicast addresses, so an allocator that
+    #: assumes a fixed count collides on any model that differs. Defaults to 2
+    #: for state written before this was recorded.
+    num_elements: int = 2
+
+    def __post_init__(self) -> None:
+        for key_name, value in {"network_key": self.network_key, "app_key": self.app_key}.items():
+            if len(value) != 32:
+                raise ValueError(f"{key_name} must be 16 bytes hex")
+        if self.sequence_number < 0:
+            raise ValueError("sequence_number must be non-negative")
+        if self.device_key:
+            if len(self.device_key) != 32 or not all(c in "0123456789abcdefABCDEF" for c in self.device_key):
+                raise ValueError("device_key must be 16 bytes hex")
+
+    def to_dict(self) -> dict[str, object]:
+        """Convert the mesh state to JSON-serializable values.
+
+        Returns
+        -------
+        dict[str, object]
+            Mesh state with byte keys preserved as hexadecimal strings.
+
+        Examples
+        --------
+        >>> MeshState("00" * 16, "11" * 16, 1, 2, 7, 0).to_dict()["sequence_number"]
+        7
+        """
+
+        return {
+            "network_key": self.network_key,
+            "app_key": self.app_key,
+            "device_key": self.device_key,
+            "device_address": self.device_address,
+            "provisioner_address": self.provisioner_address,
+            "node_address": self.node_address,
+            "sequence_number": self.sequence_number,
+            "iv_index": self.iv_index,
+            "num_elements": self.num_elements,
+        }
+
+    def to_json(self) -> str:
+        """Serialize the mesh state as formatted JSON.
+
+        Returns
+        -------
+        str
+            JSON text ending with a newline.
+
+        Examples
+        --------
+        >>> '"sequence_number": 7' in MeshState("00" * 16, "11" * 16, 1, 2, 7, 0).to_json()
+        True
+        """
+
+        return json.dumps(self.to_dict(), indent=2, sort_keys=True) + "\n"
+
+    @classmethod
+    def from_json(cls, data: str) -> MeshState:
+        """Parse mesh state from JSON text.
+
+        Parameters
+        ----------
+        data
+            JSON text containing mesh keys, addresses, sequence number, and IV
+            index.
+
+        Returns
+        -------
+        MeshState
+            Parsed mesh state.
+
+        Examples
+        --------
+        >>> MeshState.from_json('{"network_key":"' + "00" * 16 + '", "app_key":"' + "11" * 16 + '", "provisioner_address":1, "node_address":2, "sequence_number":7, "iv_index":0}').node_address
+        2
+        """
+
+        values = json.loads(data)
+        known_keys = {
+            "network_key",
+            "app_key",
+            "device_key",
+            "device_address",
+            "provisioner_address",
+            "node_address",
+            "sequence_number",
+            "iv_index",
+            "num_elements",
+        }
+        return cls(**{key: values[key] for key in known_keys if key in values})
+
+    def save(self, path: str | Path) -> None:
+        """Write mesh state JSON to disk.
+
+        Parameters
+        ----------
+        path
+            Destination path for ``mesh_state.json``.
+
+        Returns
+        -------
+        None
+            The file is written in place.
+
+        Examples
+        --------
+        >>> import tempfile
+        >>> path = tempfile.NamedTemporaryFile(delete=True).name
+        >>> MeshState("00" * 16, "11" * 16, 1, 2, 7, 0).save(path)
+        >>> MeshState.load(path).sequence_number
+        7
+        """
+
+        logger.debug("saving mesh state to %s", path)
+        Path(path).write_text(json.dumps(self.to_dict(), indent=2, sort_keys=True) + "\n")
+
+    @classmethod
+    def load(cls, path: str | Path) -> MeshState:
+        """Read mesh state JSON from disk.
+
+        Parameters
+        ----------
+        path
+            Source JSON file path.
+
+        Returns
+        -------
+        MeshState
+            Loaded mesh state.
+
+        Examples
+        --------
+        >>> import tempfile
+        >>> path = tempfile.NamedTemporaryFile(delete=True).name
+        >>> MeshState("00" * 16, "11" * 16, 1, 2, 7, 0).save(path)
+        >>> MeshState.load(path).network_key == "00" * 16
+        True
+        """
+
+        logger.debug("loading mesh state from %s", path)
+        return cls.from_json(Path(path).read_text())
+
+    def next_sequence(self, amount: int = 1) -> MeshState:
+        """Return a copy with the sequence number advanced.
+
+        Parameters
+        ----------
+        amount
+            Number of sequence values to reserve.
+
+        Returns
+        -------
+        MeshState
+            New immutable state with ``sequence_number`` increased.
+
+        Examples
+        --------
+        >>> MeshState("00" * 16, "11" * 16, 1, 2, 7, 0).next_sequence().sequence_number
+        8
+        """
+
+        logger.debug("advancing sequence by %s from %s", amount, self.sequence_number)
+        return MeshState(
+            network_key=self.network_key,
+            app_key=self.app_key,
+            device_key=self.device_key,
+            device_address=self.device_address,
+            provisioner_address=self.provisioner_address,
+            node_address=self.node_address,
+            sequence_number=self.sequence_number + amount,
+            iv_index=self.iv_index,
+        )
+
+    @classmethod
+    def from_telink_shared_xml(cls, xml_text: str) -> MeshState:
+        """Parse mesh state exported from Telink shared preferences XML.
+
+        Parameters
+        ----------
+        xml_text
+            XML text containing mesh key and address entries.
+
+        Returns
+        -------
+        MeshState
+            Parsed mesh state.
+
+        Examples
+        --------
+        >>> xml = '''<map><string name="network_key">00000000000000000000000000000000</string><string name="app_key">11111111111111111111111111111111</string><int name="provisioner_address" value="1" /><int name="node_address" value="2" /><int name="sequence_number" value="7" /><int name="iv_index" value="0" /></map>'''
+        >>> MeshState.from_telink_shared_xml(xml).sequence_number
+        7
+        """
+
+        logger.debug("parsing telink_shared xml for mesh state")
+        root = ET.fromstring(xml_text)
+        values = {}
+        for element in root.iter():
+            name = element.attrib.get("name")
+            if not name:
+                continue
+            # Some Android XMLs use 'value' attribute, others use text content
+            value = element.attrib.get("value") or element.text
+            values[name] = value
+
+        return cls(
+            network_key=_require(values, "network_key"),
+            app_key=_require(values, "app_key"),
+            provisioner_address=int(_require(values, "provisioner_address"), 0),
+            node_address=int(_require(values, "node_address"), 0),
+            sequence_number=int(_require(values, "sequence_number"), 0),
+            iv_index=int(_require(values, "iv_index"), 0),
+        )
+
+
+def audit_mesh_state(current: MeshState, reference: MeshState) -> dict[str, str]:
+    """Compare two mesh state objects field by field.
+
+    Parameters
+    ----------
+    current
+        Mesh state used by the library.
+    reference
+        Reference mesh state from another source.
+
+    Returns
+    -------
+    dict[str, str]
+        Match status for keys, addresses, IV Index, and sequence number.
+
+    Examples
+    --------
+    >>> state = MeshState("00" * 16, "11" * 16, 1, 2, 10, 0)
+    >>> audit_mesh_state(state.next_sequence(), state)["sequence_number"]
+    'current_ahead'
+    """
+
+    report = {}
+    for field_name in ("network_key", "app_key", "provisioner_address", "node_address", "iv_index"):
+        report[field_name] = "match" if getattr(current, field_name) == getattr(reference, field_name) else "mismatch"
+
+    if current.sequence_number == reference.sequence_number:
+        report["sequence_number"] = "match"
+    elif current.sequence_number > reference.sequence_number:
+        report["sequence_number"] = "current_ahead"
+    else:
+        report["sequence_number"] = "current_behind"
+
+    return report
+
+
+def default_config_dir(*, environ: Mapping[str, str] | None = None) -> Path:
+    """Return the user configuration directory for this package.
+
+    Parameters
+    ----------
+    environ
+        Optional environment mapping for tests or custom resolution.
+
+    Returns
+    -------
+    pathlib.Path
+        Directory where default mesh state is stored.
+
+    Examples
+    --------
+    >>> default_config_dir(environ={"GODOX_MESH_BT_CONFIG_DIR": "/tmp/godox"})
+    PosixPath('/tmp/godox')
+    """
+
+    env = os.environ if environ is None else environ
+    if config_dir := env.get(CONFIG_DIR_ENV_VAR):
+        return Path(config_dir).expanduser()
+    if xdg_config_home := env.get("XDG_CONFIG_HOME"):
+        return Path(xdg_config_home).expanduser() / APP_CONFIG_DIR_NAME
+    return Path.home() / ".config" / APP_CONFIG_DIR_NAME
+
+
+def default_mesh_state_path(*, environ: Mapping[str, str] | None = None) -> Path:
+    """Return the default ``mesh_state.json`` path.
+
+    Parameters
+    ----------
+    environ
+        Optional environment mapping for tests or custom resolution.
+
+    Returns
+    -------
+    pathlib.Path
+        Default mesh state file path.
+
+    Examples
+    --------
+    >>> default_mesh_state_path(environ={"GODOX_MESH_BT_CONFIG_DIR": "/tmp/godox"}).name
+    'mesh_state.json'
+    """
+
+    return default_config_dir(environ=environ) / MESH_STATE_FILENAME
+
+
+def resolve_mesh_state_path(
+    explicit_path: str | Path | None,
+    *,
+    cwd: str | Path | None = None,
+    environ: Mapping[str, str] | None = None,
+) -> Path | None:
+    """Resolve the mesh state path from CLI, environment, cwd, or config.
+
+    Parameters
+    ----------
+    explicit_path
+        Path passed by the caller, usually from ``--state``.
+    cwd
+        Directory to check for a local ``mesh_state.json``.
+    environ
+        Optional environment mapping.
+
+    Returns
+    -------
+    pathlib.Path or None
+        First existing path found, or ``None`` when no state file is available.
+
+    Examples
+    --------
+    >>> resolve_mesh_state_path("/tmp/state.json")
+    PosixPath('/tmp/state.json')
+    """
+
+    env = os.environ if environ is None else environ
+    if explicit_path:
+        return Path(explicit_path).expanduser()
+    if env_path := env.get(STATE_PATH_ENV_VAR):
+        return Path(env_path).expanduser()
+
+    local_state = Path.cwd() / MESH_STATE_FILENAME if cwd is None else Path(cwd) / MESH_STATE_FILENAME
+    if local_state.exists():
+        return local_state
+
+    config_state = default_mesh_state_path(environ=env)
+    if config_state.exists():
+        return config_state
+    return None
+
+
+def save_default_mesh_state(
+    state: MeshState,
+    *,
+    environ: Mapping[str, str] | None = None,
+) -> Path:
+    """Save mesh state to the default user configuration path.
+
+    Parameters
+    ----------
+    state
+        Mesh state to save.
+    environ
+        Optional environment mapping used to choose the destination directory.
+
+    Returns
+    -------
+    pathlib.Path
+        Path that was written.
+
+    Examples
+    --------
+    >>> import tempfile
+    >>> temp_dir = tempfile.TemporaryDirectory()
+    >>> state = MeshState("00" * 16, "11" * 16, 1, 2, 7, 0)
+    >>> save_default_mesh_state(state, environ={"GODOX_MESH_BT_CONFIG_DIR": temp_dir.name}).name
+    'mesh_state.json'
+    >>> temp_dir.cleanup()
+    """
+
+    path = default_mesh_state_path(environ=environ)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    state.save(path)
+    return path
+
+
+def import_mesh_state(path: str | Path) -> MeshState:
+    """Import mesh state from JSON or Telink shared preferences XML.
+
+    Parameters
+    ----------
+    path
+        Source file path. Files ending in ``.xml`` or starting with ``<`` are
+        parsed as Telink XML; other files are parsed as JSON.
+
+    Returns
+    -------
+    MeshState
+        Imported mesh state.
+
+    Examples
+    --------
+    >>> import tempfile
+    >>> path = tempfile.NamedTemporaryFile(delete=True).name
+    >>> MeshState("00" * 16, "11" * 16, 1, 2, 7, 0).save(path)
+    >>> import_mesh_state(path).iv_index
+    0
+    """
+
+    source = Path(path)
+    text = source.read_text()
+    if source.suffix.lower() == ".xml" or text.lstrip().startswith("<"):
+        return MeshState.from_telink_shared_xml(text)
+    return MeshState.from_json(text)
+
+
+def _require(values: dict[str, str | None], key: str) -> str:
+    value = values.get(key)
+    if value is None:
+        raise ValueError(f"missing {key} in telink_shared xml")
+    return value

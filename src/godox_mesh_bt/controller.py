@@ -1,0 +1,896 @@
+"""High-level controller for Godox Bluetooth Mesh proxy commands.
+
+Examples
+--------
+>>> import tempfile
+>>> path = tempfile.NamedTemporaryFile(delete=True).name
+>>> MeshState("00" * 16, "11" * 16, 1, 2, 10, 0).save(path)
+>>> GodoxController("AA:BB", path).state.sequence_number
+10
+"""
+
+from __future__ import annotations
+
+import logging
+import asyncio
+from collections.abc import Callable
+from pathlib import Path
+from typing import Any
+
+from godox_mesh_bt.client import ProxyClient
+from godox_mesh_bt.crypto import (
+    build_vendor_access_payload,
+    decrypt_proxy_network_pdu,
+    k3,
+    pack_proxy_config_pdu,
+    pack_proxy_network_pdu,
+)
+from godox_mesh_bt.protocol import (
+    SUB_EFFECT,
+    SUB_FAN,
+    SUB_STATUS_BATTERY,
+    SUB_STATUS_VERSION,
+    BatteryPower,
+    StatusResponse,
+    build_battery_request,
+    build_version_request,
+    build_effect_command,
+    build_fan_command,
+    build_status_request,
+    build_v2_command,
+    parse_battery_power_response,
+    parse_version_response,
+    parse_status_response,
+    validate_brightness,
+    validate_cct,
+)
+from godox_mesh_bt.state import MeshState
+
+logger = logging.getLogger(__name__)
+
+CONTROL_SETTLE_SECONDS = 0.25
+BEACON_WAIT_TIMEOUT = 2.0
+PROXY_CONFIG_ACK_TIMEOUT = 5.0
+
+
+REQUEST_OPCODE = 135664
+"""Vendor access opcode for commands sent to the light (0x0211F0)."""
+
+RESPONSE_OPCODE = 135665
+"""Vendor access opcode the light answers on (0x0211F1).
+
+Commands go out on :data:`REQUEST_OPCODE` and are never acknowledged. A status
+request is the exception: the light replies on this opcode. The Godox app
+contains this constant but never sends a request that elicits it, which is why
+it has been reported as inert.
+"""
+
+STATUS_TIMEOUT_SECONDS = 3.0
+
+
+class StatusTimeout(TimeoutError):
+    """Raised when a light does not answer a status request in time."""
+
+
+class BatteryTimeout(TimeoutError):
+    """Raised when a light does not answer a battery request in time."""
+
+
+class VersionTimeout(TimeoutError):
+    """Raised when a light does not answer a version request in time."""
+
+
+class GodoxController:
+    """Control a provisioned Godox light through Bluetooth Mesh Proxy.
+
+    Parameters
+    ----------
+    address
+        Platform-specific BLE address or identifier for the light.
+    state_path
+        Path to ``mesh_state.json`` containing the 16-byte mesh keys as hex
+        strings and the current sequence number.
+    client_factory
+        Optional Bleak-compatible client factory for tests or custom transports.
+    state
+        In-memory mesh state, used instead of reading ``state_path``.
+    state_writer
+        Called with the advanced state after every PDU. Supplying this replaces
+        writing ``state_path``, which lets a long-running caller persist the
+        sequence number somewhere other than a file.
+    beacon_wait_timeout
+        Seconds to wait for the Secure Network Beacon before giving up on the
+        echo and continuing.
+    proxy_config_ack_timeout
+        Seconds to wait for each Proxy Filter Status acknowledgement. The
+        device only sends these during the provisioning session, so a caller
+        that reconnects often can set this low to avoid stalling on an
+        acknowledgement that is not coming.
+
+    Examples
+    --------
+    >>> import tempfile
+    >>> path = tempfile.NamedTemporaryFile(delete=True).name
+    >>> MeshState("00" * 16, "11" * 16, 1, 2, 10, 0).save(path)
+    >>> GodoxController("AA:BB", path).address
+    'AA:BB'
+    """
+
+    def __init__(
+        self,
+        address: str,
+        state_path: str | Path | None = None,
+        client_factory: Any = None,
+        *,
+        state: MeshState | None = None,
+        state_writer: Callable[[MeshState], None] | None = None,
+        beacon_wait_timeout: float = BEACON_WAIT_TIMEOUT,
+        proxy_config_ack_timeout: float = PROXY_CONFIG_ACK_TIMEOUT,
+    ) -> None:
+        self.address = address
+        self.beacon_wait_timeout = beacon_wait_timeout
+        self.proxy_config_ack_timeout = proxy_config_ack_timeout
+        self.state_path = Path(state_path) if state_path is not None else None
+        if state is not None:
+            self.state = state
+        elif self.state_path is not None:
+            self.state = MeshState.load(self.state_path)
+        else:
+            raise ValueError("GodoxController requires either state or state_path")
+        self._state_writer = state_writer
+        self._client = ProxyClient(address, client_factory=client_factory)
+        self._client_factory = client_factory
+        self._control_write_pending = False
+        self._status: StatusResponse | None = None
+        self._status_event = asyncio.Event()
+        self._battery: BatteryPower | None = None
+        self._battery_event = asyncio.Event()
+        self._version: int | None = None
+        self._version_event = asyncio.Event()
+
+    @property
+    def is_connected(self) -> bool:
+        """Return whether the Mesh Proxy connection is currently open.
+
+        Returns
+        -------
+        bool
+            ``True`` when the underlying proxy client reports a live connection.
+
+        Examples
+        --------
+        >>> import tempfile
+        >>> path = tempfile.NamedTemporaryFile(delete=True).name
+        >>> MeshState("00" * 16, "11" * 16, 1, 2, 10, 0).save(path)
+        >>> GodoxController("AA:BB", path).is_connected
+        False
+        """
+
+        return self._client.is_connected
+
+    async def __aenter__(self) -> GodoxController:
+        """Connect and return the controller for async context manager use.
+
+        Returns
+        -------
+        GodoxController
+            Connected controller instance.
+
+        Examples
+        --------
+        >>> GodoxController.__aenter__.__name__
+        '__aenter__'
+        """
+
+        await self.connect()
+        return self
+
+
+    async def __aexit__(self, exc_type: object, exc: object, tb: object) -> None:
+        """Disconnect when leaving an async context manager.
+
+        Parameters
+        ----------
+        exc_type
+            Exception type raised inside the context, if any.
+        exc
+            Exception value raised inside the context, if any.
+        tb
+            Traceback raised inside the context, if any.
+
+        Returns
+        -------
+        None
+            The BLE proxy connection is closed.
+        """
+
+        await self.disconnect()
+
+    async def connect(self) -> None:
+        """Connect to the Mesh Proxy and install a whitelist filter.
+
+        Returns
+        -------
+        None
+            The proxy client connects, starts notifications, echoes the beacon
+            when available, and sends proxy filter configuration PDUs.
+
+        Examples
+        --------
+        >>> GodoxController.connect.__name__
+        'connect'
+        """
+
+        logger.info("connecting controller to %s", self.address)
+        await self._client.connect()
+        logger.info("controller connected")
+
+        beacon_event: asyncio.Event = asyncio.Event()
+        proxy_ack_event: asyncio.Event = asyncio.Event()
+        pending_beacon: list[bytes] = []
+
+        def on_proxy_notify(proxy_pdu: bytes) -> None:
+            pdu = bytes(proxy_pdu)
+            logger.debug("raw proxy notification (%d bytes): %s", len(pdu), pdu.hex() if pdu else "<empty>")
+            if not pdu:
+                return
+            pdu_type = pdu[0]
+            if pdu_type == 0x01:
+                logger.info("proxy beacon received (%d bytes): %s", len(pdu), pdu.hex())
+                if len(pdu) >= 11:
+                    beacon_network_id = pdu[3:11].hex()
+                    our_network_id = k3(bytes.fromhex(self.state.network_key)).hex()
+                    if beacon_network_id == our_network_id:
+                        logger.info("beacon network ID matches our key: %s ✓", beacon_network_id)
+                    else:
+                        logger.warning(
+                            "beacon network ID %s does not match our key (ours: %s) — wrong provisioning key!",
+                            beacon_network_id,
+                            our_network_id,
+                        )
+                pending_beacon.clear()
+                pending_beacon.append(pdu)
+                beacon_event.set()
+            elif pdu_type == 0x02:
+                logger.info(
+                    "proxy config ack received (%d bytes): %s", len(pdu), pdu.hex()
+                )
+                proxy_ack_event.set()
+            else:
+                logger.info("proxy notification received (type=0x%02x): %s", pdu_type, pdu.hex())
+                self._handle_response(pdu)
+
+        await self._client.start_notify(on_proxy_notify)
+        logger.info("proxy notifications started")
+        try:
+            # Echo the Secure Network Beacon back to the device before proxy config.
+            # This step is required by the Bluetooth Mesh proxy protocol: the proxy client
+            # must echo the beacon to establish itself as a trusted bearer.
+            try:
+                await asyncio.wait_for(
+                    beacon_event.wait(), timeout=self.beacon_wait_timeout
+                )
+                logger.info("echoing beacon back to proxy Data In")
+                await self._client.write_proxy(pending_beacon[0])
+            except TimeoutError:
+                logger.warning("no beacon received from device; proceeding without beacon echo")
+
+            net_key = bytes.fromhex(self.state.network_key)
+            await self._send_proxy_config(
+                opcode=0x00,
+                parameters=bytes([0x00]),  # 0x00 = WHITELIST (0x01 = BLACKLIST, unsupported by Telink)
+                net_key=net_key,
+                proxy_notify=proxy_ack_event,
+                label="filter type",
+            )
+
+            filter_addresses = self.state.provisioner_address.to_bytes(2, "big") + (0xFFFF).to_bytes(2, "big")
+            await self._send_proxy_config(
+                opcode=0x01,
+                parameters=filter_addresses,
+                net_key=net_key,
+                proxy_notify=proxy_ack_event,
+                label="whitelist",
+            )
+            logger.info("proxy notifications left active for session")
+        finally:
+            logger.info("proxy initialization complete")
+
+    async def disconnect(self) -> None:
+        """Disconnect from the Mesh Proxy.
+
+        Returns
+        -------
+        None
+            Notifications are stopped and the BLE connection is closed.
+
+        Examples
+        --------
+        >>> GodoxController.disconnect.__name__
+        'disconnect'
+        """
+
+        logger.debug("disconnecting controller for %s", self.address)
+        if self._control_write_pending:
+            logger.info("waiting %.2fs for control write to settle", CONTROL_SETTLE_SECONDS)
+            await asyncio.sleep(CONTROL_SETTLE_SECONDS)
+            self._control_write_pending = False
+        await self._client.stop_notify()
+        logger.info("proxy notifications stopped")
+        await self._client.disconnect()
+
+    def _advance_state(self) -> None:
+        self.state = self.state.next_sequence()
+        if self._state_writer is not None:
+            self._state_writer(self.state)
+        elif self.state_path is not None:
+            self.state.save(self.state_path)
+
+    async def _send_proxy_config(
+        self,
+        *,
+        opcode: int,
+        parameters: bytes,
+        net_key: bytes,
+        proxy_notify: asyncio.Event,
+        label: str,
+    ) -> None:
+        proxy_config = pack_proxy_config_pdu(
+            opcode=opcode,
+            parameters=parameters,
+            net_key=net_key,
+            iv_index=self.state.iv_index,
+            seq=self.state.sequence_number,
+            src=self.state.provisioner_address,
+        )
+        logger.debug("sending proxy config %s opcode=0x%02x", label, opcode)
+        await self._client.write_proxy(proxy_config)
+        logger.info("proxy config %s sent", label)
+        self._advance_state()
+        try:
+            await asyncio.wait_for(
+                proxy_notify.wait(), timeout=self.proxy_config_ack_timeout
+            )
+        except TimeoutError:
+            logger.debug(
+                "proxy config %s ack not received (normal — device may filter duplicate sequences)",
+                label,
+            )
+        else:
+            logger.info("proxy config %s acknowledged", label)
+            proxy_notify.clear()
+
+    async def send_v2_command(
+        self,
+        model: int,
+        end_byte: int,
+        data: bytes,
+        *,
+        dst: int | None = None,
+    ) -> None:
+        """Send one Godox V2 vendor command through the Mesh Proxy.
+
+        Parameters
+        ----------
+        model
+            Godox V2 model or command family byte.
+        end_byte
+            V2 end byte placed before the checksum.
+        data
+            Exact command data bytes. V2 accepts at most five bytes; shorter
+            values are padded with ``0xFF`` before transmission.
+        dst
+            Unicast address of the target node. Defaults to ``node_address``
+            from the mesh state. One proxy connection can address every node on
+            the network, so pass this to fan out across several lights.
+
+        Returns
+        -------
+        None
+            The packed proxy PDU is written and the sequence number is advanced.
+
+        Examples
+        --------
+        >>> GodoxController.send_v2_command.__name__
+        'send_v2_command'
+        """
+
+        destination = self.state.node_address if dst is None else dst
+        godox_payload = build_v2_command(model, end_byte, data)
+        logger.info(
+            "sending V2 command model=0x%02x end=0x%02x dst=0x%04x godox_payload=%s",
+            model,
+            end_byte,
+            destination,
+            godox_payload.hex(),
+        )
+        access_payload = build_vendor_access_payload(REQUEST_OPCODE, godox_payload)
+        net_key = bytes.fromhex(self.state.network_key)
+        app_key = bytes.fromhex(self.state.app_key)
+        proxy_pdu = pack_proxy_network_pdu(
+            access_payload,
+            net_key,
+            app_key,
+            iv_index=self.state.iv_index,
+            seq=self.state.sequence_number,
+            src=self.state.provisioner_address,
+            dst=destination,
+            ttl=10,
+        )
+
+        await self._client.write_proxy(proxy_pdu)
+        logger.info("vendor command sent")
+        logger.debug("sent proxy PDU %s", proxy_pdu.hex())
+        self._advance_state()
+        self._control_write_pending = True
+
+    async def power_on(self, *, dst: int | None = None) -> None:
+        """Send the captured Godox power-on command.
+
+        Parameters
+        ----------
+        dst
+            Unicast address of the target node. Defaults to ``node_address``
+            from the mesh state.
+
+        Returns
+        -------
+        None
+            The command is sent through :meth:`send_v2_command`.
+
+        Examples
+        --------
+        >>> GodoxController.power_on.__name__
+        'power_on'
+        """
+
+        logger.info("power on requested for %s dst=%s", self.address, dst)
+        await self.send_v2_command(0xFE, 0xFF, bytes([0x00]), dst=dst)
+
+    async def power_off(self, *, dst: int | None = None) -> None:
+        """Send the captured Godox power-off command.
+
+        Parameters
+        ----------
+        dst
+            Unicast address of the target node. Defaults to ``node_address``
+            from the mesh state.
+
+        Returns
+        -------
+        None
+            The command is sent through :meth:`send_v2_command`.
+
+        Examples
+        --------
+        >>> GodoxController.power_off.__name__
+        'power_off'
+        """
+
+        logger.info("power off requested for %s dst=%s", self.address, dst)
+        await self.send_v2_command(0xFE, 0xFF, bytes([0x01]), dst=dst)
+
+    async def set_params(
+        self,
+        *,
+        brightness: float | None = None,
+        cct: int | None = None,
+        dst: int | None = None,
+        min_kelvin: int | None = None,
+        max_kelvin: int | None = None,
+    ) -> None:
+        """Set brightness and color temperature in a single V2 command.
+
+        Parameters
+        ----------
+        brightness
+            Brightness percentage from 0 through 100. Decimal tenths are encoded
+            in the V2 end byte.
+        cct
+            Correlated color temperature in Kelvin, from 2800 through 6500.
+        dst
+            Unicast address of the target node. Defaults to ``node_address``
+            from the mesh state.
+
+        Returns
+        -------
+        None
+            A single vendor command is sent when at least one parameter is
+            provided.
+
+        Examples
+        --------
+        >>> GodoxController.set_params.__name__
+        'set_params'
+        """
+        logger.info("set params requested: brightness=%s cct=%s dst=%s", brightness, cct, dst)
+
+        # If neither is provided, do nothing
+        if brightness is None and cct is None:
+            return
+
+        # Default values if one is missing (CCT 5600K, Brightness 100%)
+        final_brightness = brightness if brightness is not None else 100.0
+        final_cct = cct if cct is not None else 5600
+
+        validate_brightness(int(final_brightness))
+        # Bound by the model's own range when the caller knows it; otherwise by
+        # what the protocol can encode. Hardcoding one light's 2800-6500 K here
+        # rejected valid commands for half the Godox mesh range.
+        cct_bounds = {}
+        if min_kelvin is not None:
+            cct_bounds["min_kelvin"] = min_kelvin
+        if max_kelvin is not None:
+            cct_bounds["max_kelvin"] = max_kelvin
+        validate_cct(final_cct, **cct_bounds)
+
+        percent = int(final_brightness)
+        brightness_point = int(round((final_brightness - percent) * 10))
+        brightness_point = max(0, min(9, brightness_point))
+        temp = final_cct // 100
+
+        # Captured app traffic uses the Godox V2 0xF0 family with brightness_point in the end byte.
+        # Standard CLI flow uses gm=50 and gm2=0.
+        await self.send_v2_command(
+            0xF0,
+            brightness_point,
+            bytes([percent, temp, 50, 0, 0]),
+            dst=dst,
+        )
+
+    def _handle_response(self, proxy_pdu: bytes) -> None:
+        """Decode a proxy notification and record any status reply it carries.
+
+        Parameters
+        ----------
+        proxy_pdu
+            Raw bytes from the Mesh Proxy Data Out characteristic.
+
+        Returns
+        -------
+        None
+            Anything that is not a decryptable status reply is ignored: the
+            same characteristic carries beacons, proxy configuration
+            acknowledgements and traffic for other nodes.
+
+        Examples
+        --------
+        >>> GodoxController._handle_response.__name__
+        '_handle_response'
+        """
+
+        if not proxy_pdu or (proxy_pdu[0] & 0x3F) != 0x00:
+            return
+        try:
+            decrypted = decrypt_proxy_network_pdu(
+                proxy_pdu,
+                bytes.fromhex(self.state.network_key),
+                bytes.fromhex(self.state.app_key),
+                iv_index=self.state.iv_index,
+            )
+        except Exception as err:  # noqa: BLE001 - notifications are untrusted input
+            logger.debug("inbound PDU did not decrypt: %s", err)
+            return
+
+        payload = decrypted.access_payload
+        if len(payload) < 4:
+            return
+        opcode = int.from_bytes(payload[:3], "little")
+        if opcode != RESPONSE_OPCODE:
+            logger.debug("inbound vendor opcode 0x%06x is not a status reply", opcode)
+            return
+
+        v2 = payload[3:]
+        if len(v2) >= 2 and v2[0] == SUB_STATUS_VERSION and v2[1] == 0x20:
+            try:
+                version = parse_version_response(v2)
+            except ValueError as err:
+                logger.debug("version reply did not parse: %s", err)
+                return
+            logger.info("version from 0x%04x: %d", decrypted.src, version)
+            self._version = version
+            self._version_event.set()
+            return
+        if v2 and v2[0] == SUB_STATUS_BATTERY:
+            try:
+                battery = parse_battery_power_response(v2)
+            except ValueError as err:
+                logger.debug("battery reply did not parse: %s", err)
+                return
+            logger.info(
+                "battery from 0x%04x: %d%% state=%d",
+                decrypted.src,
+                battery.power_percent,
+                battery.state,
+            )
+            self._battery = battery
+            self._battery_event.set()
+            return
+
+        try:
+            status = parse_status_response(v2)
+        except ValueError as err:
+            logger.debug("status reply did not parse: %s", err)
+            return
+
+        logger.info(
+            "status from 0x%04x: brightness=%s cct=%s effect=%s",
+            decrypted.src,
+            status.brightness,
+            status.cct,
+            status.effect,
+        )
+        self._status = status
+        self._status_event.set()
+
+    async def request_status(
+        self,
+        *,
+        dst: int | None = None,
+        timeout: float = STATUS_TIMEOUT_SECONDS,
+    ) -> StatusResponse:
+        """Ask a light to report its state and wait for the reply.
+
+        Parameters
+        ----------
+        dst
+            Unicast address of the node to query. Defaults to ``node_address``.
+        timeout
+            Seconds to wait for the reply.
+
+        Returns
+        -------
+        StatusResponse
+            The light's reported brightness and colour temperature, or its
+            effect when one is running.
+
+        Raises
+        ------
+        StatusTimeout
+            If no reply arrives. Not every model answers: some implement the
+            request but return a constant, and some do not answer at all.
+
+        Examples
+        --------
+        >>> GodoxController.request_status.__name__
+        'request_status'
+        """
+
+        # Clear first so a reply that arrived earlier cannot be mistaken for
+        # the answer to this request.
+        self._status = None
+        self._status_event.clear()
+
+        await self.send_v2_command_raw(build_status_request(), dst=dst)
+        try:
+            await asyncio.wait_for(self._status_event.wait(), timeout=timeout)
+        except TimeoutError as err:
+            raise StatusTimeout(
+                f"{self.address} did not answer a status request within {timeout}s"
+            ) from err
+
+        assert self._status is not None
+        return self._status
+
+    async def request_battery(
+        self,
+        *,
+        dst: int | None = None,
+        timeout: float = STATUS_TIMEOUT_SECONDS,
+    ) -> BatteryPower:
+        """Ask a battery-powered light to report its charge and wait for the reply.
+
+        Parameters
+        ----------
+        dst
+            Unicast address of the node to query. Defaults to ``node_address``.
+        timeout
+            Seconds to wait for the reply.
+
+        Returns
+        -------
+        BatteryPower
+            The reported charge percentage, remaining runtime, and charge state.
+
+        Raises
+        ------
+        BatteryTimeout
+            If no reply arrives — a mains-powered light does not answer, and
+            a mains-powered light answers a constant 100 %.
+
+        Examples
+        --------
+        >>> GodoxController.request_battery.__name__
+        'request_battery'
+        """
+
+        self._battery = None
+        self._battery_event.clear()
+
+        await self.send_v2_command_raw(build_battery_request(), dst=dst)
+        try:
+            await asyncio.wait_for(self._battery_event.wait(), timeout=timeout)
+        except TimeoutError as err:
+            raise BatteryTimeout(
+                f"{self.address} did not answer a battery request within {timeout}s"
+            ) from err
+
+        assert self._battery is not None
+        return self._battery
+
+    async def request_version(
+        self,
+        *,
+        dst: int | None = None,
+        timeout: float = STATUS_TIMEOUT_SECONDS,
+    ) -> int:
+        """Ask a light for its BLE firmware version and wait for the reply.
+
+        Answered locally by the BLE chip from an immediate, so it is reliable on
+        stock firmware too. The readback patch makes a light report version 1,
+        which is how the patch is detected.
+
+        Parameters
+        ----------
+        dst
+            Unicast address of the node to query. Defaults to ``node_address``.
+        timeout
+            Seconds to wait for the reply.
+
+        Returns
+        -------
+        int
+            The reported version (e.g. 102 stock, 1 patched).
+
+        Raises
+        ------
+        VersionTimeout
+            If no reply arrives.
+
+        Examples
+        --------
+        >>> GodoxController.request_version.__name__
+        'request_version'
+        """
+
+        self._version = None
+        self._version_event.clear()
+
+        await self.send_v2_command_raw(build_version_request(), dst=dst)
+        try:
+            await asyncio.wait_for(self._version_event.wait(), timeout=timeout)
+        except TimeoutError as err:
+            raise VersionTimeout(
+                f"{self.address} did not answer a version request within {timeout}s"
+            ) from err
+
+        assert self._version is not None
+        return self._version
+
+    async def set_effect(
+        self,
+        effect: int,
+        *,
+        brightness: int,
+        speed: int = 0,
+        dst: int | None = None,
+    ) -> None:
+        """Run a lighting effect.
+
+        Parameters
+        ----------
+        effect
+            Effect symbol. Which symbols a light accepts is model-specific;
+            see ``godox_mesh_bt.protocol.EFFECT_IDS`` for the fallback set.
+        brightness
+            Brightness percentage from 0 through 100.
+        speed
+            Effect speed; 0 is always valid.
+        dst
+            Unicast address of the target node.
+
+        Returns
+        -------
+        None
+            The command is sent through :meth:`send_v2_command`.
+
+        Examples
+        --------
+        >>> GodoxController.set_effect.__name__
+        'set_effect'
+        """
+
+        frame = build_effect_command(effect, brightness, speed)
+        logger.info(
+            "effect %s requested at brightness %s speed %s", effect, brightness, speed
+        )
+        await self.send_v2_command(SUB_EFFECT, frame[6], frame[1:6], dst=dst)
+
+    async def set_fan_mode(self, mode: int, *, dst: int | None = None) -> None:
+        """Set the fan or cooling mode.
+
+        Parameters
+        ----------
+        mode
+            One of ``godox_mesh_bt.protocol.FAN_MODES``.
+        dst
+            Unicast address of the target node.
+
+        Returns
+        -------
+        None
+            The command is sent through :meth:`send_v2_command`.
+
+        Examples
+        --------
+        >>> GodoxController.set_fan_mode.__name__
+        'set_fan_mode'
+        """
+
+        frame = build_fan_command(mode)
+        logger.info("fan mode %s requested", mode)
+        await self.send_v2_command(SUB_FAN, frame[6], frame[1:6], dst=dst)
+
+    async def send_v2_command_raw(self, frame: bytes, *, dst: int | None = None) -> None:
+        """Send an already-built eight-byte V2 frame.
+
+        Parameters
+        ----------
+        frame
+            Complete V2 frame including its checksum.
+        dst
+            Unicast address of the target node.
+
+        Returns
+        -------
+        None
+            The frame is written unchanged, so a caller can send a command this
+            module does not model.
+
+        Examples
+        --------
+        >>> GodoxController.send_v2_command_raw.__name__
+        'send_v2_command_raw'
+        """
+
+        if len(frame) != 8:
+            raise ValueError("V2 frame must be exactly 8 bytes")
+        await self.send_v2_command(frame[0], frame[6], frame[1:6], dst=dst)
+
+    async def rebind(self) -> None:
+        """Re-send Config App Key Add and Model App Bind.
+
+        Parameters
+        ----------
+        None
+            This method uses ``device_key`` and addresses from the controller's
+            mesh state.
+
+        Returns
+        -------
+        None
+            The command is not implemented yet and currently raises
+            :class:`NotImplementedError` when a device key is present.
+
+        Examples
+        --------
+        >>> GodoxController.rebind.__name__
+        'rebind'
+        """
+        from .config_session import ConfigSession
+        if not self.state.device_key:
+            raise ValueError(
+                "device_key is not set in mesh state — rebind requires the device key. "
+                "Ensure your mesh_state.json contains a device_key field."
+            )
+        session = ConfigSession(
+            address=self.address,
+            state=self.state,
+            client_factory=self._client_factory,
+        )
+        self.state = await session.run()
+        if self._state_writer is not None:
+            self._state_writer(self.state)
+        elif self.state_path is not None:
+            self.state.save(self.state_path)
+        logger.info("rebind complete")

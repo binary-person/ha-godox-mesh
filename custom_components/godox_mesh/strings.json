@@ -1,0 +1,144 @@
+{
+  "config": {
+    "flow_title": "{name}",
+    "step": {
+      "user": {
+        "title": "Select your Godox light",
+        "description": "Pick the light to connect to. Lights that look like Godox devices are listed first, but a provisioned Bluetooth Mesh node does not always advertise a recognizable name, so every connectable device is shown.",
+        "data": {
+          "address": "Bluetooth device"
+        },
+        "data_description": {
+          "address": "The light Home Assistant will keep its Bluetooth Mesh proxy connection to. Other lights on the same mesh network are reached through it."
+        }
+      },
+      "setup_method": {
+        "title": "How is this light set up?",
+        "description": "Has this light already been provisioned?\n\nIf you have run `godox-mesh provision` or used the Godox app, choose **Use existing mesh keys** and paste your `mesh_state.json`.\n\nIf the light is factory reset and flashing, choose **Provision this light** to generate fresh keys here.",
+        "menu_options": {
+          "mesh_state": "Use existing mesh keys",
+          "provision": "Provision this light"
+        }
+      },
+      "mesh_state": {
+        "title": "Mesh keys",
+        "description": "Paste the full contents of the `mesh_state.json` file created by `godox-mesh provision`.",
+        "data": {
+          "mesh_state_json": "mesh_state.json contents"
+        },
+        "data_description": {
+          "mesh_state_json": "Must contain at least network_key and app_key. device_key, node_address, provisioner_address and iv_index are used when present."
+        }
+      },
+      "provision": {
+        "title": "Provision this light",
+        "description": "Put the light into pairing mode first — usually by holding its Bluetooth button until it flashes, though it varies by model. Whatever steps you would follow to pair it with the Godox app are the right ones here; it just has to be advertising as unprovisioned.\n\nHome Assistant will generate a new network key and application key, run the Bluetooth Mesh provisioning exchange, and bind the key to the light's vendor model. This replaces any pairing with the Godox app."
+      },
+      "model": {
+        "title": "Which model is this?",
+        "description": "{detected}Pick the light's model so Home Assistant can give it the right controls — its colour-temperature range, or brightness only for a fixed-daylight light. Leave it blank if your model is not listed; the light will still work with a standard 2800–6500 K colour-temperature control.",
+        "data": {
+          "radio_id": "Model"
+        },
+        "data_description": {
+          "radio_id": "Search by product name. This sets the colour-temperature range and controls; it does not change the light's identity."
+        }
+      }
+    },
+    "error": {
+      "invalid_mesh_state": "That is not valid mesh state. It must be JSON containing at least network_key and app_key, each 32 hexadecimal characters.",
+      "provision_failed": "Provisioning failed. Check the light is in pairing mode and flashing, and that nothing else is connected to it — close the Godox app — then try again.",
+      "cannot_connect": "Failed to connect",
+      "unknown": "Unexpected error"
+    },
+    "abort": {
+      "already_configured": "Device is already configured",
+      "no_devices_found": "No connectable Bluetooth devices found",
+      "not_connectable": "This light was only seen by a Bluetooth adapter that cannot make connections. It needs a connectable adapter or proxy in range."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Godox mesh network",
+        "description": "Add or remove lights on this mesh network. All of them are controlled through the single proxy connection to the light you set up first.",
+        "menu_options": {
+          "provision_node": "Provision a new light onto this network",
+          "add_node": "Add a light that is already provisioned",
+          "remove_node": "Remove a light"
+        }
+      },
+      "add_node": {
+        "title": "Add a light",
+        "description": "Add a light that has already been provisioned onto this same mesh network, with the same network and application keys — for example with `godox-mesh provision --net-key ... --app-key ... --node-addr 3`.\n\nTo provision a factory-reset light onto this network instead, go back and choose \"Provision a new light onto this network\".",
+        "data": {
+          "name": "Name",
+          "node_address": "Unicast address",
+          "model": "Model",
+          "radio_id": "Model"
+        },
+        "data_description": {
+          "name": "Shown in Home Assistant, for example Key Light.",
+          "node_address": "The light's Bluetooth Mesh unicast address, in decimal or as 0x-prefixed hex. This is the node_address value from that light's mesh state, for example 3 or 0x0003.",
+          "model": "Optional, shown on the device page, for example SL200III Bi.",
+          "radio_id": "Optional. Selecting the model gives the light the correct colour-temperature range and controls."
+        }
+      },
+      "remove_node": {
+        "title": "Remove lights",
+        "description": "Select the lights to remove from this mesh network.",
+        "data": {
+          "nodes": "Lights"
+        }
+      },
+      "provision_node": {
+        "title": "Provision a new light",
+        "description": "Put the light into pairing mode first — usually by holding its Bluetooth button until it flashes, though it varies by model. Whatever steps you would follow to pair it with the Godox app are the right ones here; it just has to be advertising as unprovisioned.\n\nIt will be provisioned onto this mesh network using the keys this entry already uses, and assigned unicast address {node_address}. It will then be controlled through the same connection as your other lights.",
+        "data": {
+          "address": "Light to provision",
+          "name": "Name"
+        },
+        "data_description": {
+          "address": "Only lights advertising as unprovisioned are listed.",
+          "name": "Shown in Home Assistant, for example Fill Light."
+        }
+      },
+      "settings": {
+        "title": "Live state",
+        "description": "Ask the light what it is actually doing, instead of showing whatever Home Assistant last sent it. This works on stock firmware — no flashing.\n\n**Brightness** is reported reliably, including changes made on the light's own controls.\n\n**Colour temperature** is right on most lights. A few answer a change made on their own dial with a fixed placeholder instead of the real value — if the colour temperature shown keeps jumping to something your light is not set to, turn the second option off. Brightness polling is unaffected.\n\n**Effects and fan speed are never polled**, on any light: nothing reports them, so those always show the last value you selected.\n\nThis light: {firmware}.",
+        "data": {
+          "readback": "Show the light's actual state",
+          "poll_cct": "Include colour temperature"
+        },
+        "data_description": {
+          "readback": "Also adds a battery sensor on battery-powered lights. Effects and fan speed are not polled either way.",
+          "poll_cct": "Leave on unless the colour temperature shown doesn't match your light."
+        }
+      }
+    },
+    "error": {
+      "invalid_node_address": "A unicast address must be between 0x0001 and 0x7FFF.",
+      "node_exists": "A light with that unicast address is already configured.",
+      "cannot_remove_all": "At least one light must remain. To remove the last one, delete the integration entry instead.",
+      "provision_failed": "Provisioning failed. Check the light is in pairing mode and flashing, then try again.",
+      "risk_not_acknowledged": "You must acknowledge the risk before flashing."
+    },
+    "abort": {
+      "no_nodes": "There are no lights to remove.",
+      "no_unprovisioned_devices": "No lights in pairing mode found in range. Put the light into pairing mode — usually holding the Bluetooth button until it flashes, the same as pairing with the Godox app — then try again.",
+      "unknown_model": "Select the light's model first (Settings → the light → model), so Home Assistant knows which firmware applies."
+    }
+  },
+  "entity": {
+    "select": {
+      "fan_mode": {
+        "name": "Fan speed"
+      }
+    },
+    "number": {
+      "effect_speed": {
+        "name": "Effect speed"
+      }
+    }
+  }
+}

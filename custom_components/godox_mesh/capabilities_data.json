@@ -1,0 +1,13267 @@
+{
+ "0001": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "RGB Cycle",
+    "symbol": 0
+   },
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Party",
+    "symbol": 2
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 3,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 3,
+    "name": "TV",
+    "symbol": 5
+   },
+   {
+    "gears": 3,
+    "name": "Candle",
+    "symbol": 6
+   },
+   {
+    "gears": 3,
+    "name": "Fire",
+    "symbol": 7
+   },
+   {
+    "gears": 3,
+    "name": "Firework",
+    "symbol": 8
+   },
+   {
+    "gears": 3,
+    "name": "Police Car",
+    "symbol": 9
+   },
+   {
+    "gears": 3,
+    "name": "Firetruck",
+    "symbol": 10
+   },
+   {
+    "gears": 3,
+    "name": "Ambulance",
+    "symbol": 11
+   },
+   {
+    "gears": 2,
+    "name": "Music",
+    "symbol": 12
+   },
+   {
+    "gears": 1,
+    "name": "SOS",
+    "symbol": 13
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 6500,
+  "min_kelvin": 2700,
+  "name": "TL60"
+ },
+ "0002": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "RGB Cycle",
+    "symbol": 0
+   },
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Party",
+    "symbol": 2
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 3,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 3,
+    "name": "TV",
+    "symbol": 5
+   },
+   {
+    "gears": 3,
+    "name": "Candle",
+    "symbol": 6
+   },
+   {
+    "gears": 3,
+    "name": "Fire",
+    "symbol": 7
+   },
+   {
+    "gears": 3,
+    "name": "Firework",
+    "symbol": 8
+   },
+   {
+    "gears": 3,
+    "name": "Police Car",
+    "symbol": 9
+   },
+   {
+    "gears": 3,
+    "name": "Firetruck",
+    "symbol": 10
+   },
+   {
+    "gears": 3,
+    "name": "Ambulance",
+    "symbol": 11
+   },
+   {
+    "gears": 1,
+    "name": "SOS",
+    "symbol": 13
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 6500,
+  "min_kelvin": 2700,
+  "name": "TL30"
+ },
+ "0003": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "RGB Cycle",
+    "symbol": 0
+   },
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Party",
+    "symbol": 2
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 3,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 3,
+    "name": "TV",
+    "symbol": 5
+   },
+   {
+    "gears": 3,
+    "name": "Candle",
+    "symbol": 6
+   },
+   {
+    "gears": 3,
+    "name": "Fire",
+    "symbol": 7
+   },
+   {
+    "gears": 3,
+    "name": "Firework",
+    "symbol": 8
+   },
+   {
+    "gears": 3,
+    "name": "Police Car",
+    "symbol": 9
+   },
+   {
+    "gears": 3,
+    "name": "Firetruck",
+    "symbol": 10
+   },
+   {
+    "gears": 3,
+    "name": "Ambulance",
+    "symbol": 11
+   },
+   {
+    "gears": 1,
+    "name": "SOS",
+    "symbol": 13
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "SZ150R"
+ },
+ "0004": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "RGB Cycle",
+    "symbol": 0
+   },
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Party",
+    "symbol": 2
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 3,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 3,
+    "name": "TV",
+    "symbol": 5
+   },
+   {
+    "gears": 3,
+    "name": "Candle",
+    "symbol": 6
+   },
+   {
+    "gears": 3,
+    "name": "Fire",
+    "symbol": 7
+   },
+   {
+    "gears": 3,
+    "name": "Firework",
+    "symbol": 8
+   },
+   {
+    "gears": 3,
+    "name": "Police Car",
+    "symbol": 9
+   },
+   {
+    "gears": 3,
+    "name": "Firetruck",
+    "symbol": 10
+   },
+   {
+    "gears": 3,
+    "name": "Ambulance",
+    "symbol": 11
+   },
+   {
+    "gears": 2,
+    "name": "Music",
+    "symbol": 12
+   },
+   {
+    "gears": 1,
+    "name": "SOS",
+    "symbol": 13
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 8500,
+  "min_kelvin": 2500,
+  "name": "LD75R"
+ },
+ "0005": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "RGB Cycle",
+    "symbol": 0
+   },
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Party",
+    "symbol": 2
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 3,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 3,
+    "name": "TV",
+    "symbol": 5
+   },
+   {
+    "gears": 3,
+    "name": "Candle",
+    "symbol": 6
+   },
+   {
+    "gears": 3,
+    "name": "Fire",
+    "symbol": 7
+   },
+   {
+    "gears": 3,
+    "name": "Firework",
+    "symbol": 8
+   },
+   {
+    "gears": 3,
+    "name": "Police Car",
+    "symbol": 9
+   },
+   {
+    "gears": 3,
+    "name": "Firetruck",
+    "symbol": 10
+   },
+   {
+    "gears": 3,
+    "name": "Ambulance",
+    "symbol": 11
+   },
+   {
+    "gears": 2,
+    "name": "Music",
+    "symbol": 12
+   },
+   {
+    "gears": 1,
+    "name": "SOS",
+    "symbol": 13
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 8500,
+  "min_kelvin": 2500,
+  "name": "LD150R"
+ },
+ "0006": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "RGB Cycle",
+    "symbol": 0
+   },
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Party",
+    "symbol": 2
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 3,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 3,
+    "name": "TV",
+    "symbol": 5
+   },
+   {
+    "gears": 3,
+    "name": "Candle",
+    "symbol": 6
+   },
+   {
+    "gears": 3,
+    "name": "Fire",
+    "symbol": 7
+   },
+   {
+    "gears": 3,
+    "name": "Firework",
+    "symbol": 8
+   },
+   {
+    "gears": 3,
+    "name": "Police Car",
+    "symbol": 9
+   },
+   {
+    "gears": 3,
+    "name": "Firetruck",
+    "symbol": 10
+   },
+   {
+    "gears": 3,
+    "name": "Ambulance",
+    "symbol": 11
+   },
+   {
+    "gears": 2,
+    "name": "Music",
+    "symbol": 12
+   },
+   {
+    "gears": 1,
+    "name": "SOS",
+    "symbol": 13
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 8500,
+  "min_kelvin": 2500,
+  "name": "LD150RS"
+ },
+ "0007": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "RGB Cycle",
+    "symbol": 0
+   },
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Party",
+    "symbol": 2
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 3,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 3,
+    "name": "TV",
+    "symbol": 5
+   },
+   {
+    "gears": 3,
+    "name": "Candle",
+    "symbol": 6
+   },
+   {
+    "gears": 3,
+    "name": "Fire",
+    "symbol": 7
+   },
+   {
+    "gears": 3,
+    "name": "Firework",
+    "symbol": 8
+   },
+   {
+    "gears": 3,
+    "name": "Police Car",
+    "symbol": 9
+   },
+   {
+    "gears": 3,
+    "name": "Firetruck",
+    "symbol": 10
+   },
+   {
+    "gears": 3,
+    "name": "Ambulance",
+    "symbol": 11
+   },
+   {
+    "gears": 2,
+    "name": "Music",
+    "symbol": 12
+   },
+   {
+    "gears": 1,
+    "name": "SOS",
+    "symbol": 13
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 0,
+  "min_kelvin": 0,
+  "name": "CL10"
+ },
+ "0008": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 3,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 3,
+    "name": "TV",
+    "symbol": 5
+   },
+   {
+    "gears": 3,
+    "name": "Candle",
+    "symbol": 6
+   },
+   {
+    "gears": 3,
+    "name": "Fire",
+    "symbol": 7
+   },
+   {
+    "gears": 3,
+    "name": "Firework",
+    "symbol": 8
+   },
+   {
+    "gears": 1,
+    "name": "SOS",
+    "symbol": 13
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "SZ200Bi"
+ },
+ "0009": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "ES45"
+ },
+ "000A": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 3,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 3,
+    "name": "TV",
+    "symbol": 5
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 2,
+    "name": "Low"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 5600,
+  "min_kelvin": 5600,
+  "name": "M600D"
+ },
+ "000B": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 1,
+    "name": "TV",
+    "symbol": 5
+   },
+   {
+    "gears": 1,
+    "name": "Broken Bulb",
+    "symbol": 4
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 5600,
+  "min_kelvin": 5600,
+  "name": "UL60"
+ },
+ "000C": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 3,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 3,
+    "name": "TV",
+    "symbol": 5
+   },
+   {
+    "gears": 1,
+    "name": "SOS",
+    "symbol": 13
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 5600,
+  "min_kelvin": 5600,
+  "name": "WL4B"
+ },
+ "000D": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 1,
+    "name": "TV",
+    "symbol": 5
+   },
+   {
+    "gears": 1,
+    "name": "Broken Bulb",
+    "symbol": 4
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 5600,
+  "min_kelvin": 5600,
+  "name": "S60"
+ },
+ "000E": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 1,
+    "name": "TV",
+    "symbol": 5
+   },
+   {
+    "gears": 1,
+    "name": "Broken Bulb",
+    "symbol": 4
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 5600,
+  "min_kelvin": 5600,
+  "name": "SL100D"
+ },
+ "000F": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 1,
+    "name": "TV",
+    "symbol": 5
+   },
+   {
+    "gears": 1,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 1,
+    "name": "Candle",
+    "symbol": 6
+   },
+   {
+    "gears": 1,
+    "name": "Fire",
+    "symbol": 7
+   },
+   {
+    "gears": 1,
+    "name": "Firework",
+    "symbol": 8
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "SL100Bi"
+ },
+ "0010": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 3,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 3,
+    "name": "TV",
+    "symbol": 5
+   },
+   {
+    "gears": 3,
+    "name": "Candle",
+    "symbol": 6
+   },
+   {
+    "gears": 3,
+    "name": "Fire",
+    "symbol": 7
+   },
+   {
+    "gears": 3,
+    "name": "Firework",
+    "symbol": 8
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "ML60Bi"
+ },
+ "0011": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 3,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 3,
+    "name": "TV",
+    "symbol": 5
+   },
+   {
+    "gears": 3,
+    "name": "Candle",
+    "symbol": 6
+   },
+   {
+    "gears": 3,
+    "name": "Fire",
+    "symbol": 7
+   },
+   {
+    "gears": 3,
+    "name": "Firework",
+    "symbol": 8
+   },
+   {
+    "gears": 1,
+    "name": "Strong Light",
+    "symbol": 14
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 8500,
+  "min_kelvin": 2700,
+  "name": "WL8P"
+ },
+ "0012": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 3,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 3,
+    "name": "TV",
+    "symbol": 5
+   },
+   {
+    "gears": 3,
+    "name": "Candle",
+    "symbol": 6
+   },
+   {
+    "gears": 3,
+    "name": "Fire",
+    "symbol": 7
+   },
+   {
+    "gears": 3,
+    "name": "Firework",
+    "symbol": 8
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "ML30Bi"
+ },
+ "0013": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 1,
+    "name": "TV",
+    "symbol": 5
+   },
+   {
+    "gears": 1,
+    "name": "Broken Bulb",
+    "symbol": 4
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 5600,
+  "min_kelvin": 5600,
+  "name": "ML30"
+ },
+ "0014": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 3,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 3,
+    "name": "TV",
+    "symbol": 5
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 2,
+    "name": "Low"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 5600,
+  "min_kelvin": 5600,
+  "name": "M300D"
+ },
+ "0015": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 1,
+    "name": "TV",
+    "symbol": 5
+   },
+   {
+    "gears": 1,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 1,
+    "name": "Candle",
+    "symbol": 6
+   },
+   {
+    "gears": 1,
+    "name": "Fire",
+    "symbol": 7
+   },
+   {
+    "gears": 1,
+    "name": "Firework",
+    "symbol": 8
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "S60Bi"
+ },
+ "0016": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 1,
+    "name": "TV",
+    "symbol": 5
+   },
+   {
+    "gears": 1,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 1,
+    "name": "Candle",
+    "symbol": 6
+   },
+   {
+    "gears": 1,
+    "name": "Fire",
+    "symbol": 7
+   },
+   {
+    "gears": 1,
+    "name": "Firework",
+    "symbol": 8
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "UL60Bi"
+ },
+ "0017": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "RGB Cycle",
+    "symbol": 0
+   },
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Party",
+    "symbol": 2
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 3,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 3,
+    "name": "TV",
+    "symbol": 5
+   },
+   {
+    "gears": 3,
+    "name": "Candle",
+    "symbol": 6
+   },
+   {
+    "gears": 3,
+    "name": "Fire",
+    "symbol": 7
+   },
+   {
+    "gears": 3,
+    "name": "Firework",
+    "symbol": 8
+   },
+   {
+    "gears": 3,
+    "name": "Police Car",
+    "symbol": 9
+   },
+   {
+    "gears": 3,
+    "name": "Firetruck",
+    "symbol": 10
+   },
+   {
+    "gears": 3,
+    "name": "Ambulance",
+    "symbol": 11
+   },
+   {
+    "gears": 2,
+    "name": "Music",
+    "symbol": 12
+   },
+   {
+    "gears": 1,
+    "name": "SOS",
+    "symbol": 13
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 8500,
+  "min_kelvin": 2500,
+  "name": "C5R"
+ },
+ "0018": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "RGB Cycle",
+    "symbol": 0
+   },
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Party",
+    "symbol": 2
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 3,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 3,
+    "name": "TV",
+    "symbol": 5
+   },
+   {
+    "gears": 3,
+    "name": "Candle",
+    "symbol": 6
+   },
+   {
+    "gears": 3,
+    "name": "Fire",
+    "symbol": 7
+   },
+   {
+    "gears": 3,
+    "name": "Firework",
+    "symbol": 8
+   },
+   {
+    "gears": 3,
+    "name": "Police Car",
+    "symbol": 9
+   },
+   {
+    "gears": 3,
+    "name": "Firetruck",
+    "symbol": 10
+   },
+   {
+    "gears": 3,
+    "name": "Ambulance",
+    "symbol": 11
+   },
+   {
+    "gears": 2,
+    "name": "Music",
+    "symbol": 12
+   },
+   {
+    "gears": 1,
+    "name": "SOS",
+    "symbol": 13
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 6500,
+  "min_kelvin": 2700,
+  "name": "TL120"
+ },
+ "0019": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "RGB Cycle",
+    "symbol": 0
+   },
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Party",
+    "symbol": 2
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 3,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 3,
+    "name": "TV",
+    "symbol": 5
+   },
+   {
+    "gears": 3,
+    "name": "Candle",
+    "symbol": 6
+   },
+   {
+    "gears": 3,
+    "name": "Fire",
+    "symbol": 7
+   },
+   {
+    "gears": 3,
+    "name": "Firework",
+    "symbol": 8
+   },
+   {
+    "gears": 3,
+    "name": "Police Car",
+    "symbol": 9
+   },
+   {
+    "gears": 3,
+    "name": "Firetruck",
+    "symbol": 10
+   },
+   {
+    "gears": 3,
+    "name": "Ambulance",
+    "symbol": 11
+   },
+   {
+    "gears": 2,
+    "name": "Music",
+    "symbol": 12
+   },
+   {
+    "gears": 1,
+    "name": "SOS",
+    "symbol": 13
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 6500,
+  "min_kelvin": 2700,
+  "name": "TL180"
+ },
+ "001A": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 3,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 3,
+    "name": "TV",
+    "symbol": 5
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 2,
+    "name": "Low"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 5600,
+  "min_kelvin": 5600,
+  "name": "M200D"
+ },
+ "001B": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 3,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 3,
+    "name": "TV",
+    "symbol": 5
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 5600,
+  "min_kelvin": 5600,
+  "name": "UL150II"
+ },
+ "001C": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 3,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 3,
+    "name": "TV",
+    "symbol": 5
+   },
+   {
+    "gears": 3,
+    "name": "Candle",
+    "symbol": 6
+   },
+   {
+    "gears": 3,
+    "name": "Fire",
+    "symbol": 7
+   },
+   {
+    "gears": 3,
+    "name": "Firework",
+    "symbol": 8
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 2,
+    "name": "Low"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "M200Bi"
+ },
+ "001D": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 3,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 3,
+    "name": "TV",
+    "symbol": 5
+   },
+   {
+    "gears": 3,
+    "name": "Candle",
+    "symbol": 6
+   },
+   {
+    "gears": 3,
+    "name": "Fire",
+    "symbol": 7
+   },
+   {
+    "gears": 3,
+    "name": "Firework",
+    "symbol": 8
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "UL150IIBi"
+ },
+ "001E": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 3,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 3,
+    "name": "TV",
+    "symbol": 5
+   },
+   {
+    "gears": 3,
+    "name": "Candle",
+    "symbol": 6
+   },
+   {
+    "gears": 3,
+    "name": "Fire",
+    "symbol": 7
+   },
+   {
+    "gears": 3,
+    "name": "Firework",
+    "symbol": 8
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 2,
+    "name": "Low"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "M300Bi"
+ },
+ "001F": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "ES30"
+ },
+ "0020": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 3,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 3,
+    "name": "TV",
+    "symbol": 5
+   },
+   {
+    "gears": 3,
+    "name": "Candle",
+    "symbol": 6
+   },
+   {
+    "gears": 3,
+    "name": "Fire",
+    "symbol": 7
+   },
+   {
+    "gears": 3,
+    "name": "Firework",
+    "symbol": 8
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 2,
+    "name": "Low"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "M600Bi"
+ },
+ "0021": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 1,
+    "name": "TV",
+    "symbol": 5
+   },
+   {
+    "gears": 1,
+    "name": "Broken Bulb",
+    "symbol": 4
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 5600,
+  "min_kelvin": 5600,
+  "name": "LA150D"
+ },
+ "0022": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 1,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 1,
+    "name": "TV",
+    "symbol": 5
+   },
+   {
+    "gears": 1,
+    "name": "Candle",
+    "symbol": 6
+   },
+   {
+    "gears": 1,
+    "name": "Fire",
+    "symbol": 7
+   },
+   {
+    "gears": 1,
+    "name": "Firework",
+    "symbol": 8
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "LA150Bi"
+ },
+ "0023": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 1,
+    "name": "TV",
+    "symbol": 5
+   },
+   {
+    "gears": 1,
+    "name": "Broken Bulb",
+    "symbol": 4
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 5600,
+  "min_kelvin": 5600,
+  "name": "LA200D"
+ },
+ "0024": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 1,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 1,
+    "name": "TV",
+    "symbol": 5
+   },
+   {
+    "gears": 1,
+    "name": "Candle",
+    "symbol": 6
+   },
+   {
+    "gears": 1,
+    "name": "Fire",
+    "symbol": 7
+   },
+   {
+    "gears": 1,
+    "name": "Firework",
+    "symbol": 8
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "LA200Bi"
+ },
+ "0025": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 6500,
+  "min_kelvin": 2700,
+  "name": "RF1"
+ },
+ "002A": {
+  "battery": true,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "RGB Fade",
+    "symbol": 0
+   },
+   {
+    "gears": 0,
+    "name": "RGB Flow",
+    "symbol": 1
+   },
+   {
+    "gears": 0,
+    "name": "RGB Chase",
+    "symbol": 2
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   },
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 10000,
+  "min_kelvin": 2000,
+  "name": "TP2R"
+ },
+ "002B": {
+  "battery": true,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "RGB Fade",
+    "symbol": 0
+   },
+   {
+    "gears": 0,
+    "name": "RGB Flow",
+    "symbol": 1
+   },
+   {
+    "gears": 0,
+    "name": "RGB Chase",
+    "symbol": 2
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   },
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 10000,
+  "min_kelvin": 2000,
+  "name": "TP4R"
+ },
+ "002E": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 3,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 3,
+    "name": "TV",
+    "symbol": 5
+   },
+   {
+    "gears": 1,
+    "name": "SOS",
+    "symbol": 13
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 5600,
+  "min_kelvin": 5600,
+  "name": "WT40D"
+ },
+ "002F": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "RGB Cycle",
+    "symbol": 0
+   },
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Party",
+    "symbol": 2
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 3,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 3,
+    "name": "TV",
+    "symbol": 5
+   },
+   {
+    "gears": 3,
+    "name": "Candle",
+    "symbol": 6
+   },
+   {
+    "gears": 3,
+    "name": "Fire",
+    "symbol": 7
+   },
+   {
+    "gears": 3,
+    "name": "Firework",
+    "symbol": 8
+   },
+   {
+    "gears": 3,
+    "name": "Police Car",
+    "symbol": 9
+   },
+   {
+    "gears": 3,
+    "name": "Firetruck",
+    "symbol": 10
+   },
+   {
+    "gears": 3,
+    "name": "Ambulance",
+    "symbol": 11
+   },
+   {
+    "gears": 1,
+    "name": "SOS",
+    "symbol": 13
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "WT40R"
+ },
+ "0030": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "RGB Cycle",
+    "symbol": 0
+   },
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Party",
+    "symbol": 2
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 3,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 3,
+    "name": "TV",
+    "symbol": 5
+   },
+   {
+    "gears": 3,
+    "name": "Candle",
+    "symbol": 6
+   },
+   {
+    "gears": 3,
+    "name": "Fire",
+    "symbol": 7
+   },
+   {
+    "gears": 3,
+    "name": "Firework",
+    "symbol": 8
+   },
+   {
+    "gears": 3,
+    "name": "Police Car",
+    "symbol": 9
+   },
+   {
+    "gears": 3,
+    "name": "Firetruck",
+    "symbol": 10
+   },
+   {
+    "gears": 3,
+    "name": "Ambulance",
+    "symbol": 11
+   },
+   {
+    "gears": 1,
+    "name": "SOS",
+    "symbol": 13
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "WT25R"
+ },
+ "0031": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 3,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 3,
+    "name": "TV",
+    "symbol": 5
+   },
+   {
+    "gears": 1,
+    "name": "SOS",
+    "symbol": 13
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 5600,
+  "min_kelvin": 5600,
+  "name": "WT25D"
+ },
+ "0032": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "RGB Cycle",
+    "symbol": 0
+   },
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Party",
+    "symbol": 2
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 3,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 3,
+    "name": "TV",
+    "symbol": 5
+   },
+   {
+    "gears": 3,
+    "name": "Candle",
+    "symbol": 6
+   },
+   {
+    "gears": 3,
+    "name": "Fire",
+    "symbol": 7
+   },
+   {
+    "gears": 3,
+    "name": "Firework",
+    "symbol": 8
+   },
+   {
+    "gears": 3,
+    "name": "Police Car",
+    "symbol": 9
+   },
+   {
+    "gears": 3,
+    "name": "Firetruck",
+    "symbol": 10
+   },
+   {
+    "gears": 3,
+    "name": "Ambulance",
+    "symbol": 11
+   },
+   {
+    "gears": 1,
+    "name": "SOS",
+    "symbol": 13
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "WT60R"
+ },
+ "0033": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 3,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 3,
+    "name": "TV",
+    "symbol": 5
+   },
+   {
+    "gears": 1,
+    "name": "SOS",
+    "symbol": 13
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 5600,
+  "min_kelvin": 5600,
+  "name": "WT60D"
+ },
+ "0034": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 1,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 1,
+    "name": "TV",
+    "symbol": 5
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 5600,
+  "min_kelvin": 5600,
+  "name": "SL300II"
+ },
+ "0035": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 2,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 2,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 1,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 1,
+    "name": "TV",
+    "symbol": 5
+   },
+   {
+    "gears": 1,
+    "name": "Candle",
+    "symbol": 6
+   },
+   {
+    "gears": 1,
+    "name": "Fire",
+    "symbol": 7
+   },
+   {
+    "gears": 1,
+    "name": "Firework",
+    "symbol": 8
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "SL300IIBi"
+ },
+ "0036": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 1,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 1,
+    "name": "TV",
+    "symbol": 5
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 5600,
+  "min_kelvin": 5600,
+  "name": "VL300II"
+ },
+ "0037": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 1,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 1,
+    "name": "TV",
+    "symbol": 5
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 5600,
+  "min_kelvin": 5600,
+  "name": "VL200II"
+ },
+ "0038": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 1,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 1,
+    "name": "TV",
+    "symbol": 5
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 5600,
+  "min_kelvin": 5600,
+  "name": "VL150II"
+ },
+ "0039": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 1,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 1,
+    "name": "TV",
+    "symbol": 5
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 5600,
+  "min_kelvin": 5600,
+  "name": "SL60IID"
+ },
+ "003A": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 1,
+    "name": "TV",
+    "symbol": 5
+   },
+   {
+    "gears": 1,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 1,
+    "name": "Candle",
+    "symbol": 6
+   },
+   {
+    "gears": 1,
+    "name": "Fire",
+    "symbol": 7
+   },
+   {
+    "gears": 1,
+    "name": "Firework",
+    "symbol": 8
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "SL60IIBi"
+ },
+ "003B": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 1,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 1,
+    "name": "TV",
+    "symbol": 5
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 5600,
+  "min_kelvin": 5600,
+  "name": "SL150III"
+ },
+ "003C": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 1,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 1,
+    "name": "TV",
+    "symbol": 5
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 5600,
+  "min_kelvin": 5600,
+  "name": "SL200III"
+ },
+ "003D": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 1,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 1,
+    "name": "TV",
+    "symbol": 5
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 5600,
+  "min_kelvin": 5600,
+  "name": "SL300III"
+ },
+ "003E": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 2,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 2,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 1,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 1,
+    "name": "TV",
+    "symbol": 5
+   },
+   {
+    "gears": 1,
+    "name": "Candle",
+    "symbol": 6
+   },
+   {
+    "gears": 1,
+    "name": "Fire",
+    "symbol": 7
+   },
+   {
+    "gears": 1,
+    "name": "Firework",
+    "symbol": 8
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "SL150IIIBi"
+ },
+ "003F": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 2,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 2,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 1,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 1,
+    "name": "TV",
+    "symbol": 5
+   },
+   {
+    "gears": 1,
+    "name": "Candle",
+    "symbol": 6
+   },
+   {
+    "gears": 1,
+    "name": "Fire",
+    "symbol": 7
+   },
+   {
+    "gears": 1,
+    "name": "Firework",
+    "symbol": 8
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "SL200IIIBi"
+ },
+ "0040": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 2,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 2,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 1,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 1,
+    "name": "TV",
+    "symbol": 5
+   },
+   {
+    "gears": 1,
+    "name": "Candle",
+    "symbol": 6
+   },
+   {
+    "gears": 1,
+    "name": "Fire",
+    "symbol": 7
+   },
+   {
+    "gears": 1,
+    "name": "Firework",
+    "symbol": 8
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "SL300IIIBi"
+ },
+ "0041": {
+  "battery": true,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "LDX50Bi"
+ },
+ "0042": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "LDX100Bi"
+ },
+ "0043": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   },
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 10000,
+  "min_kelvin": 2500,
+  "name": "LDX50R"
+ },
+ "0044": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   },
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 10000,
+  "min_kelvin": 2500,
+  "name": "LDX100R"
+ },
+ "0045": {
+  "battery": true,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "RGB Fade",
+    "symbol": 0
+   },
+   {
+    "gears": 0,
+    "name": "RGB Flow",
+    "symbol": 1
+   },
+   {
+    "gears": 0,
+    "name": "RGB Chase",
+    "symbol": 2
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   },
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 10000,
+  "min_kelvin": 2000,
+  "name": "TP8R"
+ },
+ "0046": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   },
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 10000,
+  "min_kelvin": 2000,
+  "name": "C7R"
+ },
+ "0047": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   },
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 10000,
+  "min_kelvin": 2000,
+  "name": "C10R"
+ },
+ "0048": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "FH50Bi"
+ },
+ "0049": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   },
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 10000,
+  "min_kelvin": 2500,
+  "name": "FH50R"
+ },
+ "004A": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   },
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 10000,
+  "min_kelvin": 2500,
+  "name": "SZ300R"
+ },
+ "004B": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "MG1200Bi"
+ },
+ "004D": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   },
+   {
+    "gears": 0,
+    "name": "Px Candle",
+    "symbol": 18
+   },
+   {
+    "gears": 0,
+    "name": "Px Fire",
+    "symbol": 19
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "P300R"
+ },
+ "004E": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   },
+   {
+    "gears": 0,
+    "name": "Px Candle",
+    "symbol": 18
+   },
+   {
+    "gears": 0,
+    "name": "Px Fire",
+    "symbol": 19
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "P600R"
+ },
+ "0053": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 8500,
+  "min_kelvin": 2700,
+  "name": "F200Bi"
+ },
+ "0054": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 8500,
+  "min_kelvin": 2700,
+  "name": "F400Bi"
+ },
+ "0056": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "P600Bi Hard"
+ },
+ "0058": {
+  "battery": true,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "RGB Fade",
+    "symbol": 0
+   },
+   {
+    "gears": 0,
+    "name": "RGB Flow",
+    "symbol": 1
+   },
+   {
+    "gears": 0,
+    "name": "RGB Chase",
+    "symbol": 2
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   },
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 10000,
+  "min_kelvin": 2000,
+  "name": "TPC2R"
+ },
+ "0059": {
+  "battery": true,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "RGB Fade",
+    "symbol": 0
+   },
+   {
+    "gears": 0,
+    "name": "RGB Flow",
+    "symbol": 1
+   },
+   {
+    "gears": 0,
+    "name": "RGB Chase",
+    "symbol": 2
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   },
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 10000,
+  "min_kelvin": 2000,
+  "name": "TPC4R"
+ },
+ "005A": {
+  "battery": true,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "RGB Fade",
+    "symbol": 0
+   },
+   {
+    "gears": 0,
+    "name": "RGB Flow",
+    "symbol": 1
+   },
+   {
+    "gears": 0,
+    "name": "RGB Chase",
+    "symbol": 2
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   },
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 10000,
+  "min_kelvin": 2000,
+  "name": "TPC8R"
+ },
+ "005B": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 5600,
+  "min_kelvin": 3200,
+  "name": "P200Bi"
+ },
+ "005C": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   },
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 10000,
+  "min_kelvin": 2500,
+  "name": "SL150R"
+ },
+ "005D": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   },
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 10000,
+  "min_kelvin": 2500,
+  "name": "SL300R"
+ },
+ "005E": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 8500,
+  "min_kelvin": 2500,
+  "name": "LC500 Mini"
+ },
+ "005F": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   },
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 8500,
+  "min_kelvin": 2500,
+  "name": "LC500R Mini"
+ },
+ "0060": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "M600R"
+ },
+ "0061": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 5600,
+  "min_kelvin": 3200,
+  "name": "F7-120Bi"
+ },
+ "0062": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 5600,
+  "min_kelvin": 5600,
+  "name": "F7-120D"
+ },
+ "0063": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 8500,
+  "min_kelvin": 2500,
+  "name": "LC1000"
+ },
+ "0064": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   },
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "Music",
+    "symbol": 17
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 8500,
+  "min_kelvin": 2500,
+  "name": "LC1000R"
+ },
+ "0065": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "ML60IIBi"
+ },
+ "0066": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "ML100Bi"
+ },
+ "0067": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "M1000Bi"
+ },
+ "0068": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "MG2400Bi"
+ },
+ "0069": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "P600R Hard"
+ },
+ "006B": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 5600,
+  "min_kelvin": 3200,
+  "name": "P120Bi"
+ },
+ "006C": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 5600,
+  "min_kelvin": 5600,
+  "name": "P120D"
+ },
+ "006D": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "P1200R Hard"
+ },
+ "0070": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 1,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 1,
+    "name": "TV",
+    "symbol": 5
+   },
+   {
+    "gears": 1,
+    "name": "Candle",
+    "symbol": 6
+   },
+   {
+    "gears": 1,
+    "name": "Fire",
+    "symbol": 7
+   },
+   {
+    "gears": 1,
+    "name": "Firework",
+    "symbol": 8
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "DL150Bi"
+ },
+ "0072": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 3,
+    "name": "Flash Light",
+    "symbol": 1
+   },
+   {
+    "gears": 3,
+    "name": "Lightning",
+    "symbol": 3
+   },
+   {
+    "gears": 1,
+    "name": "Broken Bulb",
+    "symbol": 4
+   },
+   {
+    "gears": 1,
+    "name": "TV",
+    "symbol": 5
+   },
+   {
+    "gears": 1,
+    "name": "Candle",
+    "symbol": 6
+   },
+   {
+    "gears": 1,
+    "name": "Fire",
+    "symbol": 7
+   },
+   {
+    "gears": 1,
+    "name": "Firework",
+    "symbol": 8
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "DL200Bi"
+ },
+ "0073": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "MG1200R"
+ },
+ "0074": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "LA300R"
+ },
+ "0075": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "LA150R"
+ },
+ "0076": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "P260CPro"
+ },
+ "0077": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "F800R"
+ },
+ "0078": {
+  "battery": true,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "MS60R"
+ },
+ "0079": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "LA300Bi"
+ },
+ "007A": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "LP400Bi"
+ },
+ "007B": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "LP600Bi"
+ },
+ "007C": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "LP1200Bi"
+ },
+ "007D": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "LP400R"
+ },
+ "007E": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "LP600R"
+ },
+ "007F": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "LP1200R"
+ },
+ "0080": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "M600Bi Pro"
+ },
+ "0081": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "F400R"
+ },
+ "0082": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "F200R"
+ },
+ "0083": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "F100R"
+ },
+ "0084": {
+  "battery": true,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "MS60Bi"
+ },
+ "0085": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "LA200R"
+ },
+ "0086": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "F200SR"
+ },
+ "0088": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "MG2400R"
+ },
+ "0089": {
+  "battery": true,
+  "chip": "LK8728B",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "MA5R"
+ },
+ "008A": {
+  "battery": true,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "RS60R"
+ },
+ "008B": {
+  "battery": true,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "RS60Bi"
+ },
+ "008C": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "M300R"
+ },
+ "008D": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "P1200R Hard Pro"
+ },
+ "008E": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "ML60R"
+ },
+ "008F": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "ML100R"
+ },
+ "0090": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "ML150 RF"
+ },
+ "0093": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "MG2400Bi SE"
+ },
+ "0094": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "LA600R"
+ },
+ "0095": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "LA600Bi"
+ },
+ "0096": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "FL-D200"
+ },
+ "0097": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "ML80Bi"
+ },
+ "0098": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "S60Bi-CB"
+ },
+ "0099": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "P600R Hard Pro"
+ },
+ "009A": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "AM1600R"
+ },
+ "009B": {
+  "battery": true,
+  "chip": "LK8728B",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "LC500 Air"
+ },
+ "009C": {
+  "battery": true,
+  "chip": "LK8728B",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 10000,
+  "min_kelvin": 2800,
+  "name": "LC500R Air"
+ },
+ "009F": {
+  "battery": true,
+  "chip": "LK8728B",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "FL15Bi"
+ },
+ "00A0": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 10000,
+  "min_kelvin": 2800,
+  "name": "MG6K"
+ },
+ "00A1": {
+  "battery": true,
+  "chip": "LK8728B",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "C30R"
+ },
+ "00A2": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "F7-300R"
+ },
+ "00A3": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "SL300R"
+ },
+ "00A4": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "ML100Bi(\u65b0\u7248\uff09"
+ },
+ "00A5": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "ML150Bi"
+ },
+ "00A6": {
+  "battery": false,
+  "chip": "LK8728B",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "ML40Bi"
+ },
+ "00A7": {
+  "battery": false,
+  "chip": "LK8728B",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "ML40R"
+ },
+ "00A8": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "LP800Bi"
+ },
+ "00A9": {
+  "battery": true,
+  "chip": "LK8728B",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "MA5R Plus"
+ },
+ "00AA": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   },
+   {
+    "gears": 0,
+    "name": "Px Candle",
+    "symbol": 18
+   },
+   {
+    "gears": 0,
+    "name": "Px Fire",
+    "symbol": 19
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "P1200R Hard P8"
+ },
+ "00AB": {
+  "battery": true,
+  "chip": "LK8728B",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "LR150 Air"
+ },
+ "00AC": {
+  "battery": true,
+  "chip": "LK8728B",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "LR120 Air"
+ },
+ "00AD": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "LE300Bi"
+ },
+ "00AE": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "LE200Bi"
+ },
+ "00AF": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "LE150Bi"
+ },
+ "00B3": {
+  "battery": true,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "RS100Bi"
+ },
+ "00B4": {
+  "battery": true,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "RS100R"
+ },
+ "00B5": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "SL300 RF"
+ },
+ "00B6": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "SL200 RF"
+ },
+ "00B7": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "SL150 RF"
+ },
+ "00B8": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "LE600Bi"
+ },
+ "00B9": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   },
+   {
+    "gears": 0,
+    "name": "Px Candle",
+    "symbol": 18
+   },
+   {
+    "gears": 0,
+    "name": "Px Fire",
+    "symbol": 19
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "P600R Hard P4"
+ },
+ "00BA": {
+  "battery": true,
+  "chip": "LK8728B",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "LC500 Air Hard"
+ },
+ "00BB": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 10000,
+  "min_kelvin": 2800,
+  "name": "MG4K"
+ },
+ "00BC": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "OP120R"
+ },
+ "00BD": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "OP200R"
+ },
+ "00BE": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "DL625Bi"
+ },
+ "00BF": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "DL330Bi"
+ },
+ "00C0": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "DL200Bi"
+ },
+ "00C1": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "PL600 RF"
+ },
+ "00C2": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "MG4KR"
+ },
+ "00C3": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "PL1200 RF"
+ },
+ "00C4": {
+  "battery": true,
+  "chip": "LK8728B",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   },
+   {
+    "gears": 0,
+    "name": "Px Candle",
+    "symbol": 18
+   },
+   {
+    "gears": 0,
+    "name": "Px Fire",
+    "symbol": 19
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "MS15R"
+ },
+ "00C5": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "LE300R"
+ },
+ "00C6": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "LE200R"
+ },
+ "00C7": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "LE600R"
+ },
+ "00C8": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "ParTrix S"
+ },
+ "00CA": {
+  "battery": true,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "LF40R"
+ },
+ "00CB": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "UP-C300"
+ },
+ "00CC": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "OP120Bi"
+ },
+ "00CD": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 6500,
+  "min_kelvin": 2800,
+  "name": "OP200Bi"
+ },
+ "00CE": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "UP-C150"
+ },
+ "00CF": {
+  "battery": false,
+  "chip": "LK8728B",
+  "effects": [],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 0,
+  "min_kelvin": 0,
+  "name": "LT1"
+ },
+ "00D0": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "SL300Bi"
+ },
+ "00D1": {
+  "battery": false,
+  "chip": "LK8620",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 1,
+    "name": "Automatic"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "SL200Bi"
+ },
+ "00D2": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   }
+  ],
+  "fan": true,
+  "fan_modes": [
+   {
+    "code": 0,
+    "name": "Silent"
+   },
+   {
+    "code": 4,
+    "name": "Medium"
+   },
+   {
+    "code": 3,
+    "name": "High"
+   }
+  ],
+  "max_kelvin": 5600,
+  "min_kelvin": 5600,
+  "name": "LE200D"
+ },
+ "00D3": {
+  "battery": true,
+  "chip": "LK8728B",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "B5R"
+ },
+ "00D7": {
+  "battery": false,
+  "chip": "LK8720",
+  "effects": [
+   {
+    "gears": 0,
+    "name": "Flash Light",
+    "symbol": 5
+   },
+   {
+    "gears": 0,
+    "name": "Lightning",
+    "symbol": 6
+   },
+   {
+    "gears": 0,
+    "name": "Cloudy",
+    "symbol": 7
+   },
+   {
+    "gears": 0,
+    "name": "Broken Bulb",
+    "symbol": 8
+   },
+   {
+    "gears": 0,
+    "name": "TV",
+    "symbol": 9
+   },
+   {
+    "gears": 0,
+    "name": "Candle",
+    "symbol": 10
+   },
+   {
+    "gears": 0,
+    "name": "Fire",
+    "symbol": 11
+   },
+   {
+    "gears": 0,
+    "name": "Firework",
+    "symbol": 12
+   },
+   {
+    "gears": 0,
+    "name": "Explosion",
+    "symbol": 13
+   },
+   {
+    "gears": 0,
+    "name": "Welding",
+    "symbol": 14
+   },
+   {
+    "gears": 0,
+    "name": "Police Car",
+    "symbol": 15
+   },
+   {
+    "gears": 0,
+    "name": "SOS",
+    "symbol": 16
+   },
+   {
+    "gears": 0,
+    "name": "RGB Cycle",
+    "symbol": 3
+   },
+   {
+    "gears": 0,
+    "name": "Party",
+    "symbol": 4
+   }
+  ],
+  "fan": false,
+  "fan_modes": [],
+  "max_kelvin": 10000,
+  "min_kelvin": 1800,
+  "name": "AM800R"
+ },
+ "_generated_by": "scripts/generate_capabilities.py",
+ "_inputs": [
+  "reverse-artifacts/product-catalogue.json",
+  "reverse-artifacts/firmware-coverage.json"
+ ],
+ "_note": "Generated -- do not hand-edit. Regenerate with `uv run python scripts/generate_capabilities.py`."
+}

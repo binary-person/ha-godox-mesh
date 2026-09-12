@@ -1,0 +1,30 @@
+# Dependencies for the Home Assistant integration tests in tests_ha/.
+#
+# Deliberately kept out of pyproject.toml: Home Assistant requires Python
+# 3.14.2+ while this library supports 3.10+, so a dependency group holding it
+# would make the package unresolvable on the Python versions CI tests.
+#
+# Versions are pinned to the ones Home Assistant 2026.9.0 declares in its own
+# bluetooth/ and usb/ component manifests, so the test environment matches what
+# the integration will actually run against.
+#
+# Run with:
+# The integration vendors the library, so it is deliberately NOT installed
+# here — the tests must exercise the vendored copy that Home Assistant runs.
+#
+#     uv run --isolated --python 3.14 \
+#         --with-requirements requirements-ha-test.txt pytest tests_ha/ -q
+homeassistant==2026.9.0
+pytest-homeassistant-custom-component
+pytest-asyncio
+
+# homeassistant.components.bluetooth and its usb dependency
+bleak==3.0.2
+bleak-retry-connector==4.7.0
+bluetooth-adapters==2.4.0
+bluetooth-auto-recovery==1.6.4
+bluetooth-data-tools==1.29.24
+habluetooth==6.26.11
+dbus-fast==5.0.22
+aiousbwatcher==1.1.2
+serialx==1.9.0

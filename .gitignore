@@ -1,0 +1,31 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Mesh state contains live crypto keys — keep out of version control
+mesh_state.json
+
+context/
+
+# Raw BLE captures contain key material and device identifiers
+captures/
+
+# Vendor firmware images are Godox's to distribute, not ours. Analysis
+# findings belong in docs/protocol.md; the binaries stay local.
+*.bin
+*.zip
+1729857629339846*
+reverse
+reverse-artifacts/nocommit/
+
+# Build artifacts
+
+# Third-party TC32 opcode table — fetched by tools/tc32/README.md, not vendored
+tools/tc32/generate_sleigh.py

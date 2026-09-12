@@ -1,0 +1,157 @@
+{
+  "_readme": "The editorial half of this repository's self-description: what cannot be derived from the code. Structure and import boundaries are NOT here -- they are enforced by tests/test_boundaries.py against the real import graph. An earlier version also described directories, invariants and generated-file provenance; all of it duplicated something computed elsewhere, and four of those copies had already gone stale. If a fact can be checked by a test, it belongs in the test, not here.",
+  "repo": {
+    "name": "ha-godox-mesh",
+    "what": "A Home Assistant (HACS) custom integration for Godox Bluetooth-mesh lights, the Python library it wraps, and the reverse-engineering research both were derived from -- in one repository.",
+    "ha_domain": "godox_mesh",
+    "python_package": "godox_mesh_bt",
+    "upstream": "mattharrison/godox-ul60bi-bt (the library and CLI; this fork adds the integration)",
+    "renamed_from": {
+      "integration": "custom_components/godox_ul60bi -> custom_components/godox_mesh",
+      "package": "src/godox_ul60bi_bt -> src/godox_mesh_bt",
+      "note": "Rename is uncommitted in the working tree at time of audit; `git status` shows the moves as staged renames. Residual old-name strings are listed in the audit."
+    },
+    "distribution": "Installed through HACS, never from PyPI. The library is vendored into the integration rather than declared as a requirement -- manifest.json `requirements` is deliberately empty."
+  },
+  "derivations": [
+    {
+      "output": [
+        "reverse-artifacts/product-catalogue.json",
+        "reverse-artifacts/firmware-coverage.json"
+      ],
+      "generator": "reverse-artifacts/refresh.py",
+      "guard": null
+    },
+    {
+      "output": "custom_components/godox_mesh/capabilities_data.json",
+      "generator": "scripts/generate_capabilities.py",
+      "guard": "tests_ha/test_capabilities_generated.py -- regenerates from the committed artifacts and asserts the result matches. Needs no vendor material, so it runs in CI."
+    },
+    {
+      "output": "custom_components/godox_mesh/_lib/",
+      "generator": "scripts/vendor_lib.py",
+      "guard": "tests_ha/test_vendored_lib.py -- runs in CI (.github/workflows/hacs.yml) and fails on drift in either direction"
+    },
+    {
+      "output": "reverse-artifacts/firmware-measurements.json",
+      "generator": "reverse-artifacts/analyse_firmware.py",
+      "guard": null
+    }
+  ],
+  "concepts": [
+    {
+      "concept": "vendor wire protocol (opcodes, framing, CRC)",
+      "authoritative": "src/godox_mesh_bt/protocol.py and crypto.py",
+      "mirrors": [
+        "custom_components/godox_mesh/_lib/protocol.py (generated copy)"
+      ],
+      "doc": "docs/protocol.md"
+    },
+    {
+      "concept": "per-model capabilities (kelvin range, effects, fan, battery, chip)",
+      "authoritative": "custom_components/godox_mesh/capabilities_data.json, generated from the catalogues",
+      "read_by": "custom_components/godox_mesh/capabilities.py",
+      "doc": "docs/model-support.md",
+      "rule": "a new Godox mesh light is a new table row, not new code"
+    },
+    {
+      "concept": "effect display names",
+      "authoritative": "scripts/generate_capabilities.py::_FX_NAMES (transcribed from the vendor app's word_fx_type_* tables)",
+      "mirrors": [],
+      "note": "single source; the names reach runtime only through the generated table"
+    },
+    {
+      "concept": "effect fallback symbols for unknown models",
+      "authoritative": "src/godox_mesh_bt/protocol.py::EFFECT_IDS",
+      "mirrors": [
+        "imported by custom_components/godox_mesh/capabilities.py via ._lib.protocol -- correctly single-sourced"
+      ]
+    },
+    {
+      "concept": "fan mode names",
+      "authoritative": "ambiguous -- defined twice",
+      "mirrors": [
+        "src/godox_mesh_bt/protocol.py::FAN_MODE_NAMES (for direct library users)",
+        "scripts/generate_capabilities.py::_fan_modes `tidy` dict (bakes names into the capability table)"
+      ],
+      "note": "the split is documented in protocol.py's docstring; nothing tests that the two agree"
+    },
+    {
+      "concept": "firmware patch algorithm and disassembly-derived anchors",
+      "authoritative": "ambiguous -- defined twice",
+      "mirrors": [
+        "tools/lk8620/patch_status_readback.py (CHIPS, ARGSETUP_LEN, FD_FRAME, build)",
+        "custom_components/godox_mesh/firmware.py (_ANCHORS, _ARGSETUP_LEN, _FD_FRAME, patch_image)"
+      ],
+      "note": "necessary duplication -- the integration cannot import from tools/ -- but the parity guard is inert without local vendor firmware"
+    },
+    {
+      "concept": "OTA packet stream construction",
+      "authoritative": "ambiguous -- defined twice",
+      "mirrors": [
+        "tools/lk8620/ota_packets.py::OtaStream",
+        "custom_components/godox_mesh/firmware.py::ota_operations"
+      ],
+      "note": "same guard, same inertness"
+    },
+    {
+      "concept": "firmware image identity (download URL + stock/patched SHA-256)",
+      "authoritative": "custom_components/godox_mesh/firmware.py::FIRMWARE_TARGETS",
+      "mirrors": [
+        "tools/lk8620/patch_status_readback.py::SHA_TO_CHIP (stock hashes only)",
+        "reverse-artifacts/firmware-measurements.json (measured, full-length)",
+        "reverse-artifacts/firmware-inventory.md (truncated for display)"
+      ]
+    },
+    {
+      "concept": "integration constants and config-entry keys",
+      "authoritative": "custom_components/godox_mesh/const.py"
+    },
+    {
+      "concept": "what the hardware actually reports (readback truth)",
+      "authoritative": "docs/readback-hardware-findings.md -- explicitly supersedes every other document on this subject"
+    }
+  ],
+  "deliberately_absent": [
+    {
+      "what": "Godox firmware images, stock or patched",
+      "why": "Godox's copyrighted work; a patched image is a derivative of one",
+      "substitute": "the transformation (tools/lk8620/) plus pinned checksums (custom_components/godox_mesh/firmware.py, reverse-artifacts/firmware-measurements.json); the integration downloads the original from Godox at run time",
+      "documented_in": "docs/README.md 'What is deliberately absent'"
+    },
+    {
+      "what": "the decompiled Android app",
+      "why": "same copyright reason",
+      "substitute": "findings described in docs/firmware-api.md and scripts/generate_capabilities.py comments; fetch and decompile instructions in docs/README.md"
+    },
+    {
+      "what": "mesh_state.json",
+      "why": "holds live network, application and device keys for a real mesh network",
+      "substitute": "mesh_state.example.json at the repo root, and the shape documented inline in README.md",
+      "gitignored": true
+    },
+    {
+      "what": "tools/tc32/generate_sleigh.py",
+      "why": "third-party (trust1995/Ghidra_TELink_TC32); fetched, not vendored",
+      "substitute": "a curl one-liner in tools/tc32/README.md",
+      "gitignored": true
+    },
+    {
+      "what": "raw BLE captures (captures/)",
+      "why": "contain key material and device identifiers",
+      "gitignored": true
+    },
+    {
+      "what": "a PyPI dependency on the library",
+      "why": "HACS integrations here must not install from PyPI",
+      "substitute": "custom_components/godox_mesh/_lib/, generated by scripts/vendor_lib.py"
+    }
+  ],
+  "known_gaps": [
+    "firmware-measurements.json cannot be regenerated in CI -- it is measured from Godox firmware images, which are not redistributable. It is not underivable, though: reverse-artifacts/fetch_firmware.py downloads the corpus from Godox's own endpoint using the URLs and sizes in the committed firmware-coverage.json, so the chain is reproducible by anyone with a network connection. What CI checks instead is the half that is joined from committed artifacts (versions, product names), via tests/test_firmware_measurements.py.",
+    "custom_components/, tests_ha/ and tools/ are not type checked anywhere",
+    "tools/ is not mentioned in the top-level README",
+    "no effect, fan speed or battery reading has been verified against real hardware; only brightness and colour temperature have",
+    "68 products are full-colour (RGB/HSI) models, and the light entity only ever offers colour temperature. The protocol and library support HSI and RGBW; no entity exposes them."
+  ]
+}

@@ -1,0 +1,30 @@
+Godox Bluetooth Mesh for Home Assistant
+Copyright (c) 2026 Matt Gibson
+Copyright (c) 2026 Simon Cheng
+
+The source code in this repository is licensed under the MIT Licence; see
+LICENSE.
+
+TRADEMARKS AND BRAND ASSETS
+---------------------------
+
+The MIT Licence does NOT extend to the Godox brand assets in
+custom_components/godox_mesh/brand/ -- icon.png, icon@2x.png, logo.png,
+logo@2x.png and logo.svg.
+
+"Godox" and the Godox logo are trademarks of Godox Photo Equipment Co., Ltd.
+Those files are reproduced from Godox's own website in order to identify the
+hardware this software controls, which is how Home Assistant integrations
+identify the devices they support. No licence to those marks is granted or
+implied by the MIT Licence.
+
+This project is not affiliated with, endorsed by, or sponsored by Godox Photo
+Equipment Co., Ltd., nor by Telink Semiconductor. Product names are used
+solely to identify compatible hardware.
+
+ATTRIBUTION
+-----------
+
+Forked from mattharrison/godox-ul60bi-bt, which remains the home of the Python
+library and command-line tool. This repository is the Home Assistant
+integration, plus the library changes it required.
