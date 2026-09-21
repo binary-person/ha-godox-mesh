@@ -30,6 +30,7 @@ PLATFORMS: list[Platform] = [
     Platform.NUMBER,
     Platform.SELECT,
     Platform.SENSOR,
+    Platform.SWITCH,
 ]
 
 
@@ -57,6 +58,18 @@ async def async_setup_entry(hass: HomeAssistant, entry: GodoxConfigEntry) -> boo
     )
 
     nodes = _nodes_from_entry(entry)
+    # A one-line inventory of what this entry drives -- the first thing worth
+    # seeing in a bug report, since the light entities never confirm state back.
+    _LOGGER.debug(
+        "setting up %s at %s with %d node(s): %s",
+        entry.title,
+        address,
+        len(nodes),
+        ", ".join(
+            f"0x{node.address:04x} {node.name} (model {node.radio_id or '?'})"
+            for node in nodes
+        ),
+    )
     entry.runtime_data = GodoxRuntimeData(link=link, store=store, nodes=nodes)
     _async_prune_devices(hass, entry, nodes)
 

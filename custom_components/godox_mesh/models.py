@@ -40,6 +40,25 @@ class GodoxRuntimeData:
     #: Effect currently running per node address, or None. The speed control
     #: reads it to bound itself to what that effect actually accepts.
     current_effect: dict[int, str | None] = field(default_factory=dict)
+    #: Green/magenta tint per node address, set by its number entity and read
+    #: by the light when it sends a colour-temperature command. Like the effect
+    #: speed, no status record reports it back.
+    tints: dict[int, int] = field(default_factory=dict)
+    #: Gel currently selected per node address, by display label.
+    color_chips: dict[int, str] = field(default_factory=dict)
+    #: Brightness per node address, as the percentage last sent. The gel
+    #: control needs it: its command carries brightness, so without this
+    #: picking a gel would also jump the light to full.
+    brightness_pct: dict[int, float] = field(default_factory=dict)
+    #: CIE xy per node address. The two coordinates travel in one frame, so
+    #: the sliders share a value here rather than each holding half of it.
+    xy: dict[int, tuple[float, float]] = field(default_factory=dict)
+    #: Control mode and mains frequency per node address. They travel in one
+    #: frame, so the two selects share a value here.
+    control_mode: dict[int, tuple[int, int]] = field(default_factory=dict)
+    #: Whether the light entity is in selfie colour-temperature mode, which
+    #: swaps the colour-temperature range it advertises.
+    selfie: dict[int, bool] = field(default_factory=dict)
 
 
 # Plain assignment rather than a PEP 695 type statement: this repository

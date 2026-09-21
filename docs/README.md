@@ -4,10 +4,10 @@ These documents are the research the integration is built on: the wire protocol,
 the firmware that speaks it, Godox's own APIs, and which lights it all applies
 to.
 
-Several conclusions here were later corrected by hardware testing. Where that
-happened the original analysis is kept and marked as superseded rather than
-edited away — the mechanism it describes is usually still accurate even where
-the conclusion drawn from it was not.
+Some of these documents are static analysis of the firmware and app.
+[readback-hardware-findings.md](readback-hardware-findings.md) records what two
+real lights do and is authoritative wherever it and an analysis document differ
+on readback.
 
 ## Start here
 
@@ -25,33 +25,7 @@ the conclusion drawn from it was not.
 | [firmware-api.md](firmware-api.md) | Godox's public firmware and product APIs — how to look up any model, and the filtering trap that makes the answers lie. |
 | [ota-login-gate.md](ota-login-gate.md) | Why OTA writes are silently discarded on a bare connection. Short, and the answer to "the flash reported success and nothing happened". |
 | [lk8620-flashing.md](lk8620-flashing.md) | Building and writing a patched image. Hardware-proven — and the patch is **not worth installing**; the document says why. |
-| [state-readback-investigation.md](state-readback-investigation.md) | The original investigation. Kept for the record; **its central conclusion is wrong.** |
-
-## Corrections
-
-Four conclusions in these documents were superseded. Each is left in place with
-a correction banner, because the reasoning that led to them is still instructive
-and the mechanisms they describe are largely accurate.
-
-1. **"Readback is impossible on stock firmware."** Wrong, and not because of the
-   firmware: the status request was built with its end byte padded to `0xFF`.
-   That byte *selects which record the light reports*. Record `0xA0` is live.
-   Selecting it correctly, readback works on stock firmware.
-2. **"A 26-byte firmware patch fixes it."** Built, verified, flashed to a real
-   light — and it changed nothing. The remaining limit is in the light's MCU,
-   which no Bluetooth-side patch reaches.
-3. **"The wire format tells you which colour temperatures are trustworthy."**
-   Two heuristics were tried and both were contradicted by a second light. No
-   such signal exists; the integration reports what it is given, with a
-   per-entry switch to stop polling colour temperature.
-4. **"The `0xF3` handler compares against 1,3,4,5,6,7,8."** Attributed to the
-   mesh firmware; that comparison chain is not in that image, which forwards
-   `0xF3` to the MCU rather than decoding it. The conclusion it supported holds
-   on other evidence — see [protocol.md](protocol.md).
-
-The common thread: static analysis produced a coherent account that went
-unchallenged until it met hardware. Where a claim here has not been tested
-against a real light, it says so.
+| [state-readback-investigation.md](state-readback-investigation.md) | The detailed readback investigation. For confirmed behaviour, see [readback-hardware-findings.md](readback-hardware-findings.md). |
 
 ## Reproducing the inputs
 

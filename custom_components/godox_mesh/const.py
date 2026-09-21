@@ -23,6 +23,33 @@ EFFECT_OFF: Final = "Off"
 #: maximum does not follow the running effect cannot tell the user that.
 SIGNAL_EFFECT_CHANGED: Final = "godox_mesh_effect_changed_{node_id}"
 
+#: Dispatcher signal, formatted the same way, sent when a light's green/magenta
+#: tint changes. Tint has no command of its own -- it rides the
+#: colour-temperature frame -- so the light re-sends that frame on this signal,
+#: rather than the tint control having to find the light and guess its state.
+SIGNAL_TINT_CHANGED: Final = "godox_mesh_tint_changed_{node_id}"
+
+#: Entry option: drive colour through CIE xy instead of hue/saturation, on the
+#: 40 models that accept the xy command. Off by default -- hue and saturation
+#: are what a dashboard colour wheel speaks natively, and xy is only worth the
+#: swap to someone entering coordinates from a colour meter.
+#:
+#: It has to be a swap rather than an addition. Home Assistant resolves a
+#: colour wheel's ``hs_color`` against the first mode a light advertises from
+#: RGB, RGBW, RGBWW, then XY -- so a light advertising HS or RGBW alongside XY
+#: never reaches its xy command from the wheel at all.
+CONF_USE_XY: Final = "use_xy"
+
+#: Dispatcher signal, formatted with the node's unique id, sent when one of the
+#: xy coordinate controls moves. Like the tint, a coordinate has no command of
+#: its own -- x and y travel together in one frame -- so the light re-sends it.
+SIGNAL_XY_CHANGED: Final = "godox_mesh_xy_changed_{node_id}"
+
+#: Dispatcher signal, formatted with the node's unique id, sent when a light is
+#: switched between its normal and selfie colour-temperature ranges. The light
+#: re-advertises its bounds and re-sends on the matching command.
+SIGNAL_CCT_RANGE_CHANGED: Final = "godox_mesh_cct_range_changed_{node_id}"
+
 MANUFACTURER: Final = "Godox"
 
 # Config entry data (identity and secrets — changes rarely).

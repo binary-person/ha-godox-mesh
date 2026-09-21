@@ -41,6 +41,7 @@ from .const import (
     CONF_POLL_CCT,
     CONF_RADIO_ID,
     CONF_READBACK,
+    CONF_USE_XY,
     DEFAULT_NODE_ADDRESS,
     DEFAULT_PROVISIONER_ADDRESS,
     DOMAIN,
@@ -460,31 +461,45 @@ class GodoxOptionsFlow(OptionsFlow):
         this is not gated on the firmware patch. The light is still asked for
         its version, only to tell the user which of the two levels they get.
         """
+        # Only offered when a node on this entry can actually do xy; asking
+        # about a mode the hardware lacks is worse than not asking.
+        xy_capable = any(
+            node.capabilities.supports_xy
+            for node in self.config_entry.runtime_data.nodes
+        )
         if user_input is not None:
-            return self.async_create_entry(
-                data={
-                    **self.config_entry.options,
-                    CONF_READBACK: user_input[CONF_READBACK],
-                    CONF_POLL_CCT: user_input[CONF_POLL_CCT],
-                }
-            )
+            options = {
+                **self.config_entry.options,
+                CONF_READBACK: user_input[CONF_READBACK],
+                CONF_POLL_CCT: user_input[CONF_POLL_CCT],
+            }
+            if xy_capable:
+                options[CONF_USE_XY] = user_input[CONF_USE_XY]
+            return self.async_create_entry(data=options)
         _patched, detail = await self._async_detect_patch()
         placeholders = {"firmware": detail}
 
+        schema: dict[Any, Any] = {
+            vol.Required(
+                CONF_READBACK,
+                default=self.config_entry.options.get(CONF_READBACK, False),
+            ): bool,
+            vol.Required(
+                CONF_POLL_CCT,
+                default=self.config_entry.options.get(CONF_POLL_CCT, True),
+            ): bool,
+        }
+        if xy_capable:
+            schema[
+                vol.Required(
+                    CONF_USE_XY,
+                    default=self.config_entry.options.get(CONF_USE_XY, False),
+                )
+            ] = bool
+
         return self.async_show_form(
             step_id="settings",
-            data_schema=vol.Schema(
-                {
-                    vol.Required(
-                        CONF_READBACK,
-                        default=self.config_entry.options.get(CONF_READBACK, False),
-                    ): bool,
-                    vol.Required(
-                        CONF_POLL_CCT,
-                        default=self.config_entry.options.get(CONF_POLL_CCT, True),
-                    ): bool,
-                }
-            ),
+            data_schema=vol.Schema(schema),
             description_placeholders=placeholders,
         )
 

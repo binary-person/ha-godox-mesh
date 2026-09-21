@@ -133,3 +133,4 @@ def test_model_names_use_one_spelling_of_each_suffix() -> None:
     spellings = {m.group(0) for name in names for m in re.finditer(r"[Bb][Ii]", name)}
 
     assert spellings <= {"Bi"}, f"mixed bi-colour spellings in the picker: {spellings}"
+

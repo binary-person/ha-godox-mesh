@@ -19,9 +19,10 @@ from pathlib import Path
 
 from homeassistant.components.light import ColorMode
 
-from ._lib.protocol import EFFECT_IDS
+from ._lib.protocol import EFFECT_IDS, FX_V3, FX_V3_SPEED_MAX
 
 _DATA_PATH = Path(__file__).parent / "capabilities_data.json"
+_CHIPS_PATH = Path(__file__).parent / "color_chips_data.json"
 
 # Telink company identifier, little-endian, at the head of the provisioning
 # Device UUID. The third byte is the generic device class.
@@ -58,17 +59,20 @@ class GodoxEffect:
     symbol: int
     name: str
     gears: int = 1
+    effect_version: int = 0
 
     @property
     def label(self) -> str:
         """The name to show in a light's effect list.
 
-        Multi-speed effects say so, because the number of speeds is per-effect
-        and there is nowhere else the user would see it before choosing. Single
-        speed effects -- the majority -- are left plain, so the annotation
-        means something when it appears.
+        An effect with a small, discrete set of speeds says so, because the
+        count is per-effect and there is nowhere else the user would see it
+        before choosing. An effect on the newer generation has a continuous
+        0-100 speed instead, where "(101 speeds)" would be noise, and the
+        single-speed majority of the older generation is left plain too -- so
+        the annotation means something whenever it appears.
         """
-        if self.speed_max > 0:
+        if 0 < self.speed_max < 10:
             return f"{self.name} ({self.speed_max + 1} speeds)"
         return self.name
 
@@ -76,10 +80,15 @@ class GodoxEffect:
     def speed_max(self) -> int:
         """Highest speed value this effect accepts, 0 when it has no speed.
 
-        The catalogue's ``gear`` is a count, and the vendor app uses
-        ``gear - 1`` as the slider maximum -- so gears of 0 or 1 mean the
-        effect runs at one fixed speed.
+        The two effect generations count differently. On the older one the
+        catalogue's ``gear`` is a step count and the vendor app uses
+        ``gear - 1`` as the slider maximum, so gears of 0 or 1 mean one fixed
+        speed. The newer one puts a 0-100 value in its V3 frame and reports
+        ``gear: 0`` for every effect, so deriving the maximum from ``gear``
+        there would hide the speed control entirely -- which it did.
         """
+        if self.effect_version == 1:
+            return FX_V3_SPEED_MAX
         return max(0, self.gears - 1)
 
 
@@ -98,6 +107,38 @@ class GodoxFanMode:
 
     code: int
     name: str
+
+
+@dataclass(frozen=True, slots=True)
+class GodoxOption:
+    """One choice in a catalogue option list, with the code the wire carries.
+
+    Shared by control mode, mains frequency and dimming smoothness, which all
+    have the same shape in the catalogue.
+    """
+
+    code: int
+    name: str
+
+
+@dataclass(frozen=True, slots=True)
+class GodoxColorChip:
+    """One lighting gel a model can emulate.
+
+    Parameters
+    ----------
+    label
+        Display name, built from the gel's brand, reference type and number --
+        what it is called on the physical filter.
+    brand, number, sub_brand
+        What goes on the wire. See
+        :func:`godox_mesh_bt.protocol.build_color_chip_command`.
+    """
+
+    label: str
+    brand: int
+    number: int
+    sub_brand: int = 0
 
 
 @dataclass(frozen=True, slots=True)
@@ -122,6 +163,25 @@ class GodoxCapabilities:
     chip
         The Telink BLE chip family (``LK8620`` / ``LK8720`` / ``LK8728B``), or
         ``None`` when unknown. Informational.
+    modes
+        The control modes the vendor app offers for this model, by name --
+        ``cct``, ``hsi``, ``rgb``, ``xy``, ``effects``, ``color_chip`` and so
+        on. This is what decides whether a light gets a colour wheel.
+    gm_min, gm_max
+        Green/magenta tint range. Equal values mean the model has no tint
+        control, which is the majority.
+    rgb_display
+        Wire format for direct channel control: 0 is one byte per channel,
+        1 and 2 are sixteen-bit values scaled to 0-1000.
+    rgb_channels
+        Channel layouts the model accepts -- ``RGBW``, ``RGBWW``, ``RGBACL``.
+    brightness_steps
+        1000 on models that accept tenths of a percent, 100 otherwise.
+    effect_version
+        Which effect frame the model takes -- 0 for ``0xF3``, 1 for the V3
+        ``0xF7`` form. See :func:`godox_mesh_bt.protocol.build_fx_command`.
+    color_chip_version
+        Which gel catalogue and frame the model uses, when it has gels at all.
 
     Examples
     --------
@@ -138,6 +198,49 @@ class GodoxCapabilities:
     chip: str | None
     effects: tuple[GodoxEffect, ...] = ()
     fan_modes: tuple[GodoxFanMode, ...] = ()
+    modes: frozenset[str] = frozenset({"cct"})
+    gm_min: int = 0
+    gm_max: int = 0
+    rgb_display: int = 0
+    rgb_channels: tuple[str, ...] = ()
+    brightness_steps: int = 100
+    effect_version: int = 0
+    color_chip_version: int = 0
+    control_modes: tuple[GodoxOption, ...] = ()
+    frequencies: tuple[GodoxOption, ...] = ()
+    smoothness_modes: tuple[GodoxOption, ...] = ()
+    attachment: bool = False
+    selfie_min_kelvin: int = 0
+    selfie_max_kelvin: int = 0
+
+    @property
+    def has_selfie_cct(self) -> bool:
+        """Whether the model has a second, narrower colour-temperature range."""
+        return self.selfie_min_kelvin != self.selfie_max_kelvin
+
+    def option_by_name(
+        self, options: tuple[GodoxOption, ...], name: str
+    ) -> GodoxOption | None:
+        """Return the option with this display name, or ``None``."""
+        return next((o for o in options if o.name == name), None)
+
+    @property
+    def color_chips(self) -> tuple[GodoxColorChip, ...]:
+        """The gels this model can emulate, empty when it has none.
+
+        A gel is named on the wire by a brand code and a number, not by its
+        colour, so the list has to come from Godox's own catalogue -- which is
+        why it is a separate generated table rather than part of a model's
+        entry: the same few hundred gels are shared across every model on a
+        catalogue version.
+        """
+        if "color_chip" not in self.modes:
+            return ()
+        return _color_chips().get(str(self.color_chip_version), ())
+
+    def color_chip_by_label(self, label: str) -> GodoxColorChip | None:
+        """Return the gel with this display label, or ``None``."""
+        return next((c for c in self.color_chips if c.label == label), None)
 
     @property
     def max_effect_speed(self) -> int:
@@ -165,9 +268,91 @@ class GodoxCapabilities:
         return self.min_kelvin == self.max_kelvin
 
     @property
+    def has_tint(self) -> bool:
+        """Whether the model has a green/magenta tint control."""
+        return self.gm_min != self.gm_max
+
+    @property
+    def supports_cct(self) -> bool:
+        """Whether the light has a usable colour-temperature range."""
+        return not self.is_daylight
+
+    @property
+    def rgb_color_mode(self) -> ColorMode | None:
+        """Which Home Assistant colour mode this model's RGB channels map to.
+
+        ``RGBW`` and ``RGBWW`` have exact Home Assistant equivalents. ``RGBACL``
+        -- red/green/blue plus amber, cyan and lime -- has none, so a model that
+        offers *only* that layout gets no direct-channel control here; its hue
+        and saturation still work through HSI.
+        """
+        if "RGBW" in self.rgb_channels:
+            return ColorMode.RGBW
+        if "RGBWW" in self.rgb_channels:
+            return ColorMode.RGBWW
+        return None
+
+    @property
+    def supports_xy(self) -> bool:
+        """Whether the model accepts the CIE xy command."""
+        return "xy" in self.modes
+
+    def color_modes_for(self, *, use_xy: bool = False) -> set[ColorMode]:
+        """Colour modes to advertise, honouring the entry's xy preference.
+
+        With *use_xy* the hue/saturation and direct-channel modes are replaced
+        rather than joined, because Home Assistant resolves a colour wheel's
+        ``hs_color`` against RGB, RGBW, RGBWW and only then XY. A light
+        advertising any of those alongside XY would never reach its xy command
+        from the dashboard -- the mode has to be the only colour mode for the
+        wheel to land on it.
+        """
+        if use_xy and self.supports_xy:
+            modes = {ColorMode.XY}
+            if self.supports_cct:
+                modes.add(ColorMode.COLOR_TEMP)
+            return modes
+        return self.color_modes
+
+    @property
+    def color_modes(self) -> set[ColorMode]:
+        """The Home Assistant colour modes this light should advertise.
+
+        Built from the vendor catalogue's own ``modeType`` list, so a model
+        gets exactly the modes its own app offers. ``xy`` is deliberately not
+        included even for the 40 models that list it: Home Assistant derives
+        ``xy_color`` from any colour mode, and advertising a second redundant
+        mode only gives the user a way to pick a worse one.
+        """
+        modes: set[ColorMode] = set()
+        if self.supports_cct:
+            modes.add(ColorMode.COLOR_TEMP)
+        if "hsi" in self.modes:
+            modes.add(ColorMode.HS)
+        if "rgb" in self.modes and (rgb := self.rgb_color_mode) is not None:
+            modes.add(rgb)
+        # Home Assistant rejects BRIGHTNESS alongside anything else, so it is
+        # only ever the sole entry.
+        return modes or {ColorMode.BRIGHTNESS}
+
+    @property
     def color_mode(self) -> ColorMode:
-        """The Home Assistant colour mode this light should present."""
-        return ColorMode.BRIGHTNESS if self.is_daylight else ColorMode.COLOR_TEMP
+        """The colour mode a light starts in, and its only one if it has one.
+
+        Colour temperature wins when the model has it, because that is what a
+        video light is normally set by; the colour modes are reached by
+        setting a colour.
+        """
+        modes = self.color_modes
+        for preferred in (
+            ColorMode.COLOR_TEMP,
+            ColorMode.HS,
+            ColorMode.RGBW,
+            ColorMode.RGBWW,
+        ):
+            if preferred in modes:
+                return preferred
+        return ColorMode.BRIGHTNESS
 
 
 #: Effects offered when the model is unknown. Named by symbol, because without
@@ -186,6 +371,17 @@ DEFAULT_CAPABILITIES = GodoxCapabilities(
     chip=None,
     effects=_FALLBACK_EFFECTS,
 )
+
+
+def _options(raw: object) -> tuple[GodoxOption, ...]:
+    """Parse one of the catalogue's option lists from the table."""
+    if not isinstance(raw, list):
+        return ()
+    return tuple(
+        GodoxOption(code=int(o["code"]), name=str(o["name"]))
+        for o in raw
+        if isinstance(o, dict) and o.get("code") is not None
+    )
 
 
 def _load_table() -> dict[str, GodoxCapabilities]:
@@ -210,21 +406,67 @@ def _load_table() -> dict[str, GodoxCapabilities]:
             chip=entry.get("chip"),
             effects=tuple(
                 GodoxEffect(
-                    symbol=e["symbol"], name=e["name"], gears=e.get("gears", 1)
+                    symbol=e["symbol"],
+                    name=e["name"],
+                    gears=e.get("gears", 1),
+                    effect_version=entry.get("effect_version", 0),
                 )
                 for e in entry.get("effects") or ()
+                # A newer-generation model can only be sent effects this
+                # library has a V3 frame for. Offering one it cannot build
+                # would fail at the moment the user picked it.
+                if entry.get("effect_version", 0) != 1 or e["symbol"] in FX_V3
             ),
             fan_modes=tuple(
                 GodoxFanMode(code=m["code"], name=m["name"])
                 for m in entry.get("fan_modes") or ()
             ),
+            modes=frozenset(entry.get("modes") or ("cct",)),
+            gm_min=int(entry.get("gm_min", 0)),
+            gm_max=int(entry.get("gm_max", 0)),
+            rgb_display=int(entry.get("rgb_display", 0)),
+            rgb_channels=tuple(entry.get("rgb_channels") or ()),
+            brightness_steps=int(entry.get("brightness_steps", 100)),
+            effect_version=int(entry.get("effect_version", 0)),
+            color_chip_version=int(entry.get("color_chip_version", 0)),
+            control_modes=_options(entry.get("control_modes")),
+            frequencies=_options(entry.get("frequencies")),
+            smoothness_modes=_options(entry.get("smoothness_modes")),
+            attachment=bool(entry.get("attachment")),
+            selfie_min_kelvin=int(entry.get("selfie_min_kelvin", 0)),
+            selfie_max_kelvin=int(entry.get("selfie_max_kelvin", 0)),
         )
         for rid, entry in raw.items()
     }
 
 
+def _load_color_chips() -> dict[str, tuple[GodoxColorChip, ...]]:
+    """Parse the gel catalogue from disk. Read at import, like the main table."""
+    if not _CHIPS_PATH.exists():
+        return {}
+    raw = json.loads(_CHIPS_PATH.read_text()).get("versions") or {}
+    return {
+        version: tuple(
+            GodoxColorChip(
+                label=chip["label"],
+                brand=chip["brand"],
+                number=chip["number"],
+                sub_brand=chip.get("sub_brand", 0),
+            )
+            for chip in chips
+        )
+        for version, chips in raw.items()
+    }
+
+
 #: Parsed once at import; see _load_table for why this is not lazy.
 _TABLE: dict[str, GodoxCapabilities] = _load_table()
+_CHIPS: dict[str, tuple[GodoxColorChip, ...]] = _load_color_chips()
+
+
+def _color_chips() -> dict[str, tuple[GodoxColorChip, ...]]:
+    """The gel catalogue, keyed by catalogue version as a string."""
+    return _CHIPS
 
 
 def _table() -> dict[str, GodoxCapabilities]:

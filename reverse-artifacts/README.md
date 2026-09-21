@@ -12,6 +12,7 @@ so the derivation can be checked rather than taken on trust.
 |---|---|
 | `product-catalogue.json` | Godox's product list, filtered to the fields this repository consumes |
 | `firmware-coverage.json` | which mesh firmware image serves which model |
+| `color-chips.json` | Godox's lighting-gel catalogue, filtered to the fields the colour-chip command needs |
 | `firmware-inventory.md` | every firmware image Godox serves — names, sizes, SHA-256s, and what disassembling them showed |
 | `firmware-measurements.json` | per-image measurements: checksums, Cortex-M vectors, CRC-table offsets |
 | `refresh.py` | re-downloads the two catalogues from Godox and rebuilds them |

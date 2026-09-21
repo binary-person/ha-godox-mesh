@@ -1,28 +1,19 @@
 # Status readback: what the hardware actually does
 
-**This document supersedes the conclusions in
-[state-readback-investigation.md](state-readback-investigation.md) and the
-"readback is impossible" claims in
-[bt-chip-firmware.md](bt-chip-firmware.md) and
-[model-support.md](model-support.md).** Those were written from static analysis
-of the firmware. Testing against a real light contradicted them.
+This document records what two real lights do. Where it and the static-analysis
+documents ([state-readback-investigation.md](state-readback-investigation.md),
+[bt-chip-firmware.md](bt-chip-firmware.md)) differ on readback, this one is
+authoritative.
 
 Verified on an **SL200III Bi** (`radioId` 003F, LK8620 chip, BLE firmware
 version 66 / `0x42`), stock firmware, no patch.
 
-## The correction
+## Selecting the record
 
-The earlier investigation concluded that a Godox light answers a status request
-with a boot-time constant, that the real values never reach the client, and that
-a firmware patch was therefore required for any readback at all.
-
-**That was wrong**, and the cause was a methodology error rather than anything
-about the firmware: the status request was built with its end byte padded to
-`0xFF`. On real hardware that request gets **no reply at all**. The end byte is
-not padding — it *selects which record the light reports*. Asking for the
-`0xA0` record returns live data.
-
-Selecting the record correctly, readback largely works on stock firmware.
+The status request's end byte is not padding — it *selects which record the
+light reports*. Built with the end byte padded to `0xFF`, the request gets **no
+reply at all** on real hardware. Asking for the `0xA0` record returns live data,
+and readback largely works on stock firmware.
 
 ## What is readable, on stock firmware
 
@@ -54,7 +45,7 @@ Panel colour temperature never appeared. Across changes to 3000 K, 2800 K and
 back, byte 2 stayed at `0x38` (5600 K) — a placeholder, not the light's actual
 setting.
 
-## Telling the two apart — there is no reliable way, and the attempt was wrong
+## Telling the two apart — there is no reliable way
 
 The record's shape *looked* like it identified which path wrote it:
 
@@ -130,9 +121,10 @@ This matches what disassembly of the LK8620 MCU images predicted: the MCU's
 the MCU cannot produce more than the panel change already pushes. **The ceiling
 is the MCU, not the Bluetooth chip**, and no BLE-side patch can lift it.
 
-The flashing pipeline itself is worth keeping — see
-[ota-login-gate.md](ota-login-gate.md) — but the readback patch has no
-demonstrated benefit and the integration should not offer to install it.
+The flashing pipeline is documented in
+[ota-login-gate.md](ota-login-gate.md) and
+[lk8620-flashing.md](lk8620-flashing.md), but the readback patch has no
+demonstrated benefit and the integration does not offer to install it.
 
 ## Other models — the quirk looks specific to this light
 

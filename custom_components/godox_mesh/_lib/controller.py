@@ -28,23 +28,33 @@ from .crypto import (
     pack_proxy_network_pdu,
 )
 from .protocol import (
-    SUB_EFFECT,
+    RGB_TYPE_RGBW,
     SUB_FAN,
     SUB_STATUS_BATTERY,
     SUB_STATUS_VERSION,
     BatteryPower,
     StatusResponse,
     build_battery_request,
+    build_cct_command,
+    build_color_chip_command,
+    build_control_mode_command,
+    build_mcu_version_request,
+    build_motion_recognize_command,
+    build_selfie_cct_command,
+    build_smoothness_command,
     build_version_request,
-    build_effect_command,
+    build_fx_command,
     build_fan_command,
+    build_hsi_command,
+    build_rgb_wide_command,
+    build_rgbw_command,
     build_status_request,
     build_v2_command,
+    build_xy_command,
     parse_battery_power_response,
+    parse_mcu_version_response,
     parse_version_response,
     parse_status_response,
-    validate_brightness,
-    validate_cct,
 )
 from .state import MeshState
 
@@ -149,6 +159,8 @@ class GodoxController:
         self._battery_event = asyncio.Event()
         self._version: int | None = None
         self._version_event = asyncio.Event()
+        self._mcu_version: str | None = None
+        self._mcu_version_event = asyncio.Event()
 
     @property
     def is_connected(self) -> bool:
@@ -223,9 +235,9 @@ class GodoxController:
         'connect'
         """
 
-        logger.info("connecting controller to %s", self.address)
+        logger.debug("connecting controller to %s", self.address)
         await self._client.connect()
-        logger.info("controller connected")
+        logger.debug("controller connected")
 
         beacon_event: asyncio.Event = asyncio.Event()
         proxy_ack_event: asyncio.Event = asyncio.Event()
@@ -238,12 +250,12 @@ class GodoxController:
                 return
             pdu_type = pdu[0]
             if pdu_type == 0x01:
-                logger.info("proxy beacon received (%d bytes): %s", len(pdu), pdu.hex())
+                logger.debug("proxy beacon received (%d bytes): %s", len(pdu), pdu.hex())
                 if len(pdu) >= 11:
                     beacon_network_id = pdu[3:11].hex()
                     our_network_id = k3(bytes.fromhex(self.state.network_key)).hex()
                     if beacon_network_id == our_network_id:
-                        logger.info("beacon network ID matches our key: %s ✓", beacon_network_id)
+                        logger.debug("beacon network ID matches our key: %s ✓", beacon_network_id)
                     else:
                         logger.warning(
                             "beacon network ID %s does not match our key (ours: %s) — wrong provisioning key!",
@@ -254,16 +266,16 @@ class GodoxController:
                 pending_beacon.append(pdu)
                 beacon_event.set()
             elif pdu_type == 0x02:
-                logger.info(
+                logger.debug(
                     "proxy config ack received (%d bytes): %s", len(pdu), pdu.hex()
                 )
                 proxy_ack_event.set()
             else:
-                logger.info("proxy notification received (type=0x%02x): %s", pdu_type, pdu.hex())
+                logger.debug("proxy notification received (type=0x%02x): %s", pdu_type, pdu.hex())
                 self._handle_response(pdu)
 
         await self._client.start_notify(on_proxy_notify)
-        logger.info("proxy notifications started")
+        logger.debug("proxy notifications started")
         try:
             # Echo the Secure Network Beacon back to the device before proxy config.
             # This step is required by the Bluetooth Mesh proxy protocol: the proxy client
@@ -272,7 +284,7 @@ class GodoxController:
                 await asyncio.wait_for(
                     beacon_event.wait(), timeout=self.beacon_wait_timeout
                 )
-                logger.info("echoing beacon back to proxy Data In")
+                logger.debug("echoing beacon back to proxy Data In")
                 await self._client.write_proxy(pending_beacon[0])
             except TimeoutError:
                 logger.warning("no beacon received from device; proceeding without beacon echo")
@@ -294,9 +306,9 @@ class GodoxController:
                 proxy_notify=proxy_ack_event,
                 label="whitelist",
             )
-            logger.info("proxy notifications left active for session")
+            logger.debug("proxy notifications left active for session")
         finally:
-            logger.info("proxy initialization complete")
+            logger.debug("proxy initialization complete")
 
     async def disconnect(self) -> None:
         """Disconnect from the Mesh Proxy.
@@ -314,11 +326,11 @@ class GodoxController:
 
         logger.debug("disconnecting controller for %s", self.address)
         if self._control_write_pending:
-            logger.info("waiting %.2fs for control write to settle", CONTROL_SETTLE_SECONDS)
+            logger.debug("waiting %.2fs for control write to settle", CONTROL_SETTLE_SECONDS)
             await asyncio.sleep(CONTROL_SETTLE_SECONDS)
             self._control_write_pending = False
         await self._client.stop_notify()
-        logger.info("proxy notifications stopped")
+        logger.debug("proxy notifications stopped")
         await self._client.disconnect()
 
     def _advance_state(self) -> None:
@@ -347,7 +359,7 @@ class GodoxController:
         )
         logger.debug("sending proxy config %s opcode=0x%02x", label, opcode)
         await self._client.write_proxy(proxy_config)
-        logger.info("proxy config %s sent", label)
+        logger.debug("proxy config %s sent", label)
         self._advance_state()
         try:
             await asyncio.wait_for(
@@ -359,7 +371,7 @@ class GodoxController:
                 label,
             )
         else:
-            logger.info("proxy config %s acknowledged", label)
+            logger.debug("proxy config %s acknowledged", label)
             proxy_notify.clear()
 
     async def send_v2_command(
@@ -397,16 +409,46 @@ class GodoxController:
         'send_v2_command'
         """
 
-        destination = self.state.node_address if dst is None else dst
-        godox_payload = build_v2_command(model, end_byte, data)
-        logger.info(
-            "sending V2 command model=0x%02x end=0x%02x dst=0x%04x godox_payload=%s",
-            model,
-            end_byte,
-            destination,
-            godox_payload.hex(),
+        logger.debug(
+            "sending V2 command model=0x%02x end=0x%02x", model, end_byte
         )
-        access_payload = build_vendor_access_payload(REQUEST_OPCODE, godox_payload)
+        await self.send_payload(build_v2_command(model, end_byte, data), dst=dst)
+
+    async def send_payload(self, payload: bytes, *, dst: int | None = None) -> None:
+        """Send one already-framed Godox payload through the Mesh Proxy.
+
+        Both frame formats ride the same vendor opcode, so everything above the
+        framing -- encryption, addressing, the sequence counter -- is shared.
+        V2 frames are always eight bytes; V3 frames carry their own length and
+        are used by the colour and parameterised-effect commands.
+
+        Parameters
+        ----------
+        payload
+            A complete Godox frame, checksum included.
+        dst
+            Unicast address of the target node. Defaults to ``node_address``
+            from the mesh state. One proxy connection can address every node on
+            the network, so pass this to fan out across several lights.
+
+        Returns
+        -------
+        None
+            The packed proxy PDU is written and the sequence number is advanced.
+
+        Examples
+        --------
+        >>> GodoxController.send_payload.__name__
+        'send_payload'
+        """
+
+        destination = self.state.node_address if dst is None else dst
+        logger.debug(
+            "sending godox payload dst=0x%04x payload=%s",
+            destination,
+            payload.hex(),
+        )
+        access_payload = build_vendor_access_payload(REQUEST_OPCODE, payload)
         net_key = bytes.fromhex(self.state.network_key)
         app_key = bytes.fromhex(self.state.app_key)
         proxy_pdu = pack_proxy_network_pdu(
@@ -421,7 +463,7 @@ class GodoxController:
         )
 
         await self._client.write_proxy(proxy_pdu)
-        logger.info("vendor command sent")
+        logger.debug("vendor command sent")
         logger.debug("sent proxy PDU %s", proxy_pdu.hex())
         self._advance_state()
         self._control_write_pending = True
@@ -446,7 +488,7 @@ class GodoxController:
         'power_on'
         """
 
-        logger.info("power on requested for %s dst=%s", self.address, dst)
+        logger.debug("power on requested for %s dst=%s", self.address, dst)
         await self.send_v2_command(0xFE, 0xFF, bytes([0x00]), dst=dst)
 
     async def power_off(self, *, dst: int | None = None) -> None:
@@ -469,7 +511,7 @@ class GodoxController:
         'power_off'
         """
 
-        logger.info("power off requested for %s dst=%s", self.address, dst)
+        logger.debug("power off requested for %s dst=%s", self.address, dst)
         await self.send_v2_command(0xFE, 0xFF, bytes([0x01]), dst=dst)
 
     async def set_params(
@@ -480,6 +522,8 @@ class GodoxController:
         dst: int | None = None,
         min_kelvin: int | None = None,
         max_kelvin: int | None = None,
+        gm: int = 0,
+        supports_gm: bool = False,
     ) -> None:
         """Set brightness and color temperature in a single V2 command.
 
@@ -489,10 +533,16 @@ class GodoxController:
             Brightness percentage from 0 through 100. Decimal tenths are encoded
             in the V2 end byte.
         cct
-            Correlated color temperature in Kelvin, from 2800 through 6500.
+            Correlated color temperature in Kelvin, bounded by *min_kelvin* and
+            *max_kelvin* when the caller knows the model's range.
         dst
             Unicast address of the target node. Defaults to ``node_address``
             from the mesh state.
+        gm
+            Green/magenta tint. Only models with a tint range honour it.
+        supports_gm
+            Whether this model has a tint range, which selects how the value is
+            encoded. See :func:`godox_mesh_bt.protocol.build_cct_command`.
 
         Returns
         -------
@@ -505,7 +555,7 @@ class GodoxController:
         >>> GodoxController.set_params.__name__
         'set_params'
         """
-        logger.info("set params requested: brightness=%s cct=%s dst=%s", brightness, cct, dst)
+        logger.debug("set params requested: brightness=%s cct=%s dst=%s", brightness, cct, dst)
 
         # If neither is provided, do nothing
         if brightness is None and cct is None:
@@ -515,28 +565,23 @@ class GodoxController:
         final_brightness = brightness if brightness is not None else 100.0
         final_cct = cct if cct is not None else 5600
 
-        validate_brightness(int(final_brightness))
         # Bound by the model's own range when the caller knows it; otherwise by
         # what the protocol can encode. Hardcoding one light's 2800-6500 K here
         # rejected valid commands for half the Godox mesh range.
-        cct_bounds = {}
+        cct_bounds: dict[str, int] = {}
         if min_kelvin is not None:
             cct_bounds["min_kelvin"] = min_kelvin
         if max_kelvin is not None:
             cct_bounds["max_kelvin"] = max_kelvin
-        validate_cct(final_cct, **cct_bounds)
 
-        percent = int(final_brightness)
-        brightness_point = int(round((final_brightness - percent) * 10))
-        brightness_point = max(0, min(9, brightness_point))
-        temp = final_cct // 100
-
-        # Captured app traffic uses the Godox V2 0xF0 family with brightness_point in the end byte.
-        # Standard CLI flow uses gm=50 and gm2=0.
-        await self.send_v2_command(
-            0xF0,
-            brightness_point,
-            bytes([percent, temp, 50, 0, 0]),
+        await self.send_payload(
+            build_cct_command(
+                final_brightness,
+                final_cct,
+                gm=gm,
+                supports_gm=supports_gm,
+                **cct_bounds,
+            ),
             dst=dst,
         )
 
@@ -583,13 +628,23 @@ class GodoxController:
             return
 
         v2 = payload[3:]
+        if len(v2) >= 2 and v2[0] == SUB_STATUS_VERSION and v2[1] == 0x30:
+            try:
+                mcu_version = parse_mcu_version_response(v2)
+            except ValueError as err:
+                logger.debug("MCU version reply did not parse: %s", err)
+                return
+            logger.debug("MCU version from 0x%04x: %s", decrypted.src, mcu_version)
+            self._mcu_version = mcu_version
+            self._mcu_version_event.set()
+            return
         if len(v2) >= 2 and v2[0] == SUB_STATUS_VERSION and v2[1] == 0x20:
             try:
                 version = parse_version_response(v2)
             except ValueError as err:
                 logger.debug("version reply did not parse: %s", err)
                 return
-            logger.info("version from 0x%04x: %d", decrypted.src, version)
+            logger.debug("version from 0x%04x: %d", decrypted.src, version)
             self._version = version
             self._version_event.set()
             return
@@ -599,7 +654,7 @@ class GodoxController:
             except ValueError as err:
                 logger.debug("battery reply did not parse: %s", err)
                 return
-            logger.info(
+            logger.debug(
                 "battery from 0x%04x: %d%% state=%d",
                 decrypted.src,
                 battery.power_percent,
@@ -615,7 +670,7 @@ class GodoxController:
             logger.debug("status reply did not parse: %s", err)
             return
 
-        logger.info(
+        logger.debug(
             "status from 0x%04x: brightness=%s cct=%s effect=%s",
             decrypted.src,
             status.brightness,
@@ -720,6 +775,56 @@ class GodoxController:
         assert self._battery is not None
         return self._battery
 
+    async def request_mcu_version(
+        self,
+        *,
+        dst: int | None = None,
+        timeout: float = STATUS_TIMEOUT_SECONDS,
+    ) -> str:
+        """Ask a light for its MCU firmware version and wait for the reply.
+
+        The companion to :meth:`request_version`, which asks the Bluetooth
+        chip. The MCU is the part that drives the LEDs, and its version is what
+        a Godox firmware download is keyed on, so this is the one to quote when
+        checking whether a light is on the current build.
+
+        Parameters
+        ----------
+        dst
+            Unicast address of the node to query. Defaults to ``node_address``.
+        timeout
+            Seconds to wait for the reply.
+
+        Returns
+        -------
+        str
+            The reported version as ``major.minor``.
+
+        Raises
+        ------
+        VersionTimeout
+            If no reply arrives. Not every model answers: the reply is built by
+            the MCU, and a light whose MCU does not implement it stays silent.
+
+        Examples
+        --------
+        >>> GodoxController.request_mcu_version.__name__
+        'request_mcu_version'
+        """
+
+        self._mcu_version = None
+        self._mcu_version_event.clear()
+
+        await self.send_v2_command_raw(build_mcu_version_request(), dst=dst)
+        try:
+            await asyncio.wait_for(self._mcu_version_event.wait(), timeout=timeout)
+        except TimeoutError as err:
+            raise VersionTimeout(
+                f"no MCU version reply from 0x{dst or self.state.node_address:04x}"
+            ) from err
+        assert self._mcu_version is not None
+        return self._mcu_version
+
     async def request_version(
         self,
         *,
@@ -769,13 +874,288 @@ class GodoxController:
         assert self._version is not None
         return self._version
 
+    async def set_hsi(
+        self,
+        *,
+        hue: int,
+        saturation: int,
+        brightness: float,
+        dst: int | None = None,
+    ) -> None:
+        """Set hue, saturation and intensity.
+
+        The light leaves colour-temperature mode; a later
+        :meth:`set_params` brings it back.
+
+        Parameters
+        ----------
+        hue
+            Hue in degrees, 0 through 360.
+        saturation
+            Saturation percentage, 0 through 100.
+        brightness
+            Brightness percentage, 0 through 100.
+        dst
+            Unicast address of the target node.
+
+        Returns
+        -------
+        None
+            One vendor command is sent.
+
+        Examples
+        --------
+        >>> GodoxController.set_hsi.__name__
+        'set_hsi'
+        """
+
+        logger.debug(
+            "set hsi requested: hue=%s sat=%s brightness=%s dst=%s",
+            hue,
+            saturation,
+            brightness,
+            dst,
+        )
+        await self.send_payload(
+            build_hsi_command(brightness, hue, saturation), dst=dst
+        )
+
+    async def set_rgbw(
+        self,
+        *,
+        red: int,
+        green: int,
+        blue: int,
+        white: int = 0,
+        brightness: float,
+        wide: bool = False,
+        rgb_type: int = RGB_TYPE_RGBW,
+        extra: tuple[int, int, int] | None = None,
+        dst: int | None = None,
+    ) -> None:
+        """Set the light's colour channels directly.
+
+        Two wire formats exist and a model accepts only one of them, decided by
+        its catalogue ``rgbDisplay``: 0 takes single bytes, 1 and 2 take
+        sixteen-bit values scaled to 0-1000. Pass *wide* for the latter and
+        scale the channel values to match.
+
+        Parameters
+        ----------
+        red, green, blue, white
+            Channel values. 0-255 normally; 0-1000 when *wide* is set, where
+            *white* is ignored in favour of *extra*.
+        brightness
+            Brightness percentage, 0 through 100.
+        wide
+            Send the sixteen-bit V3 frame instead of the byte-per-channel one.
+        rgb_type
+            Which extra channels the wide frame carries. Ignored unless *wide*.
+        extra
+            The three trailing channels of the wide frame, defaulting to zero.
+        dst
+            Unicast address of the target node.
+
+        Returns
+        -------
+        None
+            One vendor command is sent.
+
+        Examples
+        --------
+        >>> GodoxController.set_rgbw.__name__
+        'set_rgbw'
+        """
+
+        logger.debug(
+            "set rgb requested: r=%s g=%s b=%s w=%s wide=%s dst=%s",
+            red,
+            green,
+            blue,
+            white,
+            wide,
+            dst,
+        )
+        if wide:
+            payload = build_rgb_wide_command(
+                brightness,
+                red,
+                green,
+                blue,
+                rgb_type=rgb_type,
+                extra=extra or (0, 0, 0),
+            )
+        else:
+            payload = build_rgbw_command(brightness, red, green, blue, white)
+        await self.send_payload(payload, dst=dst)
+
+    async def set_xy(
+        self,
+        *,
+        x: float,
+        y: float,
+        brightness: float,
+        color_gamut: int | None = None,
+        dst: int | None = None,
+    ) -> None:
+        """Set CIE 1931 xy chromaticity.
+
+        Parameters
+        ----------
+        x, y
+            Chromaticity coordinates, 0 through 1.
+        brightness
+            Brightness percentage, 0 through 100.
+        color_gamut
+            Optional gamut selector; omitted from the frame when ``None``.
+        dst
+            Unicast address of the target node.
+
+        Returns
+        -------
+        None
+            One vendor command is sent.
+
+        Examples
+        --------
+        >>> GodoxController.set_xy.__name__
+        'set_xy'
+        """
+
+        logger.debug("set xy requested: x=%s y=%s dst=%s", x, y, dst)
+        await self.send_payload(
+            build_xy_command(brightness, x, y, color_gamut=color_gamut), dst=dst
+        )
+
+    async def set_color_chip(
+        self,
+        *,
+        brand: int,
+        number: int,
+        brightness: float,
+        version: int = 2,
+        sub_brand: int = 0,
+        temp_mode: int = 0,
+        dst: int | None = None,
+    ) -> None:
+        """Make the light emulate a lighting gel.
+
+        Parameters
+        ----------
+        brand, number, sub_brand
+            Which gel, as the wire names it. See
+            :func:`godox_mesh_bt.protocol.build_color_chip_command`.
+        brightness
+            Brightness percentage, 0 through 100.
+        version
+            The model's ``colorChipVersion``, which selects the frame.
+        temp_mode
+            Colour-temperature base the gel is applied over.
+        dst
+            Unicast address of the target node.
+
+        Returns
+        -------
+        None
+            One vendor command is sent.
+
+        Examples
+        --------
+        >>> GodoxController.set_color_chip.__name__
+        'set_color_chip'
+        """
+
+        logger.debug(
+            "colour chip requested: brand=%s number=%s version=%s dst=%s",
+            brand,
+            number,
+            version,
+            dst,
+        )
+        await self.send_payload(
+            build_color_chip_command(
+                brightness,
+                brand=brand,
+                number=number,
+                version=version,
+                sub_brand=sub_brand,
+                temp_mode=temp_mode,
+            ),
+            dst=dst,
+        )
+
+    async def set_control_mode(
+        self, mode: int, frequency: int = 0, *, dst: int | None = None
+    ) -> None:
+        """Set the output profile and mains frequency.
+
+        Both travel in one frame, which is why the catalogue lists the same
+        models under ``controlMode`` and ``frequency``.
+
+        Examples
+        --------
+        >>> GodoxController.set_control_mode.__name__
+        'set_control_mode'
+        """
+
+        logger.debug("control mode %s frequency %s dst=%s", mode, frequency, dst)
+        await self.send_payload(
+            build_control_mode_command(mode, frequency), dst=dst
+        )
+
+    async def set_smoothness(self, mode: int, *, dst: int | None = None) -> None:
+        """Set how the light ramps between levels.
+
+        Examples
+        --------
+        >>> GodoxController.set_smoothness.__name__
+        'set_smoothness'
+        """
+
+        logger.debug("smoothness %s dst=%s", mode, dst)
+        await self.send_payload(build_smoothness_command(mode), dst=dst)
+
+    async def set_motion_recognize(
+        self, enabled: bool, *, dst: int | None = None
+    ) -> None:
+        """Enable or disable recognition of an attached motorised accessory.
+
+        Examples
+        --------
+        >>> GodoxController.set_motion_recognize.__name__
+        'set_motion_recognize'
+        """
+
+        logger.debug("motion recognition %s dst=%s", enabled, dst)
+        await self.send_payload(
+            build_motion_recognize_command(enabled), dst=dst
+        )
+
+    async def set_selfie_cct(
+        self, *, brightness: float, kelvin: int, dst: int | None = None
+    ) -> None:
+        """Set the selfie colour-temperature mode, on the models that have one.
+
+        Examples
+        --------
+        >>> GodoxController.set_selfie_cct.__name__
+        'set_selfie_cct'
+        """
+
+        logger.debug("selfie cct %sK at %s%% dst=%s", kelvin, brightness, dst)
+        await self.send_payload(
+            build_selfie_cct_command(brightness, kelvin), dst=dst
+        )
+
     async def set_effect(
         self,
         effect: int,
         *,
-        brightness: int,
+        brightness: float,
         speed: int = 0,
+        effect_version: int = 0,
         dst: int | None = None,
+        **params: int,
     ) -> None:
         """Run a lighting effect.
 
@@ -788,13 +1168,20 @@ class GodoxController:
             Brightness percentage from 0 through 100.
         speed
             Effect speed; 0 is always valid.
+        effect_version
+            The model's catalogue ``effectVersion``. This selects the frame:
+            0 is the eight-byte ``0xF3`` command, 1 the V3 ``0xF7`` one. They
+            are not interchangeable -- see
+            :func:`godox_mesh_bt.protocol.build_fx_command`.
         dst
             Unicast address of the target node.
+        **params
+            Further per-effect parameters, for ``effect_version`` 1 only.
 
         Returns
         -------
         None
-            The command is sent through :meth:`send_v2_command`.
+            One vendor command is sent.
 
         Examples
         --------
@@ -802,11 +1189,23 @@ class GodoxController:
         'set_effect'
         """
 
-        frame = build_effect_command(effect, brightness, speed)
-        logger.info(
-            "effect %s requested at brightness %s speed %s", effect, brightness, speed
+        logger.debug(
+            "effect %s requested at brightness %s speed %s (version %s)",
+            effect,
+            brightness,
+            speed,
+            effect_version,
         )
-        await self.send_v2_command(SUB_EFFECT, frame[6], frame[1:6], dst=dst)
+        await self.send_payload(
+            build_fx_command(
+                effect,
+                brightness,
+                speed=speed,
+                effect_version=effect_version,
+                **params,
+            ),
+            dst=dst,
+        )
 
     async def set_fan_mode(self, mode: int, *, dst: int | None = None) -> None:
         """Set the fan or cooling mode.
@@ -830,7 +1229,7 @@ class GodoxController:
         """
 
         frame = build_fan_command(mode)
-        logger.info("fan mode %s requested", mode)
+        logger.debug("fan mode %s requested", mode)
         await self.send_v2_command(SUB_FAN, frame[6], frame[1:6], dst=dst)
 
     async def send_v2_command_raw(self, frame: bytes, *, dst: int | None = None) -> None:
@@ -895,4 +1294,4 @@ class GodoxController:
             self._state_writer(self.state)
         elif self.state_path is not None:
             self.state.save(self.state_path)
-        logger.info("rebind complete")
+        logger.debug("rebind complete")

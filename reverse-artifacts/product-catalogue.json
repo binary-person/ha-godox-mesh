@@ -1,6 +1,6 @@
 {
  "_source": "https://www.godox.net/godox/api/productV2/getProduct?lang=en-US",
- "_fetched": "2026-09-08",
+ "_fetched": "2026-09-12",
  "_note": "Filtered snapshot of Godox's public product API: only the fields this repository consumes. Regenerate with reverse-artifacts/refresh.py.",
  "products": [
   {
@@ -88,7 +88,28 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "8",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0002",
@@ -170,7 +191,27 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "8",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "-50",
+    "max": "50"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0003",
@@ -252,7 +293,27 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "8",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "-50",
+    "max": "50"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0004",
@@ -339,7 +400,28 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "8",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "-50",
+    "max": "50"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0005",
@@ -426,7 +508,28 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "8",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "-50",
+    "max": "50"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0006",
@@ -513,7 +616,28 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "8",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "-50",
+    "max": "50"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0007",
@@ -600,7 +724,25 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "4",
+    "8",
+    "9"
+   ],
+   "lightType": "3",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0008",
@@ -657,7 +799,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0009",
@@ -673,7 +832,23 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "000A",
@@ -755,7 +930,24 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "000B",
@@ -792,7 +984,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "000C",
@@ -834,7 +1043,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "000D",
@@ -871,7 +1097,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "000E",
@@ -908,7 +1151,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "000F",
@@ -960,7 +1220,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0010",
@@ -1012,7 +1289,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0011",
@@ -1069,7 +1363,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0012",
@@ -1121,7 +1432,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0013",
@@ -1158,7 +1486,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0014",
@@ -1240,7 +1585,24 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0015",
@@ -1292,7 +1654,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0016",
@@ -1344,7 +1723,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0017",
@@ -1431,7 +1827,27 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "8",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0018",
@@ -1518,7 +1934,28 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "8",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0019",
@@ -1605,7 +2042,28 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "8",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "001A",
@@ -1687,7 +2145,24 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "001B",
@@ -1724,7 +2199,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "001C",
@@ -1821,7 +2313,24 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "001D",
@@ -1873,7 +2382,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "001E",
@@ -1970,7 +2496,24 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "001F",
@@ -1986,7 +2529,23 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0020",
@@ -2083,7 +2642,24 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0021",
@@ -2120,7 +2696,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0022",
@@ -2172,7 +2765,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0023",
@@ -2209,7 +2819,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0024",
@@ -2261,7 +2888,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0025",
@@ -2277,7 +2921,21 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0026",
@@ -2348,7 +3006,25 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "6",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "2",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0027",
@@ -2391,7 +3067,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "002A",
@@ -2493,7 +3186,29 @@
    "fanSpeedModes": [],
    "batteryType": 1,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "-50",
+    "max": "50"
+   },
+   "colorChipVersion": 1,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "002B",
@@ -2595,7 +3310,29 @@
    "fanSpeedModes": [],
    "batteryType": 1,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "-50",
+    "max": "50"
+   },
+   "colorChipVersion": 1,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "002C",
@@ -2673,7 +3410,24 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "002D",
@@ -2781,7 +3535,29 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "-50",
+    "max": "50"
+   },
+   "colorChipVersion": 1,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "002E",
@@ -2823,7 +3599,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "002F",
@@ -2905,7 +3698,28 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "8",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "-50",
+    "max": "50"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0030",
@@ -2987,7 +3801,28 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "8",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "-50",
+    "max": "50"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0031",
@@ -3029,7 +3864,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0032",
@@ -3111,7 +3963,28 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "8",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "-50",
+    "max": "50"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0033",
@@ -3153,7 +4026,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0034",
@@ -3190,7 +4080,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0035",
@@ -3242,7 +4149,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0036",
@@ -3279,7 +4203,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0037",
@@ -3316,7 +4257,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0038",
@@ -3353,7 +4311,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0039",
@@ -3390,7 +4365,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "003A",
@@ -3442,7 +4434,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "003B",
@@ -3479,7 +4488,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "003C",
@@ -3516,7 +4542,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "003D",
@@ -3553,7 +4596,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "003E",
@@ -3605,7 +4665,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "003F",
@@ -3657,7 +4734,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0040",
@@ -3709,7 +4803,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0041",
@@ -3781,7 +4892,24 @@
    "fanSpeedModes": [],
    "batteryType": 2,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0042",
@@ -3853,7 +4981,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0043",
@@ -3940,7 +5085,28 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "8",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "-50",
+    "max": "50"
+   },
+   "colorChipVersion": 1,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0044",
@@ -4027,7 +5193,28 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "8",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "-50",
+    "max": "50"
+   },
+   "colorChipVersion": 1,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0045",
@@ -4129,7 +5316,29 @@
    "fanSpeedModes": [],
    "batteryType": 1,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "-50",
+    "max": "50"
+   },
+   "colorChipVersion": 1,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0046",
@@ -4216,7 +5425,28 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "8",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "-50",
+    "max": "50"
+   },
+   "colorChipVersion": 1,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0047",
@@ -4303,7 +5533,28 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "8",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "-50",
+    "max": "50"
+   },
+   "colorChipVersion": 1,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0048",
@@ -4375,7 +5626,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0049",
@@ -4462,7 +5730,27 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "8",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "-50",
+    "max": "50"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "004A",
@@ -4549,7 +5837,28 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "8",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "-50",
+    "max": "50"
+   },
+   "colorChipVersion": 1,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "004B",
@@ -4666,7 +5975,25 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9",
+    "17"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": true
   },
   {
    "radioId": "004C",
@@ -4680,7 +6007,21 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [],
+   "lightType": "0",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "004D",
@@ -4822,7 +6163,29 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "004E",
@@ -4964,7 +6327,29 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "004F",
@@ -5079,7 +6464,29 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 1,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0050",
@@ -5194,7 +6601,29 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 1,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0051",
@@ -5263,7 +6692,26 @@
    "fanSpeedModes": [],
    "batteryType": 2,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "8",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0053",
@@ -5335,7 +6783,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0054",
@@ -5405,7 +6870,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0055",
@@ -5477,7 +6959,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0056",
@@ -5594,7 +7093,24 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0057",
@@ -5664,7 +7180,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0058",
@@ -5766,7 +7299,29 @@
    "fanSpeedModes": [],
    "batteryType": 1,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "-50",
+    "max": "50"
+   },
+   "colorChipVersion": 1,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0059",
@@ -5868,7 +7423,29 @@
    "fanSpeedModes": [],
    "batteryType": 1,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "-50",
+    "max": "50"
+   },
+   "colorChipVersion": 1,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "005A",
@@ -5970,7 +7547,29 @@
    "fanSpeedModes": [],
    "batteryType": 1,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "-50",
+    "max": "50"
+   },
+   "colorChipVersion": 1,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "005B",
@@ -5986,7 +7585,23 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "005C",
@@ -6073,7 +7688,28 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "8",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "-50",
+    "max": "50"
+   },
+   "colorChipVersion": 1,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "005D",
@@ -6160,7 +7796,28 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "8",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "-50",
+    "max": "50"
+   },
+   "colorChipVersion": 1,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "005E",
@@ -6232,7 +7889,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "005F",
@@ -6319,7 +7993,27 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "8",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0060",
@@ -6451,7 +8145,29 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0061",
@@ -6467,7 +8183,23 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0062",
@@ -6483,7 +8215,23 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0063",
@@ -6555,7 +8303,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0064",
@@ -6647,7 +8412,27 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "8",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "-50",
+    "max": "50"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0065",
@@ -6719,7 +8504,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 0,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0066",
@@ -6791,7 +8593,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0067",
@@ -6908,7 +8727,24 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0068",
@@ -7025,7 +8861,34 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9",
+    "17"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "0",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [
+    {
+     "code": 1,
+     "nameEn": "Smooth"
+    },
+    {
+     "code": 2,
+     "nameEn": "OFF"
+    }
+   ],
+   "attachmentSupport": true
   },
   {
    "radioId": "0069",
@@ -7157,7 +9020,28 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "006A",
@@ -7227,7 +9111,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "006B",
@@ -7243,7 +9144,23 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "006C",
@@ -7259,7 +9176,23 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "006D",
@@ -7391,7 +9324,28 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "006E",
@@ -7461,7 +9415,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "006F",
@@ -7492,7 +9463,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0070",
@@ -7544,7 +9532,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0071",
@@ -7575,7 +9580,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0072",
@@ -7627,7 +9649,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0073",
@@ -7759,7 +9798,29 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "9",
+    "17"
+   ],
+   "lightType": "4",
+   "rgb": "4",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": true
   },
   {
    "radioId": "0074",
@@ -7891,7 +9952,28 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "8",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "2",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0075",
@@ -8023,7 +10105,27 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "2",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0076",
@@ -8095,7 +10197,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0077",
@@ -8182,7 +10301,28 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0078",
@@ -8314,7 +10454,96 @@
    ],
    "batteryType": 1,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [
+    {
+     "code": 0,
+     "nameEn": "Normal"
+    },
+    {
+     "code": 1,
+     "nameEn": "Low End"
+    }
+   ],
+   "frequency": [
+    {
+     "code": 0,
+     "nameEn": "Default"
+    },
+    {
+     "code": 1,
+     "nameEn": "1"
+    },
+    {
+     "code": 2,
+     "nameEn": "2"
+    },
+    {
+     "code": 3,
+     "nameEn": "3"
+    },
+    {
+     "code": 4,
+     "nameEn": "4"
+    },
+    {
+     "code": 5,
+     "nameEn": "5"
+    },
+    {
+     "code": 6,
+     "nameEn": "6"
+    },
+    {
+     "code": 7,
+     "nameEn": "7"
+    },
+    {
+     "code": 8,
+     "nameEn": "8"
+    },
+    {
+     "code": 9,
+     "nameEn": "9"
+    },
+    {
+     "code": 10,
+     "nameEn": "10"
+    }
+   ],
+   "smoothness": [
+    {
+     "code": 0,
+     "nameEn": "Default"
+    },
+    {
+     "code": 1,
+     "nameEn": "Smooth"
+    },
+    {
+     "code": 2,
+     "nameEn": "OFF"
+    }
+   ],
+   "attachmentSupport": false
   },
   {
    "radioId": "0079",
@@ -8429,7 +10658,24 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "007A",
@@ -8501,7 +10747,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "2",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "007B",
@@ -8573,7 +10836,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "007C",
@@ -8645,7 +10925,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "007D",
@@ -8732,7 +11029,27 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "2",
+   "greenMagenta": {
+    "min": "-50",
+    "max": "50"
+   },
+   "colorChipVersion": 3,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "007E",
@@ -8819,7 +11136,27 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "2",
+   "greenMagenta": {
+    "min": "-50",
+    "max": "50"
+   },
+   "colorChipVersion": 3,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "007F",
@@ -8906,7 +11243,27 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "2",
+   "greenMagenta": {
+    "min": "-50",
+    "max": "50"
+   },
+   "colorChipVersion": 3,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0080",
@@ -9023,7 +11380,24 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0081",
@@ -9110,7 +11484,28 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0082",
@@ -9197,7 +11592,28 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0083",
@@ -9284,7 +11700,28 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0084",
@@ -9401,7 +11838,91 @@
    ],
    "batteryType": 1,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [
+    {
+     "code": 0,
+     "nameEn": "Normal"
+    },
+    {
+     "code": 1,
+     "nameEn": "Low End"
+    }
+   ],
+   "frequency": [
+    {
+     "code": 0,
+     "nameEn": "Default"
+    },
+    {
+     "code": 1,
+     "nameEn": "1"
+    },
+    {
+     "code": 2,
+     "nameEn": "2"
+    },
+    {
+     "code": 3,
+     "nameEn": "3"
+    },
+    {
+     "code": 4,
+     "nameEn": "4"
+    },
+    {
+     "code": 5,
+     "nameEn": "5"
+    },
+    {
+     "code": 6,
+     "nameEn": "6"
+    },
+    {
+     "code": 7,
+     "nameEn": "7"
+    },
+    {
+     "code": 8,
+     "nameEn": "8"
+    },
+    {
+     "code": 9,
+     "nameEn": "9"
+    },
+    {
+     "code": 10,
+     "nameEn": "10"
+    }
+   ],
+   "smoothness": [
+    {
+     "code": 0,
+     "nameEn": "Default"
+    },
+    {
+     "code": 1,
+     "nameEn": "Smooth"
+    },
+    {
+     "code": 2,
+     "nameEn": "OFF"
+    }
+   ],
+   "attachmentSupport": false
   },
   {
    "radioId": "0085",
@@ -9531,7 +12052,27 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "2",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0086",
@@ -9618,7 +12159,28 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0087",
@@ -9750,7 +12312,28 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0088",
@@ -9882,7 +12465,96 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "9",
+    "17"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [
+    {
+     "code": 0,
+     "nameEn": "Normal"
+    },
+    {
+     "code": 1,
+     "nameEn": "Low End"
+    },
+    {
+     "code": 2,
+     "nameEn": "Hightspeed"
+    }
+   ],
+   "frequency": [
+    {
+     "code": 0,
+     "nameEn": "Default"
+    },
+    {
+     "code": 1,
+     "nameEn": "1"
+    },
+    {
+     "code": 2,
+     "nameEn": "2"
+    },
+    {
+     "code": 3,
+     "nameEn": "3"
+    },
+    {
+     "code": 4,
+     "nameEn": "4"
+    },
+    {
+     "code": 5,
+     "nameEn": "5"
+    },
+    {
+     "code": 6,
+     "nameEn": "6"
+    },
+    {
+     "code": 7,
+     "nameEn": "7"
+    },
+    {
+     "code": 8,
+     "nameEn": "8"
+    },
+    {
+     "code": 9,
+     "nameEn": "9"
+    },
+    {
+     "code": 10,
+     "nameEn": "10"
+    }
+   ],
+   "smoothness": [
+    {
+     "code": 1,
+     "nameEn": "Smooth"
+    },
+    {
+     "code": 2,
+     "nameEn": "OFF"
+    }
+   ],
+   "attachmentSupport": false
   },
   {
    "radioId": "0089",
@@ -9969,7 +12641,26 @@
    "fanSpeedModes": [],
    "batteryType": 5,
    "hasBtFirmware": true,
-   "paVersion": 3
+   "paVersion": 3,
+   "modeType": [
+    "1",
+    "4",
+    "9",
+    "16"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "2",
+   "greenMagenta": {
+    "min": "-50",
+    "max": "50"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "008A",
@@ -10101,7 +12792,26 @@
    ],
    "batteryType": 1,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "008B",
@@ -10218,7 +12928,24 @@
    ],
    "batteryType": 1,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "008C",
@@ -10350,7 +13077,28 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "008D",
@@ -10482,7 +13230,29 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "9",
+    "17"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "008E",
@@ -10614,7 +13384,26 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "2",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "008F",
@@ -10746,7 +13535,26 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "2",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0090",
@@ -10878,7 +13686,28 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "2",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0091",
@@ -11008,7 +13837,28 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0092",
@@ -11098,7 +13948,24 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0093",
@@ -11215,7 +14082,25 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "9",
+    "17"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": true
   },
   {
    "radioId": "0094",
@@ -11347,7 +14232,27 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "2",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0095",
@@ -11464,7 +14369,24 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0096",
@@ -11551,7 +14473,27 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "2",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 3,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0097",
@@ -11623,7 +14565,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0098",
@@ -11740,7 +14699,24 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "0099",
@@ -11872,7 +14848,29 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "9",
+    "17"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "009A",
@@ -11959,7 +14957,28 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "009B",
@@ -12031,7 +15050,24 @@
    "fanSpeedModes": [],
    "batteryType": 5,
    "hasBtFirmware": true,
-   "paVersion": 3
+   "paVersion": 3,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "009C",
@@ -12118,7 +15154,27 @@
    "fanSpeedModes": [],
    "batteryType": 5,
    "hasBtFirmware": true,
-   "paVersion": 3
+   "paVersion": 3,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "2",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 3,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "009D",
@@ -12190,7 +15246,24 @@
    "fanSpeedModes": [],
    "batteryType": 5,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "009E",
@@ -12277,7 +15350,25 @@
    "fanSpeedModes": [],
    "batteryType": 5,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "009F",
@@ -12349,7 +15440,24 @@
    "fanSpeedModes": [],
    "batteryType": 5,
    "hasBtFirmware": true,
-   "paVersion": 3
+   "paVersion": 3,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00A0",
@@ -12466,7 +15574,38 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "9",
+    "17"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [
+    {
+     "code": 0,
+     "nameEn": "Default"
+    },
+    {
+     "code": 1,
+     "nameEn": "Smooth"
+    },
+    {
+     "code": 2,
+     "nameEn": "OFF"
+    }
+   ],
+   "attachmentSupport": true
   },
   {
    "radioId": "00A1",
@@ -12553,7 +15692,25 @@
    "fanSpeedModes": [],
    "batteryType": 5,
    "hasBtFirmware": true,
-   "paVersion": 3
+   "paVersion": 3,
+   "modeType": [
+    "1",
+    "4",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-50",
+    "max": "50"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00A2",
@@ -12685,7 +15842,91 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "4",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [
+    {
+     "code": 0,
+     "nameEn": "Normal"
+    }
+   ],
+   "frequency": [
+    {
+     "code": 0,
+     "nameEn": "Default"
+    },
+    {
+     "code": 1,
+     "nameEn": "1"
+    },
+    {
+     "code": 2,
+     "nameEn": "2"
+    },
+    {
+     "code": 3,
+     "nameEn": "3"
+    },
+    {
+     "code": 4,
+     "nameEn": "4"
+    },
+    {
+     "code": 5,
+     "nameEn": "5"
+    },
+    {
+     "code": 6,
+     "nameEn": "6"
+    },
+    {
+     "code": 7,
+     "nameEn": "7"
+    },
+    {
+     "code": 8,
+     "nameEn": "8"
+    },
+    {
+     "code": 9,
+     "nameEn": "9"
+    },
+    {
+     "code": 10,
+     "nameEn": "10"
+    }
+   ],
+   "smoothness": [
+    {
+     "code": 0,
+     "nameEn": "Default"
+    },
+    {
+     "code": 1,
+     "nameEn": "Smooth"
+    },
+    {
+     "code": 2,
+     "nameEn": "OFF"
+    }
+   ],
+   "attachmentSupport": false
   },
   {
    "radioId": "00A3",
@@ -12817,7 +16058,28 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "4",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00A4",
@@ -12934,7 +16196,24 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00A5",
@@ -13051,7 +16330,24 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00A6",
@@ -13168,7 +16464,24 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 3
+   "paVersion": 3,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00A7",
@@ -13300,7 +16613,26 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 3
+   "paVersion": 3,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "2",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00A8",
@@ -13372,7 +16704,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00A9",
@@ -13459,7 +16808,26 @@
    "fanSpeedModes": [],
    "batteryType": 5,
    "hasBtFirmware": true,
-   "paVersion": 3
+   "paVersion": 3,
+   "modeType": [
+    "1",
+    "4",
+    "9",
+    "16"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-50",
+    "max": "50"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00AA",
@@ -13601,7 +16969,100 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "9",
+    "17"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [
+    {
+     "code": 0,
+     "nameEn": "Normal"
+    },
+    {
+     "code": 1,
+     "nameEn": "Low End"
+    },
+    {
+     "code": 2,
+     "nameEn": "Highspeed"
+    }
+   ],
+   "frequency": [
+    {
+     "code": 0,
+     "nameEn": "Default"
+    },
+    {
+     "code": 1,
+     "nameEn": "1"
+    },
+    {
+     "code": 2,
+     "nameEn": "2"
+    },
+    {
+     "code": 3,
+     "nameEn": "3"
+    },
+    {
+     "code": 4,
+     "nameEn": "4"
+    },
+    {
+     "code": 5,
+     "nameEn": "5"
+    },
+    {
+     "code": 6,
+     "nameEn": "6"
+    },
+    {
+     "code": 7,
+     "nameEn": "7"
+    },
+    {
+     "code": 8,
+     "nameEn": "8"
+    },
+    {
+     "code": 9,
+     "nameEn": "9"
+    },
+    {
+     "code": 10,
+     "nameEn": "10"
+    }
+   ],
+   "smoothness": [
+    {
+     "code": 0,
+     "nameEn": "Default"
+    },
+    {
+     "code": 1,
+     "nameEn": "Smooth"
+    },
+    {
+     "code": 2,
+     "nameEn": "OFF"
+    }
+   ],
+   "attachmentSupport": false
   },
   {
    "radioId": "00AB",
@@ -13673,7 +17134,24 @@
    "fanSpeedModes": [],
    "batteryType": 5,
    "hasBtFirmware": true,
-   "paVersion": 3
+   "paVersion": 3,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00AC",
@@ -13745,7 +17223,24 @@
    "fanSpeedModes": [],
    "batteryType": 5,
    "hasBtFirmware": true,
-   "paVersion": 3
+   "paVersion": 3,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00AD",
@@ -13862,7 +17357,24 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00AE",
@@ -13979,7 +17491,24 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00AF",
@@ -14096,7 +17625,24 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00B0",
@@ -14188,7 +17734,24 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00B1",
@@ -14280,7 +17843,24 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00B2",
@@ -14372,7 +17952,24 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00B3",
@@ -14489,7 +18086,24 @@
    ],
    "batteryType": 1,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00B4",
@@ -14621,7 +18235,28 @@
    ],
    "batteryType": 1,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00B5",
@@ -14753,7 +18388,28 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00B6",
@@ -14885,7 +18541,28 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00B7",
@@ -15017,7 +18694,28 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00B8",
@@ -15134,7 +18832,24 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00B9",
@@ -15276,7 +18991,100 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "9",
+    "17"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [
+    {
+     "code": 0,
+     "nameEn": "Normal"
+    },
+    {
+     "code": 1,
+     "nameEn": "Low End"
+    },
+    {
+     "code": 2,
+     "nameEn": "Highspeed"
+    }
+   ],
+   "frequency": [
+    {
+     "code": 0,
+     "nameEn": "Default"
+    },
+    {
+     "code": 1,
+     "nameEn": "1"
+    },
+    {
+     "code": 2,
+     "nameEn": "2"
+    },
+    {
+     "code": 3,
+     "nameEn": "3"
+    },
+    {
+     "code": 4,
+     "nameEn": "4"
+    },
+    {
+     "code": 5,
+     "nameEn": "5"
+    },
+    {
+     "code": 6,
+     "nameEn": "6"
+    },
+    {
+     "code": 7,
+     "nameEn": "7"
+    },
+    {
+     "code": 8,
+     "nameEn": "8"
+    },
+    {
+     "code": 9,
+     "nameEn": "9"
+    },
+    {
+     "code": 10,
+     "nameEn": "10"
+    }
+   ],
+   "smoothness": [
+    {
+     "code": 0,
+     "nameEn": "Default"
+    },
+    {
+     "code": 1,
+     "nameEn": "Smooth"
+    },
+    {
+     "code": 2,
+     "nameEn": "OFF"
+    }
+   ],
+   "attachmentSupport": false
   },
   {
    "radioId": "00BA",
@@ -15348,7 +19156,24 @@
    "fanSpeedModes": [],
    "batteryType": 5,
    "hasBtFirmware": true,
-   "paVersion": 3
+   "paVersion": 3,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00BB",
@@ -15465,7 +19290,25 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "9",
+    "17"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": true
   },
   {
    "radioId": "00BC",
@@ -15597,7 +19440,28 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00BD",
@@ -15729,7 +19593,28 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00BE",
@@ -15846,7 +19731,24 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00BF",
@@ -15963,7 +19865,24 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00C0",
@@ -16080,7 +19999,24 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00C1",
@@ -16212,7 +20148,28 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00C2",
@@ -16344,7 +20301,100 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "9",
+    "17"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [
+    {
+     "code": 0,
+     "nameEn": "Normal"
+    },
+    {
+     "code": 1,
+     "nameEn": "Low End"
+    },
+    {
+     "code": 2,
+     "nameEn": "Highspeed"
+    }
+   ],
+   "frequency": [
+    {
+     "code": 0,
+     "nameEn": "Default"
+    },
+    {
+     "code": 1,
+     "nameEn": "1"
+    },
+    {
+     "code": 2,
+     "nameEn": "2"
+    },
+    {
+     "code": 3,
+     "nameEn": "3"
+    },
+    {
+     "code": 4,
+     "nameEn": "4"
+    },
+    {
+     "code": 5,
+     "nameEn": "5"
+    },
+    {
+     "code": 6,
+     "nameEn": "6"
+    },
+    {
+     "code": 7,
+     "nameEn": "7"
+    },
+    {
+     "code": 8,
+     "nameEn": "8"
+    },
+    {
+     "code": 9,
+     "nameEn": "9"
+    },
+    {
+     "code": 10,
+     "nameEn": "10"
+    }
+   ],
+   "smoothness": [
+    {
+     "code": 0,
+     "nameEn": "Default"
+    },
+    {
+     "code": 1,
+     "nameEn": "Smooth"
+    },
+    {
+     "code": 2,
+     "nameEn": "OFF"
+    }
+   ],
+   "attachmentSupport": true
   },
   {
    "radioId": "00C3",
@@ -16476,7 +20526,28 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "4",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00C4",
@@ -16618,7 +20689,28 @@
    ],
    "batteryType": 1,
    "hasBtFirmware": true,
-   "paVersion": 3
+   "paVersion": 3,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00C5",
@@ -16750,7 +20842,27 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00C6",
@@ -16882,7 +20994,27 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00C7",
@@ -17014,7 +21146,27 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00C8",
@@ -17146,7 +21298,99 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [
+    {
+     "code": 0,
+     "nameEn": "Normal"
+    },
+    {
+     "code": 1,
+     "nameEn": "Low End"
+    },
+    {
+     "code": 2,
+     "nameEn": "Highspeed"
+    }
+   ],
+   "frequency": [
+    {
+     "code": 0,
+     "nameEn": "Default"
+    },
+    {
+     "code": 1,
+     "nameEn": "1"
+    },
+    {
+     "code": 2,
+     "nameEn": "2"
+    },
+    {
+     "code": 3,
+     "nameEn": "3"
+    },
+    {
+     "code": 4,
+     "nameEn": "4"
+    },
+    {
+     "code": 5,
+     "nameEn": "5"
+    },
+    {
+     "code": 6,
+     "nameEn": "6"
+    },
+    {
+     "code": 7,
+     "nameEn": "7"
+    },
+    {
+     "code": 8,
+     "nameEn": "8"
+    },
+    {
+     "code": 9,
+     "nameEn": "9"
+    },
+    {
+     "code": 10,
+     "nameEn": "10"
+    }
+   ],
+   "smoothness": [
+    {
+     "code": 0,
+     "nameEn": "Default"
+    },
+    {
+     "code": 1,
+     "nameEn": "Smooth"
+    },
+    {
+     "code": 2,
+     "nameEn": "OFF"
+    }
+   ],
+   "attachmentSupport": false
   },
   {
    "radioId": "00CA",
@@ -17233,7 +21477,25 @@
    "fanSpeedModes": [],
    "batteryType": 6,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00CB",
@@ -17320,7 +21582,27 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "2",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 3,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00CC",
@@ -17437,7 +21719,24 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00CD",
@@ -17554,7 +21853,24 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00CE",
@@ -17641,7 +21957,27 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "2",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 3,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00CF",
@@ -17657,7 +21993,25 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 3
+   "paVersion": 3,
+   "modeType": [
+    "1000",
+    "1001",
+    "1002"
+   ],
+   "lightType": "5",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00D0",
@@ -17774,7 +22128,24 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00D1",
@@ -17891,7 +22262,24 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 0
+   "paVersion": 0,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00D2",
@@ -17977,7 +22365,24 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00D3",
@@ -18064,7 +22469,97 @@
    "fanSpeedModes": [],
    "batteryType": 5,
    "hasBtFirmware": true,
-   "paVersion": 3
+   "paVersion": 3,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 0,
+   "luminance": 1000,
+   "controlMode": [
+    {
+     "code": 0,
+     "nameEn": "Normal"
+    },
+    {
+     "code": 1,
+     "nameEn": "Low End"
+    },
+    {
+     "code": 2,
+     "nameEn": "Highspeed"
+    }
+   ],
+   "frequency": [
+    {
+     "code": 0,
+     "nameEn": "Default"
+    },
+    {
+     "code": 1,
+     "nameEn": "1"
+    },
+    {
+     "code": 2,
+     "nameEn": "2"
+    },
+    {
+     "code": 3,
+     "nameEn": "3"
+    },
+    {
+     "code": 4,
+     "nameEn": "4"
+    },
+    {
+     "code": 5,
+     "nameEn": "5"
+    },
+    {
+     "code": 6,
+     "nameEn": "6"
+    },
+    {
+     "code": 7,
+     "nameEn": "7"
+    },
+    {
+     "code": 8,
+     "nameEn": "8"
+    },
+    {
+     "code": 9,
+     "nameEn": "9"
+    },
+    {
+     "code": 10,
+     "nameEn": "10"
+    }
+   ],
+   "smoothness": [
+    {
+     "code": 0,
+     "nameEn": "Default"
+    },
+    {
+     "code": 1,
+     "nameEn": "Smooth"
+    },
+    {
+     "code": 2,
+     "nameEn": "OFF"
+    }
+   ],
+   "attachmentSupport": false
   },
   {
    "radioId": "00D4",
@@ -18136,7 +22631,24 @@
    "fanSpeedModes": [],
    "batteryType": 5,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00D6",
@@ -18208,7 +22720,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00D7",
@@ -18295,7 +22824,99 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [
+    {
+     "code": 0,
+     "nameEn": "Normal"
+    },
+    {
+     "code": 1,
+     "nameEn": "Low End"
+    },
+    {
+     "code": 2,
+     "nameEn": "Highspeed"
+    }
+   ],
+   "frequency": [
+    {
+     "code": 0,
+     "nameEn": "Default"
+    },
+    {
+     "code": 1,
+     "nameEn": "1"
+    },
+    {
+     "code": 2,
+     "nameEn": "2"
+    },
+    {
+     "code": 3,
+     "nameEn": "3"
+    },
+    {
+     "code": 4,
+     "nameEn": "4"
+    },
+    {
+     "code": 5,
+     "nameEn": "5"
+    },
+    {
+     "code": 6,
+     "nameEn": "6"
+    },
+    {
+     "code": 7,
+     "nameEn": "7"
+    },
+    {
+     "code": 8,
+     "nameEn": "8"
+    },
+    {
+     "code": 9,
+     "nameEn": "9"
+    },
+    {
+     "code": 10,
+     "nameEn": "10"
+    }
+   ],
+   "smoothness": [
+    {
+     "code": 0,
+     "nameEn": "Default"
+    },
+    {
+     "code": 1,
+     "nameEn": "Smooth"
+    },
+    {
+     "code": 2,
+     "nameEn": "OFF"
+    }
+   ],
+   "attachmentSupport": false
   },
   {
    "radioId": "00D8",
@@ -18367,7 +22988,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00D9",
@@ -18439,7 +23077,24 @@
    "fanSpeedModes": [],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00DA",
@@ -18560,7 +23215,100 @@
    ],
    "batteryType": 0,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "9",
+    "17"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [
+    {
+     "code": 0,
+     "nameEn": "Normal"
+    },
+    {
+     "code": 1,
+     "nameEn": "Low End"
+    },
+    {
+     "code": 2,
+     "nameEn": "Highspeed"
+    }
+   ],
+   "frequency": [
+    {
+     "code": 0,
+     "nameEn": "Default"
+    },
+    {
+     "code": 1,
+     "nameEn": "1"
+    },
+    {
+     "code": 2,
+     "nameEn": "2"
+    },
+    {
+     "code": 3,
+     "nameEn": "3"
+    },
+    {
+     "code": 4,
+     "nameEn": "4"
+    },
+    {
+     "code": 5,
+     "nameEn": "5"
+    },
+    {
+     "code": 6,
+     "nameEn": "6"
+    },
+    {
+     "code": 7,
+     "nameEn": "7"
+    },
+    {
+     "code": 8,
+     "nameEn": "8"
+    },
+    {
+     "code": 9,
+     "nameEn": "9"
+    },
+    {
+     "code": 10,
+     "nameEn": "10"
+    }
+   ],
+   "smoothness": [
+    {
+     "code": 0,
+     "nameEn": "Default"
+    },
+    {
+     "code": 1,
+     "nameEn": "Smooth"
+    },
+    {
+     "code": 2,
+     "nameEn": "OFF"
+    }
+   ],
+   "attachmentSupport": false
   },
   {
    "radioId": "00DB",
@@ -18576,7 +23324,23 @@
    "fanSpeedModes": [],
    "batteryType": 6,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00DC",
@@ -18663,7 +23427,25 @@
    "fanSpeedModes": [],
    "batteryType": 6,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00DD",
@@ -18750,7 +23532,25 @@
    "fanSpeedModes": [],
    "batteryType": 6,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "4",
+    "9"
+   ],
+   "lightType": "4",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "-100",
+    "max": "100"
+   },
+   "colorChipVersion": 2,
+   "luminance": 1000,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00DE",
@@ -18822,7 +23622,24 @@
    "fanSpeedModes": [],
    "batteryType": 6,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "00DF",
@@ -18894,7 +23711,24 @@
    "fanSpeedModes": [],
    "batteryType": 6,
    "hasBtFirmware": true,
-   "paVersion": 1
+   "paVersion": 1,
+   "modeType": [
+    "1",
+    "9"
+   ],
+   "lightType": "1",
+   "rgb": "1",
+   "rgbDisplay": "1",
+   "greenMagenta": {
+    "min": "0",
+    "max": "0"
+   },
+   "colorChipVersion": 2,
+   "luminance": 100,
+   "controlMode": [],
+   "frequency": [],
+   "smoothness": [],
+   "attachmentSupport": false
   },
   {
    "radioId": "10000",

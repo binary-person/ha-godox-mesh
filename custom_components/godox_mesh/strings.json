@@ -108,11 +108,13 @@
         "description": "Ask the light what it is actually doing, instead of showing whatever Home Assistant last sent it. This works on stock firmware — no flashing.\n\n**Brightness** is reported reliably, including changes made on the light's own controls.\n\n**Colour temperature** is right on most lights. A few answer a change made on their own dial with a fixed placeholder instead of the real value — if the colour temperature shown keeps jumping to something your light is not set to, turn the second option off. Brightness polling is unaffected.\n\n**Effects and fan speed are never polled**, on any light: nothing reports them, so those always show the last value you selected.\n\nThis light: {firmware}.",
         "data": {
           "readback": "Show the light's actual state",
-          "poll_cct": "Include colour temperature"
+          "poll_cct": "Include colour temperature",
+          "use_xy": "Use CIE xy instead of hue and saturation"
         },
         "data_description": {
           "readback": "Also adds a battery sensor on battery-powered lights. Effects and fan speed are not polled either way.",
-          "poll_cct": "Leave on unless the colour temperature shown doesn't match your light."
+          "poll_cct": "Leave on unless the colour temperature shown doesn't match your light.",
+          "use_xy": "For colour-meter workflows. Replaces the hue/saturation and direct-channel controls with x and y sliders, and makes the colour wheel send xy. Only shown for models that accept the xy command."
         }
       }
     },
@@ -130,14 +132,43 @@
     }
   },
   "entity": {
-    "select": {
-      "fan_mode": {
-        "name": "Fan speed"
-      }
-    },
     "number": {
       "effect_speed": {
         "name": "Effect speed"
+      },
+      "tint": {
+        "name": "Green / magenta"
+      },
+      "xy_x": {
+        "name": "Colour x"
+      },
+      "xy_y": {
+        "name": "Colour y"
+      }
+    },
+    "select": {
+      "cct_range": {
+        "name": "Colour temperature range"
+      },
+      "color_chip": {
+        "name": "Gel"
+      },
+      "control_mode": {
+        "name": "Output mode"
+      },
+      "fan_mode": {
+        "name": "Fan speed"
+      },
+      "mains_frequency": {
+        "name": "Mains frequency"
+      },
+      "smoothness": {
+        "name": "Dimming smoothness"
+      }
+    },
+    "switch": {
+      "attachment": {
+        "name": "Accessory recognition"
       }
     }
   }

@@ -114,9 +114,8 @@ Data byte `[3]` is the effect **speed**, not a repeat of the symbol.
 byte; the reply comes back on the **response opcode** `0x0211F1`, not the
 request opcode (**F**, **H**).
 
-The end byte **selects which record** the light reports. It is not padding,
-and padding it to `0xFF` gets no reply at all — the mistake that produced the
-"readback is impossible" conclusion below. Ask for record `0xA0`:
+The end byte **selects which record** the light reports. It is not padding:
+padding it to `0xFF` gets no reply at all. Ask for record `0xA0`:
 
 ```
 request   fd 01 ff ff ff ff a0 95
@@ -136,25 +135,19 @@ In the firmware the `0xA0` reply reads `0x20000064` and `0x20000063` — **the
 same variables the `0xF0` handler writes** — so on that model the reply is
 genuine live state rather than a placeholder (**F**).
 
-### "Why the reply is a constant" — the question was wrong
+### Record selection and the flash default
 
-> [!IMPORTANT]
-> This section once explained, at length, why an SL200III Bi answers `0xFD`
-> with the constant `a0 0a 1b 32 ff ff 01 f9` (10 % at 2700 K) no matter what
-> the light is doing. The explanation was coherent, firmware-grounded, and
-> **wrong about the premise**: the light was being asked the wrong question.
->
-> `a0 0a 1b 32 ff ff 01 f9` is the **flash default**, and it is what you get
-> when the request's end byte is padded to `0xFF` — because that byte selects
-> the record, and a factory-reset light's default record is what answers.
-> Selecting record `0xA0` returns live data. Verified on two lights; see
-> [readback-hardware-findings.md](readback-hardware-findings.md).
+An `0xFD` request whose end byte is padded to `0xFF` returns the **flash
+default** `a0 0a 1b 32 ff ff 01 f9` (10 % at 2700 K) on a factory-reset light:
+the end byte selects the record, and the default record is what answers.
+Selecting record `0xA0` returns live data. Verified on two lights; see
+[readback-hardware-findings.md](readback-hardware-findings.md).
 
-These lights really are two chips — a Telink mesh chip and the main MCU, joined
-by a UART carrying this same V2 framing — and the mesh chip really does answer
-`0xFD` from a RAM cache. What was wrong was the belief that nothing refills the
-cache. It tracks brightness live, including changes made on the light's own
-panel, and colour temperature live for anything commanded over the mesh.
+These lights are two chips — a Telink mesh chip and the main MCU, joined by a
+UART carrying this same V2 framing — and the mesh chip answers `0xFD` from a RAM
+cache. That cache is refilled live: it tracks brightness, including changes made
+on the light's own panel, and colour temperature for anything commanded over the
+mesh.
 
 **Practical consequence:** on a stock light, select record `0xA0` and treat the
 reply as live. The one field that can still be stale, on some models, is colour
@@ -199,9 +192,8 @@ async with GodoxController(address, "mesh_state.json") as light:
 The Home Assistant integration exposes effects through the light entity's
 effect list, named per-model from Godox's own catalogue, and fan speed as a
 `select` entity for the models that have controllable speeds. Status **is**
-polled, when the user opts in: the earlier claim here that a status reply
-returns a constant was a methodology error -- the request selects a record with
-its end byte, and record `0xA0` is live. See
+polled, when the user opts in: the request selects a record with its end byte,
+and record `0xA0` is live. See
 [readback-hardware-findings.md](readback-hardware-findings.md).
 
 `godox_mesh_bt.protocol` exposes the sub-command constants, `EFFECT_IDS`,

@@ -93,16 +93,3 @@ and readback behaved identically afterwards (three commanded values read back
 exactly), and panel behaviour was unchanged — live brightness, placeholder
 colour temperature (see
 [readback-hardware-findings.md](readback-hardware-findings.md)).
-
-## Lessons worth keeping
-
-**Never trust an OTA that cannot fail.** Verify by reading something back that
-must change — the reported version, and ideally a RAM value that resets on
-reboot. This repository's version probe (`request_version`) exists for that, and
-it is what caught the silent failure.
-
-**Flash a known-good stock image before a modified one.** Doing so separated two
-questions that would otherwise have been confounded: "is my OTA implementation
-correct?" and "is my patched image correct?". Had the patched image been flashed
-first, it would have failed identically and the absent behaviour change would
-have been misread as "the patch does not work".

@@ -160,9 +160,8 @@ Match rule, `UpdateFirmwareViewModel.java:619`: a BTF entry applies when
 
 It is **not** the firmware's true support list. Ask for `003F` alone and you
 get `["003F"]`; ask for `003C` and `003F` together and the *same* entry comes
-back as `["003F","003C"]`. Reading a single-item response as "this image is
-model-specific" is wrong — that mistake was made and corrected while writing
-this.
+back as `["003F","003C"]`. The list is filtered to whatever you asked for, so a
+single-item response does not mean the image is model-specific.
 
 To recover the real list, request every radioId at once. The result is only
 **three** BTF images for all 212 products, keyed by `paVersion`:
@@ -346,9 +345,8 @@ tunnelling* half of the protocol. It is also the firmware an SL200III Bi
 actually runs. What it cannot tell you is anything model-specific.
 
 This bears on the remaining open question in that document — why an SL200III Bi
-does not report colour temperature changed on its own dial. (Its earlier form,
-"why it answers `0xFD` with a constant", turned out to rest on a wrong premise:
-the request's end byte selects a record, and record `0xA0` is live. See
+does not report colour temperature changed on its own dial. (The request's end
+byte selects a record, and record `0xA0` is live; see
 [readback-hardware-findings.md](readback-hardware-findings.md).) That remaining
 behaviour lives in the main MCU, which this API does not serve for the model.
 
@@ -375,10 +373,8 @@ Two things only the live data shows.
 
 **Seven products gain `hasMcuFirmware: true`** — MA5R Plus (`00A9`), SL300 RF
 (`00B5`), SL200 RF (`00B6`), MS15R (`00C4`), ParTrix S (`00C8`), LT1 (`00CF`),
-AD00-02 (`EC7B`). An earlier draft of this document read those as "MCU firmware
-the app never asks for", inferring a gap between server and client. **That was
-wrong** — it was a stale-snapshot artifact. Server and app agree once product
-data is refreshed.
+AD00-02 (`EC7B`). Server and app agree on these once product data is refreshed;
+a stale snapshot can show them out of step.
 
 **radioIds are not one byte.** The live set includes `00DA`–`00DF`, `EC77`–
 `EC7F`, and `10000`. A sweep of `0000`–`00FF` is therefore *not* exhaustive;

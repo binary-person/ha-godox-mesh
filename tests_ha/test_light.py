@@ -81,7 +81,14 @@ async def test_turn_on_sends_brightness_and_kelvin(
     # bounds by the protocol otherwise, so a wide-range light is not clamped to
     # the range of whichever light this was developed against.
     mock_commands["set_params"].assert_awaited_once_with(
-        brightness=100, cct=4000, dst=2, min_kelvin=2800, max_kelvin=6500
+        brightness=100.0,
+        cct=4000,
+        dst=2,
+        min_kelvin=2800,
+        max_kelvin=6500,
+        # This model has no tint range, so the tint fields stay neutral.
+        gm=0,
+        supports_gm=False,
     )
     assert hass.states.get(ENTITY).state == STATE_ON
 

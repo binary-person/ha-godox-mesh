@@ -10,6 +10,7 @@ from godox_mesh_bt.controller import (
     CONTROL_SETTLE_SECONDS,
     GodoxController,
 )
+from godox_mesh_bt.protocol import build_v2_command
 from godox_mesh_bt.state import MeshState
 
 
@@ -180,7 +181,7 @@ async def test_controller_connect_writes_proxy_config_from_current_state(
         client_factory=MagicMock(return_value=mock_client),
     )
 
-    with caplog.at_level(logging.INFO, logger="godox_mesh_bt"):
+    with caplog.at_level(logging.DEBUG, logger="godox_mesh_bt"):
         await controller.connect()
 
     assert pack_calls == [
@@ -338,7 +339,7 @@ async def test_controller_connect_beacon_notification_does_not_satisfy_proxy_ack
         client_factory=MagicMock(return_value=mock_client),
     )
 
-    with caplog.at_level(logging.INFO, logger="godox_mesh_bt"):
+    with caplog.at_level(logging.DEBUG, logger="godox_mesh_bt"):
         await controller.connect()
 
     assert "proxy config filter type acknowledged" in caplog.text
@@ -369,7 +370,7 @@ async def test_controller_send_v2_command_logs_payload_and_mesh_destination(
         await controller.send_v2_command(0xF0, 0, bytes([95, 56, 50, 0, 0]))
 
     assert "dst=0x0002" in caplog.text
-    assert "godox_payload=f05f3832000000" in caplog.text
+    assert "payload=f05f3832000000" in caplog.text
 
 
 @pytest.mark.asyncio
@@ -377,26 +378,51 @@ async def test_controller_set_params_combines_brightness_and_cct(tmp_path, mesh_
     state_file = tmp_path / "mesh_state.json"
     mesh_state.save(state_file)
     controller = GodoxController("AA:BB:CC:DD:EE:FF", state_file)
-    calls: list[tuple[int, int, bytes, int | None]] = []
+    calls: list[tuple[bytes, int | None]] = []
 
-    async def fake_send_v2_command(
-        model: int,
-        end_byte: int,
-        data: bytes,
-        *,
-        dst: int | None = None,
-    ) -> None:
-        calls.append((model, end_byte, data, dst))
+    async def fake_send_payload(payload: bytes, *, dst: int | None = None) -> None:
+        calls.append((payload, dst))
 
-    monkeypatch.setattr(controller, "send_v2_command", fake_send_v2_command)
+    monkeypatch.setattr(controller, "send_payload", fake_send_payload)
 
     await controller.set_params(brightness=95.5, cct=2900)
 
-    # 95.5 -> percent 95, fractional 5
+    # 95.5 -> percent 95, fractional 5 in the end byte
     # 2900 -> temp 29
-    # data -> [95, 29, 50, 0, 0]
+    # tint absent -> the legacy centre value 50 and a zeroed signed field
     # dst None -> falls back to the mesh state node_address
-    assert calls == [(0xF0, 5, bytes([95, 29, 50, 0, 0]), None)]
+    (payload, dst), = calls
+    assert payload == build_v2_command(0xF0, 5, bytes([95, 29, 50, 0, 0]))
+    assert dst is None
+
+
+@pytest.mark.asyncio
+async def test_controller_set_params_encodes_green_magenta_tint(
+    tmp_path, mesh_state, monkeypatch
+) -> None:
+    """A tint-capable model gets the signed field as well as the legacy one."""
+    state_file = tmp_path / "mesh_state.json"
+    mesh_state.save(state_file)
+    controller = GodoxController("AA:BB:CC:DD:EE:FF", state_file)
+    payloads: list[bytes] = []
+
+    async def fake_send_payload(payload: bytes, *, dst: int | None = None) -> None:
+        payloads.append(payload)
+
+    monkeypatch.setattr(controller, "send_payload", fake_send_payload)
+
+    await controller.set_params(
+        brightness=50, cct=5600, gm=-20, supports_gm=True
+    )
+    # -20 -> 30 in the legacy centred field, 0xEC as a signed byte.
+    assert payloads == [
+        build_v2_command(0xF0, 0, bytes([50, 56, 30, 0, 0xEC]))
+    ]
+
+    payloads.clear()
+    # The same tint on a model without a tint range must not reach the wire.
+    await controller.set_params(brightness=50, cct=5600, gm=-20)
+    assert payloads == [build_v2_command(0xF0, 0, bytes([50, 56, 30, 0, 0]))]
 
 
 @pytest.mark.asyncio

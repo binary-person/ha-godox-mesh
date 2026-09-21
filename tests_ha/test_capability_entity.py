@@ -48,13 +48,55 @@ async def _setup(hass: HomeAssistant, radio_id: str | None) -> None:
 
 
 @pytest.mark.usefixtures("fake_ble")
-async def test_bicolour_model_uses_its_own_cct_range(hass: HomeAssistant) -> None:
+async def test_wide_range_model_uses_its_own_cct_range(hass: HomeAssistant) -> None:
     """A wide-range light keeps its real range instead of the old hardcoded one."""
     await _setup(hass, "00B6")  # SL200 RF, 1800-10000 K
     state = hass.states.get("light.light")
-    assert state.attributes[ATTR_SUPPORTED_COLOR_MODES] == [ColorMode.COLOR_TEMP]
     assert state.attributes[ATTR_MIN_COLOR_TEMP_KELVIN] == 1800
     assert state.attributes[ATTR_MAX_COLOR_TEMP_KELVIN] == 10000
+
+
+@pytest.mark.usefixtures("fake_ble")
+async def test_bicolour_model_is_colour_temperature_only(hass: HomeAssistant) -> None:
+    """A model whose catalogue lists no colour mode gets no colour wheel."""
+    await _setup(hass, "003F")  # SL200III Bi, modeType [cct, effects]
+    state = hass.states.get("light.light")
+    assert state.attributes[ATTR_SUPPORTED_COLOR_MODES] == [ColorMode.COLOR_TEMP]
+
+
+@pytest.mark.usefixtures("fake_ble")
+async def test_full_colour_model_offers_colour_modes(hass: HomeAssistant) -> None:
+    """A full-colour model gets hue/saturation and direct channels.
+
+    This is the regression that mattered: the SL200 RF's catalogue entry lists
+    HSI, RGB and xy, and the integration rendered it as a colour-temperature
+    light for its whole first release -- an earlier version of this very test
+    asserted that, calling the model "bicolour".
+    """
+    await _setup(hass, "00B6")
+    state = hass.states.get("light.light")
+    assert set(state.attributes[ATTR_SUPPORTED_COLOR_MODES]) == {
+        ColorMode.COLOR_TEMP,
+        ColorMode.HS,
+        ColorMode.RGBW,
+    }
+
+
+@pytest.mark.usefixtures("fake_ble")
+async def test_tint_control_only_on_models_with_a_range(hass: HomeAssistant) -> None:
+    """Green/magenta is a separate number, and only where the model has it."""
+    await _setup(hass, "00B6")  # +/-100
+    tint = hass.states.get("number.light_green_magenta")
+    assert tint is not None
+    assert tint.attributes["min"] == -100
+    assert tint.attributes["max"] == 100
+
+
+@pytest.mark.usefixtures("fake_ble")
+async def test_no_tint_control_without_a_range(hass: HomeAssistant) -> None:
+    """A model with a 0/0 tint range gets no slider at all."""
+    await _setup(hass, "003F")
+    assert hass.states.get("number.light_green_magenta") is None
 
 
 @pytest.mark.usefixtures("fake_ble")

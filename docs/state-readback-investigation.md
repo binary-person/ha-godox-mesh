@@ -1,14 +1,10 @@
 # Reading state back from a Godox mesh light
 
 > [!IMPORTANT]
-> **Superseded in part by [readback-hardware-findings.md](readback-hardware-findings.md).**
-> This document's conclusion that readback is impossible on stock firmware was
-> drawn from static analysis and is **wrong**. Testing on a real SL200III Bi
-> showed the status request was being built with the wrong end byte: selecting
-> the `0xA0` record returns live brightness on stock firmware. Only *panel*
-> colour-temperature changes are missing. The mechanism described below is
-> otherwise accurate.
-
+> This is the historical investigation record. For current truth, read
+> [protocol.md](protocol.md) (the wire protocol as now understood) and
+> [readback-hardware-findings.md](readback-hardware-findings.md) (confirmed
+> hardware behaviour). This file is kept for the reasoning and the dead ends.
 
 > [!NOTE]
 > Paths beginning `reverse/` are a **local scratch directory, not part of this
@@ -18,28 +14,13 @@
 > [../reverse-artifacts/](../reverse-artifacts/), which also carries the script
 > that rebuilds them; see [README.md](README.md#reproducing-the-inputs).
 
-**Superseded in part.** This began as an investigation into whether these
-lights can be read at all, and concluded twice that they cannot. Both
-conclusions were wrong. Firmware analysis eventually found a status request —
-V2 sub-command `0xFD`, answered on vendor opcode `0x0211F1` — which a real
-light does respond to.
-
-**The protocol as now understood is documented in
-[protocol.md](protocol.md).** Read that first; this file is kept as the record
-of how it was found, what was ruled out along the way, and which traps are
-worth not repeating.
-
-**This document's central conclusion was wrong, and the correction is in
-[readback-hardware-findings.md](readback-hardware-findings.md).** What follows
-is kept as the record of how the investigation went, including the wrong turn.
-
-The short version of the correction: the reply was "a constant" because the
-request was built with its end byte padded to `0xFF`. That byte *selects which
-record the light reports*. Ask for record `0xA0` and stock firmware returns
-live brightness — including changes made on the light's own panel — and live
-colour temperature for anything commanded over the mesh. Only panel-changed
-colour temperature is missing, on some models, and a BLE-firmware patch was
-later flashed to a real light and did not recover it.
+A light answers a status request — V2 sub-command `0xFD`, replying on vendor
+opcode `0x0211F1`. The request's end byte *selects which record the light
+reports*: padded to `0xFF` it returns a flash default, but record `0xA0`
+returns live brightness on stock firmware — including changes made on the
+light's own panel — and live colour temperature for anything commanded over the
+mesh. Only panel-changed colour temperature is missing, on some models; a
+BLE-firmware patch was later flashed to a real light and did not recover it.
 
 The short version of where it landed:
 
@@ -249,21 +230,18 @@ provisioner address. `GodoxController.connect()` already does this.
 
 ---
 
-## 8. Two mistakes worth not repeating
+## 8. Probing the sub-command space is not safe
 
-**`0xA6` is not a query.** This library has `parse_battery_power_response`,
-which parses a `0xA6` *reply*. That was read here as evidence of a battery
-request. It is not — a response parser implies nothing about a request, `0xA6`
-appears nowhere in the app's sub-command table, and V3 framing carries
-**effects** with sub-commands passed dynamically.
-
-Sending `a6040142` (sub-command `0xA6`, valid CRC) **set an unwanted effect on
-a real light**, which needed a re-provision to clear. In this protocol a
+**`0xA6` is not a query.** `parse_battery_power_response` parses a `0xA6`
+*reply*; a response parser implies nothing about a request. `0xA6` appears
+nowhere in the app's sub-command table, and V3 framing carries **effects** with
+sub-commands passed dynamically. Sending `a6040142` (sub-command `0xA6`, valid
+CRC) **sets an effect on a real light**, which needs a re-provision to clear: a
 well-formed frame in the effect space is a command, not a question.
 
 **Do not sweep the sub-command space.** There are no acknowledgements, so every
-probe is a valid command to *something* and nothing tells you what you just
-did. A single accidental frame already set an effect; 512 would be reckless.
+probe is a valid command to *something* and nothing tells you what it did. A
+single stray frame already sets an effect; 512 would be reckless.
 
 ---
 
@@ -340,8 +318,8 @@ sub-command dispatch immediately after handles precisely:
 
 `0xE0`, `0xFA` and `0xFD` do not appear in the app-derived table in section 3.
 `0xA6` is tested nowhere — its single appearance in the image is `movs r0,#0xa6`
-as a screen-drawing coordinate, which is further confirmation that reading it
-as a battery query was wrong.
+as a screen-drawing coordinate, which is further confirmation that `0xA6` is
+not a battery query.
 
 **No sub-command causes the firmware to answer.** There is no GET.
 

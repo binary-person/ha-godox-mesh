@@ -40,6 +40,21 @@ Where each field comes from
     ``batteryType``, an *integer* where 0 means mains-only.
 ``chip``
     Which of the three mesh firmware images Godox serves the model.
+``modes``
+    ``modeType`` -- the vendor app's own list of control modes for a model, and
+    the authoritative answer to "is this light full-colour?". See
+    :data:`_MODE_NAMES`. These fields were absent from the first version of
+    this table, which is why the integration shipped colour-temperature-only
+    entities for 86 models that do HSI.
+``gm_min`` / ``gm_max``
+    ``greenMagenta``. Equal values (usually 0/0) mean no tint control.
+``rgb_display`` / ``rgb_channels``
+    ``rgbDisplay`` decides the wire format for direct channel control -- 0 is
+    one byte per channel, 1 and 2 are sixteen-bit values scaled to 0-1000.
+    ``rgb`` says which channel layouts the model accepts; see
+    :data:`_RGB_LAYOUTS`.
+``brightness_steps``
+    ``luminance``: 100 for whole-percent brightness, 1000 for tenths.
 """
 
 from __future__ import annotations
@@ -69,6 +84,87 @@ _FX_NAMES: dict[int, dict[int, str]] = {
 }
 
 
+#: ``modeType`` codes, from the vendor app's ``getSceneModeTypeList``. Note
+#: that **8 is absent there too**: the app's own dispatch has no branch for it,
+#: so the 34 models that list it get nothing from it. It is carried through
+#: here as an unnamed code rather than silently dropped.
+_MODE_NAMES: dict[int, str] = {
+    1: "cct",
+    4: "hsi",
+    5: "rgb",
+    6: "color_chip",
+    7: "xy",
+    9: "effects",
+    16: "cct_selfie",
+    17: "electronic_control",
+    1000: "pixel_user",
+    1001: "pixel_system",
+    1002: "pixel_studio",
+}
+
+#: ``rgb`` codes to the channel layouts they accept, from the vendor app's
+#: ``allRgbModes``. ``RGBW`` is red/green/blue/white; ``RGBWW`` adds a second,
+#: warm white; ``RGBACL`` is red/green/blue plus amber, cyan and lime.
+_RGB_LAYOUTS: dict[int, tuple[str, ...]] = {
+    1: ("RGBW",),
+    2: ("RGBW", "RGBWW", "RGBACL"),
+    3: ("RGBW", "RGBWW"),
+    4: ("RGBW", "RGBACL"),
+    5: ("RGBWW",),
+    6: ("RGBWW", "RGBACL"),
+    7: ("RGBACL",),
+}
+
+
+def _as_int(value: object) -> int | None:
+    """Coerce a catalogue field to an int, or None.
+
+    The catalogue types the same field differently between models -- integers
+    for some, decimal strings for others -- so nothing may assume either.
+    """
+    if isinstance(value, bool) or value is None:
+        return None
+    try:
+        return int(value)
+    except (TypeError, ValueError):
+        return None
+
+
+def _modes(product: dict) -> list[str]:
+    """Named control modes a model offers, in the catalogue's own order."""
+    out: list[str] = []
+    for raw in product.get("modeType") or []:
+        code = _as_int(raw)
+        if code is None:
+            continue
+        name = _MODE_NAMES.get(code, f"mode_{code}")
+        if name not in out:
+            out.append(name)
+    return out
+
+
+def _options(product: dict, field: str) -> list[dict]:
+    """Wire codes and English names for one of the catalogue's option lists.
+
+    ``controlMode``, ``smoothness`` and ``frequency`` all share a shape: a list
+    of ``{code, nameEn, ...}`` that is empty on most models. The English names
+    are used as-is here, unlike the fan's, which needed correcting.
+    """
+    out: list[dict] = []
+    for option in product.get(field) or []:
+        code = _as_int(option.get("code"))
+        if code is None:
+            continue
+        name = (option.get("nameEn") or "").strip() or f"Mode {code}"
+        out.append({"code": code, "name": name})
+    return out
+
+
+def _rgb_channels(product: dict) -> list[str]:
+    """Channel layouts a model accepts for direct colour control."""
+    return list(_RGB_LAYOUTS.get(_as_int(product.get("rgb")) or 0, ()))
+
+
 #: Godox's catalogue spells the same suffixes several ways -- "Bi" 57 times,
 #: "BI" and "bi" twice each, "mini" alongside "Air" and "Pro". These are the
 #: model names shown in the config flow's picker, so the inconsistency is
@@ -90,16 +186,6 @@ def _tidy_name(name: str | None) -> str | None:
         # and ending on a word boundary, so a word like "Bianco" would survive.
         out = re.sub(rf"(?<=[0-9A-Za-z ]){re.escape(wrong)}\b", right, out)
     return out
-
-
-def _as_kelvin(value: object) -> int | None:
-    """Coerce a catalogue colour-temperature bound to an int, or None."""
-    if isinstance(value, bool) or value is None:
-        return None
-    try:
-        return int(value)
-    except (TypeError, ValueError):
-        return None
 
 
 def _has_battery(product: dict) -> bool:
@@ -213,6 +299,79 @@ def _fan_modes(product: dict) -> list[dict]:
     return sorted(out, key=lambda m: order.get(m["code"], 99))
 
 
+#: Reference types to the sub-brand code the V3+ colour-chip frame carries,
+#: decoded from the vendor app's ``ColorChipJson.getSubBrandCommand``.
+_CHIP_SUB_BRAND = {
+    "COR.": 0, "CAL.": 1, "COLOR.": 1, "SPC.": 2,
+    "600": 2, "CINE.": 3, "COS.": 3, "700": 4,
+}
+
+
+def _chip_label(chip: dict) -> str:
+    """A name a user can pick a gel by.
+
+    The catalogue's own number is what the gel is called on the physical
+    filter, so it leads. ``colorName`` is filled in for some entries and empty
+    for most, and ``referenceType`` distinguishes the sub-catalogues a brand is
+    split into from version 3 onwards.
+    """
+    parts = [chip.get("brandSeries") or "?"]
+    if reference := (chip.get("referenceType") or ""):
+        parts.append(reference)
+    parts.append(str(chip.get("colorNum") or chip.get("sortNum", 0)))
+    label = " ".join(parts)
+    if name := (chip.get("colorName") or "").strip():
+        label = f"{label} {name}"
+    return label
+
+
+def _color_chips(path: Path) -> dict[str, list[dict]]:
+    """Gel options grouped by catalogue version, with their wire fields.
+
+    A model's ``colorChipVersion`` picks the group; within it a gel is named on
+    the wire by a brand code and its ``sortNum``, which is what the app's own
+    lookup uses as the number.
+    """
+    if not path.exists():
+        print(f"  no gel catalogue at {path} -- skipping colour chips")
+        return {}
+    raw = json.loads(path.read_text())
+    out: dict[str, list[dict]] = {}
+    # Godox ships every V1 and V2 gel twice, byte for byte, so options are
+    # deduplicated on what actually goes on the wire rather than on the label.
+    seen: dict[str, dict[tuple[int, int, int], str]] = {}
+    for chip in _entries(raw, "chips"):
+        version = str(_as_int(chip.get("colorChipVersion")) or 0)
+        series = chip.get("brandSeries") or ""
+        wire = (
+            1 if series.split("/")[0] == "L-GEL" else 0,
+            _as_int(chip.get("sortNum")) or 0,
+            _CHIP_SUB_BRAND.get(chip.get("referenceType") or "", 0),
+        )
+        if wire in seen.setdefault(version, {}):
+            continue
+        label = _chip_label(chip)
+        # A Home Assistant select addresses an option by its text, so two
+        # different gels may not share one. Nothing in the catalogue collides
+        # today; this keeps a future one reachable rather than silently lost.
+        taken = set(seen[version].values())
+        if label in taken:
+            suffix = 2
+            while f"{label} ({suffix})" in taken:
+                suffix += 1
+            label = f"{label} ({suffix})"
+        seen[version][wire] = label
+        out.setdefault(version, []).append(
+            {
+                "label": label,
+                "brand": wire[0],
+                "number": wire[1],
+                "sub_brand": wire[2],
+            }
+        )
+    return out
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument(
@@ -232,6 +391,17 @@ def main() -> int:
         type=Path,
         default=Path("custom_components/godox_mesh/capabilities_data.json"),
     )
+    ap.add_argument(
+        "--color-chips",
+        type=Path,
+        default=Path("reverse-artifacts/color-chips.json"),
+        help="gel catalogue (default: the committed artifact)",
+    )
+    ap.add_argument(
+        "--color-chip-output",
+        type=Path,
+        default=Path("custom_components/godox_mesh/color_chips_data.json"),
+    )
     args = ap.parse_args()
 
     products = _entries(json.loads(args.products.read_text()), "products")
@@ -241,20 +411,29 @@ def main() -> int:
     skipped: list[str] = []
     for product in products:
         rid = (product.get("radioId") or "").upper()
+        # `chips` is the set of radioIds a mesh firmware image actually serves,
+        # confirmed by a per-radioId sweep of Godox's firmware API
+        # (reverse/btf-per-radioid-verification.json). A model absent from it is
+        # Bluetooth but *not* mesh: `hasBtFirmware` is true for those too, so it
+        # cannot be the test. The app has no mesh scan signature, handshake or
+        # protocol for them, so this integration cannot reach them -- see
+        # docs/model-support.md "What this integration cannot reach".
         if not rid or rid not in chips:
-            continue  # not a Bluetooth-mesh product
+            continue
         ct = product.get("colorTemp") or {}
         # The catalogue is inconsistently typed: most models give integers, but
         # some give the same numbers as strings ("1800"/"10000"). An earlier
         # isinstance(int) check silently dropped those, and both happened to be
         # 1800-10000 K models -- the widest range in the range -- which then
         # fell back to a default narrower than the light actually is.
-        lo, hi = _as_kelvin(ct.get("min")), _as_kelvin(ct.get("max"))
+        lo, hi = _as_int(ct.get("min")), _as_int(ct.get("max"))
         if lo is None or hi is None or lo > hi:
             skipped.append(f"{rid} {product.get('productName')}")
             continue
         battery = _has_battery(product)
         fan_modes = _fan_modes(product)
+        gm = product.get("greenMagenta") or {}
+        gm_lo, gm_hi = _as_int(gm.get("min")) or 0, _as_int(gm.get("max")) or 0
         table[rid] = {
             "name": _tidy_name(product.get("productName")),
             "min_kelvin": lo,
@@ -264,6 +443,34 @@ def main() -> int:
             "battery": battery,
             "chip": chips[rid],
             "effects": _effects(product),
+            # Which effect frame the model takes. 0 is the eight-byte 0xF3
+            # command, 1 the V3 0xF7 one with a per-effect selector; they are
+            # not interchangeable. Every effectVersion 1 model reports
+            # `gear: 0`, so the older generation's step count does not apply
+            # to them -- their speed is a 0-100 value instead.
+            "effect_version": 1 if product.get("effectVersion") == 1 else 0,
+            "modes": _modes(product),
+            "gm_min": gm_lo,
+            "gm_max": gm_hi,
+            # Which gel catalogue and frame this model uses. Only meaningful
+            # when 'color_chip' is in `modes`.
+            "color_chip_version": _as_int(product.get("colorChipVersion")) or 0,
+            # The vendor app's "more settings" screen. Control mode and mains
+            # frequency travel in one command, which is why the catalogue lists
+            # the same models under both.
+            "control_modes": _options(product, "controlMode"),
+            "frequencies": _options(product, "frequency"),
+            "smoothness_modes": _options(product, "smoothness"),
+            # Whether the light recognises a motorised accessory bolted to it.
+            "attachment": bool(product.get("attachmentSupport")),
+            # A second, narrower colour-temperature range on its own command.
+            # Equal bounds -- almost every model -- mean it has none.
+            "selfie_min_kelvin": _as_int(ct.get("selfieMin")) or 0,
+            "selfie_max_kelvin": _as_int(ct.get("selfieMax")) or 0,
+            "rgb_display": _as_int(product.get("rgbDisplay")) or 0,
+            "rgb_channels": _rgb_channels(product),
+            # 100 or 1000; anything else is treated as whole percent.
+            "brightness_steps": 1000 if _as_int(product.get("luminance")) == 1000 else 100,
         }
 
     if not table:
@@ -286,14 +493,48 @@ def main() -> int:
         **ordered,
     }
     args.output.write_text(json.dumps(document, indent=1, sort_keys=True) + "\n")
+    chips = _color_chips(args.color_chips)
+    if chips:
+        args.color_chip_output.write_text(
+            json.dumps(
+                {
+                    "_generated_by": "scripts/generate_capabilities.py",
+                    "_inputs": [str(args.color_chips)],
+                    "_note": (
+                        "Generated -- do not hand-edit. One entry per gel, "
+                        "grouped by the catalogue version a model reports."
+                    ),
+                    "versions": chips,
+                },
+                indent=1,
+                ensure_ascii=False,
+            )
+            + "\n"
+        )
+        print(
+            f"wrote {args.color_chip_output} with "
+            + ", ".join(f"v{k}: {len(v)}" for k, v in sorted(chips.items()))
+        )
 
-    with_fan = sum(1 for v in table.values() if v["fan"])
-    with_fx = sum(1 for v in table.values() if v["effects"])
-    with_batt = sum(1 for v in table.values() if v["battery"])
+    def count(predicate) -> int:
+        return sum(1 for v in table.values() if predicate(v))
+
     print(f"wrote {args.output} with {len(table)} models")
-    print(f"  with a fan     : {with_fan}")
-    print(f"  with effects   : {with_fx}")
-    print(f"  battery-capable: {with_batt}")
+    print(f"  with a fan       : {count(lambda v: v['fan'])}")
+    print(f"  with effects     : {count(lambda v: v['effects'])}")
+    print(f"    older 0xF3 frame: {count(lambda v: v['effects'] and not v['effect_version'])}")
+    print(f"    newer 0xF7 frame: {count(lambda v: v['effects'] and v['effect_version'])}")
+    print(f"  battery-capable  : {count(lambda v: v['battery'])}")
+    print(f"  HSI              : {count(lambda v: 'hsi' in v['modes'])}")
+    print(f"  direct RGB       : {count(lambda v: 'rgb' in v['modes'])}")
+    print(f"  CIE xy           : {count(lambda v: 'xy' in v['modes'])}")
+    print(f"  green/magenta    : {count(lambda v: v['gm_min'] != v['gm_max'])}")
+    print(f"  0.1% brightness   : {count(lambda v: v['brightness_steps'] == 1000)}")
+    print(f"  colour chip      : {count(lambda v: 'color_chip' in v['modes'])}")
+    print(f"  control mode     : {count(lambda v: v['control_modes'])}")
+    print(f"  smoothness       : {count(lambda v: v['smoothness_modes'])}")
+    print(f"  accessory toggle : {count(lambda v: v['attachment'])}")
+    print(f"  selfie CCT       : {count(lambda v: v['selfie_min_kelvin'] != v['selfie_max_kelvin'])}")
     if skipped:
         print(f"  skipped (bad colorTemp): {len(skipped)} -> {', '.join(skipped[:6])}")
     return 0

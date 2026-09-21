@@ -5,9 +5,8 @@
 > connection are accepted by GATT and silently discarded — the light never
 > reboots and nothing reports an error. Flashing must happen on a connection
 > that has carried a mesh Network PDU. See
-> [ota-login-gate.md](ota-login-gate.md). The earlier claim in this document
-> that the procedure was "proved equivalent to the APK" was wrong: it matched
-> the app's packet *format*, not its full procedure.
+> [ota-login-gate.md](ota-login-gate.md). The procedure here matches the app's
+> packet *format*, not its full connection procedure.
 
 
 
@@ -24,20 +23,18 @@ It builds the patched firmware, the flasher, and the evidence that both are
 sound — and inventories exactly which lights it applies to.
 
 > [!WARNING]
-> **The patch has no demonstrated benefit. Do not install it.**
->
-> Two claims that once justified it are now known to be false, both corrected
-> by testing against a real light (see
+> **The patch has no demonstrated benefit. Do not install it.** Two facts
+> remove any reason to (see
 > [readback-hardware-findings.md](readback-hardware-findings.md)):
 >
-> - *"These lights cannot report live brightness and colour temperature."*
->   They can, on **stock** firmware. The original investigation built its
->   status request with the end byte padded to `0xFF`; that byte selects which
->   record the light reports, and record `0xA0` is live.
-> - *"A ~26-byte change to the Bluetooth firmware fixes it."* The one field
->   still missing — colour temperature changed on the light's own dial — was
->   **not** delivered by the patch when it was flashed to a real SL200III Bi.
->   The ceiling is the light's MCU, which no BLE-side patch can lift.
+> - These lights report live brightness and colour temperature on **stock**
+>   firmware. The status request's end byte selects which record the light
+>   reports, and record `0xA0` is live; padding it to `0xFF` selects the flash
+>   default instead.
+> - The one field still missing — colour temperature changed on the light's own
+>   dial — is **not** delivered by the patch: flashed to a real SL200III Bi, it
+>   did not appear. The ceiling is the light's MCU, which no BLE-side patch can
+>   lift.
 >
 > What remains useful here is the *flashing pipeline*, which is now
 > hardware-proven: stock → patched → debug image → back to stock, with the

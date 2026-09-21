@@ -133,12 +133,14 @@ class GodoxMeshLink:
         self,
         node_address: int,
         *,
-        brightness_pct: int,
+        brightness_pct: float,
         kelvin: int,
         min_kelvin: int | None = None,
         max_kelvin: int | None = None,
+        gm: int = 0,
+        supports_gm: bool = False,
     ) -> None:
-        """Turn a node on at a given brightness and colour temperature."""
+        """Turn a node on at a given brightness, colour temperature and tint."""
         await self._async_run(
             lambda: self._controller.set_params(
                 brightness=brightness_pct,
@@ -146,16 +148,157 @@ class GodoxMeshLink:
                 dst=node_address,
                 min_kelvin=min_kelvin,
                 max_kelvin=max_kelvin,
+                gm=gm,
+                supports_gm=supports_gm,
+            )
+        )
+
+    async def async_set_hsi(
+        self,
+        node_address: int,
+        *,
+        hue: int,
+        saturation: int,
+        brightness_pct: float,
+    ) -> None:
+        """Set a node's hue, saturation and intensity."""
+        await self._async_run(
+            lambda: self._controller.set_hsi(
+                hue=hue,
+                saturation=saturation,
+                brightness=brightness_pct,
+                dst=node_address,
+            )
+        )
+
+    async def async_set_rgbw(
+        self,
+        node_address: int,
+        *,
+        red: int,
+        green: int,
+        blue: int,
+        white: int = 0,
+        brightness_pct: float,
+        wide: bool = False,
+        rgb_type: int = 0,
+        extra: tuple[int, int, int] | None = None,
+    ) -> None:
+        """Set a node's colour channels directly.
+
+        ``wide`` selects the sixteen-bit frame that ``rgbDisplay`` 1 and 2
+        models take; the caller is responsible for having scaled the channel
+        values to match.
+        """
+        await self._async_run(
+            lambda: self._controller.set_rgbw(
+                red=red,
+                green=green,
+                blue=blue,
+                white=white,
+                brightness=brightness_pct,
+                wide=wide,
+                rgb_type=rgb_type,
+                extra=extra,
+                dst=node_address,
             )
         )
 
     async def async_set_effect(
-        self, node_address: int, *, effect: int, brightness_pct: int, speed: int = 0
+        self,
+        node_address: int,
+        *,
+        effect: int,
+        brightness_pct: float,
+        speed: int = 0,
+        effect_version: int = 0,
     ) -> None:
-        """Run a lighting effect on a node, at the given speed."""
+        """Run a lighting effect on a node, at the given speed.
+
+        ``effect_version`` selects the frame: the two generations use different
+        sub-commands and different effect selectors, so a model must be sent
+        the one its own catalogue entry names.
+        """
         await self._async_run(
             lambda: self._controller.set_effect(
-                effect, brightness=brightness_pct, speed=speed, dst=node_address
+                effect,
+                brightness=brightness_pct,
+                speed=speed,
+                effect_version=effect_version,
+                dst=node_address,
+            )
+        )
+
+    async def async_set_xy(
+        self,
+        node_address: int,
+        *,
+        x: float,
+        y: float,
+        brightness_pct: float,
+    ) -> None:
+        """Set a node's colour by CIE 1931 xy chromaticity."""
+        await self._async_run(
+            lambda: self._controller.set_xy(
+                x=x, y=y, brightness=brightness_pct, dst=node_address
+            )
+        )
+
+    async def async_set_color_chip(
+        self,
+        node_address: int,
+        *,
+        brand: int,
+        number: int,
+        sub_brand: int = 0,
+        version: int = 2,
+        brightness_pct: float = 100.0,
+    ) -> None:
+        """Make a node emulate a lighting gel."""
+        await self._async_run(
+            lambda: self._controller.set_color_chip(
+                brand=brand,
+                number=number,
+                sub_brand=sub_brand,
+                version=version,
+                brightness=brightness_pct,
+                dst=node_address,
+            )
+        )
+
+    async def async_set_control_mode(
+        self, node_address: int, *, mode: int, frequency: int = 0
+    ) -> None:
+        """Set a node's output profile and mains frequency, which share a frame."""
+        await self._async_run(
+            lambda: self._controller.set_control_mode(
+                mode, frequency, dst=node_address
+            )
+        )
+
+    async def async_set_smoothness(self, node_address: int, mode: int) -> None:
+        """Set how a node ramps between levels."""
+        await self._async_run(
+            lambda: self._controller.set_smoothness(mode, dst=node_address)
+        )
+
+    async def async_set_motion_recognize(
+        self, node_address: int, enabled: bool
+    ) -> None:
+        """Enable or disable a node's recognition of an attached accessory."""
+        await self._async_run(
+            lambda: self._controller.set_motion_recognize(
+                enabled, dst=node_address
+            )
+        )
+
+    async def async_set_selfie_cct(
+        self, node_address: int, *, brightness_pct: float, kelvin: int
+    ) -> None:
+        """Set a node's selfie colour-temperature mode."""
+        await self._async_run(
+            lambda: self._controller.set_selfie_cct(
+                brightness=brightness_pct, kelvin=kelvin, dst=node_address
             )
         )
 

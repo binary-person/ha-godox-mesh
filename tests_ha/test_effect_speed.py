@@ -30,10 +30,13 @@ BLE_PATH = "custom_components.godox_mesh.bluetooth.async_ble_device_from_address
 LIGHT = "light.light"
 SPEED = "number.light_effect_speed"
 
-# SL200III Bi: Flash and Lightning have two speed steps, the rest have one.
+# SL200III Bi: older effect generation, Flash and Lightning have two speed
+# steps and the rest have one.
 WITH_SPEED = "003F"
-# TP2R: every effect is single-speed, so it gets no control at all.
-WITHOUT_SPEED = "002A"
+# ES45: no effects at all, so nothing to set a speed for.
+WITHOUT_SPEED = "0009"
+# TP2R: newer effect generation, whose speed is a continuous 0-100 value.
+NEW_GENERATION = "002A"
 
 
 async def _setup(hass: HomeAssistant, radio_id: str) -> MockConfigEntry:
@@ -56,10 +59,27 @@ async def _setup(hass: HomeAssistant, radio_id: str) -> MockConfigEntry:
 
 
 @pytest.mark.usefixtures("fake_ble")
-async def test_single_speed_model_gets_no_control(hass: HomeAssistant) -> None:
-    """A model whose every effect runs at one speed should not offer a slider."""
+async def test_model_without_effects_gets_no_control(hass: HomeAssistant) -> None:
+    """A model with no effects has no speed to set."""
     await _setup(hass, WITHOUT_SPEED)
     assert hass.states.get(SPEED) is None
+
+
+@pytest.mark.usefixtures("fake_ble")
+async def test_new_generation_model_gets_a_continuous_control(
+    hass: HomeAssistant,
+) -> None:
+    """The newer effect frame carries a 0-100 speed, not a step index.
+
+    These models report ``gear: 0`` for every effect, so deriving the maximum
+    from ``gear`` gave zero and the control was never created -- on 122 of the
+    177 models that have effects.
+    """
+    await _setup(hass, NEW_GENERATION)
+
+    state = hass.states.get(SPEED)
+    assert state is not None
+    assert float(state.attributes["max"]) == 100
 
 
 @pytest.mark.usefixtures("fake_ble")

@@ -41,8 +41,10 @@ table rather than hardcoded.
 | Bi-colour | 159 | colour-temperature control over the model's own range |
 | Daylight, fixed CCT | 27 | brightness only (no meaningless colour slider) |
 
-(Of the 190 mesh products, 186 are in the shipped capability table; the other 4
-have no usable colour data upstream and fall back to a default range.)
+(Of the 190 mesh products, 186 are lights in the shipped capability table; the
+other 4 are motorised accessories — the AD00-01/AD00-02 soft-light modifiers,
+AD88 and LF100MPY — which report no colour temperature and are not exposed as
+lights.)
 
 The bi-colour ranges present among mesh products, all handled from the table:
 
@@ -63,34 +65,164 @@ new table row, not new code. The node-address allocator was also fixed to stride
 by the two-element node size, so a second light on one network no longer collides
 with the first light's element 1.
 
-What is done: the CCT range is per-model, daylight models are brightness-only,
-and the config flow captures the model at pairing. What remains, as capability
-gating rather than protocol work:
+### What each model gets
 
-- **Per-model effects — done.** Each model offers exactly the effects Godox
-  lists for it, named (Lightning, Candle, Firework). The wire symbol is the
-  catalogue id minus one, which for the SL200III Bi reproduces its firmware's
-  `0xF3` comparison chain exactly.
-- **Fan as an entity — done.** A `select`, for the 73 models with controllable
-  speeds. Its first position is *Silent*, not off.
-- **Effect speed — done.** A `number`, for the 55 models with a multi-speed
-  effect, clamped per effect.
+Everything below is decided per model from Godox's own catalogue, chiefly its
+`modeType` list — the same field the vendor app uses to decide which control
+screens to show. Counts are out of the 186 mesh models in the table.
 
-What remains is full-colour (RGB/HSI) support, which needs an added colour mode
-rather than new reverse engineering.
+| Capability | Models | Entity |
+|---|---|---|
+| Colour temperature | 183 | `light`, `color_temp` |
+| Brightness only (fixed daylight) | 3 | `light`, `brightness` |
+| Hue / saturation (HSI, `0xF1`) | 86 | `light`, `hs` |
+| Direct channels (RGBW/RGBWW, `0xF2` / `0xF9`) | 81 | `light`, `rgbw` / `rgbww` |
+| Effects | 177 | `light`, effect list |
+| Effect speed | 177 | `number` |
+| Lighting gels (`0xF4` / `0xF8`) | 70 | `select` |
+| Green/magenta tint | 83 | `number` |
+| Fan speed (`0xF5`) | 73 | `select` |
+| Battery charge | 25 | `sensor` |
+| Brightness in tenths of a percent | 53 | carried in the `light` commands |
 
-### Full-colour (RGB/HSI) models
+Two parts of that table turn on distinctions the catalogue does not make
+obvious:
 
-The vendor protocol has HSI (`0xF1`) and RGBW (`0xF2`) commands, and the
-library can already build V2 frames for them, but the light entity is
-colour-temperature only. Full-colour Godox mesh lights (the RGB tubes and
-panels) would need an `hs`/`rgbw` colour mode wired to those commands. That is
-more work than the CCT-range change but is still protocol-complete — nothing
-new to discover, just entity code.
+- **Colour** is built by dedicated frames — `build_hsi_command` (`0xF1`) and
+  `build_rgbw_command` (`0xF2`/`0xF9`) — not the generic `build_v2_command`.
+  Eighty-six models offer HSI.
+- **Effects come in two generations.** `effectVersion` 0 takes the eight-byte
+  `0xF3` command; `effectVersion` 1 — **122 of the 177 models with effects** —
+  takes a V3 frame on `0xF7` whose third byte is a per-effect *selector that is
+  not the symbol* (Flash is symbol 5 but selector 0). Those models report
+  `gear: 0` for every effect, so the step count does not apply to them; their
+  speed is a 0–100 value in the V3 frame.
+
+### Colour modes
+
+A model is given exactly the colour modes its catalogue lists, with one
+entry-level choice on top. 40 models accept a CIE xy command (`0xFA`), and
+every one of them also accepts HSI — so by default they get hue/saturation and
+direct channels, and `xy_color` sent to the light is converted by Home
+Assistant (accurately: the round trip is within 0.001 in xy across the useful
+region).
+
+The **Use CIE xy** option in the entry's settings swaps that. It has to be a
+swap rather than an addition, because Home Assistant resolves a colour wheel's
+`hs_color` against RGB, then RGBW, then RGBWW, and only then XY: a light
+advertising any of those alongside XY would never reach its xy command from the
+dashboard at all. With the option on, the light advertises `{color_temp, xy}`
+only, the wheel's `hs_color` is converted to xy by Home Assistant and sent
+natively, and two `number` entities give exact coordinate entry — which is the
+real point, since Home Assistant's frontend has no way to type one.
+
+`RGBACL` — red/green/blue plus amber, cyan and lime — has no Home Assistant
+colour mode. No model in the catalogue offers it without also offering `RGBW`,
+so nothing is lost today; a future model that did would still get HSI.
+
+### Complete audit against the vendor app's command surface
+
+`GodoxCommandApi` exposes 75 public methods. Six are callback plumbing and four
+are marked `@Deprecated` by Godox itself (`changeBrightnessOffset`, whose own
+comment says it has no effect; `changeElectricFan`, superseded by its V2;
+`onSendPixelLightFrameComplete`; and `onChangePixelLightNumberSpeed`, "the
+hardware does not do this yet"). Of the 65 that remain, everything is
+implemented except the rows below.
+
+| Command(s) | Models | Why not |
+|---|---|---|
+| `openPaUpgrade` | all | `0xFD` data byte 4 -- the OTA gate. Documented in [ota-login-gate.md](ota-login-gate.md); the integration no longer flashes anything, so nothing here needs to open it. |
+| `enableGodoxGattAgreementNotify`, `sendGodoxGattAgreementData` and 8 pixel methods | 1 | The LT1's bulk-data path, a raw GATT write on `fff0`/`fff3` rather than a mesh PDU. Library-only. |
+| 8 motion / electronic methods | 12 | Drive an accessory's motors -- angle, calibration, smoothness -- not the light. That is a `cover` for a different device. |
+| `changeLightXYEx` gamut byte | 40 | **The app never calls it.** `build_xy_command` accepts `color_gamut` for a caller who knows better; no catalogue field says which gamut a model wants. |
+| `changeLightFXRainbow` | ? | **The app never calls it** either, and Rainbow has no `FxSymbolType` entry, so nothing says which models offer it. `build_fx_rainbow_command` exists but nothing sends it: it shares selector 19 with Pixel Candle and is told apart only by frame length, so guessing wrong runs the wrong effect. |
+
+Everything else is now implemented: `changeControlModeParam` and
+`changeSmoothnessParam` as `select` entities on the 10 and 12 models that list
+them, `onLightMotionRecognize` as a `switch` on the 7 with `attachmentSupport`,
+`changeSelfieModeParam` as a colour-temperature range swap on the 2 models with
+a second range, `changeLightRGBWEx` as `build_rgb_ex_command`, and
+`getMcuVersion` as `GodoxController.request_mcu_version`.
+
+### The app has no live state readback at all
+
+The app sends `0xFD` four times: data byte 1 with the `0xA6` end byte
+(battery), byte 2 (BLE version), byte 3 (MCU version) and byte 4 (the OTA
+gate). It **never** asks for the `0xA0` record -- the live brightness and
+colour temperature this integration polls.
+
+Nor does it get the information pushed. `SendDataCallback.onGodoxDataResponse`
+decodes exactly three V2 replies: `0xA6` battery, and `0xAF` sub-types `0x20`
+(BLE version), `0x30` (MCU version) and `0x40` (OTA gate acknowledged). There
+is no handler for `0xA0`, and none for the `0xB0` event. The `0xDF`
+(`GodoxOrder.Report`) path does exist, but `MainViewModel.onReportCallback`
+gates it to `GodoxOrderType.Special` + `SpecialType.PixelLight`: it carries a
+pixel light's switch state and playing effect number, nothing else, and the
+LT1 is the only model that can send one.
+
+So the app shows what it last sent, and is simply wrong about a light whose own
+panel has been touched. Polling the `0xA0` record is something this integration
+does that the vendor app cannot.
+
+### Not implemented, and why
+
+- **Pixel-light animations** (1 model). Per-pixel frames are uploaded to the
+  light as a multi-packet stream. Home Assistant has no concept that fits, and
+  a `light` entity is the wrong shape for it.
+- **Electronic control** (12 models). These commands drive motorised
+  accessories — barndoors, softbox arms, a pitch axis — not the light. They
+  belong to a `cover`/`fan` entity for the accessory, which is a separate
+  integration-shaped problem.
+- **`modeType` 8** (34 models). The vendor app has no branch for it either —
+  `getSceneModeTypeList` falls through — so those models get nothing from it in
+  the Godox app. Nothing to implement until something is known about it.
+- **Per-effect parameters beyond speed.** The V3 effects take further
+  arguments (Lightning's trigger and twinkling, Flash's mode, the colour-block
+  lists of the RGB chase and flow effects). They are sent at the vendor app's
+  own defaults, which are recorded in `FX_V3_DEFAULTS` and `ColorBlock`.
+  Exposing each would mean a number or select entity per parameter per effect —
+  roughly forty extra entities on one light.
+
+### How much of this is trustworthy without a light
+
+Both lights available while the colour half was written — an SL200III Bi and an
+SL60II Bi — are bi-colour, `effectVersion` 0, no tint, no gels. So none of it
+has been seen to work. That is not all equally uncertain, though, and it is
+worth being precise about where the risk sits.
+
+**Near-certain: the frames.** Every command here is built to the byte layout
+read straight out of the vendor app's `GodoxCommandApi`, over the same CRC and
+mesh path already proven on hardware, and each is asserted byte-for-byte in the
+tests. Where this library sends the app's frame built from the app's own inputs
+— HSI, the CCT-with-tint frame, the fan frame, the V3 effects at the defaults
+in `FX_V3_DEFAULTS` — if the Godox app works, this works.
+
+**The real risk is in the choices and the data, not the bytes.** Three places
+where a perfectly well-formed frame could still be the wrong one:
+
+1. **Channel rescaling is this repository's, not Godox's.** Home Assistant
+   hands over 0-255 per channel; `rgbDisplay` 1 and 2 models take 0-1000 on the
+   wire. `_async_send_channels` scales linearly between them. If Godox's own
+   0-1000 is not linear in the same sense, the colour lands close but not
+   exact. The frame is valid either way, so nothing would flag it.
+2. **The gel number is inferred.** `build_color_chip_command` sends the
+   catalogue's `sortNum` as the number, because the app's
+   `getSingleColorChip(brandComb, sortNum, version)` is called with
+   `colorChipJson.getNumber()`. That is a strong inference, not a read of the
+   value being assigned. If it is wrong the light shows the wrong gel, silently
+   — no record reports the selection back.
+3. **Which frame a model takes comes from the catalogue.** `rgbDisplay`,
+   `effectVersion` and `colorChipVersion` decide the format; none of them is
+   derivable from the protocol. A model mis-classified in Godox's own data, or
+   mis-read here, gets a well-formed frame in a format it does not parse.
+
+Community reports on a full-colour model would settle all three quickly. The
+first thing to check is whether a mid-range colour looks right rather than
+merely present -- that is what would catch (1).
 
 ## Readback support
 
-**Corrected by hardware testing** — see
+**Verified on hardware** — see
 [readback-hardware-findings.md](readback-hardware-findings.md). Brightness
 readback (commanded *and* panel-changed) works on stock firmware once the status
 request selects the `0xA0` record, as does commanded colour temperature. The one
@@ -149,10 +281,8 @@ the standard models are ever used, which they are not for control.)
 ## What this integration cannot reach — the 36 non-mesh products
 
 Godox's catalogue holds **226** products; **190** are Bluetooth mesh and are in
-scope. The remaining **36 are out of reach**, and it is worth being precise about
-why, because the obvious guess is wrong.
-
-They are not a different radio. **33 of the 36 report `hasBtFirmware = true`** —
+scope. The remaining **36 are out of reach**, and the reason is not a different
+radio. **33 of the 36 report `hasBtFirmware = true`** —
 they *are* Bluetooth devices. They are simply not *mesh* devices, and Godox's
 firmware API serves them none of the three mesh images. Querying every radioId at
 once (necessary, because `supportRadioIds` is filtered to whatever you ask for)
@@ -194,13 +324,12 @@ was fetched with `AppName: GodoxLight`.
 
 | | Stock firmware | With the BLE patch |
 |---|---|---|
-| **Control** (on/off, brightness, CCT, effects, fan) | all 190 mesh models, from the capability table | same |
-| **Full colour** (RGB/HSI) | needs an added colour mode; protocol already supports it | same |
+| **Control** (on/off, brightness, CCT, effects, fan) | all 186 light models, from the capability table | same |
+| **Full colour** (HSI/RGBW/xy, gels, tint) | implemented for the models that report it | same |
 | **Readback** (live brightness, commanded CCT, battery) | **works** — select record `0xA0` | same |
 | **Readback** (CCT changed on the light's own dial) | model-dependent; correct on an SL60II Bi, stale on an SL200III Bi | **no change** — tested |
 
 The patch column is deliberately dull: flashing works, but the patch delivers
 nothing readback-wise, because the remaining limit is in the MCU. The
-integration reaches the whole Godox mesh range today on stock firmware. What is
-left is full colour (RGB/HSI), which needs an added colour mode rather than
-further reverse engineering.
+integration reaches the whole Godox mesh range on stock firmware — control, full
+colour, effects, gels and readback — with no patch required.

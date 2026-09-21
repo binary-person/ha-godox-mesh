@@ -1,7 +1,12 @@
 {
  "0001": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -76,13 +81,36 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2700,
-  "name": "TL60"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "mode_8",
+   "effects"
+  ],
+  "name": "TL60",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0002": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -152,13 +180,35 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 50,
+  "gm_min": -50,
   "max_kelvin": 6500,
   "min_kelvin": 2700,
-  "name": "TL30"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "mode_8",
+   "effects"
+  ],
+  "name": "TL30",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0003": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -228,13 +278,35 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 50,
+  "gm_min": -50,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "SZ150R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "mode_8",
+   "effects"
+  ],
+  "name": "SZ150R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0004": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -309,13 +381,36 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 50,
+  "gm_min": -50,
   "max_kelvin": 8500,
   "min_kelvin": 2500,
-  "name": "LD75R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "mode_8",
+   "effects"
+  ],
+  "name": "LD75R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0005": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -390,13 +485,36 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 50,
+  "gm_min": -50,
   "max_kelvin": 8500,
   "min_kelvin": 2500,
-  "name": "LD150R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "mode_8",
+   "effects"
+  ],
+  "name": "LD150R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0006": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -471,13 +589,36 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 50,
+  "gm_min": -50,
   "max_kelvin": 8500,
   "min_kelvin": 2500,
-  "name": "LD150RS"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "mode_8",
+   "effects"
+  ],
+  "name": "LD150RS",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0007": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -552,13 +693,33 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 0,
   "min_kelvin": 0,
-  "name": "CL10"
+  "modes": [
+   "hsi",
+   "mode_8",
+   "effects"
+  ],
+  "name": "CL10",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0008": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -603,23 +764,60 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "SZ200Bi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "SZ200Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0009": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "ES45"
+  "modes": [
+   "cct"
+  ],
+  "name": "ES45",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "000A": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 1000,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -661,13 +859,32 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 5600,
   "min_kelvin": 5600,
-  "name": "M600D"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "M600D",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "000B": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -692,13 +909,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 5600,
   "min_kelvin": 5600,
-  "name": "UL60"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "UL60",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "000C": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -728,13 +964,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 5600,
   "min_kelvin": 5600,
-  "name": "WL4B"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "WL4B",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "000D": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -759,13 +1014,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 5600,
   "min_kelvin": 5600,
-  "name": "S60"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "S60",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "000E": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -790,13 +1064,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 5600,
   "min_kelvin": 5600,
-  "name": "SL100D"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "SL100D",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "000F": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -836,13 +1129,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "SL100Bi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "SL100Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0010": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -882,13 +1194,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "ML60Bi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "ML60Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0011": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -933,13 +1264,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 8500,
   "min_kelvin": 2700,
-  "name": "WL8P"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "WL8P",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0012": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -979,13 +1329,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "ML30Bi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "ML30Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0013": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -1010,13 +1379,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 5600,
   "min_kelvin": 5600,
-  "name": "ML30"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "ML30",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0014": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -1058,13 +1446,32 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 5600,
   "min_kelvin": 5600,
-  "name": "M300D"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "M300D",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0015": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -1104,13 +1511,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "S60Bi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "S60Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0016": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -1150,13 +1576,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "UL60Bi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "UL60Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0017": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -1231,13 +1676,35 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 8500,
   "min_kelvin": 2500,
-  "name": "C5R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "mode_8",
+   "effects"
+  ],
+  "name": "C5R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0018": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -1312,13 +1779,36 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2700,
-  "name": "TL120"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "mode_8",
+   "effects"
+  ],
+  "name": "TL120",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0019": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -1393,13 +1883,36 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2700,
-  "name": "TL180"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "mode_8",
+   "effects"
+  ],
+  "name": "TL180",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "001A": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -1441,13 +1954,32 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 5600,
   "min_kelvin": 5600,
-  "name": "M200D"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "M200D",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "001B": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -1472,13 +2004,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 5600,
   "min_kelvin": 5600,
-  "name": "UL150II"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "UL150II",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "001C": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -1535,13 +2086,32 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "M200Bi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "M200Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "001D": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -1581,13 +2151,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "UL150IIBi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "UL150IIBi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "001E": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -1644,23 +2233,60 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "M300Bi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "M300Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "001F": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "ES30"
+  "modes": [
+   "cct"
+  ],
+  "name": "ES30",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0020": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 1000,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -1717,13 +2343,32 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "M600Bi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "M600Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0021": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -1748,13 +2393,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 5600,
   "min_kelvin": 5600,
-  "name": "LA150D"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "LA150D",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0022": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -1794,13 +2458,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "LA150Bi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "LA150Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0023": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -1825,13 +2508,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 5600,
   "min_kelvin": 5600,
-  "name": "LA200D"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "LA200D",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0024": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -1871,23 +2573,58 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "LA200Bi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "LA200Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0025": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2700,
-  "name": "RF1"
+  "modes": [],
+  "name": "RF1",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "002A": {
+  "attachment": false,
   "battery": true,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 1,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -1977,13 +2714,37 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 50,
+  "gm_min": -50,
   "max_kelvin": 10000,
   "min_kelvin": 2000,
-  "name": "TP2R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "xy",
+   "mode_8",
+   "effects"
+  ],
+  "name": "TP2R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "002B": {
+  "attachment": false,
   "battery": true,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 1,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -2073,13 +2834,37 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 50,
+  "gm_min": -50,
   "max_kelvin": 10000,
   "min_kelvin": 2000,
-  "name": "TP4R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "xy",
+   "mode_8",
+   "effects"
+  ],
+  "name": "TP4R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "002E": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -2109,13 +2894,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 5600,
   "min_kelvin": 5600,
-  "name": "WT40D"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "WT40D",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "002F": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -2185,13 +2989,36 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 50,
+  "gm_min": -50,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "WT40R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "mode_8",
+   "effects"
+  ],
+  "name": "WT40R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0030": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -2261,13 +3088,36 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 50,
+  "gm_min": -50,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "WT25R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "mode_8",
+   "effects"
+  ],
+  "name": "WT25R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0031": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -2297,13 +3147,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 5600,
   "min_kelvin": 5600,
-  "name": "WT25D"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "WT25D",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0032": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -2373,13 +3242,36 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 50,
+  "gm_min": -50,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "WT60R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "mode_8",
+   "effects"
+  ],
+  "name": "WT60R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0033": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -2409,13 +3301,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 5600,
   "min_kelvin": 5600,
-  "name": "WT60D"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "WT60D",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0034": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -2440,13 +3351,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 5600,
   "min_kelvin": 5600,
-  "name": "SL300II"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "SL300II",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0035": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 2,
@@ -2486,13 +3416,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "SL300IIBi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "SL300IIBi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0036": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -2517,13 +3466,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 5600,
   "min_kelvin": 5600,
-  "name": "VL300II"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "VL300II",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0037": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -2548,13 +3516,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 5600,
   "min_kelvin": 5600,
-  "name": "VL200II"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "VL200II",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0038": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -2579,13 +3566,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 5600,
   "min_kelvin": 5600,
-  "name": "VL150II"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "VL150II",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0039": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -2610,13 +3616,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 5600,
   "min_kelvin": 5600,
-  "name": "SL60IID"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "SL60IID",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "003A": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -2656,13 +3681,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "SL60IIBi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "SL60IIBi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "003B": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -2687,13 +3731,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 5600,
   "min_kelvin": 5600,
-  "name": "SL150III"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "SL150III",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "003C": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -2718,13 +3781,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 5600,
   "min_kelvin": 5600,
-  "name": "SL200III"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "SL200III",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "003D": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -2749,13 +3831,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 5600,
   "min_kelvin": 5600,
-  "name": "SL300III"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "SL300III",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "003E": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 2,
@@ -2795,13 +3896,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "SL150IIIBi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "SL150IIIBi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "003F": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 2,
@@ -2841,13 +3961,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "SL200IIIBi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "SL200IIIBi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0040": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 2,
@@ -2887,13 +4026,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "SL300IIIBi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "SL300IIIBi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0041": {
+  "attachment": false,
   "battery": true,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -2953,13 +4111,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "LDX50Bi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "LDX50Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0042": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -3019,13 +4196,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "LDX100Bi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "LDX100Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0043": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 1,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -3100,13 +4296,36 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 50,
+  "gm_min": -50,
   "max_kelvin": 10000,
   "min_kelvin": 2500,
-  "name": "LDX50R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "mode_8",
+   "effects"
+  ],
+  "name": "LDX50R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0044": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 1,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -3181,13 +4400,36 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 50,
+  "gm_min": -50,
   "max_kelvin": 10000,
   "min_kelvin": 2500,
-  "name": "LDX100R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "mode_8",
+   "effects"
+  ],
+  "name": "LDX100R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0045": {
+  "attachment": false,
   "battery": true,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 1,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -3277,13 +4519,37 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 50,
+  "gm_min": -50,
   "max_kelvin": 10000,
   "min_kelvin": 2000,
-  "name": "TP8R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "xy",
+   "mode_8",
+   "effects"
+  ],
+  "name": "TP8R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0046": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 1,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -3358,13 +4624,36 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 50,
+  "gm_min": -50,
   "max_kelvin": 10000,
   "min_kelvin": 2000,
-  "name": "C7R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "mode_8",
+   "effects"
+  ],
+  "name": "C7R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0047": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 1,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -3439,13 +4728,36 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 50,
+  "gm_min": -50,
   "max_kelvin": 10000,
   "min_kelvin": 2000,
-  "name": "C10R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "mode_8",
+   "effects"
+  ],
+  "name": "C10R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0048": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -3505,13 +4817,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "FH50Bi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "FH50Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0049": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -3586,13 +4917,35 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 50,
+  "gm_min": -50,
   "max_kelvin": 10000,
   "min_kelvin": 2500,
-  "name": "FH50R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "mode_8",
+   "effects"
+  ],
+  "name": "FH50R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "004A": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 1,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -3667,13 +5020,36 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 50,
+  "gm_min": -50,
   "max_kelvin": 10000,
   "min_kelvin": 2500,
-  "name": "SZ300R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "mode_8",
+   "effects"
+  ],
+  "name": "SZ300R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "004B": {
+  "attachment": true,
   "battery": false,
+  "brightness_steps": 1000,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -3750,13 +5126,33 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "MG1200Bi"
+  "modes": [
+   "cct",
+   "effects",
+   "electronic_control"
+  ],
+  "name": "MG1200Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "004D": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 1000,
   "chip": "LK8620",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -3858,13 +5254,37 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "P300R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "xy",
+   "mode_8",
+   "effects"
+  ],
+  "name": "P300R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "004E": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 1000,
   "chip": "LK8620",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -3966,13 +5386,37 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "P600R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "xy",
+   "mode_8",
+   "effects"
+  ],
+  "name": "P600R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0053": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -4032,13 +5476,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 8500,
   "min_kelvin": 2700,
-  "name": "F200Bi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "F200Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0054": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -4098,13 +5561,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 8500,
   "min_kelvin": 2700,
-  "name": "F400Bi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "F400Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0056": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 1000,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -4181,13 +5663,32 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "P600Bi Hard"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "P600Bi Hard",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0058": {
+  "attachment": false,
   "battery": true,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 1,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -4277,13 +5778,37 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 50,
+  "gm_min": -50,
   "max_kelvin": 10000,
   "min_kelvin": 2000,
-  "name": "TPC2R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "xy",
+   "mode_8",
+   "effects"
+  ],
+  "name": "TPC2R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0059": {
+  "attachment": false,
   "battery": true,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 1,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -4373,13 +5898,37 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 50,
+  "gm_min": -50,
   "max_kelvin": 10000,
   "min_kelvin": 2000,
-  "name": "TPC4R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "xy",
+   "mode_8",
+   "effects"
+  ],
+  "name": "TPC4R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "005A": {
+  "attachment": false,
   "battery": true,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 1,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -4469,23 +6018,65 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 50,
+  "gm_min": -50,
   "max_kelvin": 10000,
   "min_kelvin": 2000,
-  "name": "TPC8R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "xy",
+   "mode_8",
+   "effects"
+  ],
+  "name": "TPC8R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "005B": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 5600,
   "min_kelvin": 3200,
-  "name": "P200Bi"
+  "modes": [
+   "cct"
+  ],
+  "name": "P200Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "005C": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 1,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -4560,13 +6151,36 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 50,
+  "gm_min": -50,
   "max_kelvin": 10000,
   "min_kelvin": 2500,
-  "name": "SL150R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "mode_8",
+   "effects"
+  ],
+  "name": "SL150R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "005D": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 1,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -4641,13 +6255,36 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 50,
+  "gm_min": -50,
   "max_kelvin": 10000,
   "min_kelvin": 2500,
-  "name": "SL300R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "mode_8",
+   "effects"
+  ],
+  "name": "SL300R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "005E": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -4707,13 +6344,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 8500,
   "min_kelvin": 2500,
-  "name": "LC500 Mini"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "LC500 Mini",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "005F": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -4788,13 +6444,35 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 8500,
   "min_kelvin": 2500,
-  "name": "LC500R Mini"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "mode_8",
+   "effects"
+  ],
+  "name": "LC500R Mini",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0060": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 1000,
   "chip": "LK8620",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -4886,33 +6564,93 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "M600R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "xy",
+   "mode_8",
+   "effects"
+  ],
+  "name": "M600R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0061": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 5600,
   "min_kelvin": 3200,
-  "name": "F7-120Bi"
+  "modes": [
+   "cct"
+  ],
+  "name": "F7-120Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0062": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 5600,
   "min_kelvin": 5600,
-  "name": "F7-120D"
+  "modes": [
+   "cct"
+  ],
+  "name": "F7-120D",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0063": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -4972,13 +6710,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 8500,
   "min_kelvin": 2500,
-  "name": "LC1000"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "LC1000",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0064": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -5058,13 +6815,35 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 50,
+  "gm_min": -50,
   "max_kelvin": 8500,
   "min_kelvin": 2500,
-  "name": "LC1000R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "mode_8",
+   "effects"
+  ],
+  "name": "LC1000R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0065": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 0,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -5124,13 +6903,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "ML60IIBi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "ML60IIBi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0066": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -5190,13 +6988,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "ML100Bi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "ML100Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0067": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 1000,
   "chip": "LK8620",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -5273,13 +7090,32 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "M1000Bi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "M1000Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0068": {
+  "attachment": true,
   "battery": false,
+  "brightness_steps": 1000,
   "chip": "LK8620",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -5356,13 +7192,42 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "MG2400Bi"
+  "modes": [
+   "cct",
+   "effects",
+   "electronic_control"
+  ],
+  "name": "MG2400Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 0,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": [
+   {
+    "code": 1,
+    "name": "Smooth"
+   },
+   {
+    "code": 2,
+    "name": "OFF"
+   }
+  ]
  },
  "0069": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 1000,
   "chip": "LK8620",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -5454,33 +7319,92 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "P600R Hard"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "xy",
+   "effects"
+  ],
+  "name": "P600R Hard",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "006B": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 5600,
   "min_kelvin": 3200,
-  "name": "P120Bi"
+  "modes": [
+   "cct"
+  ],
+  "name": "P120Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "006C": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 5600,
   "min_kelvin": 5600,
-  "name": "P120D"
+  "modes": [
+   "cct"
+  ],
+  "name": "P120D",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "006D": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 1000,
   "chip": "LK8620",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -5572,13 +7496,36 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "P1200R Hard"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "xy",
+   "effects"
+  ],
+  "name": "P1200R Hard",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0070": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -5618,13 +7565,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "DL150Bi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "DL150Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0072": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 0,
   "effects": [
    {
     "gears": 3,
@@ -5664,13 +7630,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "DL200Bi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "DL200Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0073": {
+  "attachment": true,
   "battery": false,
+  "brightness_steps": 1000,
   "chip": "LK8620",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -5762,13 +7747,38 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "MG1200R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "xy",
+   "effects",
+   "electronic_control"
+  ],
+  "name": "MG1200R",
+  "rgb_channels": [
+   "RGBW",
+   "RGBACL"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0074": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -5860,13 +7870,36 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "LA300R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "mode_8",
+   "effects"
+  ],
+  "name": "LA300R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 2,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0075": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -5958,13 +7991,35 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "LA150R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "effects"
+  ],
+  "name": "LA150R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 2,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0076": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -6024,13 +8079,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "P260CPro"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "P260CPro",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0077": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 1000,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -6105,13 +8179,45 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "F800R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "xy",
+   "effects"
+  ],
+  "name": "F800R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0078": {
+  "attachment": false,
   "battery": true,
+  "brightness_steps": 1000,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [
+   {
+    "code": 0,
+    "name": "Normal"
+   },
+   {
+    "code": 1,
+    "name": "Low End"
+   }
+  ],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -6203,13 +8309,95 @@
     "name": "High"
    }
   ],
+  "frequencies": [
+   {
+    "code": 0,
+    "name": "Default"
+   },
+   {
+    "code": 1,
+    "name": "1"
+   },
+   {
+    "code": 2,
+    "name": "2"
+   },
+   {
+    "code": 3,
+    "name": "3"
+   },
+   {
+    "code": 4,
+    "name": "4"
+   },
+   {
+    "code": 5,
+    "name": "5"
+   },
+   {
+    "code": 6,
+    "name": "6"
+   },
+   {
+    "code": 7,
+    "name": "7"
+   },
+   {
+    "code": 8,
+    "name": "8"
+   },
+   {
+    "code": 9,
+    "name": "9"
+   },
+   {
+    "code": 10,
+    "name": "10"
+   }
+  ],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "MS60R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "xy",
+   "mode_8",
+   "effects"
+  ],
+  "name": "MS60R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": [
+   {
+    "code": 0,
+    "name": "Default"
+   },
+   {
+    "code": 1,
+    "name": "Smooth"
+   },
+   {
+    "code": 2,
+    "name": "OFF"
+   }
+  ]
  },
  "0079": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -6286,13 +8474,32 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "LA300Bi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "LA300Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "007A": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -6352,13 +8559,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "LP400Bi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "LP400Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 2,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "007B": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -6418,13 +8644,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "LP600Bi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "LP600Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "007C": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -6484,13 +8729,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "LP1200Bi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "LP1200Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "007D": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 3,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -6565,13 +8829,35 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 50,
+  "gm_min": -50,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "LP400R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "effects"
+  ],
+  "name": "LP400R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 2,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "007E": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 3,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -6646,13 +8932,35 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 50,
+  "gm_min": -50,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "LP600R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "effects"
+  ],
+  "name": "LP600R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 2,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "007F": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 3,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -6727,13 +9035,35 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 50,
+  "gm_min": -50,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "LP1200R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "effects"
+  ],
+  "name": "LP1200R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 2,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0080": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 1000,
   "chip": "LK8620",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -6810,13 +9140,32 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "M600Bi Pro"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "M600Bi Pro",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0081": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 1000,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -6891,13 +9240,36 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "F400R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "xy",
+   "effects"
+  ],
+  "name": "F400R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0082": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 1000,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -6972,13 +9344,36 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "F200R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "xy",
+   "effects"
+  ],
+  "name": "F200R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0083": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 1000,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -7053,13 +9448,45 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "F100R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "xy",
+   "effects"
+  ],
+  "name": "F100R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0084": {
+  "attachment": false,
   "battery": true,
+  "brightness_steps": 1000,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [
+   {
+    "code": 0,
+    "name": "Normal"
+   },
+   {
+    "code": 1,
+    "name": "Low End"
+   }
+  ],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -7136,13 +9563,90 @@
     "name": "High"
    }
   ],
+  "frequencies": [
+   {
+    "code": 0,
+    "name": "Default"
+   },
+   {
+    "code": 1,
+    "name": "1"
+   },
+   {
+    "code": 2,
+    "name": "2"
+   },
+   {
+    "code": 3,
+    "name": "3"
+   },
+   {
+    "code": 4,
+    "name": "4"
+   },
+   {
+    "code": 5,
+    "name": "5"
+   },
+   {
+    "code": 6,
+    "name": "6"
+   },
+   {
+    "code": 7,
+    "name": "7"
+   },
+   {
+    "code": 8,
+    "name": "8"
+   },
+   {
+    "code": 9,
+    "name": "9"
+   },
+   {
+    "code": 10,
+    "name": "10"
+   }
+  ],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "MS60Bi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "MS60Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": [
+   {
+    "code": 0,
+    "name": "Default"
+   },
+   {
+    "code": 1,
+    "name": "Smooth"
+   },
+   {
+    "code": 2,
+    "name": "OFF"
+   }
+  ]
  },
  "0085": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -7234,13 +9738,35 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "LA200R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "effects"
+  ],
+  "name": "LA200R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 2,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0086": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 1000,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -7315,13 +9841,49 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "F200SR"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "xy",
+   "effects"
+  ],
+  "name": "F200SR",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0088": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 1000,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [
+   {
+    "code": 0,
+    "name": "Normal"
+   },
+   {
+    "code": 1,
+    "name": "Low End"
+   },
+   {
+    "code": 2,
+    "name": "Hightspeed"
+   }
+  ],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -7413,13 +9975,91 @@
     "name": "High"
    }
   ],
+  "frequencies": [
+   {
+    "code": 0,
+    "name": "Default"
+   },
+   {
+    "code": 1,
+    "name": "1"
+   },
+   {
+    "code": 2,
+    "name": "2"
+   },
+   {
+    "code": 3,
+    "name": "3"
+   },
+   {
+    "code": 4,
+    "name": "4"
+   },
+   {
+    "code": 5,
+    "name": "5"
+   },
+   {
+    "code": 6,
+    "name": "6"
+   },
+   {
+    "code": 7,
+    "name": "7"
+   },
+   {
+    "code": 8,
+    "name": "8"
+   },
+   {
+    "code": 9,
+    "name": "9"
+   },
+   {
+    "code": 10,
+    "name": "10"
+   }
+  ],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "MG2400R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "xy",
+   "effects",
+   "electronic_control"
+  ],
+  "name": "MG2400R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": [
+   {
+    "code": 1,
+    "name": "Smooth"
+   },
+   {
+    "code": 2,
+    "name": "OFF"
+   }
+  ]
  },
  "0089": {
+  "attachment": false,
   "battery": true,
+  "brightness_steps": 100,
   "chip": "LK8728B",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -7494,13 +10134,34 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 50,
+  "gm_min": -50,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "MA5R"
+  "modes": [
+   "cct",
+   "hsi",
+   "effects",
+   "cct_selfie"
+  ],
+  "name": "MA5R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 2,
+  "selfie_max_kelvin": 6500,
+  "selfie_min_kelvin": 2800,
+  "smoothness_modes": []
  },
  "008A": {
+  "attachment": false,
   "battery": true,
+  "brightness_steps": 1000,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -7592,13 +10253,34 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "RS60R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "effects"
+  ],
+  "name": "RS60R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "008B": {
+  "attachment": false,
   "battery": true,
+  "brightness_steps": 1000,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -7675,13 +10357,32 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "RS60Bi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "RS60Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "008C": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 1000,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -7773,13 +10474,36 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "M300R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "xy",
+   "effects"
+  ],
+  "name": "M300R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "008D": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 1000,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -7871,13 +10595,37 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "P1200R Hard Pro"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "xy",
+   "effects",
+   "electronic_control"
+  ],
+  "name": "P1200R Hard Pro",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "008E": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -7969,13 +10717,34 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "ML60R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "effects"
+  ],
+  "name": "ML60R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 2,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "008F": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -8067,13 +10836,34 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "ML100R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "effects"
+  ],
+  "name": "ML100R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 2,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0090": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -8165,13 +10955,36 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "ML150 RF"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "xy",
+   "effects"
+  ],
+  "name": "ML150 RF",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 2,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0093": {
+  "attachment": true,
   "battery": false,
+  "brightness_steps": 1000,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -8248,13 +11061,33 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "MG2400Bi SE"
+  "modes": [
+   "cct",
+   "effects",
+   "electronic_control"
+  ],
+  "name": "MG2400Bi SE",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0094": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -8346,13 +11179,35 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "LA600R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "effects"
+  ],
+  "name": "LA600R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 2,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0095": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -8429,13 +11284,32 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "LA600Bi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "LA600Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0096": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 1000,
   "chip": "LK8720",
+  "color_chip_version": 3,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -8510,13 +11384,35 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "FL-D200"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "effects"
+  ],
+  "name": "FL-D200",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 2,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0097": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -8576,13 +11472,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "ML80Bi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "ML80Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0098": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 1000,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -8659,13 +11574,32 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "S60Bi-CB"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "S60Bi-CB",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "0099": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 1000,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -8757,13 +11691,37 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "P600R Hard Pro"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "xy",
+   "effects",
+   "electronic_control"
+  ],
+  "name": "P600R Hard Pro",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "009A": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 1000,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -8838,13 +11796,36 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "AM1600R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "xy",
+   "effects"
+  ],
+  "name": "AM1600R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "009B": {
+  "attachment": false,
   "battery": true,
+  "brightness_steps": 100,
   "chip": "LK8728B",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -8904,13 +11885,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "LC500 Air"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "LC500 Air",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "009C": {
+  "attachment": false,
   "battery": true,
+  "brightness_steps": 100,
   "chip": "LK8728B",
+  "color_chip_version": 3,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -8985,13 +11985,35 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 2800,
-  "name": "LC500R Air"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "effects"
+  ],
+  "name": "LC500R Air",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 2,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "009F": {
+  "attachment": false,
   "battery": true,
+  "brightness_steps": 100,
   "chip": "LK8728B",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -9051,13 +12073,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "FL15Bi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "FL15Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "00A0": {
+  "attachment": true,
   "battery": false,
+  "brightness_steps": 1000,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -9134,13 +12175,46 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 2800,
-  "name": "MG6K"
+  "modes": [
+   "cct",
+   "effects",
+   "electronic_control"
+  ],
+  "name": "MG6K",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": [
+   {
+    "code": 0,
+    "name": "Default"
+   },
+   {
+    "code": 1,
+    "name": "Smooth"
+   },
+   {
+    "code": 2,
+    "name": "OFF"
+   }
+  ]
  },
  "00A1": {
+  "attachment": false,
   "battery": true,
+  "brightness_steps": 100,
   "chip": "LK8728B",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -9215,13 +12289,38 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 50,
+  "gm_min": -50,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "C30R"
+  "modes": [
+   "cct",
+   "hsi",
+   "effects"
+  ],
+  "name": "C30R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "00A2": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 1000,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [
+   {
+    "code": 0,
+    "name": "Normal"
+   }
+  ],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -9313,13 +12412,95 @@
     "name": "High"
    }
   ],
+  "frequencies": [
+   {
+    "code": 0,
+    "name": "Default"
+   },
+   {
+    "code": 1,
+    "name": "1"
+   },
+   {
+    "code": 2,
+    "name": "2"
+   },
+   {
+    "code": 3,
+    "name": "3"
+   },
+   {
+    "code": 4,
+    "name": "4"
+   },
+   {
+    "code": 5,
+    "name": "5"
+   },
+   {
+    "code": 6,
+    "name": "6"
+   },
+   {
+    "code": 7,
+    "name": "7"
+   },
+   {
+    "code": 8,
+    "name": "8"
+   },
+   {
+    "code": 9,
+    "name": "9"
+   },
+   {
+    "code": 10,
+    "name": "10"
+   }
+  ],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "F7-300R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "xy",
+   "effects"
+  ],
+  "name": "F7-300R",
+  "rgb_channels": [
+   "RGBW",
+   "RGBACL"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": [
+   {
+    "code": 0,
+    "name": "Default"
+   },
+   {
+    "code": 1,
+    "name": "Smooth"
+   },
+   {
+    "code": 2,
+    "name": "OFF"
+   }
+  ]
  },
  "00A3": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 1000,
   "chip": "LK8620",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -9411,13 +12592,37 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "SL300R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "xy",
+   "effects"
+  ],
+  "name": "SL300R",
+  "rgb_channels": [
+   "RGBW",
+   "RGBACL"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "00A4": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -9494,13 +12699,32 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "ML100Bi(\u65b0\u7248\uff09"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "ML100Bi(\u65b0\u7248\uff09",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "00A5": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -9577,13 +12801,32 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "ML150Bi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "ML150Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "00A6": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8728B",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -9660,13 +12903,32 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "ML40Bi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "ML40Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "00A7": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8728B",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -9758,13 +13020,34 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "ML40R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "effects"
+  ],
+  "name": "ML40R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 2,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "00A8": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -9824,13 +13107,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "LP800Bi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "LP800Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "00A9": {
+  "attachment": false,
   "battery": true,
+  "brightness_steps": 100,
   "chip": "LK8728B",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -9905,13 +13207,47 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 50,
+  "gm_min": -50,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "MA5R Plus"
+  "modes": [
+   "cct",
+   "hsi",
+   "effects",
+   "cct_selfie"
+  ],
+  "name": "MA5R Plus",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 6500,
+  "selfie_min_kelvin": 2800,
+  "smoothness_modes": []
  },
  "00AA": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 1000,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [
+   {
+    "code": 0,
+    "name": "Normal"
+   },
+   {
+    "code": 1,
+    "name": "Low End"
+   },
+   {
+    "code": 2,
+    "name": "Highspeed"
+   }
+  ],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -10013,13 +13349,95 @@
     "name": "High"
    }
   ],
+  "frequencies": [
+   {
+    "code": 0,
+    "name": "Default"
+   },
+   {
+    "code": 1,
+    "name": "1"
+   },
+   {
+    "code": 2,
+    "name": "2"
+   },
+   {
+    "code": 3,
+    "name": "3"
+   },
+   {
+    "code": 4,
+    "name": "4"
+   },
+   {
+    "code": 5,
+    "name": "5"
+   },
+   {
+    "code": 6,
+    "name": "6"
+   },
+   {
+    "code": 7,
+    "name": "7"
+   },
+   {
+    "code": 8,
+    "name": "8"
+   },
+   {
+    "code": 9,
+    "name": "9"
+   },
+   {
+    "code": 10,
+    "name": "10"
+   }
+  ],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "P1200R Hard P8"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "xy",
+   "effects",
+   "electronic_control"
+  ],
+  "name": "P1200R Hard P8",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": [
+   {
+    "code": 0,
+    "name": "Default"
+   },
+   {
+    "code": 1,
+    "name": "Smooth"
+   },
+   {
+    "code": 2,
+    "name": "OFF"
+   }
+  ]
  },
  "00AB": {
+  "attachment": false,
   "battery": true,
+  "brightness_steps": 100,
   "chip": "LK8728B",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -10079,13 +13497,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "LR150 Air"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "LR150 Air",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "00AC": {
+  "attachment": false,
   "battery": true,
+  "brightness_steps": 100,
   "chip": "LK8728B",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -10145,13 +13582,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "LR120 Air"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "LR120 Air",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "00AD": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -10228,13 +13684,32 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "LE300Bi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "LE300Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "00AE": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -10311,13 +13786,32 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "LE200Bi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "LE200Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "00AF": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -10394,13 +13888,32 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "LE150Bi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "LE150Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "00B3": {
+  "attachment": false,
   "battery": true,
+  "brightness_steps": 1000,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -10477,13 +13990,32 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "RS100Bi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "RS100Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "00B4": {
+  "attachment": false,
   "battery": true,
+  "brightness_steps": 1000,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -10575,13 +14107,36 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "RS100R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "xy",
+   "effects"
+  ],
+  "name": "RS100R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "00B5": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 1000,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -10673,13 +14228,36 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "SL300 RF"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "xy",
+   "effects"
+  ],
+  "name": "SL300 RF",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "00B6": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 1000,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -10771,13 +14349,36 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "SL200 RF"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "xy",
+   "effects"
+  ],
+  "name": "SL200 RF",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "00B7": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 1000,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -10869,13 +14470,36 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "SL150 RF"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "xy",
+   "effects"
+  ],
+  "name": "SL150 RF",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "00B8": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -10952,13 +14576,45 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "LE600Bi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "LE600Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "00B9": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 1000,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [
+   {
+    "code": 0,
+    "name": "Normal"
+   },
+   {
+    "code": 1,
+    "name": "Low End"
+   },
+   {
+    "code": 2,
+    "name": "Highspeed"
+   }
+  ],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -11060,13 +14716,95 @@
     "name": "High"
    }
   ],
+  "frequencies": [
+   {
+    "code": 0,
+    "name": "Default"
+   },
+   {
+    "code": 1,
+    "name": "1"
+   },
+   {
+    "code": 2,
+    "name": "2"
+   },
+   {
+    "code": 3,
+    "name": "3"
+   },
+   {
+    "code": 4,
+    "name": "4"
+   },
+   {
+    "code": 5,
+    "name": "5"
+   },
+   {
+    "code": 6,
+    "name": "6"
+   },
+   {
+    "code": 7,
+    "name": "7"
+   },
+   {
+    "code": 8,
+    "name": "8"
+   },
+   {
+    "code": 9,
+    "name": "9"
+   },
+   {
+    "code": 10,
+    "name": "10"
+   }
+  ],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "P600R Hard P4"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "xy",
+   "effects",
+   "electronic_control"
+  ],
+  "name": "P600R Hard P4",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": [
+   {
+    "code": 0,
+    "name": "Default"
+   },
+   {
+    "code": 1,
+    "name": "Smooth"
+   },
+   {
+    "code": 2,
+    "name": "OFF"
+   }
+  ]
  },
  "00BA": {
+  "attachment": false,
   "battery": true,
+  "brightness_steps": 100,
   "chip": "LK8728B",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -11126,13 +14864,32 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "LC500 Air Hard"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "LC500 Air Hard",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "00BB": {
+  "attachment": true,
   "battery": false,
+  "brightness_steps": 1000,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -11209,13 +14966,33 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 2800,
-  "name": "MG4K"
+  "modes": [
+   "cct",
+   "effects",
+   "electronic_control"
+  ],
+  "name": "MG4K",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "00BC": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 1000,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -11307,13 +15084,36 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "OP120R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "xy",
+   "effects"
+  ],
+  "name": "OP120R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "00BD": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 1000,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -11405,13 +15205,36 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "OP200R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "xy",
+   "effects"
+  ],
+  "name": "OP200R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "00BE": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -11488,13 +15311,32 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "DL625Bi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "DL625Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "00BF": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -11571,13 +15413,32 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "DL330Bi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "DL330Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "00C0": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -11654,13 +15515,32 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "DL200Bi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "DL200Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "00C1": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 1000,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -11752,13 +15632,49 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "PL600 RF"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "xy",
+   "effects"
+  ],
+  "name": "PL600 RF",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "00C2": {
+  "attachment": true,
   "battery": false,
+  "brightness_steps": 1000,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [
+   {
+    "code": 0,
+    "name": "Normal"
+   },
+   {
+    "code": 1,
+    "name": "Low End"
+   },
+   {
+    "code": 2,
+    "name": "Highspeed"
+   }
+  ],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -11850,13 +15766,95 @@
     "name": "High"
    }
   ],
+  "frequencies": [
+   {
+    "code": 0,
+    "name": "Default"
+   },
+   {
+    "code": 1,
+    "name": "1"
+   },
+   {
+    "code": 2,
+    "name": "2"
+   },
+   {
+    "code": 3,
+    "name": "3"
+   },
+   {
+    "code": 4,
+    "name": "4"
+   },
+   {
+    "code": 5,
+    "name": "5"
+   },
+   {
+    "code": 6,
+    "name": "6"
+   },
+   {
+    "code": 7,
+    "name": "7"
+   },
+   {
+    "code": 8,
+    "name": "8"
+   },
+   {
+    "code": 9,
+    "name": "9"
+   },
+   {
+    "code": 10,
+    "name": "10"
+   }
+  ],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "MG4KR"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "xy",
+   "effects",
+   "electronic_control"
+  ],
+  "name": "MG4KR",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": [
+   {
+    "code": 0,
+    "name": "Default"
+   },
+   {
+    "code": 1,
+    "name": "Smooth"
+   },
+   {
+    "code": 2,
+    "name": "OFF"
+   }
+  ]
  },
  "00C3": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 1000,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -11948,13 +15946,37 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "PL1200 RF"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "xy",
+   "effects"
+  ],
+  "name": "PL1200 RF",
+  "rgb_channels": [
+   "RGBW",
+   "RGBACL"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "00C4": {
+  "attachment": false,
   "battery": true,
+  "brightness_steps": 1000,
   "chip": "LK8728B",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -12056,13 +16078,36 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "MS15R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "xy",
+   "effects"
+  ],
+  "name": "MS15R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "00C5": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -12154,13 +16199,35 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "LE300R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "effects"
+  ],
+  "name": "LE300R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "00C6": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -12252,13 +16319,35 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "LE200R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "effects"
+  ],
+  "name": "LE200R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "00C7": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -12350,13 +16439,48 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "LE600R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "effects"
+  ],
+  "name": "LE600R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "00C8": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 1000,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [
+   {
+    "code": 0,
+    "name": "Normal"
+   },
+   {
+    "code": 1,
+    "name": "Low End"
+   },
+   {
+    "code": 2,
+    "name": "Highspeed"
+   }
+  ],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -12448,13 +16572,94 @@
     "name": "High"
    }
   ],
+  "frequencies": [
+   {
+    "code": 0,
+    "name": "Default"
+   },
+   {
+    "code": 1,
+    "name": "1"
+   },
+   {
+    "code": 2,
+    "name": "2"
+   },
+   {
+    "code": 3,
+    "name": "3"
+   },
+   {
+    "code": 4,
+    "name": "4"
+   },
+   {
+    "code": 5,
+    "name": "5"
+   },
+   {
+    "code": 6,
+    "name": "6"
+   },
+   {
+    "code": 7,
+    "name": "7"
+   },
+   {
+    "code": 8,
+    "name": "8"
+   },
+   {
+    "code": 9,
+    "name": "9"
+   },
+   {
+    "code": 10,
+    "name": "10"
+   }
+  ],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "ParTrix S"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "xy",
+   "effects"
+  ],
+  "name": "ParTrix S",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": [
+   {
+    "code": 0,
+    "name": "Default"
+   },
+   {
+    "code": 1,
+    "name": "Smooth"
+   },
+   {
+    "code": 2,
+    "name": "OFF"
+   }
+  ]
  },
  "00CA": {
+  "attachment": false,
   "battery": true,
+  "brightness_steps": 100,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -12529,13 +16734,33 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "LF40R"
+  "modes": [
+   "cct",
+   "hsi",
+   "effects"
+  ],
+  "name": "LF40R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "00CB": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8720",
+  "color_chip_version": 3,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -12610,13 +16835,35 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "UP-C300"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "effects"
+  ],
+  "name": "UP-C300",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 2,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "00CC": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 1000,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -12693,13 +16940,32 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "OP120Bi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "OP120Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "00CD": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 1000,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -12776,13 +17042,32 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 6500,
   "min_kelvin": 2800,
-  "name": "OP200Bi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "OP200Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "00CE": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 1000,
   "chip": "LK8720",
+  "color_chip_version": 3,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -12857,23 +17142,65 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "UP-C150"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "effects"
+  ],
+  "name": "UP-C150",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 2,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "00CF": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8728B",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 0,
   "min_kelvin": 0,
-  "name": "LT1"
+  "modes": [
+   "pixel_user",
+   "pixel_system",
+   "pixel_studio"
+  ],
+  "name": "LT1",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "00D0": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -12950,13 +17277,32 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "SL300Bi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "SL300Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "00D1": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8620",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -13033,13 +17379,32 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "SL200Bi"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "SL200Bi",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "00D2": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 100,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -13092,13 +17457,45 @@
     "name": "High"
    }
   ],
+  "frequencies": [],
+  "gm_max": 0,
+  "gm_min": 0,
   "max_kelvin": 5600,
   "min_kelvin": 5600,
-  "name": "LE200D"
+  "modes": [
+   "cct",
+   "effects"
+  ],
+  "name": "LE200D",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": []
  },
  "00D3": {
+  "attachment": false,
   "battery": true,
+  "brightness_steps": 1000,
   "chip": "LK8728B",
+  "color_chip_version": 0,
+  "control_modes": [
+   {
+    "code": 0,
+    "name": "Normal"
+   },
+   {
+    "code": 1,
+    "name": "Low End"
+   },
+   {
+    "code": 2,
+    "name": "Highspeed"
+   }
+  ],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -13173,13 +17570,105 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [
+   {
+    "code": 0,
+    "name": "Default"
+   },
+   {
+    "code": 1,
+    "name": "1"
+   },
+   {
+    "code": 2,
+    "name": "2"
+   },
+   {
+    "code": 3,
+    "name": "3"
+   },
+   {
+    "code": 4,
+    "name": "4"
+   },
+   {
+    "code": 5,
+    "name": "5"
+   },
+   {
+    "code": 6,
+    "name": "6"
+   },
+   {
+    "code": 7,
+    "name": "7"
+   },
+   {
+    "code": 8,
+    "name": "8"
+   },
+   {
+    "code": 9,
+    "name": "9"
+   },
+   {
+    "code": 10,
+    "name": "10"
+   }
+  ],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "B5R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "effects"
+  ],
+  "name": "B5R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": [
+   {
+    "code": 0,
+    "name": "Default"
+   },
+   {
+    "code": 1,
+    "name": "Smooth"
+   },
+   {
+    "code": 2,
+    "name": "OFF"
+   }
+  ]
  },
  "00D7": {
+  "attachment": false,
   "battery": false,
+  "brightness_steps": 1000,
   "chip": "LK8720",
+  "color_chip_version": 2,
+  "control_modes": [
+   {
+    "code": 0,
+    "name": "Normal"
+   },
+   {
+    "code": 1,
+    "name": "Low End"
+   },
+   {
+    "code": 2,
+    "name": "Highspeed"
+   }
+  ],
+  "effect_version": 1,
   "effects": [
    {
     "gears": 0,
@@ -13254,9 +17743,85 @@
   ],
   "fan": false,
   "fan_modes": [],
+  "frequencies": [
+   {
+    "code": 0,
+    "name": "Default"
+   },
+   {
+    "code": 1,
+    "name": "1"
+   },
+   {
+    "code": 2,
+    "name": "2"
+   },
+   {
+    "code": 3,
+    "name": "3"
+   },
+   {
+    "code": 4,
+    "name": "4"
+   },
+   {
+    "code": 5,
+    "name": "5"
+   },
+   {
+    "code": 6,
+    "name": "6"
+   },
+   {
+    "code": 7,
+    "name": "7"
+   },
+   {
+    "code": 8,
+    "name": "8"
+   },
+   {
+    "code": 9,
+    "name": "9"
+   },
+   {
+    "code": 10,
+    "name": "10"
+   }
+  ],
+  "gm_max": 100,
+  "gm_min": -100,
   "max_kelvin": 10000,
   "min_kelvin": 1800,
-  "name": "AM800R"
+  "modes": [
+   "cct",
+   "hsi",
+   "rgb",
+   "color_chip",
+   "xy",
+   "effects"
+  ],
+  "name": "AM800R",
+  "rgb_channels": [
+   "RGBW"
+  ],
+  "rgb_display": 1,
+  "selfie_max_kelvin": 0,
+  "selfie_min_kelvin": 0,
+  "smoothness_modes": [
+   {
+    "code": 0,
+    "name": "Default"
+   },
+   {
+    "code": 1,
+    "name": "Smooth"
+   },
+   {
+    "code": 2,
+    "name": "OFF"
+   }
+  ]
  },
  "_generated_by": "scripts/generate_capabilities.py",
  "_inputs": [

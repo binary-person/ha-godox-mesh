@@ -29,3 +29,9 @@ reverse-artifacts/nocommit/
 
 # Third-party TC32 opcode table — fetched by tools/tc32/README.md, not vendored
 tools/tc32/generate_sleigh.py
+
+# Test / coverage artifacts
+.coverage
+.coverage.*
+htmlcov/
+.pytest_cache/

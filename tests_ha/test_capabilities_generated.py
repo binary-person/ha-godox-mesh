@@ -20,6 +20,7 @@ import pytest
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 TABLE = REPO_ROOT / "custom_components" / "godox_mesh" / "capabilities_data.json"
+CHIPS = REPO_ROOT / "custom_components" / "godox_mesh" / "color_chips_data.json"
 GENERATOR = REPO_ROOT / "scripts" / "generate_capabilities.py"
 ARTIFACTS = REPO_ROOT / "reverse-artifacts"
 
@@ -28,32 +29,56 @@ ARTIFACTS = REPO_ROOT / "reverse-artifacts"
     not GENERATOR.exists() or not (ARTIFACTS / "product-catalogue.json").exists(),
     reason="generator or committed artifacts not present",
 )
-def test_table_matches_a_regeneration(tmp_path: Path) -> None:
-    """Regenerating from the committed artifacts must reproduce the table."""
+def _regenerate(tmp_path: Path) -> tuple[Path, Path]:
+    """Run the generator into *tmp_path* and return its two outputs.
+
+    Every output path is redirected, including the gel table: a run that left
+    one at its default would rewrite the committed file and so could never fail
+    on drift in it.
+    """
     out = tmp_path / "regenerated.json"
+    chips = tmp_path / "regenerated-chips.json"
     result = subprocess.run(
         [
             sys.executable,
             str(GENERATOR),
             "--products", str(ARTIFACTS / "product-catalogue.json"),
             "--firmware", str(ARTIFACTS / "firmware-coverage.json"),
+            "--color-chips", str(ARTIFACTS / "color-chips.json"),
             "--output", str(out),
+            "--color-chip-output", str(chips),
         ],
         capture_output=True,
         text=True,
         cwd=REPO_ROOT,
     )
     assert result.returncode == 0, result.stderr
+    return out, chips
 
-    regenerated = json.loads(out.read_text())
-    committed = json.loads(TABLE.read_text())
-    # _inputs records the paths used, which differ between runs.
-    for table in (regenerated, committed):
-        table.pop("_inputs", None)
 
-    assert regenerated == committed, (
+def _without_inputs(path: Path) -> dict:
+    """Parse a generated table, dropping the paths that differ between runs."""
+    table = json.loads(path.read_text())
+    table.pop("_inputs", None)
+    return table
+
+
+def test_table_matches_a_regeneration(tmp_path: Path) -> None:
+    """Regenerating from the committed artifacts must reproduce the table."""
+    out, _ = _regenerate(tmp_path)
+
+    assert _without_inputs(out) == _without_inputs(TABLE), (
         "capabilities_data.json does not match a regeneration -- either it was "
         "hand-edited, or the generator changed and the table was not rebuilt"
+    )
+
+
+def test_color_chip_table_matches_a_regeneration(tmp_path: Path) -> None:
+    """The gel table is generated from the committed catalogue too."""
+    _, chips = _regenerate(tmp_path)
+
+    assert _without_inputs(chips) == _without_inputs(CHIPS), (
+        "color_chips_data.json does not match a regeneration"
     )
 
 

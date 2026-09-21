@@ -117,18 +117,41 @@ async def test_unrelated_notifications_are_ignored(mesh_state) -> None:
 
 
 @pytest.mark.asyncio
-async def test_set_effect_sends_the_effect_frame(mesh_state) -> None:
+async def test_set_effect_sends_the_older_effect_frame(mesh_state) -> None:
     controller, _ = connected(mesh_state)
-    sent: list[bytes] = []
-    controller.send_v2_command = AsyncMock(
+    sent: list = []
+    controller.send_payload = AsyncMock(
         side_effect=lambda *a, **k: sent.append((a, k)) or None
     )
 
     await controller.set_effect(4, brightness=80, dst=0x0003)
 
-    (model, end_byte, data), kwargs = sent[0]
-    assert model == 0xF3
-    assert data[0] == 80 and data[1] == 4
+    (payload,), kwargs = sent[0]
+    assert payload[0] == 0xF3
+    assert payload[1] == 80 and payload[2] == 4
+    assert kwargs["dst"] == 0x0003
+
+
+@pytest.mark.asyncio
+async def test_set_effect_sends_the_newer_frame_for_version_1(mesh_state) -> None:
+    """122 of the 177 models with effects take this frame, not the 0xF3 one.
+
+    The third data byte is the V3 selector, which is deliberately *not* the
+    symbol: Candle is symbol 10 but selector 5.
+    """
+    controller, _ = connected(mesh_state)
+    sent: list = []
+    controller.send_payload = AsyncMock(
+        side_effect=lambda *a, **k: sent.append((a, k)) or None
+    )
+
+    await controller.set_effect(
+        10, brightness=80, speed=60, effect_version=1, dst=0x0003
+    )
+
+    (payload,), kwargs = sent[0]
+    assert payload[0] == 0xF7
+    assert payload[2:6] == bytes([80, 0, 5, 60])
     assert kwargs["dst"] == 0x0003
 
 

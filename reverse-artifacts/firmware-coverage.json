@@ -1,6 +1,6 @@
 {
  "_source": "https://www.godox.net/godox/api/firmware/last/batch-list/GodoxLight",
- "_fetched": "2026-09-08",
+ "_fetched": "2026-09-12",
  "_note": "Filtered snapshot of Godox's public product API: only the fields this repository consumes. Regenerate with reverse-artifacts/refresh.py.",
  "bluetooth": [
   {

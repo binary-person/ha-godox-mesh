@@ -1,0 +1,11 @@
+{
+  "_note": "Hand-edited, keyed by radioId (uppercase). `verified: true` promotes a model to the Verified tier in docs/models.md; `notes` is shown in that table's Notes column. Entries with `verified: false` are allowed too -- use them to record a quirk on a model no one has fully confirmed yet. Regenerate the table with `uv run python scripts/generate_model_support.py`. Community reports come in via https://github.com/binary-person/ha-godox-mesh/issues/1; curate the useful ones into this file.",
+  "003A": {
+    "verified": true,
+    "notes": "Reports colour-temperature changes made on the light's own panel correctly."
+  },
+  "003F": {
+    "verified": true,
+    "notes": "Colour temperature changed on the light's own panel reads back stale; commanded values read back correctly."
+  }
+}

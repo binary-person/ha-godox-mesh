@@ -16,21 +16,35 @@ lights cost one connection slot rather than ten.
 
 ## Supported hardware
 
-**190 Godox Bluetooth Mesh products**, across all three of Godox's mesh radios
+**186 Godox Bluetooth Mesh lights**, across all three of Godox's mesh radios
 (LK8620, LK8720, LK8728B). They all speak one identical vendor protocol, so
 support is not per-model code — the integration ships a capability table and
 reads the light's own model ID during pairing.
 
 | | |
 |---|---|
-| On/off, brightness, effects | all 190 |
+| On/off, brightness, effects | all 186 |
 | Colour temperature, per-model range | 159 bi-colour models |
 | Brightness only (fixed daylight) | 27 models |
 | Battery level | 25 battery-capable models, opt-in |
 
 Families include SL, ML, P, M, LA, F, MG, LE, LC, LP, WT, DL, TL, UL, LDX, RS,
-OP and others. 186 models carry exact colour-temperature data; the remaining
-4 have malformed colour data upstream and fall back to a default range.
+OP and others. Godox's mesh range is 190 products in total; the other 4 are
+motorised accessories (the AD00-01/AD00-02 soft-light modifiers, AD88 and
+LF100MPY) that report no colour temperature and are not exposed as lights.
+
+**Find your model:** [docs/models.md](docs/models.md) is a generated,
+one-row-per-model list — what each light gets, how confident that support is,
+and anything the vendor app can do that this integration cannot. Regenerate it
+with `uv run python scripts/generate_model_support.py`.
+
+**Is your model verified?** Only a handful are confirmed on real hardware so far
+— [docs/models.md](docs/models.md) marks which, with any known quirks. The rest
+are catalogue-derived: the integration sends the vendor app's own frames, but
+the specific light has not been exercised here. If yours works — or misbehaves —
+please post it on the [model support
+board](https://github.com/binary-person/ha-godox-mesh/issues/1); confirmed
+models and quirks are curated into `docs/model_notes.json`.
 
 **Not supported:** 36 Godox products that are Bluetooth but *not* mesh —
 including the FL100BI/200Bi/400BI/600BI, LF20BI/LF30BI, LA150D/200D/300D II,
@@ -327,21 +341,53 @@ these lights are not the ones you would want for protocol work.
 
 ## Beyond brightness and colour temperature
 
-Effects, fan speed, effect speed, battery and status readback are all exposed as
-entities. Two things the protocol supports and no entity does yet:
+Everything the Godox app offers for a light-shaped device is exposed as an
+entity, and which controls a given light gets is decided from Godox's own
+per-model catalogue rather than from code. Counts are out of 186 mesh models:
 
-- **Full colour (RGB/HSI)** on the 68 models whose names end in `R`. The light
-  entity always presents a colour-temperature control, so on those lights their
-  main feature is unreachable from Home Assistant.
-- **Arbitrary frames**, via `send_v2_command_raw`, for anything unmodelled.
+| | Models | Where it appears |
+|---|---|---|
+| Colour temperature | 183 | `light` |
+| Hue / saturation (HSI) | 86 | `light` |
+| Direct RGBW / RGBWW channels | 81 | `light` |
+| Effects | 177 | `light` effect list |
+| Effect speed | 177 | `number` |
+| Lighting gels | 70 | `select` |
+| Green/magenta tint | 83 | `number` |
+| Fan speed | 73 | `select` |
+| Battery charge | 25 | `sensor` |
+| Output mode + mains frequency | 10 | two `select`s, one command |
+| Dimming smoothness | 12 | `select` |
+| Accessory recognition | 7 | `switch` |
+| Second (selfie) colour-temperature range | 2 | `select`, swaps the light's range |
+| CIE xy colour | 40 | opt-in; `light` plus two `number`s |
 
-The library is usable directly for both:
+What is deliberately **not** covered, with reasons, is in
+[docs/model-support.md](docs/model-support.md): pixel-light animations, the
+motorised-accessory commands, and the per-effect parameters beyond speed.
+
+> [!NOTE]
+> Colour, gels, tint and the newer effect frame have not been tested on
+> hardware — both lights available are bi-colour. The *frames* are read
+> byte-for-byte out of the vendor app and asserted as such in the tests, so
+> they should be sound. What would benefit from a report on a colour model is
+> narrower: channel rescaling, the gel number, and whether each model is
+> classified into the right frame format.
+> [docs/model-support.md](docs/model-support.md#how-much-of-this-is-trustworthy-without-a-light)
+> says exactly which three things those are.
+
+**Arbitrary frames** go out with `send_v2_command_raw` (or `send_payload` for
+the variable-length V3 frames), for anything unmodelled.
+
+The library is usable directly:
 
 ```python
 from godox_mesh_bt import GodoxController, StatusTimeout
 
 async with GodoxController(address, "mesh_state.json") as light:
-    await light.set_effect(4, brightness=60)
+    await light.set_hsi(hue=240, saturation=100, brightness=60)
+    await light.set_params(brightness=80, cct=5600, gm=-10, supports_gm=True)
+    await light.set_effect(10, brightness=60, speed=60, effect_version=1)
     await light.set_fan_mode(1)
     try:
         print(await light.request_status())
@@ -365,8 +411,8 @@ See [docs/protocol.md](docs/protocol.md) for the full command set.
 
 The protocol, the model table and the firmware behaviour were all reverse-engineered
 from Godox's own app, firmware and public APIs. [docs/README.md](docs/README.md)
-is the index: what to read in what order, which documents supersede which, and
-which conclusions were later corrected by testing against real hardware.
+is the index: what to read in what order, and which documents are authoritative
+where they overlap.
 
 The publishable research inputs are committed under
 [reverse-artifacts/](reverse-artifacts/), so the 186-model capability table

@@ -25,15 +25,13 @@ terminates the mesh on a Godox continuous light — reverse-engineered from
 [state-readback-investigation.md](state-readback-investigation.md) (the
 original question: can these lights report their state?).
 
-**The headline, as corrected by hardware.** These lights report brightness and
-commanded colour temperature over stock firmware. The Bluetooth chip does
-answer the status query itself, from a RAM record, rather than forwarding it to
-the MCU — that part of the analysis below is accurate. What the analysis got
-wrong was assuming nothing ever refills that record. The MCU volunteers `0xB0`
-frames when something changes on the light, and those refill it, so the record
-tracks live brightness. The one field it does not carry is colour temperature
-changed on the light's own dial, and that is an MCU limit: flashing a patch
-that forwards `0xFD` did **not** produce it.
+**The headline.** These lights report brightness and commanded colour
+temperature over stock firmware. The Bluetooth chip answers the status query
+itself, from a RAM record, rather than forwarding it to the MCU. The MCU
+volunteers `0xB0` frames when something changes on the light, and those refill
+that record, so it tracks live brightness. The one field it does not carry is
+colour temperature changed on the light's own dial, and that is an MCU limit:
+flashing a patch that forwards `0xFD` does **not** produce it.
 
 Everything here was read with a TC32 disassembler written for this work
 (`tools/tc32/tc32dis.py`, see its README), from an opcode table Ryan Govostes recovered from
@@ -77,8 +75,8 @@ is the address the code's own literals use — not `0x08000000 + offset`. Base i
 | UL150Bi II MCU | `0x08007000` |
 | LP400Bi / LP600Bi MCU | `0x0800c000` |
 
-Addresses below are the true linked addresses. An earlier draft of the MCU
-analysis quoted UL150Bi II addresses `0x7000` too low; they are corrected here.
+Addresses below are the true linked addresses; UL150Bi II flash base is
+`0x08007000`.
 
 ## Inbound: what the LK8620 does with each sub-command
 
@@ -273,20 +271,19 @@ written to a real light, which accepted and booted it — see
   flashing, verify by querying `FD 02` and checking whether the reported BLE
   firmware version changed.
 
-## Corrections this analysis makes to earlier notes
+## The BT chip is not a pure "dumb pipe"
 
-- **The BT chip is not a pure "dumb pipe."** It forwards `0xF0/0xF3/0xF4/0xF5/
-  0xFE` but *terminates* `0xFD`/`0xFC` locally and answers them from a RAM
-  cache with flash defaults. The dumb-pipe description in
-  [firmware-api.md](firmware-api.md) is right for control and wrong for status;
-  that distinction is the entire reason readback fails.
+- It forwards `0xF0/0xF3/0xF4/0xF5/0xFE` but *terminates* `0xFD`/`0xFC` locally
+  and answers them from a RAM cache with flash defaults. The dumb-pipe
+  description in [firmware-api.md](firmware-api.md) is right for control and
+  wrong for status; that distinction is why readback depends on selecting the
+  right record.
 - **The direct-GATT OTA characteristics are 128-bit** —
   `00010203-…-0C0D1912` (service) / `…2B12` (data), both present in the LK8620
   image. They are not `0x7FDD/DE/DF`; those three are an alternative container
   for the *mesh* services.
-- **UL150Bi II flash base is `0x08007000`.** Earlier notes quoted its addresses
-  `0x7000` too low. The reachability proof is unaffected (it uses relative
-  branch encodings).
+- **UL150Bi II flash base is `0x08007000`.** The reachability proof is
+  unaffected (it uses relative branch encodings).
 
 ## What remains unknown
 

@@ -1,0 +1,5957 @@
+{
+ "_generated_by": "scripts/generate_capabilities.py",
+ "_inputs": [
+  "reverse-artifacts/color-chips.json"
+ ],
+ "_note": "Generated -- do not hand-edit. One entry per gel, grouped by the catalogue version a model reports.",
+ "versions": {
+  "0": [
+   {
+    "label": "L-GEL 002",
+    "brand": 1,
+    "number": 0,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 007",
+    "brand": 1,
+    "number": 1,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 008",
+    "brand": 1,
+    "number": 2,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 036",
+    "brand": 1,
+    "number": 3,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 110",
+    "brand": 1,
+    "number": 4,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 115",
+    "brand": 1,
+    "number": 5,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 117",
+    "brand": 1,
+    "number": 6,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 128",
+    "brand": 1,
+    "number": 7,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 131",
+    "brand": 1,
+    "number": 8,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 134",
+    "brand": 1,
+    "number": 9,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 148",
+    "brand": 1,
+    "number": 10,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 153",
+    "brand": 1,
+    "number": 11,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 156",
+    "brand": 1,
+    "number": 12,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 165",
+    "brand": 1,
+    "number": 13,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 243",
+    "brand": 1,
+    "number": 14,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 244",
+    "brand": 1,
+    "number": 15,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 327",
+    "brand": 1,
+    "number": 16,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 701",
+    "brand": 1,
+    "number": 17,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 723",
+    "brand": 1,
+    "number": 18,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 724",
+    "brand": 1,
+    "number": 19,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 128",
+    "brand": 0,
+    "number": 0,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 153",
+    "brand": 0,
+    "number": 1,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 156",
+    "brand": 0,
+    "number": 2,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 165",
+    "brand": 0,
+    "number": 3,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 723",
+    "brand": 0,
+    "number": 4,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 724",
+    "brand": 0,
+    "number": 5,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 220",
+    "brand": 0,
+    "number": 6,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 342",
+    "brand": 0,
+    "number": 7,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 720",
+    "brand": 0,
+    "number": 8,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 910",
+    "brand": 0,
+    "number": 9,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 990",
+    "brand": 0,
+    "number": 10,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 16",
+    "brand": 0,
+    "number": 11,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 17",
+    "brand": 0,
+    "number": 12,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 38",
+    "brand": 0,
+    "number": 13,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 47",
+    "brand": 0,
+    "number": 14,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 65",
+    "brand": 0,
+    "number": 15,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 92",
+    "brand": 0,
+    "number": 16,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 93",
+    "brand": 0,
+    "number": 17,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 4415",
+    "brand": 0,
+    "number": 18,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 9406",
+    "brand": 0,
+    "number": 19,
+    "sub_brand": 0
+   }
+  ],
+  "1": [
+   {
+    "label": "L-GEL 002",
+    "brand": 1,
+    "number": 0,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 003",
+    "brand": 1,
+    "number": 1,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 004",
+    "brand": 1,
+    "number": 2,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 007",
+    "brand": 1,
+    "number": 3,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 008",
+    "brand": 1,
+    "number": 4,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 009",
+    "brand": 1,
+    "number": 5,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 010",
+    "brand": 1,
+    "number": 6,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 013",
+    "brand": 1,
+    "number": 7,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 017",
+    "brand": 1,
+    "number": 8,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 019",
+    "brand": 1,
+    "number": 9,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 020",
+    "brand": 1,
+    "number": 10,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 021",
+    "brand": 1,
+    "number": 11,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 022",
+    "brand": 1,
+    "number": 12,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 024",
+    "brand": 1,
+    "number": 13,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 025",
+    "brand": 1,
+    "number": 14,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 026",
+    "brand": 1,
+    "number": 15,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 035",
+    "brand": 1,
+    "number": 16,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 036",
+    "brand": 1,
+    "number": 17,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 046",
+    "brand": 1,
+    "number": 18,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 048",
+    "brand": 1,
+    "number": 19,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 052",
+    "brand": 1,
+    "number": 20,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 053",
+    "brand": 1,
+    "number": 21,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 058",
+    "brand": 1,
+    "number": 22,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 061",
+    "brand": 1,
+    "number": 23,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 063",
+    "brand": 1,
+    "number": 24,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 068",
+    "brand": 1,
+    "number": 25,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 075",
+    "brand": 1,
+    "number": 26,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 079",
+    "brand": 1,
+    "number": 27,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 085",
+    "brand": 1,
+    "number": 28,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 088",
+    "brand": 1,
+    "number": 29,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 089",
+    "brand": 1,
+    "number": 30,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 090",
+    "brand": 1,
+    "number": 31,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 100",
+    "brand": 1,
+    "number": 32,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 101",
+    "brand": 1,
+    "number": 33,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 102",
+    "brand": 1,
+    "number": 34,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 103",
+    "brand": 1,
+    "number": 35,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 104",
+    "brand": 1,
+    "number": 36,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 106",
+    "brand": 1,
+    "number": 37,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 107",
+    "brand": 1,
+    "number": 38,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 108",
+    "brand": 1,
+    "number": 39,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 109",
+    "brand": 1,
+    "number": 40,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 110",
+    "brand": 1,
+    "number": 41,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 111",
+    "brand": 1,
+    "number": 42,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 113",
+    "brand": 1,
+    "number": 43,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 115",
+    "brand": 1,
+    "number": 44,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 117",
+    "brand": 1,
+    "number": 45,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 118",
+    "brand": 1,
+    "number": 46,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 120",
+    "brand": 1,
+    "number": 47,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 121",
+    "brand": 1,
+    "number": 48,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 122",
+    "brand": 1,
+    "number": 49,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 124",
+    "brand": 1,
+    "number": 50,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 127",
+    "brand": 1,
+    "number": 51,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 128",
+    "brand": 1,
+    "number": 52,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 131",
+    "brand": 1,
+    "number": 53,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 134",
+    "brand": 1,
+    "number": 54,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 135",
+    "brand": 1,
+    "number": 55,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 136",
+    "brand": 1,
+    "number": 56,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 137",
+    "brand": 1,
+    "number": 57,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 138",
+    "brand": 1,
+    "number": 58,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 140",
+    "brand": 1,
+    "number": 59,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 142",
+    "brand": 1,
+    "number": 60,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 143",
+    "brand": 1,
+    "number": 61,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 144",
+    "brand": 1,
+    "number": 62,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 147",
+    "brand": 1,
+    "number": 63,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 148",
+    "brand": 1,
+    "number": 64,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 151",
+    "brand": 1,
+    "number": 65,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 152",
+    "brand": 1,
+    "number": 66,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 153",
+    "brand": 1,
+    "number": 67,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 154",
+    "brand": 1,
+    "number": 68,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 156",
+    "brand": 1,
+    "number": 69,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 157",
+    "brand": 1,
+    "number": 70,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 159",
+    "brand": 1,
+    "number": 71,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 161",
+    "brand": 1,
+    "number": 72,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 162",
+    "brand": 1,
+    "number": 73,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 164",
+    "brand": 1,
+    "number": 74,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 165",
+    "brand": 1,
+    "number": 75,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 169",
+    "brand": 1,
+    "number": 76,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 170",
+    "brand": 1,
+    "number": 77,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 174",
+    "brand": 1,
+    "number": 78,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 176",
+    "brand": 1,
+    "number": 79,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 180",
+    "brand": 1,
+    "number": 80,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 182",
+    "brand": 1,
+    "number": 81,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 184",
+    "brand": 1,
+    "number": 82,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 186",
+    "brand": 1,
+    "number": 83,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 187",
+    "brand": 1,
+    "number": 84,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 188",
+    "brand": 1,
+    "number": 85,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 189",
+    "brand": 1,
+    "number": 86,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 191",
+    "brand": 1,
+    "number": 87,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 192",
+    "brand": 1,
+    "number": 88,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 194",
+    "brand": 1,
+    "number": 89,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 195",
+    "brand": 1,
+    "number": 90,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 196",
+    "brand": 1,
+    "number": 91,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 197",
+    "brand": 1,
+    "number": 92,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 198",
+    "brand": 1,
+    "number": 93,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 199",
+    "brand": 1,
+    "number": 94,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 200",
+    "brand": 1,
+    "number": 95,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 201",
+    "brand": 1,
+    "number": 96,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 202",
+    "brand": 1,
+    "number": 97,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 203",
+    "brand": 1,
+    "number": 98,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 204",
+    "brand": 1,
+    "number": 99,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 205",
+    "brand": 1,
+    "number": 100,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 206",
+    "brand": 1,
+    "number": 101,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 207",
+    "brand": 1,
+    "number": 102,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 208",
+    "brand": 1,
+    "number": 103,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 212",
+    "brand": 1,
+    "number": 104,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 213",
+    "brand": 1,
+    "number": 105,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 217",
+    "brand": 1,
+    "number": 106,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 218",
+    "brand": 1,
+    "number": 107,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 219",
+    "brand": 1,
+    "number": 108,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 221",
+    "brand": 1,
+    "number": 109,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 223",
+    "brand": 1,
+    "number": 110,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 224",
+    "brand": 1,
+    "number": 111,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 230",
+    "brand": 1,
+    "number": 112,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 232",
+    "brand": 1,
+    "number": 113,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 236",
+    "brand": 1,
+    "number": 114,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 237",
+    "brand": 1,
+    "number": 115,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 238",
+    "brand": 1,
+    "number": 116,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 241",
+    "brand": 1,
+    "number": 117,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 242",
+    "brand": 1,
+    "number": 118,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 243",
+    "brand": 1,
+    "number": 119,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 244",
+    "brand": 1,
+    "number": 120,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 245",
+    "brand": 1,
+    "number": 121,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 246",
+    "brand": 1,
+    "number": 122,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 247",
+    "brand": 1,
+    "number": 123,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 248",
+    "brand": 1,
+    "number": 124,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 249",
+    "brand": 1,
+    "number": 125,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 278",
+    "brand": 1,
+    "number": 126,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 279",
+    "brand": 1,
+    "number": 127,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 281",
+    "brand": 1,
+    "number": 128,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 283",
+    "brand": 1,
+    "number": 129,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 285",
+    "brand": 1,
+    "number": 130,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 286",
+    "brand": 1,
+    "number": 131,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 287",
+    "brand": 1,
+    "number": 132,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 441",
+    "brand": 1,
+    "number": 133,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 442",
+    "brand": 1,
+    "number": 134,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 443",
+    "brand": 1,
+    "number": 135,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 444",
+    "brand": 1,
+    "number": 136,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 600",
+    "brand": 1,
+    "number": 137,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 601",
+    "brand": 1,
+    "number": 138,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 602",
+    "brand": 1,
+    "number": 139,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 603",
+    "brand": 1,
+    "number": 140,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 650",
+    "brand": 1,
+    "number": 142,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 651",
+    "brand": 1,
+    "number": 143,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 652",
+    "brand": 1,
+    "number": 144,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 653",
+    "brand": 1,
+    "number": 145,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 700",
+    "brand": 1,
+    "number": 146,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 701",
+    "brand": 1,
+    "number": 147,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 702",
+    "brand": 1,
+    "number": 148,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 703",
+    "brand": 1,
+    "number": 149,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 704",
+    "brand": 1,
+    "number": 150,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 705",
+    "brand": 1,
+    "number": 151,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 706",
+    "brand": 1,
+    "number": 152,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 708",
+    "brand": 1,
+    "number": 153,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 709",
+    "brand": 1,
+    "number": 154,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 710",
+    "brand": 1,
+    "number": 155,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 711",
+    "brand": 1,
+    "number": 156,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 712",
+    "brand": 1,
+    "number": 157,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 714",
+    "brand": 1,
+    "number": 158,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 715",
+    "brand": 1,
+    "number": 159,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 716",
+    "brand": 1,
+    "number": 160,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 717",
+    "brand": 1,
+    "number": 161,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 718",
+    "brand": 1,
+    "number": 162,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 719",
+    "brand": 1,
+    "number": 163,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 720",
+    "brand": 1,
+    "number": 164,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 721",
+    "brand": 1,
+    "number": 165,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 723",
+    "brand": 1,
+    "number": 166,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 724",
+    "brand": 1,
+    "number": 167,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 725",
+    "brand": 1,
+    "number": 168,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 728",
+    "brand": 1,
+    "number": 169,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 730",
+    "brand": 1,
+    "number": 170,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 731",
+    "brand": 1,
+    "number": 171,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 733",
+    "brand": 1,
+    "number": 172,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 738",
+    "brand": 1,
+    "number": 173,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 742",
+    "brand": 1,
+    "number": 174,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 744",
+    "brand": 1,
+    "number": 175,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 746",
+    "brand": 1,
+    "number": 176,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 747",
+    "brand": 1,
+    "number": 177,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 748",
+    "brand": 1,
+    "number": 178,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 749",
+    "brand": 1,
+    "number": 179,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 750",
+    "brand": 1,
+    "number": 180,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 763",
+    "brand": 1,
+    "number": 181,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 764",
+    "brand": 1,
+    "number": 182,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 765",
+    "brand": 1,
+    "number": 183,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 773",
+    "brand": 1,
+    "number": 184,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 774",
+    "brand": 1,
+    "number": 185,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 775",
+    "brand": 1,
+    "number": 186,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 776",
+    "brand": 1,
+    "number": 187,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 778",
+    "brand": 1,
+    "number": 188,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 779",
+    "brand": 1,
+    "number": 189,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 781",
+    "brand": 1,
+    "number": 190,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 789",
+    "brand": 1,
+    "number": 191,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 790",
+    "brand": 1,
+    "number": 192,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 791",
+    "brand": 1,
+    "number": 193,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 794",
+    "brand": 1,
+    "number": 194,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL 795",
+    "brand": 1,
+    "number": 195,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 02",
+    "brand": 0,
+    "number": 0,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 06",
+    "brand": 0,
+    "number": 1,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 08",
+    "brand": 0,
+    "number": 2,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 12",
+    "brand": 0,
+    "number": 3,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 16",
+    "brand": 0,
+    "number": 4,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 17",
+    "brand": 0,
+    "number": 5,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 18",
+    "brand": 0,
+    "number": 6,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 21",
+    "brand": 0,
+    "number": 7,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 23",
+    "brand": 0,
+    "number": 8,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 26",
+    "brand": 0,
+    "number": 9,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 33",
+    "brand": 0,
+    "number": 10,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 34",
+    "brand": 0,
+    "number": 11,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 37",
+    "brand": 0,
+    "number": 12,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 41",
+    "brand": 0,
+    "number": 13,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 42",
+    "brand": 0,
+    "number": 14,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 44",
+    "brand": 0,
+    "number": 15,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 47",
+    "brand": 0,
+    "number": 16,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 51",
+    "brand": 0,
+    "number": 17,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 60",
+    "brand": 0,
+    "number": 18,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 62",
+    "brand": 0,
+    "number": 19,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 65",
+    "brand": 0,
+    "number": 20,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 77",
+    "brand": 0,
+    "number": 21,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 80",
+    "brand": 0,
+    "number": 22,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 83",
+    "brand": 0,
+    "number": 23,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 87",
+    "brand": 0,
+    "number": 24,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 88",
+    "brand": 0,
+    "number": 25,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 89",
+    "brand": 0,
+    "number": 26,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 91",
+    "brand": 0,
+    "number": 27,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 92",
+    "brand": 0,
+    "number": 28,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 93",
+    "brand": 0,
+    "number": 29,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 99",
+    "brand": 0,
+    "number": 30,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 302",
+    "brand": 0,
+    "number": 31,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 310",
+    "brand": 0,
+    "number": 32,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 316",
+    "brand": 0,
+    "number": 33,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 318",
+    "brand": 0,
+    "number": 34,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 321",
+    "brand": 0,
+    "number": 35,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 325",
+    "brand": 0,
+    "number": 36,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 364",
+    "brand": 0,
+    "number": 37,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 365",
+    "brand": 0,
+    "number": 38,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 375",
+    "brand": 0,
+    "number": 39,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 376",
+    "brand": 0,
+    "number": 40,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 378",
+    "brand": 0,
+    "number": 41,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 381",
+    "brand": 0,
+    "number": 42,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 2001",
+    "brand": 0,
+    "number": 43,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 2002",
+    "brand": 0,
+    "number": 44,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 2003",
+    "brand": 0,
+    "number": 45,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 2004",
+    "brand": 0,
+    "number": 46,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 2005",
+    "brand": 0,
+    "number": 47,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 2006",
+    "brand": 0,
+    "number": 48,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 2007",
+    "brand": 0,
+    "number": 49,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 2008",
+    "brand": 0,
+    "number": 50,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 2009",
+    "brand": 0,
+    "number": 51,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 2010",
+    "brand": 0,
+    "number": 52,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 3102",
+    "brand": 0,
+    "number": 53,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 3106",
+    "brand": 0,
+    "number": 54,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 3107",
+    "brand": 0,
+    "number": 55,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 3134",
+    "brand": 0,
+    "number": 56,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 3150",
+    "brand": 0,
+    "number": 57,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 3152",
+    "brand": 0,
+    "number": 58,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 3202",
+    "brand": 0,
+    "number": 59,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 3203",
+    "brand": 0,
+    "number": 60,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 3204",
+    "brand": 0,
+    "number": 61,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 3206",
+    "brand": 0,
+    "number": 62,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 3208",
+    "brand": 0,
+    "number": 63,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 3216",
+    "brand": 0,
+    "number": 64,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 3220",
+    "brand": 0,
+    "number": 65,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 3304",
+    "brand": 0,
+    "number": 66,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 3308",
+    "brand": 0,
+    "number": 67,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 3309",
+    "brand": 0,
+    "number": 68,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 3310",
+    "brand": 0,
+    "number": 69,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 3313",
+    "brand": 0,
+    "number": 70,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 3314",
+    "brand": 0,
+    "number": 71,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 3315",
+    "brand": 0,
+    "number": 72,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 3316",
+    "brand": 0,
+    "number": 73,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 3317",
+    "brand": 0,
+    "number": 74,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 3318",
+    "brand": 0,
+    "number": 75,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 3407",
+    "brand": 0,
+    "number": 76,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 3408",
+    "brand": 0,
+    "number": 77,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 3409",
+    "brand": 0,
+    "number": 78,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 3410",
+    "brand": 0,
+    "number": 79,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 3411",
+    "brand": 0,
+    "number": 80,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 3420",
+    "brand": 0,
+    "number": 81,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 3441",
+    "brand": 0,
+    "number": 82,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 3442",
+    "brand": 0,
+    "number": 83,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 3443",
+    "brand": 0,
+    "number": 84,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 3444",
+    "brand": 0,
+    "number": 85,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 4215",
+    "brand": 0,
+    "number": 86,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 4230",
+    "brand": 0,
+    "number": 87,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 4260",
+    "brand": 0,
+    "number": 88,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 4290",
+    "brand": 0,
+    "number": 89,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 4307",
+    "brand": 0,
+    "number": 90,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 4315",
+    "brand": 0,
+    "number": 91,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 4330",
+    "brand": 0,
+    "number": 92,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 4360",
+    "brand": 0,
+    "number": 93,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 4390",
+    "brand": 0,
+    "number": 94,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 4415",
+    "brand": 0,
+    "number": 95,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 4430",
+    "brand": 0,
+    "number": 96,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 4460",
+    "brand": 0,
+    "number": 97,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 4490",
+    "brand": 0,
+    "number": 98,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 4515",
+    "brand": 0,
+    "number": 99,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 4530",
+    "brand": 0,
+    "number": 100,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 4560",
+    "brand": 0,
+    "number": 101,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 4590",
+    "brand": 0,
+    "number": 102,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 4615",
+    "brand": 0,
+    "number": 103,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 4630",
+    "brand": 0,
+    "number": 104,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 4660",
+    "brand": 0,
+    "number": 105,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 4690",
+    "brand": 0,
+    "number": 106,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 4715",
+    "brand": 0,
+    "number": 107,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 4730",
+    "brand": 0,
+    "number": 108,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 4760",
+    "brand": 0,
+    "number": 109,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 4790",
+    "brand": 0,
+    "number": 110,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 4815",
+    "brand": 0,
+    "number": 111,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 4830",
+    "brand": 0,
+    "number": 112,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 4860",
+    "brand": 0,
+    "number": 113,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 4890",
+    "brand": 0,
+    "number": 114,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 4915",
+    "brand": 0,
+    "number": 115,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 4930",
+    "brand": 0,
+    "number": 116,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 4960",
+    "brand": 0,
+    "number": 117,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL 4990",
+    "brand": 0,
+    "number": 118,
+    "sub_brand": 0
+   }
+  ],
+  "2": [
+   {
+    "label": "L-GEL 600 600",
+    "brand": 1,
+    "number": 0,
+    "sub_brand": 2
+   },
+   {
+    "label": "L-GEL 600 601",
+    "brand": 1,
+    "number": 1,
+    "sub_brand": 2
+   },
+   {
+    "label": "L-GEL 600 602",
+    "brand": 1,
+    "number": 2,
+    "sub_brand": 2
+   },
+   {
+    "label": "L-GEL 600 603",
+    "brand": 1,
+    "number": 3,
+    "sub_brand": 2
+   },
+   {
+    "label": "L-GEL 600 604",
+    "brand": 1,
+    "number": 4,
+    "sub_brand": 2
+   },
+   {
+    "label": "L-GEL 600 650",
+    "brand": 1,
+    "number": 5,
+    "sub_brand": 2
+   },
+   {
+    "label": "L-GEL 600 651",
+    "brand": 1,
+    "number": 6,
+    "sub_brand": 2
+   },
+   {
+    "label": "L-GEL 600 652",
+    "brand": 1,
+    "number": 7,
+    "sub_brand": 2
+   },
+   {
+    "label": "L-GEL 600 653",
+    "brand": 1,
+    "number": 8,
+    "sub_brand": 2
+   },
+   {
+    "label": "L-GEL 700 700",
+    "brand": 1,
+    "number": 0,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 701",
+    "brand": 1,
+    "number": 1,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 702",
+    "brand": 1,
+    "number": 2,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 703",
+    "brand": 1,
+    "number": 3,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 704",
+    "brand": 1,
+    "number": 4,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 706",
+    "brand": 1,
+    "number": 5,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 708",
+    "brand": 1,
+    "number": 6,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 709",
+    "brand": 1,
+    "number": 7,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 710",
+    "brand": 1,
+    "number": 8,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 711",
+    "brand": 1,
+    "number": 9,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 712",
+    "brand": 1,
+    "number": 10,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 714",
+    "brand": 1,
+    "number": 11,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 715",
+    "brand": 1,
+    "number": 12,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 716",
+    "brand": 1,
+    "number": 13,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 719",
+    "brand": 1,
+    "number": 14,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 721",
+    "brand": 1,
+    "number": 15,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 723",
+    "brand": 1,
+    "number": 16,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 724",
+    "brand": 1,
+    "number": 17,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 725",
+    "brand": 1,
+    "number": 18,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 728",
+    "brand": 1,
+    "number": 19,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 730",
+    "brand": 1,
+    "number": 20,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 731",
+    "brand": 1,
+    "number": 21,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 733",
+    "brand": 1,
+    "number": 22,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 738",
+    "brand": 1,
+    "number": 23,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 742",
+    "brand": 1,
+    "number": 24,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 744",
+    "brand": 1,
+    "number": 25,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 746",
+    "brand": 1,
+    "number": 26,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 747",
+    "brand": 1,
+    "number": 27,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 748",
+    "brand": 1,
+    "number": 28,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 763",
+    "brand": 1,
+    "number": 29,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 764",
+    "brand": 1,
+    "number": 30,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 765",
+    "brand": 1,
+    "number": 31,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 773",
+    "brand": 1,
+    "number": 32,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 776",
+    "brand": 1,
+    "number": 33,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 778",
+    "brand": 1,
+    "number": 34,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 779",
+    "brand": 1,
+    "number": 35,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 781",
+    "brand": 1,
+    "number": 36,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 789",
+    "brand": 1,
+    "number": 37,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 790",
+    "brand": 1,
+    "number": 38,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 794",
+    "brand": 1,
+    "number": 39,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 795",
+    "brand": 1,
+    "number": 40,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL COLOR. 002",
+    "brand": 1,
+    "number": 0,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 003",
+    "brand": 1,
+    "number": 1,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 004",
+    "brand": 1,
+    "number": 2,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 007",
+    "brand": 1,
+    "number": 3,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 008",
+    "brand": 1,
+    "number": 4,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 009",
+    "brand": 1,
+    "number": 5,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 010",
+    "brand": 1,
+    "number": 6,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 013",
+    "brand": 1,
+    "number": 7,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 017",
+    "brand": 1,
+    "number": 8,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 019",
+    "brand": 1,
+    "number": 9,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 020",
+    "brand": 1,
+    "number": 10,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 021",
+    "brand": 1,
+    "number": 11,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 022",
+    "brand": 1,
+    "number": 12,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 024",
+    "brand": 1,
+    "number": 13,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 025",
+    "brand": 1,
+    "number": 14,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 026",
+    "brand": 1,
+    "number": 15,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 035",
+    "brand": 1,
+    "number": 16,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 036",
+    "brand": 1,
+    "number": 17,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 046",
+    "brand": 1,
+    "number": 18,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 048",
+    "brand": 1,
+    "number": 19,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 052",
+    "brand": 1,
+    "number": 20,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 053",
+    "brand": 1,
+    "number": 21,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 058",
+    "brand": 1,
+    "number": 22,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 061",
+    "brand": 1,
+    "number": 23,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 063",
+    "brand": 1,
+    "number": 24,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 068",
+    "brand": 1,
+    "number": 25,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 075",
+    "brand": 1,
+    "number": 26,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 079",
+    "brand": 1,
+    "number": 27,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 085",
+    "brand": 1,
+    "number": 28,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 088",
+    "brand": 1,
+    "number": 29,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 089",
+    "brand": 1,
+    "number": 30,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 090",
+    "brand": 1,
+    "number": 31,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 100",
+    "brand": 1,
+    "number": 32,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 101",
+    "brand": 1,
+    "number": 33,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 102",
+    "brand": 1,
+    "number": 34,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 103",
+    "brand": 1,
+    "number": 35,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 104",
+    "brand": 1,
+    "number": 36,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 106",
+    "brand": 1,
+    "number": 37,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 107",
+    "brand": 1,
+    "number": 38,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 108",
+    "brand": 1,
+    "number": 39,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 109",
+    "brand": 1,
+    "number": 40,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 110",
+    "brand": 1,
+    "number": 41,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 111",
+    "brand": 1,
+    "number": 42,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 113",
+    "brand": 1,
+    "number": 43,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 115",
+    "brand": 1,
+    "number": 44,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 117",
+    "brand": 1,
+    "number": 45,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 118",
+    "brand": 1,
+    "number": 46,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 120",
+    "brand": 1,
+    "number": 47,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 121",
+    "brand": 1,
+    "number": 48,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 122",
+    "brand": 1,
+    "number": 49,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 124",
+    "brand": 1,
+    "number": 50,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 127",
+    "brand": 1,
+    "number": 51,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 128",
+    "brand": 1,
+    "number": 52,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 131",
+    "brand": 1,
+    "number": 53,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 134",
+    "brand": 1,
+    "number": 54,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 135",
+    "brand": 1,
+    "number": 55,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 136",
+    "brand": 1,
+    "number": 56,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 137",
+    "brand": 1,
+    "number": 57,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 138",
+    "brand": 1,
+    "number": 58,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 140",
+    "brand": 1,
+    "number": 59,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 142",
+    "brand": 1,
+    "number": 60,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 143",
+    "brand": 1,
+    "number": 61,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 144",
+    "brand": 1,
+    "number": 62,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 147",
+    "brand": 1,
+    "number": 63,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 148",
+    "brand": 1,
+    "number": 64,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 151",
+    "brand": 1,
+    "number": 65,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 152",
+    "brand": 1,
+    "number": 66,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 153",
+    "brand": 1,
+    "number": 67,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 154",
+    "brand": 1,
+    "number": 68,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 156",
+    "brand": 1,
+    "number": 69,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 157",
+    "brand": 1,
+    "number": 70,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 159",
+    "brand": 1,
+    "number": 71,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 161",
+    "brand": 1,
+    "number": 72,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 162",
+    "brand": 1,
+    "number": 73,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 164",
+    "brand": 1,
+    "number": 74,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 165",
+    "brand": 1,
+    "number": 75,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 169",
+    "brand": 1,
+    "number": 76,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 170",
+    "brand": 1,
+    "number": 77,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 174",
+    "brand": 1,
+    "number": 78,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 176",
+    "brand": 1,
+    "number": 79,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 180",
+    "brand": 1,
+    "number": 80,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 182",
+    "brand": 1,
+    "number": 81,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 192",
+    "brand": 1,
+    "number": 82,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 194",
+    "brand": 1,
+    "number": 83,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 195",
+    "brand": 1,
+    "number": 84,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 196",
+    "brand": 1,
+    "number": 85,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 197",
+    "brand": 1,
+    "number": 86,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 198",
+    "brand": 1,
+    "number": 87,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 199",
+    "brand": 1,
+    "number": 88,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COR. 200",
+    "brand": 1,
+    "number": 0,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 201",
+    "brand": 1,
+    "number": 1,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 281",
+    "brand": 1,
+    "number": 2,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 202",
+    "brand": 1,
+    "number": 3,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 203",
+    "brand": 1,
+    "number": 4,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 218",
+    "brand": 1,
+    "number": 5,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 287",
+    "brand": 1,
+    "number": 6,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 204",
+    "brand": 1,
+    "number": 7,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 285",
+    "brand": 1,
+    "number": 8,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 205",
+    "brand": 1,
+    "number": 9,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 206",
+    "brand": 1,
+    "number": 10,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 223",
+    "brand": 1,
+    "number": 11,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 283",
+    "brand": 1,
+    "number": 12,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 286",
+    "brand": 1,
+    "number": 13,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 441",
+    "brand": 1,
+    "number": 14,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 442",
+    "brand": 1,
+    "number": 15,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 443",
+    "brand": 1,
+    "number": 16,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 444",
+    "brand": 1,
+    "number": 17,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 207",
+    "brand": 1,
+    "number": 18,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 208",
+    "brand": 1,
+    "number": 19,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 212",
+    "brand": 1,
+    "number": 20,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 213",
+    "brand": 1,
+    "number": 21,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 219",
+    "brand": 1,
+    "number": 22,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 230",
+    "brand": 1,
+    "number": 23,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 232",
+    "brand": 1,
+    "number": 24,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 236",
+    "brand": 1,
+    "number": 25,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 237",
+    "brand": 1,
+    "number": 26,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 238",
+    "brand": 1,
+    "number": 27,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 241",
+    "brand": 1,
+    "number": 28,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 242",
+    "brand": 1,
+    "number": 29,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 243",
+    "brand": 1,
+    "number": 30,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 244",
+    "brand": 1,
+    "number": 31,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 245",
+    "brand": 1,
+    "number": 32,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 246",
+    "brand": 1,
+    "number": 33,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 278",
+    "brand": 1,
+    "number": 34,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 247",
+    "brand": 1,
+    "number": 35,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 248",
+    "brand": 1,
+    "number": 36,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 249",
+    "brand": 1,
+    "number": 37,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 279",
+    "brand": 1,
+    "number": 38,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COS. 184",
+    "brand": 1,
+    "number": 0,
+    "sub_brand": 3
+   },
+   {
+    "label": "L-GEL COS. 186",
+    "brand": 1,
+    "number": 1,
+    "sub_brand": 3
+   },
+   {
+    "label": "L-GEL COS. 187",
+    "brand": 1,
+    "number": 2,
+    "sub_brand": 3
+   },
+   {
+    "label": "L-GEL COS. 188",
+    "brand": 1,
+    "number": 3,
+    "sub_brand": 3
+   },
+   {
+    "label": "L-GEL COS. 189",
+    "brand": 1,
+    "number": 4,
+    "sub_brand": 3
+   },
+   {
+    "label": "L-GEL COS. 191",
+    "brand": 1,
+    "number": 5,
+    "sub_brand": 3
+   },
+   {
+    "label": "L-GEL COS. 705",
+    "brand": 1,
+    "number": 6,
+    "sub_brand": 3
+   },
+   {
+    "label": "L-GEL COS. 717",
+    "brand": 1,
+    "number": 7,
+    "sub_brand": 3
+   },
+   {
+    "label": "L-GEL COS. 718",
+    "brand": 1,
+    "number": 8,
+    "sub_brand": 3
+   },
+   {
+    "label": "L-GEL COS. 720",
+    "brand": 1,
+    "number": 9,
+    "sub_brand": 3
+   },
+   {
+    "label": "L-GEL COS. 749",
+    "brand": 1,
+    "number": 10,
+    "sub_brand": 3
+   },
+   {
+    "label": "L-GEL COS. 750",
+    "brand": 1,
+    "number": 11,
+    "sub_brand": 3
+   },
+   {
+    "label": "L-GEL COS. 774",
+    "brand": 1,
+    "number": 12,
+    "sub_brand": 3
+   },
+   {
+    "label": "L-GEL COS. 775",
+    "brand": 1,
+    "number": 13,
+    "sub_brand": 3
+   },
+   {
+    "label": "L-GEL COS. 791",
+    "brand": 1,
+    "number": 14,
+    "sub_brand": 3
+   },
+   {
+    "label": "L-GEL COS. 217",
+    "brand": 1,
+    "number": 15,
+    "sub_brand": 3
+   },
+   {
+    "label": "L-GEL COS. 221",
+    "brand": 1,
+    "number": 16,
+    "sub_brand": 3
+   },
+   {
+    "label": "L-GEL COS. 224",
+    "brand": 1,
+    "number": 17,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CAL. 4215",
+    "brand": 0,
+    "number": 0,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4230",
+    "brand": 0,
+    "number": 1,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4260",
+    "brand": 0,
+    "number": 2,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4290",
+    "brand": 0,
+    "number": 3,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4307",
+    "brand": 0,
+    "number": 4,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4315",
+    "brand": 0,
+    "number": 5,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4330",
+    "brand": 0,
+    "number": 6,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4360",
+    "brand": 0,
+    "number": 7,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4390",
+    "brand": 0,
+    "number": 8,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4415",
+    "brand": 0,
+    "number": 9,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4430",
+    "brand": 0,
+    "number": 10,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4460",
+    "brand": 0,
+    "number": 11,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4490",
+    "brand": 0,
+    "number": 12,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4515",
+    "brand": 0,
+    "number": 13,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4530",
+    "brand": 0,
+    "number": 14,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4560",
+    "brand": 0,
+    "number": 15,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4590",
+    "brand": 0,
+    "number": 16,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4615",
+    "brand": 0,
+    "number": 17,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4630",
+    "brand": 0,
+    "number": 18,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4660",
+    "brand": 0,
+    "number": 19,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4690",
+    "brand": 0,
+    "number": 20,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4715",
+    "brand": 0,
+    "number": 21,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4730",
+    "brand": 0,
+    "number": 22,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4760",
+    "brand": 0,
+    "number": 23,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4790",
+    "brand": 0,
+    "number": 24,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4815",
+    "brand": 0,
+    "number": 25,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4830",
+    "brand": 0,
+    "number": 26,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4860",
+    "brand": 0,
+    "number": 27,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4890",
+    "brand": 0,
+    "number": 28,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4915",
+    "brand": 0,
+    "number": 29,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4930",
+    "brand": 0,
+    "number": 30,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4960",
+    "brand": 0,
+    "number": 31,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4990",
+    "brand": 0,
+    "number": 32,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CINE. 02",
+    "brand": 0,
+    "number": 0,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 302",
+    "brand": 0,
+    "number": 1,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 06",
+    "brand": 0,
+    "number": 2,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 08",
+    "brand": 0,
+    "number": 3,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 310",
+    "brand": 0,
+    "number": 4,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 12",
+    "brand": 0,
+    "number": 5,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 16",
+    "brand": 0,
+    "number": 6,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 316",
+    "brand": 0,
+    "number": 7,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 17",
+    "brand": 0,
+    "number": 8,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 18",
+    "brand": 0,
+    "number": 9,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 318",
+    "brand": 0,
+    "number": 10,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 21",
+    "brand": 0,
+    "number": 11,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 321",
+    "brand": 0,
+    "number": 12,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 23",
+    "brand": 0,
+    "number": 13,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 325",
+    "brand": 0,
+    "number": 14,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 26",
+    "brand": 0,
+    "number": 15,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 33",
+    "brand": 0,
+    "number": 16,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 333",
+    "brand": 0,
+    "number": 17,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 34",
+    "brand": 0,
+    "number": 18,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 37",
+    "brand": 0,
+    "number": 19,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 41",
+    "brand": 0,
+    "number": 20,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 42",
+    "brand": 0,
+    "number": 21,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 44",
+    "brand": 0,
+    "number": 22,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 47",
+    "brand": 0,
+    "number": 23,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 51",
+    "brand": 0,
+    "number": 24,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 60",
+    "brand": 0,
+    "number": 25,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 360",
+    "brand": 0,
+    "number": 26,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 62",
+    "brand": 0,
+    "number": 27,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 362",
+    "brand": 0,
+    "number": 28,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 364",
+    "brand": 0,
+    "number": 29,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 65",
+    "brand": 0,
+    "number": 30,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 365",
+    "brand": 0,
+    "number": 31,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 375",
+    "brand": 0,
+    "number": 32,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 376",
+    "brand": 0,
+    "number": 33,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 77",
+    "brand": 0,
+    "number": 34,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 378",
+    "brand": 0,
+    "number": 35,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 80",
+    "brand": 0,
+    "number": 36,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 381",
+    "brand": 0,
+    "number": 37,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 83",
+    "brand": 0,
+    "number": 38,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 87",
+    "brand": 0,
+    "number": 39,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 88",
+    "brand": 0,
+    "number": 40,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 89",
+    "brand": 0,
+    "number": 41,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 91",
+    "brand": 0,
+    "number": 42,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 92",
+    "brand": 0,
+    "number": 43,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 93",
+    "brand": 0,
+    "number": 44,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 99",
+    "brand": 0,
+    "number": 45,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL COR. 3202",
+    "brand": 0,
+    "number": 0,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3203",
+    "brand": 0,
+    "number": 1,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3204",
+    "brand": 0,
+    "number": 2,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3206",
+    "brand": 0,
+    "number": 3,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3208",
+    "brand": 0,
+    "number": 4,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3216",
+    "brand": 0,
+    "number": 5,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3220",
+    "brand": 0,
+    "number": 6,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3407",
+    "brand": 0,
+    "number": 7,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3411",
+    "brand": 0,
+    "number": 8,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3408",
+    "brand": 0,
+    "number": 9,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3409",
+    "brand": 0,
+    "number": 10,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3410",
+    "brand": 0,
+    "number": 11,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3420",
+    "brand": 0,
+    "number": 12,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3441",
+    "brand": 0,
+    "number": 13,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3442",
+    "brand": 0,
+    "number": 14,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3443",
+    "brand": 0,
+    "number": 15,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3444",
+    "brand": 0,
+    "number": 16,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3304",
+    "brand": 0,
+    "number": 17,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3315",
+    "brand": 0,
+    "number": 18,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3316",
+    "brand": 0,
+    "number": 19,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3317",
+    "brand": 0,
+    "number": 20,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3308",
+    "brand": 0,
+    "number": 21,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3309",
+    "brand": 0,
+    "number": 22,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3313",
+    "brand": 0,
+    "number": 23,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3314",
+    "brand": 0,
+    "number": 24,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3318",
+    "brand": 0,
+    "number": 25,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3310",
+    "brand": 0,
+    "number": 26,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3150",
+    "brand": 0,
+    "number": 27,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3152",
+    "brand": 0,
+    "number": 28,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3107",
+    "brand": 0,
+    "number": 29,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3134",
+    "brand": 0,
+    "number": 30,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3106",
+    "brand": 0,
+    "number": 31,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3102",
+    "brand": 0,
+    "number": 32,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL SPC. 2001",
+    "brand": 0,
+    "number": 0,
+    "sub_brand": 2
+   },
+   {
+    "label": "R-GEL SPC. 2002",
+    "brand": 0,
+    "number": 1,
+    "sub_brand": 2
+   },
+   {
+    "label": "R-GEL SPC. 2003",
+    "brand": 0,
+    "number": 2,
+    "sub_brand": 2
+   },
+   {
+    "label": "R-GEL SPC. 2004",
+    "brand": 0,
+    "number": 3,
+    "sub_brand": 2
+   },
+   {
+    "label": "R-GEL SPC. 2005",
+    "brand": 0,
+    "number": 4,
+    "sub_brand": 2
+   },
+   {
+    "label": "R-GEL SPC. 2006",
+    "brand": 0,
+    "number": 5,
+    "sub_brand": 2
+   },
+   {
+    "label": "R-GEL SPC. 2007",
+    "brand": 0,
+    "number": 6,
+    "sub_brand": 2
+   },
+   {
+    "label": "R-GEL SPC. 2008",
+    "brand": 0,
+    "number": 7,
+    "sub_brand": 2
+   },
+   {
+    "label": "R-GEL SPC. 2009",
+    "brand": 0,
+    "number": 8,
+    "sub_brand": 2
+   },
+   {
+    "label": "R-GEL SPC. 2010",
+    "brand": 0,
+    "number": 9,
+    "sub_brand": 2
+   }
+  ],
+  "3": [
+   {
+    "label": "L-GEL 600 600",
+    "brand": 1,
+    "number": 0,
+    "sub_brand": 2
+   },
+   {
+    "label": "L-GEL 600 601",
+    "brand": 1,
+    "number": 1,
+    "sub_brand": 2
+   },
+   {
+    "label": "L-GEL 600 602",
+    "brand": 1,
+    "number": 2,
+    "sub_brand": 2
+   },
+   {
+    "label": "L-GEL 600 603",
+    "brand": 1,
+    "number": 3,
+    "sub_brand": 2
+   },
+   {
+    "label": "L-GEL 600 604",
+    "brand": 1,
+    "number": 4,
+    "sub_brand": 2
+   },
+   {
+    "label": "L-GEL 600 650",
+    "brand": 1,
+    "number": 5,
+    "sub_brand": 2
+   },
+   {
+    "label": "L-GEL 600 651",
+    "brand": 1,
+    "number": 6,
+    "sub_brand": 2
+   },
+   {
+    "label": "L-GEL 600 652",
+    "brand": 1,
+    "number": 7,
+    "sub_brand": 2
+   },
+   {
+    "label": "L-GEL 600 653",
+    "brand": 1,
+    "number": 8,
+    "sub_brand": 2
+   },
+   {
+    "label": "L-GEL 700 700",
+    "brand": 1,
+    "number": 0,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 701",
+    "brand": 1,
+    "number": 1,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 702",
+    "brand": 1,
+    "number": 2,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 703",
+    "brand": 1,
+    "number": 3,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 704",
+    "brand": 1,
+    "number": 4,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 706",
+    "brand": 1,
+    "number": 5,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 708",
+    "brand": 1,
+    "number": 6,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 709",
+    "brand": 1,
+    "number": 7,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 710",
+    "brand": 1,
+    "number": 8,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 711",
+    "brand": 1,
+    "number": 9,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 712",
+    "brand": 1,
+    "number": 10,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 714",
+    "brand": 1,
+    "number": 11,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 715",
+    "brand": 1,
+    "number": 12,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 716",
+    "brand": 1,
+    "number": 13,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 719",
+    "brand": 1,
+    "number": 14,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 721",
+    "brand": 1,
+    "number": 15,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 723",
+    "brand": 1,
+    "number": 16,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 724",
+    "brand": 1,
+    "number": 17,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 725",
+    "brand": 1,
+    "number": 18,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 728",
+    "brand": 1,
+    "number": 19,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 730",
+    "brand": 1,
+    "number": 20,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 731",
+    "brand": 1,
+    "number": 21,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 733",
+    "brand": 1,
+    "number": 22,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 738",
+    "brand": 1,
+    "number": 23,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 742",
+    "brand": 1,
+    "number": 24,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 744",
+    "brand": 1,
+    "number": 25,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 746",
+    "brand": 1,
+    "number": 26,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 747",
+    "brand": 1,
+    "number": 27,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 748",
+    "brand": 1,
+    "number": 28,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 763",
+    "brand": 1,
+    "number": 29,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 764",
+    "brand": 1,
+    "number": 30,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 765",
+    "brand": 1,
+    "number": 31,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 773",
+    "brand": 1,
+    "number": 32,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 776",
+    "brand": 1,
+    "number": 33,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 778",
+    "brand": 1,
+    "number": 34,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 779",
+    "brand": 1,
+    "number": 35,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 781",
+    "brand": 1,
+    "number": 36,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 789",
+    "brand": 1,
+    "number": 37,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 790",
+    "brand": 1,
+    "number": 38,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 794",
+    "brand": 1,
+    "number": 39,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL 700 795",
+    "brand": 1,
+    "number": 40,
+    "sub_brand": 4
+   },
+   {
+    "label": "L-GEL COLOR. 002",
+    "brand": 1,
+    "number": 0,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 003",
+    "brand": 1,
+    "number": 1,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 004",
+    "brand": 1,
+    "number": 2,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 007",
+    "brand": 1,
+    "number": 3,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 008",
+    "brand": 1,
+    "number": 4,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 009",
+    "brand": 1,
+    "number": 5,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 010",
+    "brand": 1,
+    "number": 6,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 013",
+    "brand": 1,
+    "number": 7,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 017",
+    "brand": 1,
+    "number": 8,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 019",
+    "brand": 1,
+    "number": 9,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 020",
+    "brand": 1,
+    "number": 10,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 021",
+    "brand": 1,
+    "number": 11,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 022",
+    "brand": 1,
+    "number": 12,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 024",
+    "brand": 1,
+    "number": 13,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 025",
+    "brand": 1,
+    "number": 14,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 026",
+    "brand": 1,
+    "number": 15,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 035",
+    "brand": 1,
+    "number": 16,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 036",
+    "brand": 1,
+    "number": 17,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 046",
+    "brand": 1,
+    "number": 18,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 048",
+    "brand": 1,
+    "number": 19,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 052",
+    "brand": 1,
+    "number": 20,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 053",
+    "brand": 1,
+    "number": 21,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 058",
+    "brand": 1,
+    "number": 22,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 061",
+    "brand": 1,
+    "number": 23,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 063",
+    "brand": 1,
+    "number": 24,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 068",
+    "brand": 1,
+    "number": 25,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 075",
+    "brand": 1,
+    "number": 26,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 079",
+    "brand": 1,
+    "number": 27,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 085",
+    "brand": 1,
+    "number": 28,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 088",
+    "brand": 1,
+    "number": 29,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 089",
+    "brand": 1,
+    "number": 30,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 090",
+    "brand": 1,
+    "number": 31,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 100",
+    "brand": 1,
+    "number": 32,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 101",
+    "brand": 1,
+    "number": 33,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 102",
+    "brand": 1,
+    "number": 34,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 103",
+    "brand": 1,
+    "number": 35,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 104",
+    "brand": 1,
+    "number": 36,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 106",
+    "brand": 1,
+    "number": 37,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 107",
+    "brand": 1,
+    "number": 38,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 108",
+    "brand": 1,
+    "number": 39,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 109",
+    "brand": 1,
+    "number": 40,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 110",
+    "brand": 1,
+    "number": 41,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 111",
+    "brand": 1,
+    "number": 42,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 113",
+    "brand": 1,
+    "number": 43,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 115",
+    "brand": 1,
+    "number": 44,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 117",
+    "brand": 1,
+    "number": 45,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 118",
+    "brand": 1,
+    "number": 46,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 120",
+    "brand": 1,
+    "number": 47,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 121",
+    "brand": 1,
+    "number": 48,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 122",
+    "brand": 1,
+    "number": 49,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 124",
+    "brand": 1,
+    "number": 50,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 127",
+    "brand": 1,
+    "number": 51,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 128",
+    "brand": 1,
+    "number": 52,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 131",
+    "brand": 1,
+    "number": 53,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 134",
+    "brand": 1,
+    "number": 54,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 135",
+    "brand": 1,
+    "number": 55,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 136",
+    "brand": 1,
+    "number": 56,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 137",
+    "brand": 1,
+    "number": 57,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 138",
+    "brand": 1,
+    "number": 58,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 140",
+    "brand": 1,
+    "number": 59,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 142",
+    "brand": 1,
+    "number": 60,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 143",
+    "brand": 1,
+    "number": 61,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 144",
+    "brand": 1,
+    "number": 62,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 147",
+    "brand": 1,
+    "number": 63,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 148",
+    "brand": 1,
+    "number": 64,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 151",
+    "brand": 1,
+    "number": 65,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 152",
+    "brand": 1,
+    "number": 66,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 153",
+    "brand": 1,
+    "number": 67,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 154",
+    "brand": 1,
+    "number": 68,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 156",
+    "brand": 1,
+    "number": 69,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 157",
+    "brand": 1,
+    "number": 70,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 159",
+    "brand": 1,
+    "number": 71,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 161",
+    "brand": 1,
+    "number": 72,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 162",
+    "brand": 1,
+    "number": 73,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 164",
+    "brand": 1,
+    "number": 74,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 165",
+    "brand": 1,
+    "number": 75,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 169",
+    "brand": 1,
+    "number": 76,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 170",
+    "brand": 1,
+    "number": 77,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 174",
+    "brand": 1,
+    "number": 78,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 176",
+    "brand": 1,
+    "number": 79,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 180",
+    "brand": 1,
+    "number": 80,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 182",
+    "brand": 1,
+    "number": 81,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 192",
+    "brand": 1,
+    "number": 82,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 194",
+    "brand": 1,
+    "number": 83,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 195",
+    "brand": 1,
+    "number": 84,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 196",
+    "brand": 1,
+    "number": 85,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 197",
+    "brand": 1,
+    "number": 86,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 198",
+    "brand": 1,
+    "number": 87,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COLOR. 199",
+    "brand": 1,
+    "number": 88,
+    "sub_brand": 1
+   },
+   {
+    "label": "L-GEL COR. 200",
+    "brand": 1,
+    "number": 0,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 201",
+    "brand": 1,
+    "number": 1,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 281",
+    "brand": 1,
+    "number": 2,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 202",
+    "brand": 1,
+    "number": 3,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 203",
+    "brand": 1,
+    "number": 4,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 218",
+    "brand": 1,
+    "number": 5,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 287",
+    "brand": 1,
+    "number": 6,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 204",
+    "brand": 1,
+    "number": 7,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 285",
+    "brand": 1,
+    "number": 8,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 205",
+    "brand": 1,
+    "number": 9,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 206",
+    "brand": 1,
+    "number": 10,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 223",
+    "brand": 1,
+    "number": 11,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 283",
+    "brand": 1,
+    "number": 12,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 286",
+    "brand": 1,
+    "number": 13,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 441",
+    "brand": 1,
+    "number": 14,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 442",
+    "brand": 1,
+    "number": 15,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 443",
+    "brand": 1,
+    "number": 16,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 444",
+    "brand": 1,
+    "number": 17,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 207",
+    "brand": 1,
+    "number": 18,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 208",
+    "brand": 1,
+    "number": 19,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 212",
+    "brand": 1,
+    "number": 20,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 213",
+    "brand": 1,
+    "number": 21,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 219",
+    "brand": 1,
+    "number": 22,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 230",
+    "brand": 1,
+    "number": 23,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 232",
+    "brand": 1,
+    "number": 24,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 236",
+    "brand": 1,
+    "number": 25,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 237",
+    "brand": 1,
+    "number": 26,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 238",
+    "brand": 1,
+    "number": 27,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 241",
+    "brand": 1,
+    "number": 28,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 242",
+    "brand": 1,
+    "number": 29,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 243",
+    "brand": 1,
+    "number": 30,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 244",
+    "brand": 1,
+    "number": 31,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 245",
+    "brand": 1,
+    "number": 32,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 246",
+    "brand": 1,
+    "number": 33,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 278",
+    "brand": 1,
+    "number": 34,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 247",
+    "brand": 1,
+    "number": 35,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 248",
+    "brand": 1,
+    "number": 36,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 249",
+    "brand": 1,
+    "number": 37,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COR. 279",
+    "brand": 1,
+    "number": 38,
+    "sub_brand": 0
+   },
+   {
+    "label": "L-GEL COS. 184",
+    "brand": 1,
+    "number": 0,
+    "sub_brand": 3
+   },
+   {
+    "label": "L-GEL COS. 186",
+    "brand": 1,
+    "number": 1,
+    "sub_brand": 3
+   },
+   {
+    "label": "L-GEL COS. 187",
+    "brand": 1,
+    "number": 2,
+    "sub_brand": 3
+   },
+   {
+    "label": "L-GEL COS. 188",
+    "brand": 1,
+    "number": 3,
+    "sub_brand": 3
+   },
+   {
+    "label": "L-GEL COS. 189",
+    "brand": 1,
+    "number": 4,
+    "sub_brand": 3
+   },
+   {
+    "label": "L-GEL COS. 191",
+    "brand": 1,
+    "number": 5,
+    "sub_brand": 3
+   },
+   {
+    "label": "L-GEL COS. 705",
+    "brand": 1,
+    "number": 6,
+    "sub_brand": 3
+   },
+   {
+    "label": "L-GEL COS. 717",
+    "brand": 1,
+    "number": 7,
+    "sub_brand": 3
+   },
+   {
+    "label": "L-GEL COS. 718",
+    "brand": 1,
+    "number": 8,
+    "sub_brand": 3
+   },
+   {
+    "label": "L-GEL COS. 720",
+    "brand": 1,
+    "number": 9,
+    "sub_brand": 3
+   },
+   {
+    "label": "L-GEL COS. 749",
+    "brand": 1,
+    "number": 10,
+    "sub_brand": 3
+   },
+   {
+    "label": "L-GEL COS. 750",
+    "brand": 1,
+    "number": 11,
+    "sub_brand": 3
+   },
+   {
+    "label": "L-GEL COS. 774",
+    "brand": 1,
+    "number": 12,
+    "sub_brand": 3
+   },
+   {
+    "label": "L-GEL COS. 775",
+    "brand": 1,
+    "number": 13,
+    "sub_brand": 3
+   },
+   {
+    "label": "L-GEL COS. 791",
+    "brand": 1,
+    "number": 14,
+    "sub_brand": 3
+   },
+   {
+    "label": "L-GEL COS. 217",
+    "brand": 1,
+    "number": 15,
+    "sub_brand": 3
+   },
+   {
+    "label": "L-GEL COS. 221",
+    "brand": 1,
+    "number": 16,
+    "sub_brand": 3
+   },
+   {
+    "label": "L-GEL COS. 224",
+    "brand": 1,
+    "number": 17,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CAL. 4215",
+    "brand": 0,
+    "number": 0,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4230",
+    "brand": 0,
+    "number": 1,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4260",
+    "brand": 0,
+    "number": 2,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4290",
+    "brand": 0,
+    "number": 3,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4307",
+    "brand": 0,
+    "number": 4,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4315",
+    "brand": 0,
+    "number": 5,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4330",
+    "brand": 0,
+    "number": 6,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4360",
+    "brand": 0,
+    "number": 7,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4390",
+    "brand": 0,
+    "number": 8,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4415",
+    "brand": 0,
+    "number": 9,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4430",
+    "brand": 0,
+    "number": 10,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4460",
+    "brand": 0,
+    "number": 11,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4490",
+    "brand": 0,
+    "number": 12,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4515",
+    "brand": 0,
+    "number": 13,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4530",
+    "brand": 0,
+    "number": 14,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4560",
+    "brand": 0,
+    "number": 15,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4590",
+    "brand": 0,
+    "number": 16,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4615",
+    "brand": 0,
+    "number": 17,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4630",
+    "brand": 0,
+    "number": 18,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4660",
+    "brand": 0,
+    "number": 19,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4690",
+    "brand": 0,
+    "number": 20,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4715",
+    "brand": 0,
+    "number": 21,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4730",
+    "brand": 0,
+    "number": 22,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4760",
+    "brand": 0,
+    "number": 23,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4790",
+    "brand": 0,
+    "number": 24,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4815",
+    "brand": 0,
+    "number": 25,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4830",
+    "brand": 0,
+    "number": 26,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4860",
+    "brand": 0,
+    "number": 27,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4890",
+    "brand": 0,
+    "number": 28,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4915",
+    "brand": 0,
+    "number": 29,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4930",
+    "brand": 0,
+    "number": 30,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4960",
+    "brand": 0,
+    "number": 31,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CAL. 4990",
+    "brand": 0,
+    "number": 32,
+    "sub_brand": 1
+   },
+   {
+    "label": "R-GEL CINE. 02",
+    "brand": 0,
+    "number": 0,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 302",
+    "brand": 0,
+    "number": 1,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 06",
+    "brand": 0,
+    "number": 2,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 08",
+    "brand": 0,
+    "number": 3,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 310",
+    "brand": 0,
+    "number": 4,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 12",
+    "brand": 0,
+    "number": 5,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 16",
+    "brand": 0,
+    "number": 6,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 316",
+    "brand": 0,
+    "number": 7,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 17",
+    "brand": 0,
+    "number": 8,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 18",
+    "brand": 0,
+    "number": 9,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 318",
+    "brand": 0,
+    "number": 10,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 21",
+    "brand": 0,
+    "number": 11,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 321",
+    "brand": 0,
+    "number": 12,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 23",
+    "brand": 0,
+    "number": 13,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 325",
+    "brand": 0,
+    "number": 14,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 26",
+    "brand": 0,
+    "number": 15,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 33",
+    "brand": 0,
+    "number": 16,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 333",
+    "brand": 0,
+    "number": 17,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 34",
+    "brand": 0,
+    "number": 18,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 37",
+    "brand": 0,
+    "number": 19,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 41",
+    "brand": 0,
+    "number": 20,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 42",
+    "brand": 0,
+    "number": 21,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 44",
+    "brand": 0,
+    "number": 22,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 47",
+    "brand": 0,
+    "number": 23,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 51",
+    "brand": 0,
+    "number": 24,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 60",
+    "brand": 0,
+    "number": 25,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 360",
+    "brand": 0,
+    "number": 26,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 62",
+    "brand": 0,
+    "number": 27,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 362",
+    "brand": 0,
+    "number": 28,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 364",
+    "brand": 0,
+    "number": 29,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 65",
+    "brand": 0,
+    "number": 30,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 365",
+    "brand": 0,
+    "number": 31,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 375",
+    "brand": 0,
+    "number": 32,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 376",
+    "brand": 0,
+    "number": 33,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 77",
+    "brand": 0,
+    "number": 34,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 378",
+    "brand": 0,
+    "number": 35,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 80",
+    "brand": 0,
+    "number": 36,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 381",
+    "brand": 0,
+    "number": 37,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 83",
+    "brand": 0,
+    "number": 38,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 87",
+    "brand": 0,
+    "number": 39,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 88",
+    "brand": 0,
+    "number": 40,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 89",
+    "brand": 0,
+    "number": 41,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 91",
+    "brand": 0,
+    "number": 42,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 92",
+    "brand": 0,
+    "number": 43,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 93",
+    "brand": 0,
+    "number": 44,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL CINE. 99",
+    "brand": 0,
+    "number": 45,
+    "sub_brand": 3
+   },
+   {
+    "label": "R-GEL COR. 3202",
+    "brand": 0,
+    "number": 0,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3203",
+    "brand": 0,
+    "number": 1,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3204",
+    "brand": 0,
+    "number": 2,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3206",
+    "brand": 0,
+    "number": 3,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3208",
+    "brand": 0,
+    "number": 4,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3216",
+    "brand": 0,
+    "number": 5,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3220",
+    "brand": 0,
+    "number": 6,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3407",
+    "brand": 0,
+    "number": 7,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3411",
+    "brand": 0,
+    "number": 8,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3408",
+    "brand": 0,
+    "number": 9,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3409",
+    "brand": 0,
+    "number": 10,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3410",
+    "brand": 0,
+    "number": 11,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3420",
+    "brand": 0,
+    "number": 12,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3441",
+    "brand": 0,
+    "number": 13,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3442",
+    "brand": 0,
+    "number": 14,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3443",
+    "brand": 0,
+    "number": 15,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3444",
+    "brand": 0,
+    "number": 16,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3304",
+    "brand": 0,
+    "number": 17,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3315",
+    "brand": 0,
+    "number": 18,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3316",
+    "brand": 0,
+    "number": 19,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3317",
+    "brand": 0,
+    "number": 20,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3308",
+    "brand": 0,
+    "number": 21,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3309",
+    "brand": 0,
+    "number": 22,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3313",
+    "brand": 0,
+    "number": 23,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3314",
+    "brand": 0,
+    "number": 24,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3318",
+    "brand": 0,
+    "number": 25,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3310",
+    "brand": 0,
+    "number": 26,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3150",
+    "brand": 0,
+    "number": 27,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3152",
+    "brand": 0,
+    "number": 28,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3107",
+    "brand": 0,
+    "number": 29,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3134",
+    "brand": 0,
+    "number": 30,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3106",
+    "brand": 0,
+    "number": 31,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL COR. 3102",
+    "brand": 0,
+    "number": 32,
+    "sub_brand": 0
+   },
+   {
+    "label": "R-GEL SPC. 2001",
+    "brand": 0,
+    "number": 0,
+    "sub_brand": 2
+   },
+   {
+    "label": "R-GEL SPC. 2002",
+    "brand": 0,
+    "number": 1,
+    "sub_brand": 2
+   },
+   {
+    "label": "R-GEL SPC. 2003",
+    "brand": 0,
+    "number": 2,
+    "sub_brand": 2
+   },
+   {
+    "label": "R-GEL SPC. 2004",
+    "brand": 0,
+    "number": 3,
+    "sub_brand": 2
+   },
+   {
+    "label": "R-GEL SPC. 2005",
+    "brand": 0,
+    "number": 4,
+    "sub_brand": 2
+   },
+   {
+    "label": "R-GEL SPC. 2006",
+    "brand": 0,
+    "number": 5,
+    "sub_brand": 2
+   },
+   {
+    "label": "R-GEL SPC. 2007",
+    "brand": 0,
+    "number": 6,
+    "sub_brand": 2
+   },
+   {
+    "label": "R-GEL SPC. 2008",
+    "brand": 0,
+    "number": 7,
+    "sub_brand": 2
+   },
+   {
+    "label": "R-GEL SPC. 2009",
+    "brand": 0,
+    "number": 8,
+    "sub_brand": 2
+   },
+   {
+    "label": "R-GEL SPC. 2010",
+    "brand": 0,
+    "number": 9,
+    "sub_brand": 2
+   }
+  ]
+ }
+}

@@ -94,7 +94,7 @@ class ProxyClient:
 
         if self.is_connected:
             return
-        logger.info("connecting proxy client to %s", self.address)
+        logger.debug("connecting proxy client to %s", self.address)
         # A previous link may have dropped without disconnect() ever running —
         # the light lost power, a proxy rebooted, the device went out of range.
         # The replacement client carries none of the old session's state, so
@@ -105,7 +105,7 @@ class ProxyClient:
         self._client = self._client_factory(self.address)
         await self._client.connect()
         mtu = getattr(self._client, "mtu_size", None)
-        logger.info("proxy client connected (MTU=%s)", mtu)
+        logger.debug("proxy client connected (MTU=%s)", mtu)
 
     async def disconnect(self) -> None:
         """Disconnect the proxy client and clear notification callbacks.
@@ -131,11 +131,11 @@ class ProxyClient:
 
         if self._client is None:
             return
-        logger.info("disconnecting proxy client from %s", self.address)
+        logger.debug("disconnecting proxy client from %s", self.address)
         await self._client.disconnect()
         self._notifications_started = False
         self._callbacks.clear()
-        logger.info("proxy client disconnected")
+        logger.debug("proxy client disconnected")
 
     async def write_proxy(self, data: bytes) -> None:
         """Write a complete Mesh Proxy PDU to Data In.
@@ -179,7 +179,7 @@ class ProxyClient:
                 len(data),
                 max_write,
             )
-        logger.info("writing %d proxy byte(s) [hex: %s]", len(data), data.hex())
+        logger.debug("writing %d proxy byte(s) [hex: %s]", len(data), data.hex())
         await self._client.write_gatt_char(MESH_PROXY_DATA_IN_UUID, data, response=False)
 
     async def start_notify(self, callback: NotificationCallback) -> None:
@@ -219,7 +219,7 @@ class ProxyClient:
         if self._notifications_started:
             return
 
-        logger.info("starting proxy notifications on %s", MESH_PROXY_DATA_OUT_UUID)
+        logger.debug("starting proxy notifications on %s", MESH_PROXY_DATA_OUT_UUID)
 
         def bleak_callback(_characteristic: Any, data: bytearray) -> None:
             pdu = bytes(data)
@@ -267,7 +267,7 @@ class ProxyClient:
             if self._callbacks:
                 return
 
-        logger.info("stopping proxy notifications on %s", MESH_PROXY_DATA_OUT_UUID)
+        logger.debug("stopping proxy notifications on %s", MESH_PROXY_DATA_OUT_UUID)
         await self._client.stop_notify(MESH_PROXY_DATA_OUT_UUID)
         self._notifications_started = False
         self._callbacks.clear()

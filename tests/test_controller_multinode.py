@@ -126,7 +126,7 @@ async def test_power_commands_route_to_explicit_destination(mesh_state, method) 
 async def test_set_params_routes_to_explicit_destination(mesh_state) -> None:
     controller, _ = connected_controller(mesh_state, state=mesh_state)
 
-    with patch.object(controller, "send_v2_command", AsyncMock()) as send:
+    with patch.object(controller, "send_payload", AsyncMock()) as send:
         await controller.set_params(brightness=80, cct=4000, dst=0x0009)
 
     assert send.call_args.kwargs["dst"] == 0x0009

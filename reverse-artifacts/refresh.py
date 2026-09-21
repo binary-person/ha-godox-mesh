@@ -44,6 +44,7 @@ NOCOMMIT = HERE / "nocommit"
 
 PRODUCT_URL = "https://www.godox.net/godox/api/productV2/getProduct?lang=en-US"
 FIRMWARE_URL = "https://www.godox.net/godox/api/firmware/last/batch-list/GodoxLight"
+COLOR_CHIP_URL = "https://www.godox.net/godox/api/colorConfig/getColorV5"
 HEADERS = [
     "AppName: GodoxLight",
     "AppVersion: 4.1.0",
@@ -64,6 +65,28 @@ KEEP_FIELDS = (
     "batteryType",
     "hasBtFirmware",
     "paVersion",
+    # Colour capability. ``modeType`` is the authoritative list of control
+    # modes the vendor app offers for a model (1 CCT, 4 HSI, 5 RGB, 6 colour
+    # chip, 7 xy, 9 effects, 16 selfie CCT, 17 electronic control); the rest
+    # say how each of those is parameterised. These were dropped from the
+    # first cut of this filter, which left the integration unable to tell a
+    # full-colour model from a bi-colour one -- see docs/model-support.md.
+    "modeType",
+    "lightType",
+    "rgb",
+    "rgbDisplay",
+    "greenMagenta",
+    "colorChipVersion",
+    # 100 = whole-percent brightness, 1000 = tenths. The V2 end byte carries
+    # the tenth, so this decides whether it is a digit or padding.
+    "luminance",
+    # The vendor app's "more settings" screen. Each is a list of
+    # {code, nameEn, ...} and empty on all but a handful of models.
+    "controlMode",
+    "frequency",
+    "smoothness",
+    # Whether the light recognises a motorised accessory attached to it.
+    "attachmentSupport",
 )
 
 
@@ -106,6 +129,11 @@ def fetch() -> None:
     (NOCOMMIT / "mcu_sweep.json").write_text(json.dumps(mcu, indent=1))
     print(f"fetched MCU firmware for {len(mcu.get('data') or [])} products")
 
+    # The gel catalogue. An empty body returns the lot; it needs no auth.
+    chips = _curl(COLOR_CHIP_URL, data="{}")
+    (NOCOMMIT / "colorchips.json").write_text(json.dumps(chips, indent=1))
+    print(f"fetched {len(chips.get('data') or [])} colour chips")
+
 
 def distill(raw_dir: Path) -> None:
     """Write the small committed artifacts from raw responses in *raw_dir*."""
@@ -126,11 +154,22 @@ def distill(raw_dir: Path) -> None:
 
     raw = json.loads(products_path.read_text())
     entries = raw.get("data") or raw
-    catalogue = [
-        {k: p[k] for k in KEEP_FIELDS if k in p}
-        for p in entries
-        if p.get("radioId")
-    ]
+    # Each option in controlMode/frequency/smoothness carries nine localised
+    # names; only the code and the English one are read, and keeping the rest
+    # would quadruple the artifact for nothing.
+    option_fields = ("controlMode", "frequency", "smoothness")
+
+    def _trim(product: dict) -> dict:
+        kept = {k: product[k] for k in KEEP_FIELDS if k in product}
+        for field in option_fields:
+            if isinstance(kept.get(field), list):
+                kept[field] = [
+                    {"code": o.get("code"), "nameEn": o.get("nameEn")}
+                    for o in kept[field]
+                ]
+        return kept
+
+    catalogue = [_trim(p) for p in entries if p.get("radioId")]
     catalogue.sort(key=lambda p: (p.get("radioId") or "").upper())
 
     firmware_raw = json.loads(firmware_path.read_text())
@@ -181,6 +220,8 @@ def distill(raw_dir: Path) -> None:
             )
         mcu.sort(key=lambda e: e["radioId"] or "")
 
+    _distill_color_chips(raw_dir)
+
     stamp = {
         "_source": PRODUCT_URL,
         "_fetched": date.today().isoformat(),
@@ -209,6 +250,58 @@ def distill(raw_dir: Path) -> None:
         )
     if mcu:
         print(f"  MCU firmware published for {len(mcu)} products")
+
+
+#: Fields kept from each gel entry. The command names a gel by brand and
+#: number, so those two plus enough to label it in a picker are all that is
+#: needed; the rest of the response is timestamps and internal ids.
+CHIP_FIELDS = (
+    "colorChipVersion",
+    "brandSeries",
+    "referenceType",
+    "colorNum",
+    "colorName",
+    "sortNum",
+    "hexString",
+)
+
+
+def _distill_color_chips(raw_dir: Path) -> None:
+    """Write the committed gel catalogue, if a raw response is present."""
+    path = raw_dir / "colorchips.json"
+    if not path.exists():
+        print("  no colour chip response found -- skipping the gel catalogue")
+        return
+    raw = json.loads(path.read_text())
+    chips = [
+        {k: entry[k] for k in CHIP_FIELDS if k in entry}
+        for entry in (raw.get("data") or raw)
+    ]
+    chips.sort(
+        key=lambda c: (
+            c.get("colorChipVersion", 0),
+            c.get("brandSeries") or "",
+            c.get("referenceType") or "",
+            c.get("sortNum", 0),
+        )
+    )
+    (HERE / "color-chips.json").write_text(
+        json.dumps(
+            {
+                "_source": COLOR_CHIP_URL,
+                "_fetched": date.today().isoformat(),
+                "_note": (
+                    "Godox's gel catalogue, filtered to the fields the colour "
+                    "chip command needs. Regenerate with refresh.py."
+                ),
+                "chips": chips,
+            },
+            indent=1,
+            ensure_ascii=False,
+        )
+        + "\n"
+    )
+    print(f"distilled {len(chips)} colour chips")
 
 
 def main() -> int:
