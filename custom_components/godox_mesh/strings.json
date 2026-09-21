@@ -42,6 +42,26 @@
         "data_description": {
           "radio_id": "Search by product name. This sets the colour-temperature range and controls; it does not change the light's identity."
         }
+      },
+      "join_existing": {
+        "title": "Add to an existing Godox mesh",
+        "description": "Put the light into pairing mode first — usually by holding its Bluetooth button until it flashes, though it varies by model; it just has to be advertising as unprovisioned.\n\nIt will be provisioned onto your existing Godox mesh using the keys that network already uses, and controlled through the same connection as your other lights. No new entry is created.",
+        "data": {
+          "mesh": "Mesh network"
+        },
+        "data_description": {
+          "mesh": "Which of your Godox mesh networks to add this light to."
+        }
+      },
+      "join_model": {
+        "title": "Which model is this?",
+        "description": "{detected}Pick the model of the light you just added so Home Assistant gives it the right colour-temperature range and controls. Leave it blank if your model is not listed; it will still work with a standard 2800–6500 K control.",
+        "data": {
+          "radio_id": "Model"
+        },
+        "data_description": {
+          "radio_id": "Search by product name. This sets the colour-temperature range and controls."
+        }
       }
     },
     "error": {
@@ -53,14 +73,17 @@
     "abort": {
       "already_configured": "Device is already configured",
       "no_devices_found": "No connectable Bluetooth devices found",
-      "not_connectable": "This light was only seen by a Bluetooth adapter that cannot make connections. It needs a connectable adapter or proxy in range."
+      "not_connectable": "This light was only seen by a Bluetooth adapter that cannot make connections. It needs a connectable adapter or proxy in range.",
+      "added_to_existing": "The light was added to your existing Godox mesh.",
+      "no_existing_mesh": "No existing Godox mesh is set up yet. Provision this light to create one."
     }
   },
   "selector": {
     "setup_method": {
       "options": {
         "mesh_state": "Use existing mesh keys",
-        "provision": "Provision this light"
+        "provision": "Provision this light",
+        "join_existing": "Add to an existing Godox mesh"
       }
     }
   },

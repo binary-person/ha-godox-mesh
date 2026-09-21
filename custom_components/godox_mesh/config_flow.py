@@ -16,6 +16,8 @@ from homeassistant.components.bluetooth import (
     async_discovered_service_info,
 )
 from homeassistant.config_entries import (
+    ConfigEntry,
+    ConfigEntryState,
     ConfigFlow,
     ConfigFlowResult,
     OptionsFlow,
@@ -205,6 +207,29 @@ class GodoxConfigFlow(ConfigFlow, domain=DOMAIN):
         self._address: str | None = None
         self._title: str | None = None
         self._state: MeshState | None = None
+        #: When joining an existing mesh: which entry, and the provisioned node
+        #: waiting for its model on the join-model step.
+        self._join_entry_id: str | None = None
+        self._join_pending: dict[str, Any] | None = None
+
+    def _loaded_meshes(self) -> list[ConfigEntry]:
+        """Existing Godox mesh entries this light could be added to.
+
+        Only loaded entries qualify -- joining one provisions the light over
+        that entry's live proxy connection, which an unloaded entry does not
+        have.
+        """
+        return [
+            entry
+            for entry in self.hass.config_entries.async_entries(DOMAIN)
+            if entry.state is ConfigEntryState.LOADED
+            and getattr(entry, "runtime_data", None) is not None
+        ]
+
+    def _mesh_by_id(self, entry_id: str | None) -> ConfigEntry | None:
+        return next(
+            (e for e in self._loaded_meshes() if e.entry_id == entry_id), None
+        )
 
     # -- discovery ---------------------------------------------------------
 
@@ -288,16 +313,23 @@ class GodoxConfigFlow(ConfigFlow, domain=DOMAIN):
         closing the dialog and starting over.
         """
         if user_input is not None:
-            if user_input["setup_method"] == "mesh_state":
+            choice = user_input["setup_method"]
+            if choice == "mesh_state":
                 return await self.async_step_mesh_state()
+            if choice == "join_existing":
+                return await self.async_step_join_existing()
             return await self.async_step_provision()
+        # "Add to an existing Godox mesh" is only meaningful once one exists.
+        options = ["mesh_state", "provision"]
+        if self._loaded_meshes():
+            options.append("join_existing")
         return self.async_show_form(
             step_id="setup_method",
             data_schema=vol.Schema(
                 {
                     vol.Required("setup_method"): selector.SelectSelector(
                         selector.SelectSelectorConfig(
-                            options=["mesh_state", "provision"],
+                            options=options,
                             mode=selector.SelectSelectorMode.LIST,
                             translation_key="setup_method",
                             custom_value=False,
@@ -395,6 +427,108 @@ class GodoxConfigFlow(ConfigFlow, domain=DOMAIN):
         return await ConfigSession(
             address=self._address, state=state, client_factory=client_factory
         ).run()
+
+    # -- joining an existing mesh ------------------------------------------
+
+    async def async_step_join_existing(
+        self, user_input: dict[str, Any] | None = None
+    ) -> ConfigFlowResult:
+        """Provision this factory-reset light onto an existing Godox mesh.
+
+        Unlike the provision step, this adds the light to a mesh already set up
+        here -- same keys, same proxy connection -- rather than creating a new
+        one. No new config entry results; the chosen entry gains a node.
+        """
+        meshes = self._loaded_meshes()
+        if not meshes:
+            return self.async_abort(reason="no_existing_mesh")
+
+        errors: dict[str, str] = {}
+        if user_input is not None:
+            entry = self._mesh_by_id(user_input.get("mesh")) or meshes[0]
+            self._join_entry_id = entry.entry_id
+            nodes = list(entry.options.get(CONF_NODES, []))
+            node_address = _next_free_node_address(_occupied_addresses(nodes))
+            name = self._title or self._address or ""
+            try:
+                device_key, num_elements = await entry.runtime_data.link.async_provision_node(
+                    self._address, node_address, name
+                )
+            except Exception as err:  # noqa: BLE001 - surfaced to the user
+                _LOGGER.warning(
+                    "provisioning %s onto %s failed: %s",
+                    self._address,
+                    entry.title,
+                    err,
+                )
+                errors["base"] = "provision_failed"
+            else:
+                self._join_pending = {
+                    "node_address": node_address,
+                    "device_key": device_key,
+                    "num_elements": num_elements,
+                }
+                return await self.async_step_join_model()
+
+        schema: dict[Any, Any] = {}
+        if len(meshes) > 1:
+            schema[vol.Required("mesh")] = selector.SelectSelector(
+                selector.SelectSelectorConfig(
+                    options=[
+                        selector.SelectOptionDict(value=e.entry_id, label=e.title)
+                        for e in meshes
+                    ],
+                    mode=selector.SelectSelectorMode.LIST,
+                    custom_value=False,
+                )
+            )
+        return self.async_show_form(
+            step_id="join_existing",
+            data_schema=vol.Schema(schema),
+            errors=errors,
+            description_placeholders={
+                "name": self._title or "",
+                "mesh": meshes[0].title if len(meshes) == 1 else "",
+            },
+        )
+
+    async def async_step_join_model(
+        self, user_input: dict[str, Any] | None = None
+    ) -> ConfigFlowResult:
+        """Confirm the model of a light just joined to an existing mesh."""
+        entry = self._mesh_by_id(self._join_entry_id)
+        pending = self._join_pending
+        assert entry is not None and pending is not None
+        detected = _detected_radio_id(self._discovery)
+
+        if user_input is None:
+            return self.async_show_form(
+                step_id="join_model",
+                data_schema=vol.Schema(_model_form_fields(detected)),
+                description_placeholders={"detected": _model_detection_note(detected)},
+            )
+
+        radio_id = user_input.get(CONF_RADIO_ID) or detected
+        name = (
+            _display_name(self._discovery, radio_id)
+            if self._discovery is not None
+            else (self._title or self._address or "")
+        )
+        nodes = list(entry.options.get(CONF_NODES, []))
+        nodes.append(
+            {
+                CONF_NODE_ADDRESS: pending["node_address"],
+                CONF_NAME: name,
+                CONF_MODEL: None,
+                CONF_RADIO_ID: radio_id,
+                CONF_DEVICE_KEY: pending["device_key"],
+                CONF_NUM_ELEMENTS: pending["num_elements"],
+            }
+        )
+        self.hass.config_entries.async_update_entry(
+            entry, options={**entry.options, CONF_NODES: nodes}
+        )
+        return self.async_abort(reason="added_to_existing")
 
     # -- entry creation ----------------------------------------------------
 
