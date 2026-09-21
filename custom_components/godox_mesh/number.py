@@ -176,7 +176,11 @@ class GodoxEffectSpeedNumber(NumberEntity, RestoreEntity):
             restored = int(float(last_state.state))
         except (TypeError, ValueError):
             return
-        if 0 <= restored <= self._attr_native_max_value:
+        # native_max_value is a property here (it follows the running effect);
+        # this class never sets the _attr_native_max_value backing field, and a
+        # bare read of it raises AttributeError on Home Assistant versions that
+        # do not default it on the base class.
+        if 0 <= restored <= self.native_max_value:
             self._attr_native_value = restored
             self._data.effect_speeds[self._node.address] = restored
 

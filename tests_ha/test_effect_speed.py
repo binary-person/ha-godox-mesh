@@ -322,3 +322,27 @@ async def test_the_bound_survives_a_restart(hass: HomeAssistant) -> None:
     await _setup(hass, WITH_SPEED)
 
     assert float(hass.states.get(SPEED).attributes["max"]) == 0
+
+
+@pytest.mark.usefixtures("fake_ble")
+async def test_a_saved_speed_is_restored_without_crashing(hass: HomeAssistant) -> None:
+    """Restoring a saved speed must not read the _attr_ backing field this class never sets.
+
+    ``native_max_value`` is a property here (it follows the running effect), so
+    ``_attr_native_max_value`` is never assigned -- and Home Assistant's
+    NumberEntity exposes that name as a property whose internals reference a
+    name-mangled private, so a bare read of it raises AttributeError. The entity
+    then fails to add. Every earlier restore test cached a *light* state, not a
+    speed one, so ``_restore`` returned early and this line never ran; caching a
+    speed state is what exercises it.
+    """
+    from homeassistant.core import State
+
+    from pytest_homeassistant_custom_component.common import mock_restore_cache
+
+    mock_restore_cache(hass, [State(SPEED, "1")])
+    await _setup(hass, WITH_SPEED)
+
+    state = hass.states.get(SPEED)
+    assert state is not None  # the entity added; before the fix it raised on restore
+    assert state.state == "1"
