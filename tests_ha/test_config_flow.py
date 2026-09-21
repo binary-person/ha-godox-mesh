@@ -61,14 +61,42 @@ def _service_info(address: str = ADDRESS, name: str = "GD_LED", connectable: boo
 
 
 async def test_bluetooth_discovery_offers_both_setup_paths(hass: HomeAssistant) -> None:
-    """A discovered light leads to the menu, not straight to an entry."""
+    """A discovered light leads to the setup-method form, not straight to an entry.
+
+    A form rather than a menu, so the choice can be changed before submitting.
+    """
     result = await hass.config_entries.flow.async_init(
         DOMAIN, context={"source": SOURCE_BLUETOOTH}, data=_service_info()
     )
 
-    assert result["type"] is FlowResultType.MENU
+    assert result["type"] is FlowResultType.FORM
     assert result["step_id"] == "setup_method"
-    assert set(result["menu_options"]) == {"mesh_state", "provision"}
+    options = result["data_schema"].schema["setup_method"].config["options"]
+    assert set(options) == {"mesh_state", "provision"}
+
+
+async def test_setup_method_choice_routes_to_the_selected_step(
+    hass: HomeAssistant,
+) -> None:
+    """Submitting the form routes to the chosen step (form, not a menu dead-end)."""
+    result = await hass.config_entries.flow.async_init(
+        DOMAIN, context={"source": SOURCE_BLUETOOTH}, data=_service_info()
+    )
+    provision = await hass.config_entries.flow.async_configure(
+        result["flow_id"], {"setup_method": "provision"}
+    )
+    assert provision["step_id"] == "provision"
+
+    # A separate device (distinct unique_id) for the other branch.
+    result = await hass.config_entries.flow.async_init(
+        DOMAIN,
+        context={"source": SOURCE_BLUETOOTH},
+        data=_service_info(address="11:22:33:44:55:66"),
+    )
+    mesh = await hass.config_entries.flow.async_configure(
+        result["flow_id"], {"setup_method": "mesh_state"}
+    )
+    assert mesh["step_id"] == "mesh_state"
 
 
 async def test_pasted_mesh_state_creates_an_entry(hass: HomeAssistant) -> None:
@@ -77,7 +105,7 @@ async def test_pasted_mesh_state_creates_an_entry(hass: HomeAssistant) -> None:
         DOMAIN, context={"source": SOURCE_BLUETOOTH}, data=_service_info()
     )
     result = await hass.config_entries.flow.async_configure(
-        result["flow_id"], {"next_step_id": "mesh_state"}
+        result["flow_id"], {"setup_method": "mesh_state"}
     )
     assert result["step_id"] == "mesh_state"
 
@@ -116,7 +144,7 @@ async def test_pasted_mesh_state_rejects_garbage(hass: HomeAssistant) -> None:
         DOMAIN, context={"source": SOURCE_BLUETOOTH}, data=_service_info()
     )
     result = await hass.config_entries.flow.async_configure(
-        result["flow_id"], {"next_step_id": "mesh_state"}
+        result["flow_id"], {"setup_method": "mesh_state"}
     )
     result = await hass.config_entries.flow.async_configure(
         result["flow_id"], {CONF_MESH_STATE_JSON: "nonsense"}
@@ -135,7 +163,7 @@ async def test_sequence_number_is_floored_to_survive_the_godox_app(
         DOMAIN, context={"source": SOURCE_BLUETOOTH}, data=_service_info()
     )
     result = await hass.config_entries.flow.async_configure(
-        result["flow_id"], {"next_step_id": "mesh_state"}
+        result["flow_id"], {"setup_method": "mesh_state"}
     )
     result = await hass.config_entries.flow.async_configure(
         result["flow_id"], {CONF_MESH_STATE_JSON: json.dumps(low)}
@@ -306,7 +334,7 @@ async def test_provisioning_flow_binds_the_app_key_and_creates_an_entry(
         DOMAIN, context={"source": SOURCE_BLUETOOTH}, data=_service_info()
     )
     result = await hass.config_entries.flow.async_configure(
-        result["flow_id"], {"next_step_id": "provision"}
+        result["flow_id"], {"setup_method": "provision"}
     )
     assert result["step_id"] == "provision"
 
@@ -343,7 +371,7 @@ async def test_provisioning_failure_is_reported_not_swallowed(
         DOMAIN, context={"source": SOURCE_BLUETOOTH}, data=_service_info()
     )
     result = await hass.config_entries.flow.async_configure(
-        result["flow_id"], {"next_step_id": "provision"}
+        result["flow_id"], {"setup_method": "provision"}
     )
 
     with patch(
@@ -409,7 +437,7 @@ async def test_model_selection_stores_radio_id_for_correct_controls(
         DOMAIN, context={"source": SOURCE_BLUETOOTH}, data=_service_info()
     )
     result = await hass.config_entries.flow.async_configure(
-        result["flow_id"], {"next_step_id": "mesh_state"}
+        result["flow_id"], {"setup_method": "mesh_state"}
     )
     result = await hass.config_entries.flow.async_configure(
         result["flow_id"], {CONF_MESH_STATE_JSON: json.dumps(MESH_STATE)}
@@ -428,7 +456,7 @@ async def test_model_selection_may_be_left_unset(hass: HomeAssistant) -> None:
         DOMAIN, context={"source": SOURCE_BLUETOOTH}, data=_service_info()
     )
     result = await hass.config_entries.flow.async_configure(
-        result["flow_id"], {"next_step_id": "mesh_state"}
+        result["flow_id"], {"setup_method": "mesh_state"}
     )
     result = await hass.config_entries.flow.async_configure(
         result["flow_id"], {CONF_MESH_STATE_JSON: json.dumps(MESH_STATE)}

@@ -68,14 +68,23 @@ _LOGGER = logging.getLogger(__name__)
 PROVISIONED_SEQUENCE_FLOOR = 300_000
 
 
-def _model_name(service_info: BluetoothServiceInfoBleak) -> str:
+def _model_name(
+    service_info: BluetoothServiceInfoBleak, radio_id: str | None = None
+) -> str:
     """The product name for a discovered device, or the best available label.
 
     Every Godox mesh light advertises the same device name, ``GD_LED``, so it
     identifies nothing. The model id is in the advertisement, so prefer the
     product name and keep the advertised name only as a fallback.
+
+    Pass ``radio_id`` to name the device from a model the user *chose* rather
+    than one detected from the advertisement -- the advertisement does not carry
+    the model id on every Bluetooth stack, so a provisioned light is often named
+    from the picker instead.
     """
-    radio_id = radio_id_from_manufacturer_data(service_info.manufacturer_data)
+    radio_id = radio_id or radio_id_from_manufacturer_data(
+        service_info.manufacturer_data
+    )
     if radio_id:
         name = capabilities_for_radio_id(radio_id).name
         if name:
@@ -83,7 +92,9 @@ def _model_name(service_info: BluetoothServiceInfoBleak) -> str:
     return service_info.name or service_info.address
 
 
-def _display_name(service_info: BluetoothServiceInfoBleak) -> str:
+def _display_name(
+    service_info: BluetoothServiceInfoBleak, radio_id: str | None = None
+) -> str:
     """A label that stays unique when two lights are the same model.
 
     Two SL200III Bis would otherwise produce two identical discovery cards, so
@@ -91,11 +102,51 @@ def _display_name(service_info: BluetoothServiceInfoBleak) -> str:
     apart, and short enough to read. Omitted when the label already *is* the
     address, which would just repeat it.
     """
-    name = _model_name(service_info)
+    name = _model_name(service_info, radio_id)
     if name == service_info.address:
         return name
     suffix = service_info.address.replace(":", "").replace("-", "")[-4:].upper()
     return f"{name} ({suffix})" if suffix else name
+
+
+def _detected_radio_id(service_info: BluetoothServiceInfoBleak | None) -> str | None:
+    """The model id a light advertises, when it is one this build knows.
+
+    Godox puts the model id in its manufacturer data, so in the common case the
+    user does not have to identify their light at all -- and this works for any
+    of the mesh models, not a list someone maintains by hand. An unknown or
+    absent id just leaves the picker empty.
+    """
+    if service_info is None:
+        return None
+    radio_id = radio_id_from_manufacturer_data(service_info.manufacturer_data)
+    return radio_id if radio_id in known_models() else None
+
+
+def _model_form_fields(suggested: str | None) -> dict:
+    """Schema for the model picker, pre-filling a detected model when there is one.
+
+    ``default=`` does NOT pre-fill a rendered form -- it only supplies a value at
+    validation time when the key is absent. Populating the field the user sees
+    requires ``suggested_value``.
+    """
+    field = (
+        vol.Optional(CONF_RADIO_ID, description={"suggested_value": suggested})
+        if suggested
+        else vol.Optional(CONF_RADIO_ID)
+    )
+    return {field: _model_selector()}
+
+
+def _model_detection_note(detected: str | None) -> str:
+    """Say so when the model came from the advertisement, rather than the user."""
+    caps = capabilities_for_radio_id(detected) if detected else None
+    if caps and caps.name:
+        return (
+            f"This light identifies itself as a **{caps.name}**, which is "
+            "already selected below. Change it only if that is wrong.\n\n"
+        )
+    return ""
 
 
 def _looks_like_godox(service_info: BluetoothServiceInfoBleak) -> bool:
@@ -230,10 +281,30 @@ class GodoxConfigFlow(ConfigFlow, domain=DOMAIN):
     async def async_step_setup_method(
         self, user_input: dict[str, Any] | None = None
     ) -> ConfigFlowResult:
-        """Ask whether the light is already provisioned or factory reset."""
-        return self.async_show_menu(
+        """Ask whether the light is already provisioned or factory reset.
+
+        A form rather than a menu, so the choice can be changed before
+        submitting -- a menu commits on the first tap, with no way back short of
+        closing the dialog and starting over.
+        """
+        if user_input is not None:
+            if user_input["setup_method"] == "mesh_state":
+                return await self.async_step_mesh_state()
+            return await self.async_step_provision()
+        return self.async_show_form(
             step_id="setup_method",
-            menu_options=["mesh_state", "provision"],
+            data_schema=vol.Schema(
+                {
+                    vol.Required("setup_method"): selector.SelectSelector(
+                        selector.SelectSelectorConfig(
+                            options=["mesh_state", "provision"],
+                            mode=selector.SelectSelectorMode.LIST,
+                            translation_key="setup_method",
+                            custom_value=False,
+                        )
+                    )
+                }
+            ),
             description_placeholders={"name": self._title or ""},
         )
 
@@ -332,47 +403,18 @@ class GodoxConfigFlow(ConfigFlow, domain=DOMAIN):
         self._state = state
         return self._show_model_form()
 
-    def _detected_radio_id(self) -> str | None:
-        """The model id this light advertises, when it is one we know.
-
-        Godox puts the model id in its manufacturer data, so in the common case
-        the user does not have to identify their light at all -- and this works
-        for any of the 190 mesh models, not a list someone maintains by hand.
-        An unknown or absent id just leaves the dropdown empty.
-        """
-        if self._discovery is None:
-            return None
-        radio_id = radio_id_from_manufacturer_data(self._discovery.manufacturer_data)
-        return radio_id if radio_id in known_models() else None
-
     def _show_model_form(
         self, errors: dict[str, str] | None = None
     ) -> ConfigFlowResult:
-        detected = self._detected_radio_id()
-        # `default=` does NOT pre-fill a rendered form -- it only supplies a
-        # value at validation time when the key is absent. Pre-populating the
-        # field the user sees requires `suggested_value`. Getting this wrong
-        # made detection look broken: it worked, and its answer was dropped
-        # before the form was drawn.
-        field = (
-            vol.Optional(CONF_RADIO_ID, description={"suggested_value": detected})
-            if detected
-            else vol.Optional(CONF_RADIO_ID)
-        )
-        # Say so when the model came from the advertisement, rather than
-        # presenting a pre-filled dropdown as though the user chose it.
-        caps = capabilities_for_radio_id(detected) if detected else None
-        note = (
-            f"This light identifies itself as a **{caps.name}**, which is "
-            "already selected below. Change it only if that is wrong.\n\n"
-            if caps and caps.name
-            else ""
-        )
+        detected = _detected_radio_id(self._discovery)
         return self.async_show_form(
             step_id="model",
-            data_schema=vol.Schema({field: _model_selector()}),
+            data_schema=vol.Schema(_model_form_fields(detected)),
             errors=errors or {},
-            description_placeholders={"name": self._title or "", "detected": note},
+            description_placeholders={
+                "name": self._title or "",
+                "detected": _model_detection_note(detected),
+            },
         )
 
     async def async_step_model(
@@ -437,6 +479,10 @@ class GodoxOptionsFlow(OptionsFlow):
     def __init__(self) -> None:
         """Initialize the options flow."""
         self._flash_node: int | None = None
+        #: Carried between the provision step and the model step that follows it.
+        self._pending_provision: dict[str, Any] | None = None
+        #: The node whose model the change-model step is editing.
+        self._model_node_address: int | None = None
 
     async def async_step_init(
         self, user_input: dict[str, Any] | None = None
@@ -447,6 +493,7 @@ class GodoxOptionsFlow(OptionsFlow):
             menu_options=[
                 "provision_node",
                 "add_node",
+                "change_model",
                 "remove_node",
                 "settings",
             ],
@@ -534,17 +581,29 @@ class GodoxOptionsFlow(OptionsFlow):
     async def async_step_provision_node(
         self, user_input: dict[str, Any] | None = None
     ) -> ConfigFlowResult:
-        """Provision a factory-reset light onto this mesh network."""
+        """Provision a factory-reset light onto this mesh network.
+
+        Mirrors the main setup flow: pick a device, then confirm its model on
+        the next step so the name and colour-temperature range come out right,
+        rather than asking for a name up front and dropping the model.
+        """
         errors: dict[str, str] = {}
         nodes = list(self.config_entry.options.get(CONF_NODES, []))
         taken = _occupied_addresses(nodes)
 
+        # The entry's own primary light is excluded: it is already a node here,
+        # and offering it for provisioning is nonsense. Additional provisioned
+        # nodes store only a unicast int, not a MAC, so they can't be excluded
+        # by address -- but a provisioned light advertises the proxy service,
+        # not the provisioning service filtered on below, so it won't appear.
+        already_here = self.config_entry.data.get(CONF_ADDRESS)
         candidates = {
             service_info.address: service_info
             for service_info in async_discovered_service_info(
                 self.hass, connectable=True
             )
             if MESH_PROVISIONING_SERVICE_UUID in service_info.service_uuids
+            and service_info.address != already_here
         }
         if not candidates:
             return self.async_abort(reason="no_unprovisioned_devices")
@@ -552,9 +611,12 @@ class GodoxOptionsFlow(OptionsFlow):
         if user_input is not None:
             node_address = _next_free_node_address(taken)
             link = self.config_entry.runtime_data.link
+            service_info = candidates[user_input[CONF_ADDRESS]]
+            override = user_input.get(CONF_NAME)
+            log_name = override or _display_name(service_info)
             try:
                 device_key, num_elements = await link.async_provision_node(
-                    user_input[CONF_ADDRESS], node_address, user_input[CONF_NAME]
+                    user_input[CONF_ADDRESS], node_address, log_name
                 )
             except Exception as err:  # noqa: BLE001 - surfaced to the user
                 _LOGGER.warning(
@@ -564,16 +626,14 @@ class GodoxOptionsFlow(OptionsFlow):
                 )
                 errors["base"] = "provision_failed"
             else:
-                nodes.append(
-                    {
-                        CONF_NODE_ADDRESS: node_address,
-                        CONF_NAME: user_input[CONF_NAME],
-                        CONF_MODEL: None,
-                        CONF_DEVICE_KEY: device_key,
-                        CONF_NUM_ELEMENTS: num_elements,
-                    }
-                )
-                return self.async_create_entry(data={CONF_NODES: nodes})
+                self._pending_provision = {
+                    "node_address": node_address,
+                    "device_key": device_key,
+                    "num_elements": num_elements,
+                    "service_info": service_info,
+                    "name_override": override,
+                }
+                return await self.async_step_provision_model()
 
         return self.async_show_form(
             step_id="provision_node",
@@ -585,7 +645,7 @@ class GodoxOptionsFlow(OptionsFlow):
                             for info in candidates.values()
                         }
                     ),
-                    vol.Required(CONF_NAME): str,
+                    vol.Optional(CONF_NAME): str,
                 }
             ),
             errors=errors,
@@ -593,6 +653,40 @@ class GodoxOptionsFlow(OptionsFlow):
                 "node_address": f"0x{_next_free_node_address(taken):04X}"
             },
         )
+
+    async def async_step_provision_model(
+        self, user_input: dict[str, Any] | None = None
+    ) -> ConfigFlowResult:
+        """Confirm the model of a light just provisioned onto the network."""
+        pending = self._pending_provision
+        assert pending is not None
+        service_info = pending["service_info"]
+        detected = _detected_radio_id(service_info)
+
+        if user_input is None:
+            return self.async_show_form(
+                step_id="provision_model",
+                data_schema=vol.Schema(_model_form_fields(detected)),
+                description_placeholders={"detected": _model_detection_note(detected)},
+            )
+
+        # Fall back to the detected model when the user leaves it as suggested,
+        # so accepting the auto-detected light does not depend on the frontend
+        # echoing the suggested value back.
+        radio_id = user_input.get(CONF_RADIO_ID) or detected
+        name = pending["name_override"] or _display_name(service_info, radio_id)
+        nodes = list(self.config_entry.options.get(CONF_NODES, []))
+        nodes.append(
+            {
+                CONF_NODE_ADDRESS: pending["node_address"],
+                CONF_NAME: name,
+                CONF_MODEL: None,
+                CONF_RADIO_ID: radio_id,
+                CONF_DEVICE_KEY: pending["device_key"],
+                CONF_NUM_ELEMENTS: pending["num_elements"],
+            }
+        )
+        return self.async_create_entry(data={CONF_NODES: nodes})
 
     async def async_step_add_node(
         self, user_input: dict[str, Any] | None = None
@@ -632,6 +726,59 @@ class GodoxOptionsFlow(OptionsFlow):
             ),
             errors=errors,
         )
+
+    async def async_step_change_model(
+        self, user_input: dict[str, Any] | None = None
+    ) -> ConfigFlowResult:
+        """Correct which model a light is, without removing and re-adding it."""
+        nodes = list(self.config_entry.options.get(CONF_NODES, []))
+        if not nodes:
+            return self.async_abort(reason="no_nodes")
+        if len(nodes) == 1:
+            self._model_node_address = nodes[0][CONF_NODE_ADDRESS]
+            return await self.async_step_set_model()
+        if user_input is not None:
+            self._model_node_address = int(user_input[CONF_NODES])
+            return await self.async_step_set_model()
+        return self.async_show_form(
+            step_id="change_model",
+            data_schema=vol.Schema(
+                {
+                    vol.Required(CONF_NODES): selector.SelectSelector(
+                        selector.SelectSelectorConfig(
+                            mode=selector.SelectSelectorMode.LIST,
+                            options=[
+                                selector.SelectOptionDict(
+                                    value=str(node[CONF_NODE_ADDRESS]),
+                                    label=(
+                                        f"{node[CONF_NAME]} "
+                                        f"(0x{node[CONF_NODE_ADDRESS]:04X})"
+                                    ),
+                                )
+                                for node in nodes
+                            ],
+                        )
+                    )
+                }
+            ),
+        )
+
+    async def async_step_set_model(
+        self, user_input: dict[str, Any] | None = None
+    ) -> ConfigFlowResult:
+        """Write the chosen model onto one node; capabilities re-resolve on reload."""
+        nodes = list(self.config_entry.options.get(CONF_NODES, []))
+        node = next(
+            n for n in nodes if n[CONF_NODE_ADDRESS] == self._model_node_address
+        )
+        if user_input is None:
+            return self.async_show_form(
+                step_id="set_model",
+                data_schema=vol.Schema(_model_form_fields(node.get(CONF_RADIO_ID))),
+                description_placeholders={"name": node[CONF_NAME], "detected": ""},
+            )
+        node[CONF_RADIO_ID] = user_input.get(CONF_RADIO_ID)
+        return self.async_create_entry(data={CONF_NODES: nodes})
 
     async def async_step_remove_node(
         self, user_input: dict[str, Any] | None = None

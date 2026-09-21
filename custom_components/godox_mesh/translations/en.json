@@ -14,10 +14,9 @@
       },
       "setup_method": {
         "title": "How is this light set up?",
-        "description": "Has this light already been provisioned?\n\nIf you have run `godox-mesh provision` or used the Godox app, choose **Use existing mesh keys** and paste your `mesh_state.json`.\n\nIf the light is factory reset and flashing, choose **Provision this light** to generate fresh keys here.",
-        "menu_options": {
-          "mesh_state": "Use existing mesh keys",
-          "provision": "Provision this light"
+        "description": "Has this light already been provisioned?\n\nIf you have run `godox-mesh provision`, choose **Use existing mesh keys** and paste your `mesh_state.json`.\n\nIf the light is factory reset and flashing, choose **Provision this light** to generate fresh keys here.",
+        "data": {
+          "setup_method": "Setup method"
         }
       },
       "mesh_state": {
@@ -57,6 +56,14 @@
       "not_connectable": "This light was only seen by a Bluetooth adapter that cannot make connections. It needs a connectable adapter or proxy in range."
     }
   },
+  "selector": {
+    "setup_method": {
+      "options": {
+        "mesh_state": "Use existing mesh keys",
+        "provision": "Provision this light"
+      }
+    }
+  },
   "options": {
     "step": {
       "init": {
@@ -65,6 +72,7 @@
         "menu_options": {
           "provision_node": "Provision a new light onto this network",
           "add_node": "Add a light that is already provisioned",
+          "change_model": "Change a light's model",
           "remove_node": "Remove a light"
         }
       },
@@ -99,8 +107,35 @@
           "name": "Name"
         },
         "data_description": {
-          "address": "Only lights advertising as unprovisioned are listed.",
-          "name": "Shown in Home Assistant, for example Fill Light."
+          "address": "Only lights advertising as unprovisioned are listed. The light you set up first is not listed — it is already on this network.",
+          "name": "Optional. Shown in Home Assistant, for example Fill Light. If left blank, the model name is used."
+        }
+      },
+      "provision_model": {
+        "title": "Which model is this?",
+        "description": "{detected}Pick the model of the light you just provisioned so Home Assistant gives it the right colour-temperature range and controls. Leave it blank if your model is not listed; it will still work with a standard 2800–6500 K colour-temperature control.",
+        "data": {
+          "radio_id": "Model"
+        },
+        "data_description": {
+          "radio_id": "Search by product name. This sets the colour-temperature range and controls."
+        }
+      },
+      "change_model": {
+        "title": "Change a light's model",
+        "description": "Pick which light to change.",
+        "data": {
+          "nodes": "Light"
+        }
+      },
+      "set_model": {
+        "title": "Which model is this?",
+        "description": "{detected}Choose the model for **{name}** so Home Assistant gives it the right colour-temperature range and controls. Leave it blank for a standard colour-temperature light.",
+        "data": {
+          "radio_id": "Model"
+        },
+        "data_description": {
+          "radio_id": "Search by product name. This sets the colour-temperature range and controls; it does not change the light's identity."
         }
       },
       "settings": {

@@ -16,6 +16,7 @@ from custom_components.godox_mesh.const import (
     CONF_MODEL,
     CONF_NODE_ADDRESS,
     CONF_NODES,
+    CONF_RADIO_ID,
     DOMAIN,
     MESH_PROVISIONING_SERVICE_UUID,
 )
@@ -36,16 +37,25 @@ NEW_LIGHT = "22:33:44:55:66:77"
 NEW_DEVICE_KEY = "bb" * 16
 
 
-def _unprovisioned(address: str = NEW_LIGHT, name: str = "GD_LED"):
-    """An advertisement from a factory-reset light."""
+def _unprovisioned(
+    address: str = NEW_LIGHT,
+    name: str = "GD_LED",
+    manufacturer_data: dict[int, bytes] | None = None,
+):
+    """An advertisement from a factory-reset light.
+
+    ``manufacturer_data`` defaults to empty (no model detectable); pass a Godox
+    blob to exercise the model-detection path.
+    """
     from bleak.backends.device import BLEDevice
     from bleak.backends.scanner import AdvertisementData
     from homeassistant.components.bluetooth import BluetoothServiceInfoBleak
 
+    manufacturer_data = manufacturer_data or {}
     device = BLEDevice(address, name, {})
     advertisement = AdvertisementData(
         local_name=name,
-        manufacturer_data={},
+        manufacturer_data=manufacturer_data,
         service_data={},
         service_uuids=[MESH_PROVISIONING_SERVICE_UUID],
         tx_power=None,
@@ -56,7 +66,7 @@ def _unprovisioned(address: str = NEW_LIGHT, name: str = "GD_LED"):
         name=name,
         address=address,
         rssi=-60,
-        manufacturer_data={},
+        manufacturer_data=manufacturer_data,
         service_data={},
         service_uuids=[MESH_PROVISIONING_SERVICE_UUID],
         source="local",
@@ -66,6 +76,15 @@ def _unprovisioned(address: str = NEW_LIGHT, name: str = "GD_LED"):
         time=0,
         tx_power=None,
     )
+
+
+def _advert(radio_id: str, company: int = 0x0211) -> dict[int, bytes]:
+    """Godox manufacturer data carrying *radio_id* (payload offsets 4/5)."""
+    value = int(radio_id, 16)
+    payload = bytearray(16)
+    payload[4] = value & 0xFF
+    payload[5] = (value >> 8) & 0xFF
+    return {company: bytes(payload)}
 
 
 @pytest.fixture
@@ -134,7 +153,10 @@ def capture_sessions():
 
 
 async def _run_provision_flow(
-    hass: HomeAssistant, entry: MockConfigEntry, name: str = "Fill Light"
+    hass: HomeAssistant,
+    entry: MockConfigEntry,
+    name: str = "Fill Light",
+    radio_id: str | None = None,
 ):
     result = await hass.config_entries.options.async_init(entry.entry_id)
     result = await hass.config_entries.options.async_configure(
@@ -142,8 +164,19 @@ async def _run_provision_flow(
     )
     if result["type"] is not FlowResultType.FORM:
         return result
+    user_input = {CONF_ADDRESS: NEW_LIGHT}
+    if name is not None:
+        user_input[CONF_NAME] = name
+    result = await hass.config_entries.options.async_configure(
+        result["flow_id"], user_input
+    )
+    # A provisioning failure re-shows the provision_node form; success advances
+    # to the model step, which we complete to reach the created entry.
+    if result["type"] is not FlowResultType.FORM or result["step_id"] != "provision_model":
+        return result
+    model_input = {CONF_RADIO_ID: radio_id} if radio_id else {}
     return await hass.config_entries.options.async_configure(
-        result["flow_id"], {CONF_ADDRESS: NEW_LIGHT, CONF_NAME: name}
+        result["flow_id"], model_input
     )
 
 
@@ -252,6 +285,48 @@ async def test_provisioned_light_becomes_an_entity(
     # The node's own device key is kept so it can be re-bound later.
     assert nodes[1][CONF_DEVICE_KEY] == NEW_DEVICE_KEY
     assert hass.states.get("light.fill_light") is not None
+
+
+async def test_provision_node_records_the_model_and_derives_the_name(
+    hass: HomeAssistant, loaded_entry, capture_sessions
+) -> None:
+    """The detected model is written, so capabilities/CCT resolve, and it names the light.
+
+    The old flow dropped the model, leaving every added light on the default
+    2800-6500 K range. Detection here comes from the advertisement's
+    manufacturer data.
+    """
+    advertised = _unprovisioned(manufacturer_data=_advert("003F"))  # SL200III Bi
+    with (
+        patch(DISCOVERY_PATH, return_value=[advertised]),
+        patch(BLE_PATH, return_value=object()),
+    ):
+        # No name override, and accept the detected model (empty model input).
+        result = await _run_provision_flow(hass, loaded_entry, name=None)
+        await hass.async_block_till_done()
+
+    assert result["type"] is FlowResultType.CREATE_ENTRY
+    node = result["data"][CONF_NODES][1]
+    assert node[CONF_RADIO_ID] == "003F"
+    # Name derived from the model, not typed: "SL200IIIBi (6677)".
+    assert node[CONF_NAME].startswith("SL200IIIBi")
+
+
+async def test_provision_node_excludes_the_entry_primary_light(
+    hass: HomeAssistant, loaded_entry
+) -> None:
+    """The light already set up on this entry must not be offered for provisioning."""
+    # An advert at the entry's own address, plus a genuine candidate.
+    primary = _unprovisioned(address=ADDRESS)
+    candidate = _unprovisioned(address=NEW_LIGHT)
+    with patch(DISCOVERY_PATH, return_value=[primary, candidate]):
+        result = await hass.config_entries.options.async_init(loaded_entry.entry_id)
+        result = await hass.config_entries.options.async_configure(
+            result["flow_id"], {"next_step_id": "provision_node"}
+        )
+
+    offered = result["data_schema"].schema[CONF_ADDRESS].container
+    assert set(offered) == {NEW_LIGHT}
 
 
 async def test_no_unprovisioned_lights_aborts(
