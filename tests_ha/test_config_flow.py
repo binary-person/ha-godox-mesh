@@ -6,6 +6,7 @@ import json
 from unittest.mock import patch
 
 from custom_components.godox_mesh.const import (
+    CONF_MAC,
     CONF_POLL_CCT,
     CONF_POLL_INTERVAL,
     CONF_RADIO_ID,
@@ -215,6 +216,67 @@ async def test_duplicate_discovery_aborts(hass: HomeAssistant) -> None:
 
     assert result["type"] is FlowResultType.ABORT
     assert result["reason"] == "already_configured"
+
+
+async def test_a_provisioned_node_is_not_offered_as_a_new_discovery(
+    hass: HomeAssistant,
+) -> None:
+    """A light already provisioned as a node must not show up as discoverable.
+
+    A provisioned node keeps advertising the proxy service, and its MAC lives on
+    the entry (not as the entry's unique id), so the framework's own dedupe would
+    otherwise re-offer a light we already manage.
+    """
+    node_mac = "A4:C1:38:85:56:81"
+    entry = MockConfigEntry(
+        domain=DOMAIN,
+        unique_id=ADDRESS,
+        data={CONF_ADDRESS: ADDRESS, CONF_MESH: dict(MESH_STATE)},
+        options={
+            CONF_NODES: [
+                {CONF_NODE_ADDRESS: 4, CONF_NAME: "Fill", CONF_MAC: node_mac}
+            ]
+        },
+    )
+    entry.add_to_hass(hass)
+
+    result = await hass.config_entries.flow.async_init(
+        DOMAIN,
+        context={"source": SOURCE_BLUETOOTH},
+        data=_service_info(address=node_mac),
+    )
+
+    assert result["type"] is FlowResultType.ABORT
+    assert result["reason"] == "already_configured"
+
+
+async def test_the_user_picker_hides_a_provisioned_node(hass: HomeAssistant) -> None:
+    """The manual picker also omits a light already provisioned onto a mesh."""
+    node_mac = "A4:C1:38:85:56:81"
+    other = "99:99:99:99:99:99"
+    entry = MockConfigEntry(
+        domain=DOMAIN,
+        unique_id=ADDRESS,
+        data={CONF_ADDRESS: ADDRESS, CONF_MESH: dict(MESH_STATE)},
+        options={
+            CONF_NODES: [
+                {CONF_NODE_ADDRESS: 4, CONF_NAME: "Fill", CONF_MAC: node_mac}
+            ]
+        },
+    )
+    entry.add_to_hass(hass)
+
+    with patch(
+        SERVICE_INFO_PATH,
+        return_value=[_service_info(address=node_mac), _service_info(address=other)],
+    ):
+        result = await hass.config_entries.flow.async_init(
+            DOMAIN, context={"source": SOURCE_USER}
+        )
+
+    options = list(result["data_schema"].schema[CONF_ADDRESS].container)
+    assert node_mac not in options  # already a node
+    assert other in options  # a genuine candidate is still offered
 
 
 async def test_user_flow_lists_discovered_devices(hass: HomeAssistant) -> None:

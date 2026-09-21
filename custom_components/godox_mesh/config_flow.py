@@ -301,6 +301,25 @@ class GodoxConfigFlow(ConfigFlow, domain=DOMAIN):
             (e for e in self._loaded_meshes() if e.entry_id == entry_id), None
         )
 
+    def _configured_addresses(self) -> set[str]:
+        """Every BLE address this integration already manages.
+
+        Each entry's primary light plus every node provisioned onto it. A
+        provisioned node keeps advertising the Mesh Proxy service -- that is how
+        gateway failover finds it -- so without this it is re-discovered and
+        offered as a new device even though it is already one of our lights. The
+        primary is the entry's unique id, but a node's MAC is stored on the entry
+        rather than as a unique id, so the framework's own dedupe misses it.
+        """
+        addresses: set[str] = set()
+        for entry in self.hass.config_entries.async_entries(DOMAIN):
+            if primary := entry.data.get(CONF_ADDRESS):
+                addresses.add(primary)
+            for node in entry.options.get(CONF_NODES, []):
+                if mac := node.get(CONF_MAC):
+                    addresses.add(mac)
+        return addresses
+
     # -- discovery ---------------------------------------------------------
 
     async def async_step_bluetooth(
@@ -309,6 +328,12 @@ class GodoxConfigFlow(ConfigFlow, domain=DOMAIN):
         """Handle a device discovered over Bluetooth."""
         await self.async_set_unique_id(discovery_info.address)
         self._abort_if_unique_id_configured()
+        # A light already provisioned as a node of an existing mesh keeps
+        # advertising the proxy service; its MAC is on the entry, not the entry's
+        # unique id, so the check above does not catch it. Ignore it rather than
+        # offer a light we already manage as a new discovery.
+        if discovery_info.address in self._configured_addresses():
+            return self.async_abort(reason="already_configured")
 
         # Driving the light needs a GATT write, so an advertisement heard only
         # by a listen-only controller is no use.
@@ -342,7 +367,11 @@ class GodoxConfigFlow(ConfigFlow, domain=DOMAIN):
             }
             return await self.async_step_setup_method()
 
+        # Hide both other entries (by unique id) and any node already provisioned
+        # onto a mesh -- a provisioned node still advertises, so it would
+        # otherwise appear in the picker as a light to add again.
         current = self._async_current_ids(include_ignore=False)
+        current |= self._configured_addresses()
         for service_info in async_discovered_service_info(self.hass, connectable=True):
             if service_info.address in current:
                 continue
