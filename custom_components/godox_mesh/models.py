@@ -19,6 +19,15 @@ class GodoxNode:
     name: str
     model: str | None = None
     radio_id: str | None = None
+    #: The node's own BLE address, when known (captured at provisioning). Used
+    #: for gateway failover; None for nodes added by unicast address alone.
+    mac: str | None = None
+    #: Per-light readback/polling settings, resolved in ``_nodes_from_entry``
+    #: (node value, else legacy entry-wide value, else the hard default).
+    readback: bool = False
+    poll_cct: bool = True
+    use_xy: bool = False
+    poll_interval: int = 30
 
     @property
     def capabilities(self) -> GodoxCapabilities:

@@ -23,7 +23,7 @@ from homeassistant.helpers import device_registry as dr
 from homeassistant.helpers.device_registry import DeviceInfo
 from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
 
-from .const import BATTERY_POLL_SECONDS, CONF_READBACK, DOMAIN
+from .const import BATTERY_POLL_SECONDS, DOMAIN
 from .mesh import GodoxMeshLink
 from .models import GodoxConfigEntry, GodoxNode
 
@@ -36,16 +36,14 @@ async def async_setup_entry(
     entry: GodoxConfigEntry,
     async_add_entities: AddConfigEntryEntitiesCallback,
 ) -> None:
-    """Create a battery sensor for each battery-powered node, when readback is on."""
-    if not entry.options.get(CONF_READBACK):
-        return
+    """Create a battery sensor for each battery node that has readback on."""
     data = entry.runtime_data
     entry_address = entry.unique_id or entry.data[CONF_ADDRESS]
     async_add_entities(
         (
             GodoxBatterySensor(data.link, node, entry_address)
             for node in data.nodes
-            if node.capabilities.has_battery
+            if node.readback and node.capabilities.has_battery
         ),
         update_before_add=True,
     )

@@ -6,7 +6,10 @@ import json
 from unittest.mock import patch
 
 from custom_components.godox_mesh.const import (
+    CONF_POLL_CCT,
+    CONF_POLL_INTERVAL,
     CONF_RADIO_ID,
+    CONF_READBACK,
     CONF_MESH,
     CONF_MESH_STATE_JSON,
     CONF_NODE_ADDRESS,
@@ -28,16 +31,22 @@ SERVICE_INFO_PATH = (
 )
 
 
-def _service_info(address: str = ADDRESS, name: str = "GD_LED", connectable: bool = True):
+def _service_info(
+    address: str = ADDRESS,
+    name: str = "GD_LED",
+    connectable: bool = True,
+    manufacturer_data: dict | None = None,
+):
     """Build a minimal discovery payload."""
     from homeassistant.components.bluetooth import BluetoothServiceInfoBleak
     from bleak.backends.device import BLEDevice
     from bleak.backends.scanner import AdvertisementData
 
+    manufacturer_data = manufacturer_data or {}
     device = BLEDevice(address, name, {})
     advertisement = AdvertisementData(
         local_name=name,
-        manufacturer_data={},
+        manufacturer_data=manufacturer_data,
         service_data={},
         service_uuids=["00001828-0000-1000-8000-00805f9b34fb"],
         tx_power=None,
@@ -48,7 +57,7 @@ def _service_info(address: str = ADDRESS, name: str = "GD_LED", connectable: boo
         name=name,
         address=address,
         rssi=-60,
-        manufacturer_data={},
+        manufacturer_data=manufacturer_data,
         service_data={},
         service_uuids=["00001828-0000-1000-8000-00805f9b34fb"],
         source="local",
@@ -134,6 +143,12 @@ async def test_pasted_mesh_state_creates_an_entry(hass: HomeAssistant) -> None:
             "model": None,
             CONF_RADIO_ID: "003F",
             CONF_NUM_ELEMENTS: 2,
+            # The setup form carries the per-light settings too; with no
+            # manufacturer data the model is undetected, so the defaults are the
+            # generic ones (readback off, poll_cct on, 30 s).
+            CONF_READBACK: False,
+            CONF_POLL_CCT: True,
+            CONF_POLL_INTERVAL: 30,
         }
     ]
 
@@ -218,86 +233,6 @@ async def test_user_flow_aborts_without_devices(hass: HomeAssistant) -> None:
 
     assert result["type"] is FlowResultType.ABORT
     assert result["reason"] == "no_devices_found"
-
-
-async def test_options_flow_adds_a_second_light(
-    hass: HomeAssistant, mock_config_entry: MockConfigEntry, fake_ble
-) -> None:
-    """A second node joins the same entry and shares the proxy connection."""
-    mock_config_entry.add_to_hass(hass)
-    with patch(
-        "custom_components.godox_mesh.bluetooth.async_ble_device_from_address",
-        return_value=object(),
-    ):
-        assert await hass.config_entries.async_setup(mock_config_entry.entry_id)
-        await hass.async_block_till_done()
-
-        result = await hass.config_entries.options.async_init(
-            mock_config_entry.entry_id
-        )
-        result = await hass.config_entries.options.async_configure(
-            result["flow_id"], {"next_step_id": "add_node"}
-        )
-        result = await hass.config_entries.options.async_configure(
-            result["flow_id"],
-            {CONF_NAME: "Fill Light", CONF_NODE_ADDRESS: "0x0003"},
-        )
-        await hass.async_block_till_done()
-
-    assert result["type"] is FlowResultType.CREATE_ENTRY
-    addresses = [node[CONF_NODE_ADDRESS] for node in result["data"][CONF_NODES]]
-    assert addresses == [2, 3]
-
-
-async def test_options_flow_rejects_a_duplicate_node(
-    hass: HomeAssistant, mock_config_entry: MockConfigEntry, fake_ble
-) -> None:
-    """The same unicast address cannot be added twice."""
-    mock_config_entry.add_to_hass(hass)
-    with patch(
-        "custom_components.godox_mesh.bluetooth.async_ble_device_from_address",
-        return_value=object(),
-    ):
-        assert await hass.config_entries.async_setup(mock_config_entry.entry_id)
-        await hass.async_block_till_done()
-
-        result = await hass.config_entries.options.async_init(
-            mock_config_entry.entry_id
-        )
-        result = await hass.config_entries.options.async_configure(
-            result["flow_id"], {"next_step_id": "add_node"}
-        )
-        result = await hass.config_entries.options.async_configure(
-            result["flow_id"], {CONF_NAME: "Duplicate", CONF_NODE_ADDRESS: "2"}
-        )
-
-    assert result["type"] is FlowResultType.FORM
-    assert result["errors"] == {CONF_NODE_ADDRESS: "node_exists"}
-
-
-async def test_options_flow_rejects_an_out_of_range_node(
-    hass: HomeAssistant, mock_config_entry: MockConfigEntry, fake_ble
-) -> None:
-    """Group and virtual addresses are not unicast node addresses."""
-    mock_config_entry.add_to_hass(hass)
-    with patch(
-        "custom_components.godox_mesh.bluetooth.async_ble_device_from_address",
-        return_value=object(),
-    ):
-        assert await hass.config_entries.async_setup(mock_config_entry.entry_id)
-        await hass.async_block_till_done()
-
-        result = await hass.config_entries.options.async_init(
-            mock_config_entry.entry_id
-        )
-        result = await hass.config_entries.options.async_configure(
-            result["flow_id"], {"next_step_id": "add_node"}
-        )
-        result = await hass.config_entries.options.async_configure(
-            result["flow_id"], {CONF_NAME: "Group", CONF_NODE_ADDRESS: "0xC000"},
-        )
-
-    assert result["errors"] == {CONF_NODE_ADDRESS: "invalid_node_address"}
 
 
 async def test_provisioning_flow_binds_the_app_key_and_creates_an_entry(
@@ -481,12 +416,14 @@ def test_node_address_allocator_advances_by_element_count() -> None:
     assert _next_free_node_address({2, 6}) == 4
 
 
-async def test_readback_setting_toggles_and_persists(
+async def test_configure_light_persists_per_node_settings(
     hass: HomeAssistant, mock_config_entry, fake_ble
 ) -> None:
-    """The settings step records the readback opt-in."""
-    from custom_components.godox_mesh.const import CONF_READBACK
+    """Configure a light writes readback/poll settings onto that node.
 
+    Replaces the old entry-wide "Live state" step: settings are per-light now,
+    reached via Configure -> Configure a light.
+    """
     mock_config_entry.add_to_hass(hass)
     with patch(
         "custom_components.godox_mesh.bluetooth.async_ble_device_from_address",
@@ -499,121 +436,47 @@ async def test_readback_setting_toggles_and_persists(
             mock_config_entry.entry_id
         )
         result = await hass.config_entries.options.async_configure(
-            result["flow_id"], {"next_step_id": "settings"}
+            result["flow_id"], {"next_step_id": "change_model"}
         )
-        assert result["step_id"] == "settings"
+        # One node, so it goes straight to the per-light form.
+        assert result["step_id"] == "set_model"
         result = await hass.config_entries.options.async_configure(
-            result["flow_id"], {CONF_READBACK: True}
+            result["flow_id"],
+            {CONF_READBACK: True, CONF_POLL_CCT: False, CONF_POLL_INTERVAL: 60},
         )
         await hass.async_block_till_done()
 
     assert result["type"] is FlowResultType.CREATE_ENTRY
-    assert mock_config_entry.options[CONF_READBACK] is True
+    node = mock_config_entry.options[CONF_NODES][0]
+    assert node[CONF_READBACK] is True
+    assert node[CONF_POLL_CCT] is False
+    assert node[CONF_POLL_INTERVAL] == 60
 
 
-async def test_polling_can_be_enabled_on_stock_firmware(
-    hass: HomeAssistant, mock_config_entry, fake_ble
-) -> None:
-    """Polling is not gated on the patch: brightness is live on stock firmware.
+async def test_setup_uses_the_models_verified_defaults(hass: HomeAssistant) -> None:
+    """A detected model's verified defaults pre-fill the settings at setup.
 
-    Hardware check on an SL200III Bi: turning the light's own knob moves the
-    reported brightness. Only panel colour-temperature changes need the patch,
-    so a stock light must still be allowed to poll.
+    003F (SL200III Bi) reports panel colour temperature stale, so its default is
+    poll_cct off; readback on. Submitting the model step without touching the
+    settings must land those defaults on the node.
     """
-    from unittest.mock import AsyncMock
-    from custom_components.godox_mesh.const import CONF_READBACK
-    from custom_components.godox_mesh.mesh import GodoxMeshLink
-
-    mock_config_entry.add_to_hass(hass)
-    with patch(
-        "custom_components.godox_mesh.bluetooth.async_ble_device_from_address",
-        return_value=object(),
-    ):
-        assert await hass.config_entries.async_setup(mock_config_entry.entry_id)
-        await hass.async_block_till_done()
-
-        with patch.object(
-            GodoxMeshLink, "async_request_version", AsyncMock(return_value=102)
-        ):
-            result = await hass.config_entries.options.async_init(
-                mock_config_entry.entry_id
-            )
-            result = await hass.config_entries.options.async_configure(
-                result["flow_id"], {"next_step_id": "settings"}
-            )
-            result = await hass.config_entries.options.async_configure(
-                result["flow_id"], {CONF_READBACK: True}
-            )
-            await hass.async_block_till_done()
+    # Manufacturer data carrying radioId 003F (payload offsets 4/5).
+    payload = bytes(4) + b"\x3f\x00" + bytes(2)
+    result = await hass.config_entries.flow.async_init(
+        DOMAIN,
+        context={"source": SOURCE_BLUETOOTH},
+        data=_service_info(manufacturer_data={0x0211: payload}),
+    )
+    result = await hass.config_entries.flow.async_configure(
+        result["flow_id"], {"setup_method": "mesh_state"}
+    )
+    result = await hass.config_entries.flow.async_configure(
+        result["flow_id"], {CONF_MESH_STATE_JSON: json.dumps(MESH_STATE)}
+    )
+    result = await hass.config_entries.flow.async_configure(result["flow_id"], {})
 
     assert result["type"] is FlowResultType.CREATE_ENTRY
-    assert mock_config_entry.options[CONF_READBACK] is True
-
-
-async def test_readback_accepted_when_firmware_is_patched(
-    hass: HomeAssistant, mock_config_entry, fake_ble
-) -> None:
-    """A patched light (reports version 1) enables readback without complaint."""
-    from unittest.mock import AsyncMock
-    from custom_components.godox_mesh.const import CONF_READBACK
-    from custom_components.godox_mesh.mesh import GodoxMeshLink
-
-    mock_config_entry.add_to_hass(hass)
-    with patch(
-        "custom_components.godox_mesh.bluetooth.async_ble_device_from_address",
-        return_value=object(),
-    ):
-        assert await hass.config_entries.async_setup(mock_config_entry.entry_id)
-        await hass.async_block_till_done()
-
-        with patch.object(
-            GodoxMeshLink, "async_request_version", AsyncMock(return_value=1)
-        ):
-            result = await hass.config_entries.options.async_init(
-                mock_config_entry.entry_id
-            )
-            result = await hass.config_entries.options.async_configure(
-                result["flow_id"], {"next_step_id": "settings"}
-            )
-            result = await hass.config_entries.options.async_configure(
-                result["flow_id"], {CONF_READBACK: True}
-            )
-            await hass.async_block_till_done()
-    assert result["type"] is FlowResultType.CREATE_ENTRY
-    assert mock_config_entry.options[CONF_READBACK] is True
-
-
-async def test_readback_allowed_when_light_unreachable(
-    hass: HomeAssistant, mock_config_entry, fake_ble
-) -> None:
-    """If the version cannot be read, the user is trusted rather than blocked."""
-    from unittest.mock import AsyncMock
-    from custom_components.godox_mesh.const import CONF_READBACK
-    from custom_components.godox_mesh.mesh import GodoxMeshLink
-    from homeassistant.exceptions import HomeAssistantError
-
-    mock_config_entry.add_to_hass(hass)
-    with patch(
-        "custom_components.godox_mesh.bluetooth.async_ble_device_from_address",
-        return_value=object(),
-    ):
-        assert await hass.config_entries.async_setup(mock_config_entry.entry_id)
-        await hass.async_block_till_done()
-
-        with patch.object(
-            GodoxMeshLink,
-            "async_request_version",
-            AsyncMock(side_effect=HomeAssistantError("unreachable")),
-        ):
-            result = await hass.config_entries.options.async_init(
-                mock_config_entry.entry_id
-            )
-            result = await hass.config_entries.options.async_configure(
-                result["flow_id"], {"next_step_id": "settings"}
-            )
-            result = await hass.config_entries.options.async_configure(
-                result["flow_id"], {CONF_READBACK: True}
-            )
-            await hass.async_block_till_done()
-    assert result["type"] is FlowResultType.CREATE_ENTRY
-    assert mock_config_entry.options[CONF_READBACK] is True
+    node = result["options"][CONF_NODES][0]
+    assert node[CONF_RADIO_ID] == "003F"
+    assert node[CONF_READBACK] is True
+    assert node[CONF_POLL_CCT] is False

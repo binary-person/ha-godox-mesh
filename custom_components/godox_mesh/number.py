@@ -41,7 +41,6 @@ from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
 from homeassistant.helpers.restore_state import RestoreEntity
 
 from .const import (
-    CONF_USE_XY,
     DOMAIN,
     SIGNAL_EFFECT_CHANGED,
     SIGNAL_TINT_CHANGED,
@@ -60,14 +59,13 @@ async def async_setup_entry(
     """Create the number controls each node's model actually has."""
     data = entry.runtime_data
     entry_address = entry.unique_id or entry.data[CONF_ADDRESS]
-    use_xy = bool(entry.options.get(CONF_USE_XY, False))
     entities: list[NumberEntity] = []
     for node in data.nodes:
         if node.capabilities.max_effect_speed > 0:
             entities.append(GodoxEffectSpeedNumber(data, node, entry_address))
         if node.capabilities.has_tint:
             entities.append(GodoxTintNumber(data, node, entry_address))
-        if use_xy and node.capabilities.supports_xy:
+        if node.use_xy and node.capabilities.supports_xy:
             entities.append(GodoxChromaticityNumber(data, node, entry_address, axis="x"))
             entities.append(GodoxChromaticityNumber(data, node, entry_address, axis="y"))
     async_add_entities(entities)

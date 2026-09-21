@@ -147,17 +147,22 @@ A Bluetooth Mesh network is entered through any one node: Home Assistant opens
 an ordinary connection to a single light, and that light relays to the rest of
 the mesh.
 
-The node is chosen dynamically. Proxy-capable nodes advertise the network's
-Network ID, so Home Assistant can recognise any light on this network — even
-one it never provisioned — and enter through whichever is reachable. Unplugging
-the light an entry was created against no longer takes the network down.
+The node is chosen dynamically, two ways. First by **known address**: the BLE
+address of each light provisioned onto the mesh is recorded, so a reachable one
+can be connected to directly — this is what makes failover prompt, since a
+just-reconnected node advertises Node Identity for a while rather than the
+Network ID. Then by **Network ID**: proxy-capable nodes advertise the network's
+Network ID, so any light on this network can be recognised — even one this
+install never provisioned — and entered through whichever is reachable.
+Unplugging the light an entry was created against no longer takes the network
+down.
 
 Selection is sticky: keep the node in use, otherwise prefer the light the entry
-was created against, otherwise the strongest signal. Each reconnect costs a
-beacon echo and two filter messages, so churning between nodes as signal drifts
-would be worse than staying put. If no node is advertising a recognisable
-Network ID, this falls back to the configured address, so behaviour is never
-worse than a fixed gateway.
+was created against, otherwise the strongest signal (known addresses before
+Network-ID matches). Each reconnect costs a beacon echo and two filter messages,
+so churning between nodes as signal drifts would be worse than staying put. If
+nothing of this network is reachable, this falls back to the configured
+address, so behaviour is never worse than a fixed gateway.
 
 The connection is held for five minutes of idle time, then released so the
 adapter's slot is free.

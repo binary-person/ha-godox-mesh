@@ -11,11 +11,17 @@ from homeassistant.exceptions import ConfigEntryNotReady
 from homeassistant.helpers import device_registry as dr
 
 from .const import (
+    CONF_MAC,
     CONF_MESH,
     CONF_MODEL,
+    CONF_POLL_CCT,
+    CONF_POLL_INTERVAL,
     CONF_RADIO_ID,
+    CONF_READBACK,
     CONF_NODE_ADDRESS,
     CONF_NODES,
+    CONF_USE_XY,
+    DEFAULT_POLL_INTERVAL,
     DOMAIN,
 )
 from .mesh import GodoxMeshLink
@@ -48,6 +54,20 @@ async def async_setup_entry(hass: HomeAssistant, entry: GodoxConfigEntry) -> boo
     store = GodoxSequenceStore(hass, entry.entry_id)
     sequence_number = await store.async_load(state.sequence_number)
 
+    # Addresses of every node we know is on this mesh: the configured light,
+    # plus any node we captured an address for when provisioning it. Gateway
+    # failover connects through whichever of these is reachable.
+    known_macs = list(
+        dict.fromkeys(
+            [address]
+            + [
+                node[CONF_MAC]
+                for node in (entry.options.get(CONF_NODES) or [])
+                if node.get(CONF_MAC)
+            ]
+        )
+    )
+
     link = GodoxMeshLink(
         hass,
         address=address,
@@ -55,6 +75,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: GodoxConfigEntry) -> boo
         state=state,
         store=store,
         sequence_number=sequence_number,
+        known_macs=tuple(known_macs),
     )
 
     nodes = _nodes_from_entry(entry)
@@ -155,11 +176,28 @@ async def _async_update_listener(hass: HomeAssistant, entry: GodoxConfigEntry) -
 
 
 def _nodes_from_entry(entry: GodoxConfigEntry) -> list[GodoxNode]:
-    """Build the node list from entry options, falling back to the mesh state."""
-    configured = entry.options.get(CONF_NODES)
+    """Build the node list from entry options, falling back to the mesh state.
+
+    Readback/polling settings are per-node. Each resolves as: the node's own
+    value, else the legacy entry-wide option (so installs that set it before it
+    moved per-node keep working), else the hard default.
+    """
+    opts = entry.options
+
+    def setting(node: dict, key: str, default: object) -> object:
+        return node.get(key, opts.get(key, default))
+
+    configured = opts.get(CONF_NODES)
     if not configured:
         return [
-            GodoxNode(address=entry.data[CONF_MESH]["node_address"], name=entry.title)
+            GodoxNode(
+                address=entry.data[CONF_MESH]["node_address"],
+                name=entry.title,
+                readback=bool(opts.get(CONF_READBACK, False)),
+                poll_cct=bool(opts.get(CONF_POLL_CCT, True)),
+                use_xy=bool(opts.get(CONF_USE_XY, False)),
+                poll_interval=int(opts.get(CONF_POLL_INTERVAL, DEFAULT_POLL_INTERVAL)),
+            )
         ]
     return [
         GodoxNode(
@@ -167,6 +205,11 @@ def _nodes_from_entry(entry: GodoxConfigEntry) -> list[GodoxNode]:
             name=node.get(CONF_NAME) or entry.title,
             model=node.get(CONF_MODEL),
             radio_id=node.get(CONF_RADIO_ID),
+            mac=node.get(CONF_MAC),
+            readback=bool(setting(node, CONF_READBACK, False)),
+            poll_cct=bool(setting(node, CONF_POLL_CCT, True)),
+            use_xy=bool(setting(node, CONF_USE_XY, False)),
+            poll_interval=int(setting(node, CONF_POLL_INTERVAL, DEFAULT_POLL_INTERVAL)),
         )
         for node in configured
     ]

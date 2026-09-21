@@ -74,45 +74,74 @@ def async_select_gateway(
     network_key: str,
     preferred: str,
     current: str | None,
+    known_macs: tuple[str, ...] = (),
 ) -> str:
     """Pick the node to connect through.
 
+    Two ways to recognise a node of this mesh, tried in that order:
+
+    1. **A known address.** Nodes we provisioned have their BLE address on
+       record; a reachable one can be connected to directly, without waiting for
+       it to advertise the Network ID (a just-connected node advertises Node
+       Identity for a while instead, so this is what makes failover prompt).
+    2. **The Network ID advert.** Recognises *any* node on the network, even one
+       this install never provisioned.
+
     The order is deliberately sticky. Reconnecting costs a beacon echo and two
-    proxy filter PDUs, so churning between nodes as signal strength drifts
-    would be worse than staying put.
+    proxy filter PDUs, so churning between nodes as signal drifts would be worse
+    than staying put.
 
     Parameters
     ----------
     network_key
-        Mesh network key, used to recognise this network's nodes.
+        Mesh network key, used to recognise this network's nodes by advert.
     preferred
         The address configured on the config entry — the light this network was
         set up against.
     current
         The node currently in use, if any.
+    known_macs
+        Addresses of nodes known to be on this mesh (from provisioning).
 
     Returns
     -------
     str
-        Address to connect to. Falls back to *preferred* when no node is
-        advertising, so behaviour degrades to a fixed gateway rather than
-        refusing to try.
+        Address to connect to. Falls back to *preferred* when nothing is
+        reachable, so behaviour degrades to a fixed gateway rather than refusing
+        to try.
     """
-    candidates = async_find_network_gateways(hass, network_key)
-    if not candidates:
+    # In-range signal strengths, from adverts the manager already holds -- no
+    # scan is triggered on the adapter.
+    rssi = {
+        info.address: info.rssi
+        for info in async_discovered_service_info(hass, connectable=True)
+    }
+    known_in_range = sorted(
+        (mac for mac in known_macs if mac in rssi),
+        key=lambda mac: rssi[mac],
+        reverse=True,
+    )
+    # Network-ID matches for anything not already covered by a known address.
+    network_matches = [
+        address
+        for address in async_find_network_gateways(hass, network_key)
+        if address not in known_in_range
+    ]
+    ordered = known_in_range + network_matches
+    if not ordered:
         _LOGGER.debug(
-            "no nodes advertising this network; falling back to %s", preferred
+            "no reachable node of this network; falling back to %s", preferred
         )
         return preferred
 
-    if current is not None and current in candidates:
+    if current is not None and current in ordered:
         return current
-    if preferred in candidates:
+    if preferred in ordered:
         if current is not None:
             _LOGGER.debug("returning to the configured node %s", preferred)
         return preferred
 
-    chosen = candidates[0]
+    chosen = ordered[0]
     _LOGGER.info(
         "entering the mesh through %s; %s is not reachable", chosen, preferred
     )

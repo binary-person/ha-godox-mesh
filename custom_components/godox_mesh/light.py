@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import logging
 import math
+from datetime import timedelta
 from typing import Any
 
 from homeassistant.components.light import (
@@ -27,6 +28,7 @@ from homeassistant.helpers.dispatcher import (
     async_dispatcher_connect,
     async_dispatcher_send,
 )
+from homeassistant.helpers.event import async_track_time_interval
 from homeassistant.helpers.device_registry import DeviceInfo
 from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
 from homeassistant.helpers.restore_state import RestoreEntity
@@ -35,11 +37,10 @@ from homeassistant.util.color import brightness_to_value, value_to_brightness
 from ._lib.protocol import RGB16_MAX, RGB8_MAX, RGB_TYPE_RGBW, RGB_TYPE_RGBWW
 from .const import (
     BRIGHTNESS_SCALE,
-    CONF_POLL_CCT,
-    CONF_READBACK,
-    CONF_USE_XY,
     DOMAIN,
     EFFECT_OFF,
+    MAX_POLL_INTERVAL,
+    MIN_POLL_INTERVAL,
     SIGNAL_EFFECT_CHANGED,
     SIGNAL_CCT_RANGE_CHANGED,
     SIGNAL_TINT_CHANGED,
@@ -69,23 +70,10 @@ async def async_setup_entry(
     # entity and device identity follow it would rename everything on failover
     # and take the user's history and automations with it.
     entry_address = entry.unique_id or entry.data[CONF_ADDRESS]
-    polling = bool(entry.options.get(CONF_READBACK))
-    # Default on: most lights report colour temperature correctly.
-    poll_cct = entry.options.get(CONF_POLL_CCT, True)
-    use_xy = bool(entry.options.get(CONF_USE_XY, False))
+    # Readback/poll settings are per-node now (on GodoxNode); the light reads
+    # them itself and drives its own poll timer, so nothing entry-wide here.
     async_add_entities(
-        (
-            GodoxLight(
-                data,
-                node,
-                entry_address,
-                polling=polling,
-                poll_cct=poll_cct,
-                use_xy=use_xy,
-            )
-            for node in data.nodes
-        ),
-        update_before_add=polling,
+        GodoxLight(data, node, entry_address) for node in data.nodes
     )
 
 
@@ -108,26 +96,22 @@ class GodoxLight(LightEntity, RestoreEntity):
         data: GodoxRuntimeData,
         node: GodoxNode,
         entry_address: str,
-        *,
-        polling: bool = False,
-        poll_cct: bool = True,
-        use_xy: bool = False,
     ) -> None:
         """Initialize the light."""
         self._data = data
         self._link = data.link
         self._node = node
-        # Brightness readback works on stock firmware, so a polled light shows
-        # real state rather than what was last commanded.
-        self._attr_should_poll = polling
-        self._attr_assumed_state = not polling
-        self._poll_cct = poll_cct
+        # Readback is per-light and driven by a timer (see async_added_to_hass),
+        # not Home Assistant's poll loop -- so a light without it shows what was
+        # last commanded (assumed state).
+        self._attr_assumed_state = not node.readback
+        self._poll_cct = node.poll_cct
         caps = node.capabilities
         # Controls come from the model's capabilities, not a hardcoded range: a
         # fixed-daylight light is brightness-only, a bi-colour light exposes its
         # own colour-temperature range, and a full-colour light additionally
         # gets hue/saturation and, where the model has them, direct channels.
-        modes = caps.color_modes_for(use_xy=use_xy)
+        modes = caps.color_modes_for(use_xy=node.use_xy)
         mode = caps.color_mode if ColorMode.XY not in modes else (
             ColorMode.COLOR_TEMP if ColorMode.COLOR_TEMP in modes else ColorMode.XY
         )
@@ -199,6 +183,22 @@ class GodoxLight(LightEntity, RestoreEntity):
                     self.hass,
                     SIGNAL_XY_CHANGED.format(node_id=self._attr_unique_id),
                     self._coordinate_changed,
+                )
+            )
+        if self._node.readback:
+            # Poll on a per-light timer rather than Home Assistant's platform
+            # loop, so each light can have its own interval. Poll once now for
+            # an immediate value (this replaces update_before_add).
+            await self.async_update()
+            interval = timedelta(
+                seconds=max(
+                    MIN_POLL_INTERVAL,
+                    min(MAX_POLL_INTERVAL, self._node.poll_interval),
+                )
+            )
+            self.async_on_remove(
+                async_track_time_interval(
+                    self.hass, self._async_interval_poll, interval
                 )
             )
         if (last_state := await self.async_get_last_state()) is None:
@@ -507,6 +507,12 @@ class GodoxLight(LightEntity, RestoreEntity):
             rgb_type=rgb_type,
             extra=extra,
         )
+
+    async def _async_interval_poll(self, _now: object = None) -> None:
+        """Timer callback: poll, then publish. should_poll is off, so the
+        write is ours to make."""
+        await self.async_update()
+        self.async_write_ha_state()
 
     async def async_update(self) -> None:
         """Poll the light for its live state.

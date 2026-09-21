@@ -212,6 +212,11 @@ class GodoxCapabilities:
     attachment: bool = False
     selfie_min_kelvin: int = 0
     selfie_max_kelvin: int = 0
+    #: Out-of-the-box readback/polling defaults for this model, from verified
+    #: findings. They pre-fill the checkboxes when a light of this model is
+    #: first configured; a node's own stored value wins once it has one.
+    readback_default: bool = False
+    poll_cct_default: bool = True
 
     @property
     def has_selfie_cct(self) -> bool:
@@ -435,6 +440,8 @@ def _load_table() -> dict[str, GodoxCapabilities]:
             attachment=bool(entry.get("attachment")),
             selfie_min_kelvin=int(entry.get("selfie_min_kelvin", 0)),
             selfie_max_kelvin=int(entry.get("selfie_max_kelvin", 0)),
+            readback_default=bool(entry.get("readback_default", False)),
+            poll_cct_default=bool(entry.get("poll_cct_default", True)),
         )
         for rid, entry in raw.items()
     }

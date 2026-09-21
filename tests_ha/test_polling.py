@@ -176,3 +176,103 @@ async def test_colour_temperature_polling_can_be_turned_off(
     assert state.attributes[ATTR_BRIGHTNESS] is not None
     # ... but the reported colour temperature was not applied
     assert state.attributes[ATTR_COLOR_TEMP_KELVIN] != 6500
+
+
+async def _setup_nodes(hass: HomeAssistant, nodes: list[dict], **entry_opts):
+    """Set up an entry with explicit node dicts and optional entry-wide options."""
+    entry = MockConfigEntry(
+        domain=DOMAIN,
+        title="Key",
+        unique_id=ADDRESS,
+        data={CONF_ADDRESS: ADDRESS, CONF_MESH: dict(MESH_STATE)},
+        options={CONF_NODES: nodes, **entry_opts},
+    )
+    entry.add_to_hass(hass)
+    with patch(BLE_PATH, return_value=object()):
+        assert await hass.config_entries.async_setup(entry.entry_id)
+        await hass.async_block_till_done()
+    return entry
+
+
+@pytest.mark.usefixtures("fake_ble")
+async def test_a_node_setting_overrides_the_entry_wide_fallback(
+    hass: HomeAssistant,
+) -> None:
+    """An explicit per-node readback:false beats a legacy entry-wide readback:true."""
+    from custom_components.godox_mesh.const import CONF_POLL_INTERVAL  # noqa: F401
+
+    status = parse_status_response(bytes.fromhex(PANEL_WRITE))
+    with patch.object(
+        GodoxMeshLink, "async_request_status", AsyncMock(return_value=status)
+    ):
+        await _setup_nodes(
+            hass,
+            [
+                {
+                    CONF_NODE_ADDRESS: 2,
+                    CONF_NAME: "Key",
+                    CONF_RADIO_ID: "003F",
+                    CONF_READBACK: False,
+                }
+            ],
+            **{CONF_READBACK: True},
+        )
+    assert hass.states.get(ENTITY).attributes[ATTR_ASSUMED_STATE] is True
+
+
+@pytest.mark.usefixtures("fake_ble")
+async def test_readback_is_per_node(hass: HomeAssistant) -> None:
+    """One node can poll while a sibling on the same mesh does not."""
+    status = parse_status_response(bytes.fromhex(PANEL_WRITE))
+    with patch.object(
+        GodoxMeshLink, "async_request_status", AsyncMock(return_value=status)
+    ):
+        await _setup_nodes(
+            hass,
+            [
+                {
+                    CONF_NODE_ADDRESS: 2,
+                    CONF_NAME: "Key",
+                    CONF_RADIO_ID: "003F",
+                    CONF_READBACK: True,
+                },
+                {
+                    CONF_NODE_ADDRESS: 4,
+                    CONF_NAME: "Fill",
+                    CONF_RADIO_ID: "003F",
+                    CONF_READBACK: False,
+                },
+            ],
+        )
+    assert hass.states.get("light.key").attributes.get(ATTR_ASSUMED_STATE) is not True
+    assert hass.states.get("light.fill").attributes[ATTR_ASSUMED_STATE] is True
+
+
+@pytest.mark.usefixtures("fake_ble")
+async def test_the_poll_interval_triggers_a_repeat_poll(hass: HomeAssistant) -> None:
+    """The per-light timer polls again after its interval elapses."""
+    from datetime import timedelta
+
+    from homeassistant.util import dt as dt_util
+    from pytest_homeassistant_custom_component.common import async_fire_time_changed
+    from custom_components.godox_mesh.const import CONF_POLL_INTERVAL
+
+    status = parse_status_response(bytes.fromhex(PANEL_WRITE))
+    poll = AsyncMock(return_value=status)
+    with patch.object(GodoxMeshLink, "async_request_status", poll):
+        await _setup_nodes(
+            hass,
+            [
+                {
+                    CONF_NODE_ADDRESS: 2,
+                    CONF_NAME: "Key",
+                    CONF_RADIO_ID: "003F",
+                    CONF_READBACK: True,
+                    CONF_POLL_INTERVAL: 10,
+                }
+            ],
+        )
+        after_setup = poll.await_count  # the immediate poll on add
+        async_fire_time_changed(hass, dt_util.utcnow() + timedelta(seconds=11))
+        await hass.async_block_till_done()
+        assert poll.await_count > after_setup

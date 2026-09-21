@@ -59,6 +59,7 @@ class GodoxMeshLink:
         state: MeshState,
         store: GodoxSequenceStore,
         sequence_number: int,
+        known_macs: tuple[str, ...] = (),
     ) -> None:
         """Initialize the link.
 
@@ -67,10 +68,14 @@ class GodoxMeshLink:
         sequence_number
             High-water mark recovered from :class:`GodoxSequenceStore`, which
             is at or above anything a previous run can have transmitted.
+        known_macs
+            BLE addresses of nodes known to be on this mesh, used for gateway
+            failover before falling back to the Network-ID advert scan.
         """
         self._hass = hass
         self._address = address
         self._name = name
+        self._known_macs = tuple(known_macs)
         self._store = store
         self._lock = asyncio.Lock()
         self._cancel_disconnect: Callable[[], None] | None = None
@@ -106,6 +111,7 @@ class GodoxMeshLink:
             network_key=self._controller.state.network_key,
             preferred=self._address,
             current=self._gateway,
+            known_macs=self._known_macs,
         )
         return HomeAssistantBleakClient(self._hass, self._gateway, self._name)
 

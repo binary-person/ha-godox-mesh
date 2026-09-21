@@ -95,6 +95,8 @@
    "effects"
   ],
   "name": "TL60",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -193,6 +195,8 @@
    "effects"
   ],
   "name": "TL30",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -291,6 +295,8 @@
    "effects"
   ],
   "name": "SZ150R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -395,6 +401,8 @@
    "effects"
   ],
   "name": "LD75R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -499,6 +507,8 @@
    "effects"
   ],
   "name": "LD150R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -603,6 +613,8 @@
    "effects"
   ],
   "name": "LD150RS",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -704,6 +716,8 @@
    "effects"
   ],
   "name": "CL10",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -774,6 +788,8 @@
    "effects"
   ],
   "name": "SZ200Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -802,6 +818,8 @@
    "cct"
   ],
   "name": "ES45",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -869,6 +887,8 @@
    "effects"
   ],
   "name": "M600D",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -919,6 +939,8 @@
    "effects"
   ],
   "name": "UL60",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -974,6 +996,8 @@
    "effects"
   ],
   "name": "WL4B",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -1024,6 +1048,8 @@
    "effects"
   ],
   "name": "S60",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -1074,6 +1100,8 @@
    "effects"
   ],
   "name": "SL100D",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -1139,6 +1167,8 @@
    "effects"
   ],
   "name": "SL100Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -1204,6 +1234,8 @@
    "effects"
   ],
   "name": "ML60Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -1274,6 +1306,8 @@
    "effects"
   ],
   "name": "WL8P",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -1339,6 +1373,8 @@
    "effects"
   ],
   "name": "ML30Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -1389,6 +1425,8 @@
    "effects"
   ],
   "name": "ML30",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -1456,6 +1494,8 @@
    "effects"
   ],
   "name": "M300D",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -1521,6 +1561,8 @@
    "effects"
   ],
   "name": "S60Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -1586,6 +1628,8 @@
    "effects"
   ],
   "name": "UL60Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -1689,6 +1733,8 @@
    "effects"
   ],
   "name": "C5R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -1793,6 +1839,8 @@
    "effects"
   ],
   "name": "TL120",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -1897,6 +1945,8 @@
    "effects"
   ],
   "name": "TL180",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -1964,6 +2014,8 @@
    "effects"
   ],
   "name": "M200D",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -2014,6 +2066,8 @@
    "effects"
   ],
   "name": "UL150II",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -2096,6 +2150,8 @@
    "effects"
   ],
   "name": "M200Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -2161,6 +2217,8 @@
    "effects"
   ],
   "name": "UL150IIBi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -2243,6 +2301,8 @@
    "effects"
   ],
   "name": "M300Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -2271,6 +2331,8 @@
    "cct"
   ],
   "name": "ES30",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -2353,6 +2415,8 @@
    "effects"
   ],
   "name": "M600Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -2403,6 +2467,8 @@
    "effects"
   ],
   "name": "LA150D",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -2468,6 +2534,8 @@
    "effects"
   ],
   "name": "LA150Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -2518,6 +2586,8 @@
    "effects"
   ],
   "name": "LA200D",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -2583,6 +2653,8 @@
    "effects"
   ],
   "name": "LA200Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -2609,6 +2681,8 @@
   "min_kelvin": 2700,
   "modes": [],
   "name": "RF1",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -2729,6 +2803,8 @@
    "effects"
   ],
   "name": "TP2R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -2849,6 +2925,8 @@
    "effects"
   ],
   "name": "TP4R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -2904,6 +2982,8 @@
    "effects"
   ],
   "name": "WT40D",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -3003,6 +3083,8 @@
    "effects"
   ],
   "name": "WT40R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -3102,6 +3184,8 @@
    "effects"
   ],
   "name": "WT25R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -3157,6 +3241,8 @@
    "effects"
   ],
   "name": "WT25D",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -3256,6 +3342,8 @@
    "effects"
   ],
   "name": "WT60R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -3311,6 +3399,8 @@
    "effects"
   ],
   "name": "WT60D",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -3361,6 +3451,8 @@
    "effects"
   ],
   "name": "SL300II",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -3426,6 +3518,8 @@
    "effects"
   ],
   "name": "SL300IIBi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -3476,6 +3570,8 @@
    "effects"
   ],
   "name": "VL300II",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -3526,6 +3622,8 @@
    "effects"
   ],
   "name": "VL200II",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -3576,6 +3674,8 @@
    "effects"
   ],
   "name": "VL150II",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -3626,6 +3726,8 @@
    "effects"
   ],
   "name": "SL60IID",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -3691,6 +3793,8 @@
    "effects"
   ],
   "name": "SL60IIBi",
+  "poll_cct_default": true,
+  "readback_default": true,
   "rgb_channels": [
    "RGBW"
   ],
@@ -3741,6 +3845,8 @@
    "effects"
   ],
   "name": "SL150III",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -3791,6 +3897,8 @@
    "effects"
   ],
   "name": "SL200III",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -3841,6 +3949,8 @@
    "effects"
   ],
   "name": "SL300III",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -3906,6 +4016,8 @@
    "effects"
   ],
   "name": "SL150IIIBi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -3971,6 +4083,8 @@
    "effects"
   ],
   "name": "SL200IIIBi",
+  "poll_cct_default": false,
+  "readback_default": true,
   "rgb_channels": [
    "RGBW"
   ],
@@ -4036,6 +4150,8 @@
    "effects"
   ],
   "name": "SL300IIIBi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -4121,6 +4237,8 @@
    "effects"
   ],
   "name": "LDX50Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -4206,6 +4324,8 @@
    "effects"
   ],
   "name": "LDX100Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -4310,6 +4430,8 @@
    "effects"
   ],
   "name": "LDX50R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -4414,6 +4536,8 @@
    "effects"
   ],
   "name": "LDX100R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -4534,6 +4658,8 @@
    "effects"
   ],
   "name": "TP8R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -4638,6 +4764,8 @@
    "effects"
   ],
   "name": "C7R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -4742,6 +4870,8 @@
    "effects"
   ],
   "name": "C10R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -4827,6 +4957,8 @@
    "effects"
   ],
   "name": "FH50Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -4930,6 +5062,8 @@
    "effects"
   ],
   "name": "FH50R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -5034,6 +5168,8 @@
    "effects"
   ],
   "name": "SZ300R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -5137,6 +5273,8 @@
    "electronic_control"
   ],
   "name": "MG1200Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -5269,6 +5407,8 @@
    "effects"
   ],
   "name": "P300R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -5401,6 +5541,8 @@
    "effects"
   ],
   "name": "P600R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -5486,6 +5628,8 @@
    "effects"
   ],
   "name": "F200Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -5571,6 +5715,8 @@
    "effects"
   ],
   "name": "F400Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -5673,6 +5819,8 @@
    "effects"
   ],
   "name": "P600Bi Hard",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -5793,6 +5941,8 @@
    "effects"
   ],
   "name": "TPC2R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -5913,6 +6063,8 @@
    "effects"
   ],
   "name": "TPC4R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -6033,6 +6185,8 @@
    "effects"
   ],
   "name": "TPC8R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -6061,6 +6215,8 @@
    "cct"
   ],
   "name": "P200Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -6165,6 +6321,8 @@
    "effects"
   ],
   "name": "SL150R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -6269,6 +6427,8 @@
    "effects"
   ],
   "name": "SL300R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -6354,6 +6514,8 @@
    "effects"
   ],
   "name": "LC500 Mini",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -6457,6 +6619,8 @@
    "effects"
   ],
   "name": "LC500R Mini",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -6579,6 +6743,8 @@
    "effects"
   ],
   "name": "M600R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -6607,6 +6773,8 @@
    "cct"
   ],
   "name": "F7-120Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -6635,6 +6803,8 @@
    "cct"
   ],
   "name": "F7-120D",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -6720,6 +6890,8 @@
    "effects"
   ],
   "name": "LC1000",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -6828,6 +7000,8 @@
    "effects"
   ],
   "name": "LC1000R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -6913,6 +7087,8 @@
    "effects"
   ],
   "name": "ML60IIBi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -6998,6 +7174,8 @@
    "effects"
   ],
   "name": "ML100Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -7100,6 +7278,8 @@
    "effects"
   ],
   "name": "M1000Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -7203,6 +7383,8 @@
    "electronic_control"
   ],
   "name": "MG2400Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -7333,6 +7515,8 @@
    "effects"
   ],
   "name": "P600R Hard",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -7361,6 +7545,8 @@
    "cct"
   ],
   "name": "P120Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -7389,6 +7575,8 @@
    "cct"
   ],
   "name": "P120D",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -7510,6 +7698,8 @@
    "effects"
   ],
   "name": "P1200R Hard",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -7575,6 +7765,8 @@
    "effects"
   ],
   "name": "DL150Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -7640,6 +7832,8 @@
    "effects"
   ],
   "name": "DL200Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -7762,6 +7956,8 @@
    "electronic_control"
   ],
   "name": "MG1200R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW",
    "RGBACL"
@@ -7884,6 +8080,8 @@
    "effects"
   ],
   "name": "LA300R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -8004,6 +8202,8 @@
    "effects"
   ],
   "name": "LA150R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -8089,6 +8289,8 @@
    "effects"
   ],
   "name": "P260CPro",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -8193,6 +8395,8 @@
    "effects"
   ],
   "name": "F800R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -8369,6 +8573,8 @@
    "effects"
   ],
   "name": "MS60R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -8484,6 +8690,8 @@
    "effects"
   ],
   "name": "LA300Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -8569,6 +8777,8 @@
    "effects"
   ],
   "name": "LP400Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -8654,6 +8864,8 @@
    "effects"
   ],
   "name": "LP600Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -8739,6 +8951,8 @@
    "effects"
   ],
   "name": "LP1200Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -8842,6 +9056,8 @@
    "effects"
   ],
   "name": "LP400R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -8945,6 +9161,8 @@
    "effects"
   ],
   "name": "LP600R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -9048,6 +9266,8 @@
    "effects"
   ],
   "name": "LP1200R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -9150,6 +9370,8 @@
    "effects"
   ],
   "name": "M600Bi Pro",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -9254,6 +9476,8 @@
    "effects"
   ],
   "name": "F400R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -9358,6 +9582,8 @@
    "effects"
   ],
   "name": "F200R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -9462,6 +9688,8 @@
    "effects"
   ],
   "name": "F100R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -9618,6 +9846,8 @@
    "effects"
   ],
   "name": "MS60Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -9751,6 +9981,8 @@
    "effects"
   ],
   "name": "LA200R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -9855,6 +10087,8 @@
    "effects"
   ],
   "name": "F200SR",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -10035,6 +10269,8 @@
    "electronic_control"
   ],
   "name": "MG2400R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -10146,6 +10382,8 @@
    "cct_selfie"
   ],
   "name": "MA5R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -10265,6 +10503,8 @@
    "effects"
   ],
   "name": "RS60R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -10367,6 +10607,8 @@
    "effects"
   ],
   "name": "RS60Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -10488,6 +10730,8 @@
    "effects"
   ],
   "name": "M300R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -10610,6 +10854,8 @@
    "electronic_control"
   ],
   "name": "P1200R Hard Pro",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -10729,6 +10975,8 @@
    "effects"
   ],
   "name": "ML60R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -10848,6 +11096,8 @@
    "effects"
   ],
   "name": "ML100R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -10969,6 +11219,8 @@
    "effects"
   ],
   "name": "ML150 RF",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -11072,6 +11324,8 @@
    "electronic_control"
   ],
   "name": "MG2400Bi SE",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -11192,6 +11446,8 @@
    "effects"
   ],
   "name": "LA600R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -11294,6 +11550,8 @@
    "effects"
   ],
   "name": "LA600Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -11397,6 +11655,8 @@
    "effects"
   ],
   "name": "FL-D200",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -11482,6 +11742,8 @@
    "effects"
   ],
   "name": "ML80Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -11584,6 +11846,8 @@
    "effects"
   ],
   "name": "S60Bi-CB",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -11706,6 +11970,8 @@
    "electronic_control"
   ],
   "name": "P600R Hard Pro",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -11810,6 +12076,8 @@
    "effects"
   ],
   "name": "AM1600R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -11895,6 +12163,8 @@
    "effects"
   ],
   "name": "LC500 Air",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -11998,6 +12268,8 @@
    "effects"
   ],
   "name": "LC500R Air",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -12083,6 +12355,8 @@
    "effects"
   ],
   "name": "FL15Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -12186,6 +12460,8 @@
    "electronic_control"
   ],
   "name": "MG6K",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -12300,6 +12576,8 @@
    "effects"
   ],
   "name": "C30R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -12471,6 +12749,8 @@
    "effects"
   ],
   "name": "F7-300R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW",
    "RGBACL"
@@ -12606,6 +12886,8 @@
    "effects"
   ],
   "name": "SL300R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW",
    "RGBACL"
@@ -12709,6 +12991,8 @@
    "effects"
   ],
   "name": "ML100Bi(\u65b0\u7248\uff09",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -12811,6 +13095,8 @@
    "effects"
   ],
   "name": "ML150Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -12913,6 +13199,8 @@
    "effects"
   ],
   "name": "ML40Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -13032,6 +13320,8 @@
    "effects"
   ],
   "name": "ML40R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -13117,6 +13407,8 @@
    "effects"
   ],
   "name": "LP800Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -13219,6 +13511,8 @@
    "cct_selfie"
   ],
   "name": "MA5R Plus",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -13409,6 +13703,8 @@
    "electronic_control"
   ],
   "name": "P1200R Hard P8",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -13507,6 +13803,8 @@
    "effects"
   ],
   "name": "LR150 Air",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -13592,6 +13890,8 @@
    "effects"
   ],
   "name": "LR120 Air",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -13694,6 +13994,8 @@
    "effects"
   ],
   "name": "LE300Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -13796,6 +14098,8 @@
    "effects"
   ],
   "name": "LE200Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -13898,6 +14202,8 @@
    "effects"
   ],
   "name": "LE150Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -14000,6 +14306,8 @@
    "effects"
   ],
   "name": "RS100Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -14121,6 +14429,8 @@
    "effects"
   ],
   "name": "RS100R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -14242,6 +14552,8 @@
    "effects"
   ],
   "name": "SL300 RF",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -14363,6 +14675,8 @@
    "effects"
   ],
   "name": "SL200 RF",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -14484,6 +14798,8 @@
    "effects"
   ],
   "name": "SL150 RF",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -14586,6 +14902,8 @@
    "effects"
   ],
   "name": "LE600Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -14776,6 +15094,8 @@
    "electronic_control"
   ],
   "name": "P600R Hard P4",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -14874,6 +15194,8 @@
    "effects"
   ],
   "name": "LC500 Air Hard",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -14977,6 +15299,8 @@
    "electronic_control"
   ],
   "name": "MG4K",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -15098,6 +15422,8 @@
    "effects"
   ],
   "name": "OP120R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -15219,6 +15545,8 @@
    "effects"
   ],
   "name": "OP200R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -15321,6 +15649,8 @@
    "effects"
   ],
   "name": "DL625Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -15423,6 +15753,8 @@
    "effects"
   ],
   "name": "DL330Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -15525,6 +15857,8 @@
    "effects"
   ],
   "name": "DL200Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -15646,6 +15980,8 @@
    "effects"
   ],
   "name": "PL600 RF",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -15826,6 +16162,8 @@
    "electronic_control"
   ],
   "name": "MG4KR",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -15960,6 +16298,8 @@
    "effects"
   ],
   "name": "PL1200 RF",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW",
    "RGBACL"
@@ -16092,6 +16432,8 @@
    "effects"
   ],
   "name": "MS15R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -16212,6 +16554,8 @@
    "effects"
   ],
   "name": "LE300R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -16332,6 +16676,8 @@
    "effects"
   ],
   "name": "LE200R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -16452,6 +16798,8 @@
    "effects"
   ],
   "name": "LE600R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -16631,6 +16979,8 @@
    "effects"
   ],
   "name": "ParTrix S",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -16745,6 +17095,8 @@
    "effects"
   ],
   "name": "LF40R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -16848,6 +17200,8 @@
    "effects"
   ],
   "name": "UP-C300",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -16950,6 +17304,8 @@
    "effects"
   ],
   "name": "OP120Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -17052,6 +17408,8 @@
    "effects"
   ],
   "name": "OP200Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -17155,6 +17513,8 @@
    "effects"
   ],
   "name": "UP-C150",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -17185,6 +17545,8 @@
    "pixel_studio"
   ],
   "name": "LT1",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -17287,6 +17649,8 @@
    "effects"
   ],
   "name": "SL300Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -17389,6 +17753,8 @@
    "effects"
   ],
   "name": "SL200Bi",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -17467,6 +17833,8 @@
    "effects"
   ],
   "name": "LE200D",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -17627,6 +17995,8 @@
    "effects"
   ],
   "name": "B5R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],
@@ -17802,6 +18172,8 @@
    "effects"
   ],
   "name": "AM800R",
+  "poll_cct_default": true,
+  "readback_default": false,
   "rgb_channels": [
    "RGBW"
   ],

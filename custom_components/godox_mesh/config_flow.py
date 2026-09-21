@@ -28,6 +28,7 @@ from homeassistant.helpers import selector
 
 from .ble import HomeAssistantBleakClient
 from .capabilities import (
+    GodoxCapabilities,
     capabilities_for_radio_id,
     known_models,
     radio_id_from_manufacturer_data,
@@ -39,26 +40,29 @@ from .const import (
     CONF_MODEL,
     CONF_NODE_ADDRESS,
     CONF_NUM_ELEMENTS,
+    CONF_MAC,
     CONF_NODES,
     CONF_POLL_CCT,
+    CONF_POLL_INTERVAL,
     CONF_RADIO_ID,
     CONF_READBACK,
     CONF_USE_XY,
     DEFAULT_NODE_ADDRESS,
+    DEFAULT_POLL_INTERVAL,
     DEFAULT_PROVISIONER_ADDRESS,
     DOMAIN,
     ELEMENTS_PER_NODE,
     INTEGRATION_TITLE,
     GODOX_DEVICE_NAME,
     GODOX_NAME_HINTS,
+    MAX_POLL_INTERVAL,
     MESH_PROVISIONING_SERVICE_UUID,
-    PATCHED_FIRMWARE_VERSION,
+    MIN_POLL_INTERVAL,
 )
 from .mesh_state_input import (
     InvalidMeshState,
     mesh_state_to_dict,
     parse_mesh_state,
-    parse_node_address,
 )
 
 _LOGGER = logging.getLogger(__name__)
@@ -149,6 +153,74 @@ def _model_detection_note(detected: str | None) -> str:
             "already selected below. Change it only if that is wrong.\n\n"
         )
     return ""
+
+
+def _light_settings_fields(
+    caps: GodoxCapabilities,
+    *,
+    readback: bool,
+    poll_cct: bool,
+    poll_interval: int,
+    use_xy: bool | None = None,
+) -> dict:
+    """Schema for the per-light readback/polling settings.
+
+    ``poll_cct`` is offered only for colour-temperature models; ``use_xy`` only
+    when ``use_xy`` is not ``None`` and the model supports it (post-setup, where
+    the model is known). Defaults pre-fill the rendered form: bool fields via
+    ``default=``, the number field via ``suggested_value``.
+    """
+    fields: dict[Any, Any] = {
+        vol.Required(CONF_READBACK, default=readback): bool,
+    }
+    if caps.supports_cct:
+        fields[vol.Required(CONF_POLL_CCT, default=poll_cct)] = bool
+    fields[
+        vol.Required(
+            CONF_POLL_INTERVAL,
+            default=poll_interval,
+            description={"suggested_value": poll_interval},
+        )
+    ] = selector.NumberSelector(
+        selector.NumberSelectorConfig(
+            min=MIN_POLL_INTERVAL,
+            max=MAX_POLL_INTERVAL,
+            step=1,
+            unit_of_measurement="s",
+            mode=selector.NumberSelectorMode.BOX,
+        )
+    )
+    if use_xy is not None and caps.supports_xy:
+        fields[vol.Required(CONF_USE_XY, default=use_xy)] = bool
+    return fields
+
+
+def _light_settings_from_input(user_input: dict[str, Any]) -> dict[str, Any]:
+    """Extract the per-light settings a step's form submitted, for a node dict."""
+    settings: dict[str, Any] = {}
+    for key in (CONF_READBACK, CONF_POLL_CCT, CONF_USE_XY):
+        if key in user_input:
+            settings[key] = bool(user_input[key])
+    if CONF_POLL_INTERVAL in user_input:
+        settings[CONF_POLL_INTERVAL] = int(user_input[CONF_POLL_INTERVAL])
+    return settings
+
+
+def _setup_configure_fields(detected: str | None) -> dict:
+    """Model picker + the setup-time settings subset (no use_xy).
+
+    Readback/poll-CCT defaults come from the detected model's verified findings.
+    """
+    caps = capabilities_for_radio_id(detected)
+    return {
+        **_model_form_fields(detected),
+        **_light_settings_fields(
+            caps,
+            readback=caps.readback_default,
+            poll_cct=caps.poll_cct_default,
+            poll_interval=DEFAULT_POLL_INTERVAL,
+        ),
+    }
 
 
 def _looks_like_godox(service_info: BluetoothServiceInfoBleak) -> bool:
@@ -470,9 +542,10 @@ class GodoxConfigFlow(ConfigFlow, domain=DOMAIN):
                 }
                 return await self.async_step_join_model()
 
-        schema: dict[Any, Any] = {}
-        if len(meshes) > 1:
-            schema[vol.Required("mesh")] = selector.SelectSelector(
+        # Always show the picker, even for a single mesh; a default keeps a
+        # one-mesh submission valid without the user touching it.
+        schema = {
+            vol.Required("mesh", default=meshes[0].entry_id): selector.SelectSelector(
                 selector.SelectSelectorConfig(
                     options=[
                         selector.SelectOptionDict(value=e.entry_id, label=e.title)
@@ -482,14 +555,12 @@ class GodoxConfigFlow(ConfigFlow, domain=DOMAIN):
                     custom_value=False,
                 )
             )
+        }
         return self.async_show_form(
             step_id="join_existing",
             data_schema=vol.Schema(schema),
             errors=errors,
-            description_placeholders={
-                "name": self._title or "",
-                "mesh": meshes[0].title if len(meshes) == 1 else "",
-            },
+            description_placeholders={"name": self._title or ""},
         )
 
     async def async_step_join_model(
@@ -504,7 +575,7 @@ class GodoxConfigFlow(ConfigFlow, domain=DOMAIN):
         if user_input is None:
             return self.async_show_form(
                 step_id="join_model",
-                data_schema=vol.Schema(_model_form_fields(detected)),
+                data_schema=vol.Schema(_setup_configure_fields(detected)),
                 description_placeholders={"detected": _model_detection_note(detected)},
             )
 
@@ -521,8 +592,10 @@ class GodoxConfigFlow(ConfigFlow, domain=DOMAIN):
                 CONF_NAME: name,
                 CONF_MODEL: None,
                 CONF_RADIO_ID: radio_id,
+                CONF_MAC: self._address,
                 CONF_DEVICE_KEY: pending["device_key"],
                 CONF_NUM_ELEMENTS: pending["num_elements"],
+                **_light_settings_from_input(user_input),
             }
         )
         self.hass.config_entries.async_update_entry(
@@ -543,7 +616,7 @@ class GodoxConfigFlow(ConfigFlow, domain=DOMAIN):
         detected = _detected_radio_id(self._discovery)
         return self.async_show_form(
             step_id="model",
-            data_schema=vol.Schema(_model_form_fields(detected)),
+            data_schema=vol.Schema(_setup_configure_fields(detected)),
             errors=errors or {},
             description_placeholders={
                 "name": self._title or "",
@@ -558,10 +631,17 @@ class GodoxConfigFlow(ConfigFlow, domain=DOMAIN):
         if user_input is None:
             return self._show_model_form()
         assert self._state is not None
-        return self._finish_entry(self._state, user_input.get(CONF_RADIO_ID))
+        # Fall back to the detected model when the user leaves it as suggested,
+        # matching the provision/join model steps.
+        radio_id = user_input.get(CONF_RADIO_ID) or _detected_radio_id(self._discovery)
+        return self._finish_entry(
+            self._state,
+            radio_id,
+            _light_settings_from_input(user_input),
+        )
 
     def _finish_entry(
-        self, state: MeshState, radio_id: str | None
+        self, state: MeshState, radio_id: str | None, settings: dict[str, Any]
     ) -> ConfigFlowResult:
         """Create the config entry from a validated mesh state and chosen model."""
         assert self._address is not None
@@ -595,6 +675,7 @@ class GodoxConfigFlow(ConfigFlow, domain=DOMAIN):
                         # What the light itself reported, so later nodes are
                         # allocated around its real span rather than a guess.
                         CONF_NUM_ELEMENTS: state.num_elements,
+                        **settings,
                     }
                 ]
             },
@@ -626,91 +707,10 @@ class GodoxOptionsFlow(OptionsFlow):
             step_id="init",
             menu_options=[
                 "provision_node",
-                "add_node",
                 "change_model",
                 "remove_node",
-                "settings",
             ],
         )
-
-    async def async_step_settings(
-        self, user_input: dict[str, Any] | None = None
-    ) -> ConfigFlowResult:
-        """Toggle entry-wide settings, including polling for live state.
-
-        Polling works on stock firmware — brightness is genuinely reported — so
-        this is not gated on the firmware patch. The light is still asked for
-        its version, only to tell the user which of the two levels they get.
-        """
-        # Only offered when a node on this entry can actually do xy; asking
-        # about a mode the hardware lacks is worse than not asking.
-        xy_capable = any(
-            node.capabilities.supports_xy
-            for node in self.config_entry.runtime_data.nodes
-        )
-        if user_input is not None:
-            options = {
-                **self.config_entry.options,
-                CONF_READBACK: user_input[CONF_READBACK],
-                CONF_POLL_CCT: user_input[CONF_POLL_CCT],
-            }
-            if xy_capable:
-                options[CONF_USE_XY] = user_input[CONF_USE_XY]
-            return self.async_create_entry(data=options)
-        _patched, detail = await self._async_detect_patch()
-        placeholders = {"firmware": detail}
-
-        schema: dict[Any, Any] = {
-            vol.Required(
-                CONF_READBACK,
-                default=self.config_entry.options.get(CONF_READBACK, False),
-            ): bool,
-            vol.Required(
-                CONF_POLL_CCT,
-                default=self.config_entry.options.get(CONF_POLL_CCT, True),
-            ): bool,
-        }
-        if xy_capable:
-            schema[
-                vol.Required(
-                    CONF_USE_XY,
-                    default=self.config_entry.options.get(CONF_USE_XY, False),
-                )
-            ] = bool
-
-        return self.async_show_form(
-            step_id="settings",
-            data_schema=vol.Schema(schema),
-            description_placeholders=placeholders,
-        )
-
-    async def _async_detect_patch(self) -> tuple[bool | None, str]:
-        """Ask the first node its firmware version to detect the readback patch.
-
-        Returns
-        -------
-        tuple[bool | None, str]
-            ``(True, ...)`` if patched, ``(False, ...)`` if clearly stock,
-            ``(None, ...)`` if the light could not be reached — in which case the
-            user is trusted rather than blocked.
-        """
-        link = self.config_entry.runtime_data.link
-        nodes = self.config_entry.options.get(CONF_NODES) or []
-        if not nodes:
-            return None, "no nodes to query"
-        node_address = nodes[0][CONF_NODE_ADDRESS]
-        try:
-            version = await link.async_request_version(node_address)
-        except Exception as err:  # noqa: BLE001 - unreachable light is not fatal
-            _LOGGER.debug("could not read firmware version: %s", err)
-            return None, "could not be reached"
-        if version == PATCHED_FIRMWARE_VERSION:
-            return True, "patched firmware detected"
-        return False, f"stock firmware (reports version {version})"
-
-    # -- flashing the readback firmware patch ------------------------------
-
-
 
     async def async_step_provision_node(
         self, user_input: dict[str, Any] | None = None
@@ -800,7 +800,7 @@ class GodoxOptionsFlow(OptionsFlow):
         if user_input is None:
             return self.async_show_form(
                 step_id="provision_model",
-                data_schema=vol.Schema(_model_form_fields(detected)),
+                data_schema=vol.Schema(_setup_configure_fields(detected)),
                 description_placeholders={"detected": _model_detection_note(detected)},
             )
 
@@ -816,50 +816,13 @@ class GodoxOptionsFlow(OptionsFlow):
                 CONF_NAME: name,
                 CONF_MODEL: None,
                 CONF_RADIO_ID: radio_id,
+                CONF_MAC: service_info.address,
                 CONF_DEVICE_KEY: pending["device_key"],
                 CONF_NUM_ELEMENTS: pending["num_elements"],
+                **_light_settings_from_input(user_input),
             }
         )
         return self.async_create_entry(data={CONF_NODES: nodes})
-
-    async def async_step_add_node(
-        self, user_input: dict[str, Any] | None = None
-    ) -> ConfigFlowResult:
-        """Add another light that shares this mesh network."""
-        errors: dict[str, str] = {}
-        nodes = list(self.config_entry.options.get(CONF_NODES, []))
-
-        if user_input is not None:
-            try:
-                address = parse_node_address(user_input[CONF_NODE_ADDRESS])
-            except InvalidMeshState as err:
-                _LOGGER.debug("rejected node address: %s", err)
-                errors[CONF_NODE_ADDRESS] = "invalid_node_address"
-            else:
-                if any(node[CONF_NODE_ADDRESS] == address for node in nodes):
-                    errors[CONF_NODE_ADDRESS] = "node_exists"
-                else:
-                    nodes.append(
-                        {
-                            CONF_NODE_ADDRESS: address,
-                            CONF_NAME: user_input[CONF_NAME],
-                            CONF_MODEL: user_input.get(CONF_MODEL) or None,
-                            CONF_RADIO_ID: user_input.get(CONF_RADIO_ID) or None,
-                        }
-                    )
-                    return self.async_create_entry(data={CONF_NODES: nodes})
-
-        return self.async_show_form(
-            step_id="add_node",
-            data_schema=vol.Schema(
-                {
-                    vol.Required(CONF_NAME): str,
-                    vol.Required(CONF_NODE_ADDRESS): str,
-                    vol.Optional(CONF_RADIO_ID): _model_selector(),
-                }
-            ),
-            errors=errors,
-        )
 
     async def async_step_change_model(
         self, user_input: dict[str, Any] | None = None
@@ -900,18 +863,43 @@ class GodoxOptionsFlow(OptionsFlow):
     async def async_step_set_model(
         self, user_input: dict[str, Any] | None = None
     ) -> ConfigFlowResult:
-        """Write the chosen model onto one node; capabilities re-resolve on reload."""
+        """Configure one node: model + readback/polling; re-resolves on reload."""
         nodes = list(self.config_entry.options.get(CONF_NODES, []))
         node = next(
             n for n in nodes if n[CONF_NODE_ADDRESS] == self._model_node_address
         )
+        caps = capabilities_for_radio_id(node.get(CONF_RADIO_ID))
         if user_input is None:
+            # Pre-fill from the node's current effective settings.
+            current = next(
+                (
+                    n
+                    for n in self.config_entry.runtime_data.nodes
+                    if n.address == self._model_node_address
+                ),
+                None,
+            )
+            fields = {
+                **_model_form_fields(node.get(CONF_RADIO_ID)),
+                **_light_settings_fields(
+                    caps,
+                    readback=current.readback if current else caps.readback_default,
+                    poll_cct=current.poll_cct if current else caps.poll_cct_default,
+                    poll_interval=(
+                        current.poll_interval if current else DEFAULT_POLL_INTERVAL
+                    ),
+                    use_xy=(current.use_xy if current else False)
+                    if caps.supports_xy
+                    else None,
+                ),
+            }
             return self.async_show_form(
                 step_id="set_model",
-                data_schema=vol.Schema(_model_form_fields(node.get(CONF_RADIO_ID))),
+                data_schema=vol.Schema(fields),
                 description_placeholders={"name": node[CONF_NAME], "detected": ""},
             )
         node[CONF_RADIO_ID] = user_input.get(CONF_RADIO_ID)
+        node.update(_light_settings_from_input(user_input))
         return self.async_create_entry(data={CONF_NODES: nodes})
 
     async def async_step_remove_node(

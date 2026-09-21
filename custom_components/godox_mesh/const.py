@@ -71,8 +71,19 @@ CONF_READBACK: Final = "readback"
 # reports what it is given, and this lets a user switch colour-temperature
 # polling off if their light is one of the wrong ones.
 CONF_POLL_CCT: Final = "poll_cct"
+# How often (seconds) to poll a light for its live state, when readback is on.
+# Per-node; the entry-wide value, if any, is only a migration fallback.
+CONF_POLL_INTERVAL: Final = "poll_interval"
+DEFAULT_POLL_INTERVAL: Final = 30
+MIN_POLL_INTERVAL: Final = 5
+MAX_POLL_INTERVAL: Final = 3600
 # Each node has its own device key, needed only to re-bind the application key.
 CONF_DEVICE_KEY: Final = "device_key"
+# The node's own BLE address, captured when it was provisioned/joined. Any node
+# on the mesh can be the proxy the integration connects through, so knowing each
+# node's address lets it fail over to a reachable one when the usual gateway is
+# off, without waiting for a Network-ID advert.
+CONF_MAC: Final = "mac"
 
 # Bluetooth Mesh service UUIDs, expanded from their 16-bit forms.
 MESH_PROVISIONING_SERVICE_UUID: Final = "00001827-0000-1000-8000-00805f9b34fb"

@@ -402,10 +402,24 @@ def main() -> int:
         type=Path,
         default=Path("custom_components/godox_mesh/color_chips_data.json"),
     )
+    ap.add_argument(
+        "--notes",
+        type=Path,
+        default=Path("docs/model_notes.json"),
+        help="hand-written per-model notes, source of readback/CCT defaults",
+    )
     args = ap.parse_args()
 
     products = _entries(json.loads(args.products.read_text()), "products")
     chips = _chip_by_radio_id(json.loads(args.firmware.read_text()))
+    # Per-model default settings, from the curated verified-findings file. A
+    # model without an entry falls back to readback off / poll_cct on.
+    notes = json.loads(args.notes.read_text()) if args.notes.exists() else {}
+    defaults = {
+        rid.upper(): entry.get("defaults", {})
+        for rid, entry in notes.items()
+        if not rid.startswith("_") and isinstance(entry, dict)
+    }
 
     table: dict[str, dict] = {}
     skipped: list[str] = []
@@ -471,6 +485,10 @@ def main() -> int:
             "rgb_channels": _rgb_channels(product),
             # 100 or 1000; anything else is treated as whole percent.
             "brightness_steps": 1000 if _as_int(product.get("luminance")) == 1000 else 100,
+            # Out-of-the-box readback/polling defaults from verified findings
+            # (docs/model_notes.json). Fallback: readback off, poll_cct on.
+            "readback_default": bool(defaults.get(rid, {}).get("readback", False)),
+            "poll_cct_default": bool(defaults.get(rid, {}).get("poll_cct", True)),
         }
 
     if not table:

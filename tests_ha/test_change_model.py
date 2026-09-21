@@ -112,3 +112,40 @@ async def test_multi_node_picks_one_then_rewrites_only_it(hass: HomeAssistant) -
     nodes = {n[CONF_NODE_ADDRESS]: n for n in entry.options[CONF_NODES]}
     assert nodes[4][CONF_RADIO_ID] == "003F"  # the one picked
     assert nodes[2][CONF_RADIO_ID] == "00D1"  # untouched
+
+
+@pytest.mark.usefixtures("fake_ble")
+async def test_use_xy_offered_only_for_xy_models(hass: HomeAssistant) -> None:
+    """The set-model form shows use-xy for an xy model, hides it otherwise."""
+    from custom_components.godox_mesh.const import CONF_USE_XY
+
+    def fields_for(schema):
+        return {getattr(k, "schema", k) for k in schema}
+
+    # 00B6 (SL200 RF) supports xy.
+    entry = await _entry(
+        hass, [{CONF_NODE_ADDRESS: 2, CONF_NAME: "Key", CONF_RADIO_ID: "00B6"}]
+    )
+    result = await hass.config_entries.options.async_init(entry.entry_id)
+    result = await hass.config_entries.options.async_configure(
+        result["flow_id"], {"next_step_id": "change_model"}
+    )
+    assert CONF_USE_XY in fields_for(result["data_schema"].schema)
+
+    # 003F (SL200III Bi) does not.
+    entry2 = MockConfigEntry(
+        domain=DOMAIN,
+        title="Fill",
+        unique_id="11:22:33:44:55:66",
+        data={CONF_ADDRESS: "11:22:33:44:55:66", CONF_MESH: dict(MESH_STATE)},
+        options={CONF_NODES: [{CONF_NODE_ADDRESS: 2, CONF_NAME: "Fill", CONF_RADIO_ID: "003F"}]},
+    )
+    entry2.add_to_hass(hass)
+    with patch(BLE_PATH, return_value=object()):
+        assert await hass.config_entries.async_setup(entry2.entry_id)
+        await hass.async_block_till_done()
+    result = await hass.config_entries.options.async_init(entry2.entry_id)
+    result = await hass.config_entries.options.async_configure(
+        result["flow_id"], {"next_step_id": "change_model"}
+    )
+    assert CONF_USE_XY not in fields_for(result["data_schema"].schema)

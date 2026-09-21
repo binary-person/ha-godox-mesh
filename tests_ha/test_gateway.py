@@ -181,3 +181,47 @@ async def test_falls_back_to_the_entry_light_when_nothing_advertises(
         hass, network_key=NET_KEY, preferred=ADDRESS, current=None
     )
     assert chosen == ADDRESS
+
+
+async def test_a_known_node_is_used_even_without_a_network_advert(
+    hass: HomeAssistant, monkeypatch
+) -> None:
+    """A node we provisioned is reachable by address even when it is not
+    advertising the Network ID (e.g. still on Node Identity after a reconnect).
+
+    This is why the entry light being off can fail over promptly: the sibling's
+    address is known, so it need not wait to be recognised by advert.
+    """
+    monkeypatch.setattr(
+        DISCOVERY,
+        lambda *a, **k: [_proxy_advert("AA:known", service_data={})],
+    )
+    chosen = async_select_gateway(
+        hass,
+        network_key=NET_KEY,
+        preferred=ADDRESS,
+        current=None,
+        known_macs=("AA:known",),
+    )
+    assert chosen == "AA:known"
+
+
+async def test_known_address_beats_the_network_scan(
+    hass: HomeAssistant, monkeypatch
+) -> None:
+    """A known node in range is chosen over an unknown Network-ID match."""
+    monkeypatch.setattr(
+        DISCOVERY,
+        lambda *a, **k: [
+            _proxy_advert("AA:known", service_data={}, rssi=-70),
+            _proxy_advert("AA:unknown", rssi=-40),  # advertises the network ID
+        ],
+    )
+    chosen = async_select_gateway(
+        hass,
+        network_key=NET_KEY,
+        preferred=ADDRESS,
+        current=None,
+        known_macs=("AA:known",),
+    )
+    assert chosen == "AA:known"
