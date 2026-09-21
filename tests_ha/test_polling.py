@@ -274,6 +274,165 @@ async def test_readback_is_per_node(hass: HomeAssistant) -> None:
 
 
 @pytest.mark.usefixtures("fake_ble")
+async def test_a_light_goes_unavailable_after_repeated_failed_polls(
+    hass: HomeAssistant,
+) -> None:
+    """A polled light that stops answering is shown unavailable after a few tries."""
+    from datetime import timedelta
+
+    from homeassistant.const import STATE_UNAVAILABLE
+    from homeassistant.exceptions import HomeAssistantError
+    from homeassistant.util import dt as dt_util
+    from pytest_homeassistant_custom_component.common import async_fire_time_changed
+
+    from custom_components.godox_mesh.const import (
+        CONF_POLL_INTERVAL,
+        FAILED_POLLS_BEFORE_UNAVAILABLE,
+    )
+
+    with patch.object(
+        GodoxMeshLink,
+        "async_request_status",
+        AsyncMock(side_effect=HomeAssistantError("no answer")),
+    ):
+        await _setup_nodes(
+            hass,
+            [
+                {
+                    CONF_NODE_ADDRESS: 2,
+                    CONF_NAME: "Key",
+                    CONF_RADIO_ID: "003F",
+                    CONF_READBACK: True,
+                    CONF_POLL_INTERVAL: 10,
+                }
+            ],
+        )
+        # The immediate poll on add failed once, but one strike is not enough.
+        assert hass.states.get(ENTITY).state != STATE_UNAVAILABLE
+
+        for i in range(1, FAILED_POLLS_BEFORE_UNAVAILABLE + 1):
+            async_fire_time_changed(hass, dt_util.utcnow() + timedelta(seconds=11 * i))
+            await hass.async_block_till_done()
+
+        assert hass.states.get(ENTITY).state == STATE_UNAVAILABLE
+
+
+@pytest.mark.usefixtures("fake_ble")
+async def test_a_light_recovers_when_it_answers_again(hass: HomeAssistant) -> None:
+    """Availability comes back on the first successful poll."""
+    from datetime import timedelta
+
+    from homeassistant.const import STATE_UNAVAILABLE
+    from homeassistant.exceptions import HomeAssistantError
+    from homeassistant.util import dt as dt_util
+    from pytest_homeassistant_custom_component.common import async_fire_time_changed
+
+    from custom_components.godox_mesh.const import CONF_POLL_INTERVAL
+
+    status = parse_status_response(bytes.fromhex(PANEL_WRITE))
+    poll = AsyncMock(side_effect=HomeAssistantError("no answer"))
+    with patch.object(GodoxMeshLink, "async_request_status", poll):
+        await _setup_nodes(
+            hass,
+            [
+                {
+                    CONF_NODE_ADDRESS: 2,
+                    CONF_NAME: "Key",
+                    CONF_RADIO_ID: "003F",
+                    CONF_READBACK: True,
+                    CONF_POLL_INTERVAL: 10,
+                }
+            ],
+        )
+        for i in range(1, 4):
+            async_fire_time_changed(hass, dt_util.utcnow() + timedelta(seconds=11 * i))
+            await hass.async_block_till_done()
+        assert hass.states.get(ENTITY).state == STATE_UNAVAILABLE
+
+        # The light answers again.
+        poll.side_effect = None
+        poll.return_value = status
+        async_fire_time_changed(hass, dt_util.utcnow() + timedelta(seconds=200))
+        await hass.async_block_till_done()
+
+        assert hass.states.get(ENTITY).state != STATE_UNAVAILABLE
+
+
+@pytest.mark.usefixtures("fake_ble")
+async def test_an_unpolled_light_never_goes_unavailable(hass: HomeAssistant) -> None:
+    """A light without readback has no poll, so no availability signal -- it stays."""
+    from homeassistant.const import STATE_UNAVAILABLE
+
+    await _setup(hass, readback=False)
+    assert hass.states.get(ENTITY).state != STATE_UNAVAILABLE
+
+
+@pytest.mark.usefixtures("fake_ble")
+async def test_a_command_success_resets_the_failed_poll_count(
+    hass: HomeAssistant,
+) -> None:
+    """A command reaching an available light stops a slow poll drifting it out.
+
+    Home Assistant drops service calls to *unavailable* entities, so a command
+    cannot revive one -- recovery from unavailable is via a successful poll. But
+    while a light is still available, a successful command is proof of reach and
+    resets the strike count, so a model that answers commands yet is slow to
+    answer a status poll does not creep to unavailable.
+    """
+    from datetime import timedelta
+
+    from homeassistant.const import ATTR_ENTITY_ID, STATE_UNAVAILABLE
+    from homeassistant.exceptions import HomeAssistantError
+    from homeassistant.util import dt as dt_util
+    from pytest_homeassistant_custom_component.common import async_fire_time_changed
+
+    from custom_components.godox_mesh.const import (
+        CONF_POLL_INTERVAL,
+        FAILED_POLLS_BEFORE_UNAVAILABLE,
+    )
+
+    with patch.object(
+        GodoxMeshLink,
+        "async_request_status",
+        AsyncMock(side_effect=HomeAssistantError("no answer")),
+    ):
+        await _setup_nodes(
+            hass,
+            [
+                {
+                    CONF_NODE_ADDRESS: 2,
+                    CONF_NAME: "Key",
+                    CONF_RADIO_ID: "003F",
+                    CONF_READBACK: True,
+                    CONF_POLL_INTERVAL: 10,
+                }
+            ],
+        )
+        # Run up to one short of unavailable (the poll on add is already one
+        # strike, so a couple more timer polls get us close without tipping).
+        for i in range(1, FAILED_POLLS_BEFORE_UNAVAILABLE - 1):
+            async_fire_time_changed(hass, dt_util.utcnow() + timedelta(seconds=11 * i))
+            await hass.async_block_till_done()
+        assert hass.states.get(ENTITY).state != STATE_UNAVAILABLE
+
+        # A command succeeds (the light still being available), resetting strikes.
+        await hass.services.async_call(
+            "light", "turn_on", {ATTR_ENTITY_ID: ENTITY}, blocking=True
+        )
+        await hass.async_block_till_done()
+
+        # After the reset a fresh run of failed polls -- as many as it took to
+        # get close before -- still does not tip it over. Without the reset it
+        # would already be unavailable.
+        for i in range(1, FAILED_POLLS_BEFORE_UNAVAILABLE):
+            async_fire_time_changed(
+                hass, dt_util.utcnow() + timedelta(seconds=500 + 11 * i)
+            )
+            await hass.async_block_till_done()
+        assert hass.states.get(ENTITY).state != STATE_UNAVAILABLE
+
+
+@pytest.mark.usefixtures("fake_ble")
 async def test_the_poll_interval_triggers_a_repeat_poll(hass: HomeAssistant) -> None:
     """The per-light timer polls again after its interval elapses."""
     from datetime import timedelta

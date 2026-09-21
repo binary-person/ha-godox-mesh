@@ -39,6 +39,7 @@ from .const import (
     BRIGHTNESS_SCALE,
     DOMAIN,
     EFFECT_OFF,
+    FAILED_POLLS_BEFORE_UNAVAILABLE,
     MAX_POLL_INTERVAL,
     MIN_POLL_INTERVAL,
     SIGNAL_EFFECT_CHANGED,
@@ -105,6 +106,10 @@ class GodoxLight(LightEntity, RestoreEntity):
         # not Home Assistant's poll loop -- so a light without it shows what was
         # last commanded (assumed state).
         self._attr_assumed_state = not node.readback
+        # Consecutive failed polls. A polled light that stops answering is shown
+        # unavailable after a few; an un-polled light never polls, so it has no
+        # availability signal and stays available (the default).
+        self._poll_failures = 0
         self._poll_cct = node.poll_cct
         caps = node.capabilities
         # Controls come from the model's capabilities, not a hardcoded range: a
@@ -404,6 +409,13 @@ class GodoxLight(LightEntity, RestoreEntity):
         else:
             await self._async_send_color(brightness_pct)
         self._attr_is_on = True
+        # A successful command is proof the light is reachable, so reset the
+        # failed-poll strike count -- this keeps a light that answers commands
+        # but is slow to answer a status poll from drifting to unavailable. It
+        # cannot revive an already-unavailable entity: Home Assistant drops
+        # service calls to those before they reach here, so recovery from
+        # unavailable is via a successful poll.
+        self._mark_reachable()
         self.async_write_ha_state()
         # Tell the speed control which effect is running, so it can show that
         # effect's range rather than the model's widest.
@@ -508,6 +520,11 @@ class GodoxLight(LightEntity, RestoreEntity):
             extra=extra,
         )
 
+    def _mark_reachable(self) -> None:
+        """Record that the light just answered, clearing any unavailability."""
+        self._poll_failures = 0
+        self._attr_available = True
+
     async def _async_interval_poll(self, _now: object = None) -> None:
         """Timer callback: poll, then publish. should_poll is off, so the
         write is ours to make."""
@@ -528,8 +545,14 @@ class GodoxLight(LightEntity, RestoreEntity):
         try:
             status = await self._link.async_request_status(self._node.address)
         except HomeAssistantError as err:
+            # A light answers its own status request over the mesh, so a run of
+            # no-answers means it is off or out of range -- show it unavailable.
+            self._poll_failures += 1
+            if self._poll_failures >= FAILED_POLLS_BEFORE_UNAVAILABLE:
+                self._attr_available = False
             _LOGGER.debug("status poll for %s failed: %s", self._node.name, err)
             return
+        self._mark_reachable()
         if status.brightness:
             self._attr_brightness = value_to_brightness(
                 BRIGHTNESS_SCALE, status.brightness
@@ -557,6 +580,7 @@ class GodoxLight(LightEntity, RestoreEntity):
         """Turn the light off."""
         await self._link.async_turn_off(self._node.address)
         self._attr_is_on = False
+        self._mark_reachable()
         self.async_write_ha_state()
 
 

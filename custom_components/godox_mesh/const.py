@@ -149,6 +149,13 @@ SHORT_HOLD_SECONDS: Final = 60.0
 # is the only one reachable, and stickiness keeps a settled sibling once chosen.
 DROP_PENALTY_SECONDS: Final = 180.0
 
+# Consecutive failed readback polls before a light is shown "unavailable". A
+# light answers its own status request over the mesh, so a run of no-answers
+# means it is off or out of range; a few strikes rather than one avoids flipping
+# on a single missed reply. Only lights with readback on poll, so this is the
+# only availability signal they get -- an un-polled light stays available.
+FAILED_POLLS_BEFORE_UNAVAILABLE: Final = 3
+
 # How often to poll a light for battery charge. Battery moves slowly and
 # each poll wakes the shared connection, so this is deliberately infrequent.
 BATTERY_POLL_SECONDS: Final = 600.0
