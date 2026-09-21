@@ -218,3 +218,54 @@ async def test_still_fails_clearly_when_the_whole_network_is_gone(
     with patch(DISCOVERY, return_value=[]):
         with pytest.raises(HomeAssistantError, match="not in range"):
             await _turn_on(hass, "light.key_light")
+
+
+async def test_setup_succeeds_when_only_a_sibling_is_reachable(
+    hass: HomeAssistant, fake_ble
+) -> None:
+    """The configured light being off must not block setup.
+
+    Regression: the old reachability check queried the configured address alone,
+    so a powered-off entry light failed setup entirely -- and the failover that
+    would have entered through a sibling never got to run.
+    """
+    from homeassistant.config_entries import ConfigEntryState
+
+    entry = MockConfigEntry(
+        domain=DOMAIN,
+        title="Studio",
+        unique_id=ADDRESS,
+        data={CONF_ADDRESS: ADDRESS, CONF_MESH: dict(MESH_STATE)},
+        options={CONF_NODES: [{CONF_NODE_ADDRESS: 2, CONF_NAME: "Key", CONF_MODEL: None}]},
+    )
+    entry.add_to_hass(hass)
+    # The configured light is unreachable, but a sibling advertises the network.
+    with (
+        patch(BLE_PATH, return_value=None),
+        patch(DISCOVERY, return_value=[_advert(SECOND_LIGHT)]),
+    ):
+        assert await hass.config_entries.async_setup(entry.entry_id)
+        await hass.async_block_till_done()
+    assert entry.state is ConfigEntryState.LOADED
+
+
+async def test_setup_retries_when_nothing_of_the_mesh_is_reachable(
+    hass: HomeAssistant, fake_ble
+) -> None:
+    """With no node in range at all, setup defers rather than erroring out."""
+    from homeassistant.config_entries import ConfigEntryState
+
+    entry = MockConfigEntry(
+        domain=DOMAIN,
+        title="Studio",
+        unique_id=ADDRESS,
+        data={CONF_ADDRESS: ADDRESS, CONF_MESH: dict(MESH_STATE)},
+        options={CONF_NODES: [{CONF_NODE_ADDRESS: 2, CONF_NAME: "Key", CONF_MODEL: None}]},
+    )
+    entry.add_to_hass(hass)
+    with (
+        patch(BLE_PATH, return_value=None),
+        patch(DISCOVERY, return_value=[]),
+    ):
+        assert not await hass.config_entries.async_setup(entry.entry_id)
+    assert entry.state is ConfigEntryState.SETUP_RETRY

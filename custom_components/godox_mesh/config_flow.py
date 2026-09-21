@@ -391,10 +391,13 @@ class GodoxConfigFlow(ConfigFlow, domain=DOMAIN):
             if choice == "join_existing":
                 return await self.async_step_join_existing()
             return await self.async_step_provision()
-        # "Add to an existing Godox mesh" is only meaningful once one exists.
-        options = ["mesh_state", "provision"]
+        # Default to provisioning (the common case for a light being added);
+        # "Add to an existing Godox mesh" only when one exists; pasting keys is
+        # the advanced path, so it comes last.
+        options = ["provision"]
         if self._loaded_meshes():
             options.append("join_existing")
+        options.append("mesh_state")
         return self.async_show_form(
             step_id="setup_method",
             data_schema=vol.Schema(

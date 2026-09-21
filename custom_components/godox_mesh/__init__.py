@@ -24,6 +24,7 @@ from .const import (
     DEFAULT_POLL_INTERVAL,
     DOMAIN,
 )
+from .gateway import async_find_network_gateways
 from .mesh import GodoxMeshLink
 from .mesh_state_input import mesh_state_from_dict
 from .models import GodoxConfigEntry, GodoxNode, GodoxRuntimeData
@@ -43,16 +44,7 @@ PLATFORMS: list[Platform] = [
 async def async_setup_entry(hass: HomeAssistant, entry: GodoxConfigEntry) -> bool:
     """Set up Godox Bluetooth Mesh from a config entry."""
     address: str = entry.data[CONF_ADDRESS]
-
-    if bluetooth.async_ble_device_from_address(hass, address, connectable=True) is None:
-        raise ConfigEntryNotReady(
-            f"Could not find Godox light with address {address}. It may be powered "
-            "off or out of range of every Bluetooth adapter and proxy."
-        )
-
     state = mesh_state_from_dict(entry.data[CONF_MESH])
-    store = GodoxSequenceStore(hass, entry.entry_id)
-    sequence_number = await store.async_load(state.sequence_number)
 
     # Addresses of every node we know is on this mesh: the configured light,
     # plus any node we captured an address for when provisioning it. Gateway
@@ -67,6 +59,23 @@ async def async_setup_entry(hass: HomeAssistant, entry: GodoxConfigEntry) -> boo
             ]
         )
     )
+
+    # Reachable when *any* node of this mesh is in range -- a known address, or
+    # anything advertising this network's Network ID. The mesh is entered
+    # through whichever node answers, so the configured light being off must not
+    # block setup while another node can gateway in.
+    reachable = any(
+        bluetooth.async_ble_device_from_address(hass, mac, connectable=True) is not None
+        for mac in known_macs
+    ) or bool(async_find_network_gateways(hass, state.network_key))
+    if not reachable:
+        raise ConfigEntryNotReady(
+            "No light on this Godox mesh is currently reachable. Every node may "
+            "be powered off or out of range of every Bluetooth adapter and proxy."
+        )
+
+    store = GodoxSequenceStore(hass, entry.entry_id)
+    sequence_number = await store.async_load(state.sequence_number)
 
     link = GodoxMeshLink(
         hass,

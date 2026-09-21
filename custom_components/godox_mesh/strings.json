@@ -14,7 +14,7 @@
       },
       "setup_method": {
         "title": "How is this light set up?",
-        "description": "Has this light already been provisioned?\n\nIf you have run `godox-mesh provision`, choose **Use existing mesh keys** and paste your `mesh_state.json`.\n\nIf the light is factory reset and flashing, choose **Provision this light** to generate fresh keys here.",
+        "description": "Has this light already been provisioned?\n\nIf the light is factory reset and flashing, choose **Provision this light** to generate fresh keys here.\n\n**Use existing mesh keys** is for advanced users who provisioned with `godox-mesh provision` and have a `mesh_state.json` to paste.",
         "data": {
           "setup_method": "Setup method"
         }
@@ -93,7 +93,7 @@
   "selector": {
     "setup_method": {
       "options": {
-        "mesh_state": "Use existing mesh keys",
+        "mesh_state": "Use existing mesh keys (advanced)",
         "provision": "Provision this light",
         "join_existing": "Add to an existing Godox mesh"
       }
@@ -106,7 +106,6 @@
         "description": "Add or remove lights on this mesh network. All of them are controlled through the single proxy connection to the light you set up first.",
         "menu_options": {
           "provision_node": "Provision a new light onto this network",
-          "add_node": "Add a light that is already provisioned",
           "change_model": "Configure a light",
           "remove_node": "Remove a light"
         }
