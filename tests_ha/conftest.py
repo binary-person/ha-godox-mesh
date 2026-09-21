@@ -117,7 +117,7 @@ def fake_ble(monkeypatch):
     """Replace the integration's BLE client with an in-memory fake."""
     clients: list[FakeBleakClient] = []
 
-    def factory(_hass, _address, _name):
+    def factory(_hass, _address, _name, **_kwargs):
         client = FakeBleakClient(_hass, _address, _name)
         clients.append(client)
         return client

@@ -125,6 +125,10 @@ async def test_pasted_mesh_state_creates_an_entry(hass: HomeAssistant) -> None:
     result = await hass.config_entries.flow.async_configure(
         result["flow_id"], {CONF_RADIO_ID: "003F"}
     )
+    # Picking the model leads to a second, settings step whose defaults come
+    # from that model. Accepting them unchanged carries them onto the node.
+    assert result["step_id"] == "settings"
+    result = await hass.config_entries.flow.async_configure(result["flow_id"], {})
 
     assert result["type"] is FlowResultType.CREATE_ENTRY
     assert result["data"][CONF_ADDRESS] == ADDRESS
@@ -135,19 +139,18 @@ async def test_pasted_mesh_state_creates_an_entry(hass: HomeAssistant) -> None:
     assert result["options"][CONF_NODES] == [
         {
             CONF_NODE_ADDRESS: 2,
-            # The advertised name is the same on every Godox light, so the
-            # label carries the last four of the address. This fixture has no
-            # manufacturer data, so the model cannot be detected and "GD_LED"
-            # remains the base -- a real light resolves to its product name.
-            CONF_NAME: "GD_LED (EEFF)",
+            # The advertised name is the same on every Godox light, so the label
+            # carries the last four of the address. The name follows the model
+            # the user picked, so "GD_LED" resolves to the product name.
+            CONF_NAME: "SL200IIIBi (EEFF)",
             "model": None,
             CONF_RADIO_ID: "003F",
             CONF_NUM_ELEMENTS: 2,
-            # The setup form carries the per-light settings too; with no
-            # manufacturer data the model is undetected, so the defaults are the
-            # generic ones (readback off, poll_cct on, 30 s).
-            CONF_READBACK: False,
-            CONF_POLL_CCT: True,
+            # Settings default from the picked model: 003F reports panel colour
+            # temperature stale, so its verified defaults are readback on,
+            # colour-temperature polling off.
+            CONF_READBACK: True,
+            CONF_POLL_CCT: False,
             CONF_POLL_INTERVAL: 30,
         }
     ]
@@ -183,6 +186,7 @@ async def test_sequence_number_is_floored_to_survive_the_godox_app(
     result = await hass.config_entries.flow.async_configure(
         result["flow_id"], {CONF_MESH_STATE_JSON: json.dumps(low)}
     )
+    result = await hass.config_entries.flow.async_configure(result["flow_id"], {})
     result = await hass.config_entries.flow.async_configure(result["flow_id"], {})
 
     assert result["data"][CONF_MESH]["sequence_number"] >= 300_000
@@ -287,6 +291,8 @@ async def test_provisioning_flow_binds_the_app_key_and_creates_an_entry(
     assert order == ["provision", "bind"]
     assert result["step_id"] == "model"
     result = await hass.config_entries.flow.async_configure(result["flow_id"], {})
+    assert result["step_id"] == "settings"
+    result = await hass.config_entries.flow.async_configure(result["flow_id"], {})
     assert result["type"] is FlowResultType.CREATE_ENTRY
     mesh = result["data"][CONF_MESH]
     # A freshly generated application key, not the provisioning placeholder.
@@ -381,6 +387,8 @@ async def test_model_selection_stores_radio_id_for_correct_controls(
     result = await hass.config_entries.flow.async_configure(
         result["flow_id"], {CONF_RADIO_ID: "00B6"}  # SL200 RF, 1800-10000 K
     )
+    assert result["step_id"] == "settings"
+    result = await hass.config_entries.flow.async_configure(result["flow_id"], {})
     assert result["type"] is FlowResultType.CREATE_ENTRY
     assert result["options"][CONF_NODES][0][CONF_RADIO_ID] == "00B6"
 
@@ -397,8 +405,50 @@ async def test_model_selection_may_be_left_unset(hass: HomeAssistant) -> None:
         result["flow_id"], {CONF_MESH_STATE_JSON: json.dumps(MESH_STATE)}
     )
     result = await hass.config_entries.flow.async_configure(result["flow_id"], {})
+    assert result["step_id"] == "settings"
+    result = await hass.config_entries.flow.async_configure(result["flow_id"], {})
     assert result["type"] is FlowResultType.CREATE_ENTRY
     assert result["options"][CONF_NODES][0][CONF_RADIO_ID] is None
+
+
+async def test_settings_step_surfaces_the_models_known_quirk(
+    hass: HomeAssistant,
+) -> None:
+    """The settings step shows the picked model's note, so its defaults make sense."""
+    result = await hass.config_entries.flow.async_init(
+        DOMAIN, context={"source": SOURCE_BLUETOOTH}, data=_service_info()
+    )
+    result = await hass.config_entries.flow.async_configure(
+        result["flow_id"], {"setup_method": "mesh_state"}
+    )
+    result = await hass.config_entries.flow.async_configure(
+        result["flow_id"], {CONF_MESH_STATE_JSON: json.dumps(MESH_STATE)}
+    )
+    # 003F reports panel colour temperature stale; the note explains it.
+    result = await hass.config_entries.flow.async_configure(
+        result["flow_id"], {CONF_RADIO_ID: "003F"}
+    )
+    assert result["step_id"] == "settings"
+    note = result["description_placeholders"]["note"]
+    assert "SL200IIIBi" in note
+    assert "stale" in note
+
+    # A model without a recorded note leaves the placeholder empty.
+    result = await hass.config_entries.flow.async_init(
+        DOMAIN,
+        context={"source": SOURCE_BLUETOOTH},
+        data=_service_info(address="11:22:33:44:55:66"),
+    )
+    result = await hass.config_entries.flow.async_configure(
+        result["flow_id"], {"setup_method": "mesh_state"}
+    )
+    result = await hass.config_entries.flow.async_configure(
+        result["flow_id"], {CONF_MESH_STATE_JSON: json.dumps(MESH_STATE)}
+    )
+    result = await hass.config_entries.flow.async_configure(
+        result["flow_id"], {CONF_RADIO_ID: "00B6"}  # no note recorded
+    )
+    assert result["description_placeholders"]["note"] == ""
 
 
 def test_node_address_allocator_advances_by_element_count() -> None:
@@ -438,8 +488,12 @@ async def test_configure_light_persists_per_node_settings(
         result = await hass.config_entries.options.async_configure(
             result["flow_id"], {"next_step_id": "change_model"}
         )
-        # One node, so it goes straight to the per-light form.
+        # One node, so it goes straight to the model picker, then its settings.
         assert result["step_id"] == "set_model"
+        result = await hass.config_entries.options.async_configure(
+            result["flow_id"], {CONF_RADIO_ID: "003F"}
+        )
+        assert result["step_id"] == "node_settings"
         result = await hass.config_entries.options.async_configure(
             result["flow_id"],
             {CONF_READBACK: True, CONF_POLL_CCT: False, CONF_POLL_INTERVAL: 60},
@@ -473,6 +527,10 @@ async def test_setup_uses_the_models_verified_defaults(hass: HomeAssistant) -> N
     result = await hass.config_entries.flow.async_configure(
         result["flow_id"], {CONF_MESH_STATE_JSON: json.dumps(MESH_STATE)}
     )
+    # Model detected from the advert, so the model step accepts it unchanged and
+    # the settings step then shows and applies that model's verified defaults.
+    result = await hass.config_entries.flow.async_configure(result["flow_id"], {})
+    assert result["step_id"] == "settings"
     result = await hass.config_entries.flow.async_configure(result["flow_id"], {})
 
     assert result["type"] is FlowResultType.CREATE_ENTRY

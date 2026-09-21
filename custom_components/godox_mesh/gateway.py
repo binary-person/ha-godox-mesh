@@ -13,13 +13,18 @@ without Home Assistant having provisioned it or ever having seen it before.
 from __future__ import annotations
 
 import logging
+import time
 
 from ._lib.crypto import k3
 
 from homeassistant.components.bluetooth import async_discovered_service_info
 from homeassistant.core import HomeAssistant, callback
 
-from .const import MESH_PROXY_SERVICE_UUID
+from .const import (
+    DROP_PENALTY_SECONDS,
+    FRESH_ADVERT_SECONDS,
+    MESH_PROXY_SERVICE_UUID,
+)
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -75,74 +80,109 @@ def async_select_gateway(
     preferred: str,
     current: str | None,
     known_macs: tuple[str, ...] = (),
+    fail_time: dict[str, float] | None = None,
+    unstable_since: dict[str, float] | None = None,
 ) -> str:
-    """Pick the node to connect through.
+    """Pick the node to connect through: the best node currently on the list.
 
-    Two ways to recognise a node of this mesh, tried in that order:
+    A node is *on the list* when it is currently reachable and has not failed to
+    connect more recently than it last advertised. Two things put a node on the
+    list, so a node still advertising Node Identity right after a reconnect (not
+    yet the Network ID) is not missed:
 
-    1. **A known address.** Nodes we provisioned have their BLE address on
-       record; a reachable one can be connected to directly, without waiting for
-       it to advertise the Network ID (a just-connected node advertises Node
-       Identity for a while instead, so this is what makes failover prompt).
-    2. **The Network ID advert.** Recognises *any* node on the network, even one
-       this install never provisioned.
+    * **A known address** -- one we provisioned, recognised by MAC.
+    * **The Network ID advert** -- ``k3(net_key)``, which recognises any node on
+      this mesh, even one this install never provisioned.
 
-    The order is deliberately sticky. Reconnecting costs a beacon echo and two
-    proxy filter PDUs, so churning between nodes as signal drifts would be worse
-    than staying put.
+    A failed connect takes a node off the list (its ``fail_time`` is stamped);
+    only its *own* next advertisement puts it back -- proof it is alive again,
+    rather than an unrelated node connecting. That one rule is the whole policy:
+    it is what keeps a light that advertises but will not connect from being
+    re-tried ahead of a healthy sibling, without any separate "avoid" state to
+    clear.
+
+    The list is ordered so the head is the soundest choice: the node already in
+    use first (stickiness -- reconnecting costs a beacon echo and two filter
+    PDUs, so do not churn as signal drifts), then freshly-heard nodes before
+    ones only lingering in Home Assistant's cache after going quiet, then by
+    signal strength. Which node it *is* does not matter -- a gateway is pure
+    transport -- so the configured light gets no special weight beyond being the
+    fallback when nothing is reachable at all.
 
     Parameters
     ----------
     network_key
         Mesh network key, used to recognise this network's nodes by advert.
     preferred
-        The address configured on the config entry — the light this network was
-        set up against.
+        The address configured on the config entry, returned only as the
+        fallback when the list is empty, so behaviour degrades to a fixed
+        gateway rather than refusing to try.
     current
-        The node currently in use, if any.
+        The node currently in use, if any -- kept when still on the list.
     known_macs
         Addresses of nodes known to be on this mesh (from provisioning).
+    fail_time
+        ``{address: monotonic time it last failed to connect}``. A node is off
+        the list until it advertises again after that time.
+    unstable_since
+        ``{address: monotonic time it last dropped a connection quickly}``. Such
+        a node stays *on* the list but is ranked below steadier ones, and the
+        stickiness for ``current`` yields when the current node is the unstable
+        one -- so a light that will not hold a connection hands over to a sibling
+        rather than being reconnected to again and again.
 
     Returns
     -------
     str
-        Address to connect to. Falls back to *preferred* when nothing is
-        reachable, so behaviour degrades to a fixed gateway rather than refusing
-        to try.
+        Address to connect to.
     """
-    # In-range signal strengths, from adverts the manager already holds -- no
-    # scan is triggered on the adapter.
-    rssi = {
-        info.address: info.rssi
+    fail_time = fail_time or {}
+    unstable_since = unstable_since or {}
+    now = time.monotonic()
+    # Adverts the manager already holds -- no scan is triggered on the adapter.
+    seen = {
+        info.address: info
         for info in async_discovered_service_info(hass, connectable=True)
     }
-    known_in_range = sorted(
-        (mac for mac in known_macs if mac in rssi),
-        key=lambda mac: rssi[mac],
-        reverse=True,
-    )
-    # Network-ID matches for anything not already covered by a known address.
-    network_matches = [
+    on_this_mesh = set(known_macs) | set(async_find_network_gateways(hass, network_key))
+
+    # On the list: reachable, and not failed more recently than it last
+    # advertised. A node genuinely gone stops advertising, so its timestamp
+    # freezes below its fail time and it stays off; one that is alive advertises
+    # again and its fresher timestamp puts it back.
+    candidates = [
         address
-        for address in async_find_network_gateways(hass, network_key)
-        if address not in known_in_range
+        for address, info in seen.items()
+        if address in on_this_mesh and info.time > fail_time.get(address, float("-inf"))
     ]
-    ordered = known_in_range + network_matches
-    if not ordered:
+    if not candidates:
         _LOGGER.debug(
             "no reachable node of this network; falling back to %s", preferred
         )
         return preferred
 
-    if current is not None and current in ordered:
-        return current
-    if preferred in ordered:
-        if current is not None:
-            _LOGGER.debug("returning to the configured node %s", preferred)
-        return preferred
+    def unstable(address: str) -> bool:
+        return now - unstable_since.get(address, float("-inf")) < DROP_PENALTY_SECONDS
 
-    chosen = ordered[0]
-    _LOGGER.info(
-        "entering the mesh through %s; %s is not reachable", chosen, preferred
+    # Stay put -- unless the current node is the one that keeps dropping, in
+    # which case hand over to a steadier sibling.
+    if current is not None and current in candidates and not unstable(current):
+        return current
+
+    # Head of the list: steady before recently-flaky, freshly-heard before
+    # stale-cached, then strongest signal.
+    candidates.sort(
+        key=lambda a: (
+            unstable(a),
+            now - seen[a].time >= FRESH_ADVERT_SECONDS,
+            -seen[a].rssi,
+        )
     )
+    chosen = candidates[0]
+    if chosen != preferred:
+        _LOGGER.info(
+            "entering the mesh through %s; %s is not the soundest choice right now",
+            chosen,
+            preferred,
+        )
     return chosen

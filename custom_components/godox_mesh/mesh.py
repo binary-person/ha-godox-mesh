@@ -20,6 +20,7 @@ from __future__ import annotations
 import asyncio
 import dataclasses
 import logging
+import time
 from functools import partial
 from collections.abc import Awaitable, Callable
 from typing import TypeVar
@@ -38,8 +39,11 @@ from .gateway import async_select_gateway
 from .const import (
     BEACON_WAIT_TIMEOUT,
     IDLE_DISCONNECT_SECONDS,
+    MAX_CONSECUTIVE_FAILURES,
+    MESH_CONNECT_MAX_ATTEMPTS,
     PROXY_CONFIG_ACK_TIMEOUT,
     SEQUENCE_BLOCK_SIZE,
+    SHORT_HOLD_SECONDS,
 )
 from .store import GodoxSequenceStore
 
@@ -80,6 +84,23 @@ class GodoxMeshLink:
         self._lock = asyncio.Lock()
         self._cancel_disconnect: Callable[[], None] | None = None
         self._gateway: str | None = None
+        # When each node last failed to connect, as a monotonic timestamp. A
+        # node stays off the gateway list until it advertises again after this,
+        # so a light that will not connect is not re-tried ahead of a healthy
+        # sibling; a node that comes back on its own advertisement is re-admitted
+        # with no bookkeeping to clear.
+        self._fail_time: dict[str, float] = {}
+        # When each node last dropped its connection unexpectedly after only a
+        # short hold -- a node that "will not hold". Such a node is ranked below
+        # steadier ones so a sibling is tried first, without being excluded.
+        self._dropped_at: dict[str, float] = {}
+        # When the current connection opened, to tell a quick drop (unreliable
+        # node) from one that came after a long, useful session (a one-off blip).
+        self._connected_at: float | None = None
+        # Consecutive operation failures with no success in between. A run of
+        # them forces a reconnect even when the connection still claims to be up,
+        # so a silently-wedged proxy recovers instead of failing every poll.
+        self._consecutive_failures = 0
         # Bumped after every command so a timer that fired while a command was
         # waiting on the lock can tell that the link is not idle after all.
         self._activity = 0
@@ -104,7 +125,8 @@ class GodoxMeshLink:
 
         Called afresh by the proxy client on every reconnect, which is what
         makes losing the configured light survivable: the network is entered
-        through some other node instead.
+        through some other node instead. A node that just failed is off the list
+        until it advertises again, so a retry picks a different one.
         """
         self._gateway = async_select_gateway(
             self._hass,
@@ -112,8 +134,34 @@ class GodoxMeshLink:
             preferred=self._address,
             current=self._gateway,
             known_macs=self._known_macs,
+            fail_time=self._fail_time,
+            unstable_since=self._dropped_at,
         )
-        return HomeAssistantBleakClient(self._hass, self._gateway, self._name)
+        return HomeAssistantBleakClient(
+            self._hass,
+            self._gateway,
+            self._name,
+            max_attempts=MESH_CONNECT_MAX_ATTEMPTS,
+            on_drop=self._on_gateway_drop,
+        )
+
+    @callback
+    def _on_gateway_drop(self, address: str) -> None:
+        """Note a node that dropped its connection on its own.
+
+        Only a *quick* drop counts: a node that held a useful session and then
+        blipped is reconnected to as normal, but one that keeps dropping within
+        moments of connecting is ranked below a steadier sibling. Deliberate
+        closes never reach here (see :class:`HomeAssistantBleakClient`).
+        """
+        held = time.monotonic() - (self._connected_at or 0.0)
+        if held < SHORT_HOLD_SECONDS:
+            self._dropped_at[address] = time.monotonic()
+            _LOGGER.debug(
+                "gateway %s dropped after %.0fs; ranking it below steadier nodes",
+                address,
+                held,
+            )
 
     @property
     def gateway_address(self) -> str | None:
@@ -452,15 +500,28 @@ class GodoxMeshLink:
                 result = await operation()
             except DeviceNotFound as err:
                 await self._async_close()
+                self._consecutive_failures = 0
                 raise HomeAssistantError(str(err)) from err
             except Exception as err:
-                # The connection is in an unknown state; drop it so the next
-                # command starts from a clean handshake.
-                await self._async_close()
+                self._consecutive_failures += 1
+                # Drop the connection if it actually broke, or if a run of
+                # failures with nothing succeeding in between suggests it has
+                # wedged silently while still claiming to be connected. A single
+                # command failing while the connection is fine -- a node that did
+                # not answer a status poll, most often an off light -- must not
+                # tear down the shared connection, or every poll would re-open
+                # it; but a run of them must still force a clean reconnect.
+                if (
+                    not self._controller.is_connected
+                    or self._consecutive_failures >= MAX_CONSECUTIVE_FAILURES
+                ):
+                    await self._async_close()
+                    self._consecutive_failures = 0
                 raise HomeAssistantError(
                     f"Error sending command to {self._name}: {err}"
                 ) from err
             self._activity += 1
+            self._consecutive_failures = 0
             self._schedule_idle_disconnect()
             return result
 
@@ -468,7 +529,31 @@ class GodoxMeshLink:
         if self._controller.is_connected:
             return
         _LOGGER.debug("opening mesh proxy connection to %s", self._address)
-        await self._controller.connect()
+        # Try nodes in turn: each connect re-selects the head of the gateway
+        # list, and a failed node drops off it (its fail time is stamped), so a
+        # light that will not connect is abandoned for a sibling within one
+        # command instead of failing it. The loop ends when a node connects, or
+        # when selection can only hand back a node already tried this round --
+        # meaning nothing new is reachable.
+        tried: set[str] = set()
+        while True:
+            try:
+                await self._controller.connect()
+            except Exception:
+                failed = self._gateway
+                if failed is None or failed in tried:
+                    raise
+                tried.add(failed)
+                self._fail_time[failed] = time.monotonic()
+                _LOGGER.debug(
+                    "gateway %s did not connect; dropped until it advertises again",
+                    failed,
+                )
+                continue
+            # Note when this connection opened, so a later drop can be judged by
+            # how long it held (see _on_gateway_drop).
+            self._connected_at = time.monotonic()
+            return
 
     def _cancel_idle_disconnect(self) -> None:
         if self._cancel_disconnect is not None:

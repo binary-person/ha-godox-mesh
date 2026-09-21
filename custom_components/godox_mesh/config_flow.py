@@ -206,21 +206,16 @@ def _light_settings_from_input(user_input: dict[str, Any]) -> dict[str, Any]:
     return settings
 
 
-def _setup_configure_fields(detected: str | None) -> dict:
-    """Model picker + the setup-time settings subset (no use_xy).
+def _model_note(caps: GodoxCapabilities) -> str:
+    """A model's known quirk, for the settings step, or empty when none.
 
-    Readback/poll-CCT defaults come from the detected model's verified findings.
+    This is why the settings step is a *second* form: a Home Assistant form is
+    static once shown, so the readback/CCT defaults and this note can only
+    reflect the model once it has been picked and submitted.
     """
-    caps = capabilities_for_radio_id(detected)
-    return {
-        **_model_form_fields(detected),
-        **_light_settings_fields(
-            caps,
-            readback=caps.readback_default,
-            poll_cct=caps.poll_cct_default,
-            poll_interval=DEFAULT_POLL_INTERVAL,
-        ),
-    }
+    if caps.note and caps.name:
+        return f"\n\n**{caps.name}:** {caps.note}"
+    return ""
 
 
 def _looks_like_godox(service_info: BluetoothServiceInfoBleak) -> bool:
@@ -279,6 +274,9 @@ class GodoxConfigFlow(ConfigFlow, domain=DOMAIN):
         self._address: str | None = None
         self._title: str | None = None
         self._state: MeshState | None = None
+        #: The model picked on a model step, carried to the settings step that
+        #: follows it (the settings form's defaults depend on it).
+        self._pending_radio_id: str | None = None
         #: When joining an existing mesh: which entry, and the provisioned node
         #: waiting for its model on the join-model step.
         self._join_entry_id: str | None = None
@@ -570,19 +568,24 @@ class GodoxConfigFlow(ConfigFlow, domain=DOMAIN):
         self, user_input: dict[str, Any] | None = None
     ) -> ConfigFlowResult:
         """Confirm the model of a light just joined to an existing mesh."""
-        entry = self._mesh_by_id(self._join_entry_id)
-        pending = self._join_pending
-        assert entry is not None and pending is not None
+        assert self._join_pending is not None
         detected = _detected_radio_id(self._discovery)
-
         if user_input is None:
             return self.async_show_form(
                 step_id="join_model",
-                data_schema=vol.Schema(_setup_configure_fields(detected)),
+                data_schema=vol.Schema(_model_form_fields(detected)),
                 description_placeholders={"detected": _model_detection_note(detected)},
             )
+        self._pending_radio_id = user_input.get(CONF_RADIO_ID) or detected
+        return await self.async_step_settings()
 
-        radio_id = user_input.get(CONF_RADIO_ID) or detected
+    def _complete_join(
+        self, radio_id: str | None, settings: dict[str, Any]
+    ) -> ConfigFlowResult:
+        """Add the just-provisioned light to the existing mesh entry."""
+        entry = self._mesh_by_id(self._join_entry_id)
+        pending = self._join_pending
+        assert entry is not None and pending is not None
         name = (
             _display_name(self._discovery, radio_id)
             if self._discovery is not None
@@ -598,7 +601,7 @@ class GodoxConfigFlow(ConfigFlow, domain=DOMAIN):
                 CONF_MAC: self._address,
                 CONF_DEVICE_KEY: pending["device_key"],
                 CONF_NUM_ELEMENTS: pending["num_elements"],
-                **_light_settings_from_input(user_input),
+                **settings,
             }
         )
         self.hass.config_entries.async_update_entry(
@@ -619,7 +622,7 @@ class GodoxConfigFlow(ConfigFlow, domain=DOMAIN):
         detected = _detected_radio_id(self._discovery)
         return self.async_show_form(
             step_id="model",
-            data_schema=vol.Schema(_setup_configure_fields(detected)),
+            data_schema=vol.Schema(_model_form_fields(detected)),
             errors=errors or {},
             description_placeholders={
                 "name": self._title or "",
@@ -630,25 +633,63 @@ class GodoxConfigFlow(ConfigFlow, domain=DOMAIN):
     async def async_step_model(
         self, user_input: dict[str, Any] | None = None
     ) -> ConfigFlowResult:
-        """Record the chosen model, then create the entry with the right controls."""
+        """Record the chosen model, then ask how its state should be read."""
         if user_input is None:
             return self._show_model_form()
-        assert self._state is not None
         # Fall back to the detected model when the user leaves it as suggested,
         # matching the provision/join model steps.
-        radio_id = user_input.get(CONF_RADIO_ID) or _detected_radio_id(self._discovery)
-        return self._finish_entry(
-            self._state,
-            radio_id,
-            _light_settings_from_input(user_input),
+        self._pending_radio_id = user_input.get(CONF_RADIO_ID) or _detected_radio_id(
+            self._discovery
         )
+        return await self.async_step_settings()
+
+    async def async_step_settings(
+        self, user_input: dict[str, Any] | None = None
+    ) -> ConfigFlowResult:
+        """Set readback/polling for the light, defaulted from the picked model.
+
+        Shared by first-time setup and by joining an existing mesh; which one is
+        in progress is told by whether a join is pending.
+        """
+        radio_id = self._pending_radio_id
+        caps = capabilities_for_radio_id(radio_id)
+        if user_input is None:
+            if self._join_pending is not None and self._discovery is not None:
+                name = _display_name(self._discovery, radio_id)
+            else:
+                name = self._title or self._address or ""
+            return self.async_show_form(
+                step_id="settings",
+                data_schema=vol.Schema(
+                    _light_settings_fields(
+                        caps,
+                        readback=caps.readback_default,
+                        poll_cct=caps.poll_cct_default,
+                        poll_interval=DEFAULT_POLL_INTERVAL,
+                    )
+                ),
+                description_placeholders={"name": name, "note": _model_note(caps)},
+            )
+        settings = _light_settings_from_input(user_input)
+        if self._join_pending is not None:
+            return self._complete_join(radio_id, settings)
+        assert self._state is not None
+        return self._finish_entry(self._state, radio_id, settings)
 
     def _finish_entry(
         self, state: MeshState, radio_id: str | None, settings: dict[str, Any]
     ) -> ConfigFlowResult:
         """Create the config entry from a validated mesh state and chosen model."""
         assert self._address is not None
-        title = self._title or self._address
+        # Name from the model the user just picked, not the label fixed at
+        # discovery: a Godox light advertises no useful name and often no model
+        # id during provisioning, so without this the entry (and its primary
+        # light) would keep the bare MAC even after a model was chosen.
+        title = (
+            _display_name(self._discovery, radio_id)
+            if self._discovery is not None
+            else (self._title or self._address)
+        )
         return self.async_create_entry(
             title=title,
             data={
@@ -701,6 +742,8 @@ class GodoxOptionsFlow(OptionsFlow):
         self._pending_provision: dict[str, Any] | None = None
         #: The node whose model the change-model step is editing.
         self._model_node_address: int | None = None
+        #: The model picked on a model step, carried to the node-settings step.
+        self._pending_radio_id: str | None = None
 
     async def async_step_init(
         self, user_input: dict[str, Any] | None = None
@@ -797,20 +840,26 @@ class GodoxOptionsFlow(OptionsFlow):
         """Confirm the model of a light just provisioned onto the network."""
         pending = self._pending_provision
         assert pending is not None
-        service_info = pending["service_info"]
-        detected = _detected_radio_id(service_info)
-
+        detected = _detected_radio_id(pending["service_info"])
         if user_input is None:
             return self.async_show_form(
                 step_id="provision_model",
-                data_schema=vol.Schema(_setup_configure_fields(detected)),
+                data_schema=vol.Schema(_model_form_fields(detected)),
                 description_placeholders={"detected": _model_detection_note(detected)},
             )
-
         # Fall back to the detected model when the user leaves it as suggested,
         # so accepting the auto-detected light does not depend on the frontend
         # echoing the suggested value back.
-        radio_id = user_input.get(CONF_RADIO_ID) or detected
+        self._pending_radio_id = user_input.get(CONF_RADIO_ID) or detected
+        return await self.async_step_node_settings()
+
+    def _complete_provision(
+        self, radio_id: str | None, settings: dict[str, Any]
+    ) -> ConfigFlowResult:
+        """Add the just-provisioned node to this entry with its settings."""
+        pending = self._pending_provision
+        assert pending is not None
+        service_info = pending["service_info"]
         name = pending["name_override"] or _display_name(service_info, radio_id)
         nodes = list(self.config_entry.options.get(CONF_NODES, []))
         nodes.append(
@@ -822,10 +871,81 @@ class GodoxOptionsFlow(OptionsFlow):
                 CONF_MAC: service_info.address,
                 CONF_DEVICE_KEY: pending["device_key"],
                 CONF_NUM_ELEMENTS: pending["num_elements"],
-                **_light_settings_from_input(user_input),
+                **settings,
             }
         )
         return self.async_create_entry(data={CONF_NODES: nodes})
+
+    async def async_step_node_settings(
+        self, user_input: dict[str, Any] | None = None
+    ) -> ConfigFlowResult:
+        """Set readback/polling for a node, defaulted from the picked model.
+
+        Shared by provisioning a new node and by re-configuring an existing one;
+        which is in progress is told by whether a provision is pending. ``use_xy``
+        is offered only when re-configuring an xy-capable model -- provisioning
+        does not know the model well enough yet to place a colour-meter control.
+        """
+        radio_id = self._pending_radio_id
+        caps = capabilities_for_radio_id(radio_id)
+        provisioning = self._pending_provision is not None
+        if user_input is None:
+            if provisioning:
+                pending = self._pending_provision
+                assert pending is not None
+                name = pending["name_override"] or _display_name(
+                    pending["service_info"], radio_id
+                )
+                readback = caps.readback_default
+                poll_cct = caps.poll_cct_default
+                poll_interval = DEFAULT_POLL_INTERVAL
+                use_xy: bool | None = None
+            else:
+                node = self._model_node()
+                current = next(
+                    (
+                        n
+                        for n in self.config_entry.runtime_data.nodes
+                        if n.address == self._model_node_address
+                    ),
+                    None,
+                )
+                name = node[CONF_NAME]
+                readback = current.readback if current else caps.readback_default
+                poll_cct = current.poll_cct if current else caps.poll_cct_default
+                poll_interval = (
+                    current.poll_interval if current else DEFAULT_POLL_INTERVAL
+                )
+                use_xy = (
+                    (current.use_xy if current else False)
+                    if caps.supports_xy
+                    else None
+                )
+            return self.async_show_form(
+                step_id="node_settings",
+                data_schema=vol.Schema(
+                    _light_settings_fields(
+                        caps,
+                        readback=readback,
+                        poll_cct=poll_cct,
+                        poll_interval=poll_interval,
+                        use_xy=use_xy,
+                    )
+                ),
+                description_placeholders={"name": name, "note": _model_note(caps)},
+            )
+        settings = _light_settings_from_input(user_input)
+        if provisioning:
+            return self._complete_provision(radio_id, settings)
+        return self._complete_set_model(radio_id, settings)
+
+    def _model_node(self) -> dict[str, Any]:
+        """The node dict the change-model flow is editing."""
+        return next(
+            n
+            for n in self.config_entry.options.get(CONF_NODES, [])
+            if n[CONF_NODE_ADDRESS] == self._model_node_address
+        )
 
     async def async_step_change_model(
         self, user_input: dict[str, Any] | None = None
@@ -866,43 +986,29 @@ class GodoxOptionsFlow(OptionsFlow):
     async def async_step_set_model(
         self, user_input: dict[str, Any] | None = None
     ) -> ConfigFlowResult:
-        """Configure one node: model + readback/polling; re-resolves on reload."""
+        """Pick a node's model, then its readback/polling; re-resolves on reload."""
+        node = self._model_node()
+        if user_input is None:
+            return self.async_show_form(
+                step_id="set_model",
+                data_schema=vol.Schema(_model_form_fields(node.get(CONF_RADIO_ID))),
+                description_placeholders={"name": node[CONF_NAME], "detected": ""},
+            )
+        # No fall-back to a detected model here: this is a manual correction, and
+        # leaving it blank is a deliberate "treat as a standard light".
+        self._pending_radio_id = user_input.get(CONF_RADIO_ID)
+        return await self.async_step_node_settings()
+
+    def _complete_set_model(
+        self, radio_id: str | None, settings: dict[str, Any]
+    ) -> ConfigFlowResult:
+        """Write the picked model and settings onto the node being configured."""
         nodes = list(self.config_entry.options.get(CONF_NODES, []))
         node = next(
             n for n in nodes if n[CONF_NODE_ADDRESS] == self._model_node_address
         )
-        caps = capabilities_for_radio_id(node.get(CONF_RADIO_ID))
-        if user_input is None:
-            # Pre-fill from the node's current effective settings.
-            current = next(
-                (
-                    n
-                    for n in self.config_entry.runtime_data.nodes
-                    if n.address == self._model_node_address
-                ),
-                None,
-            )
-            fields = {
-                **_model_form_fields(node.get(CONF_RADIO_ID)),
-                **_light_settings_fields(
-                    caps,
-                    readback=current.readback if current else caps.readback_default,
-                    poll_cct=current.poll_cct if current else caps.poll_cct_default,
-                    poll_interval=(
-                        current.poll_interval if current else DEFAULT_POLL_INTERVAL
-                    ),
-                    use_xy=(current.use_xy if current else False)
-                    if caps.supports_xy
-                    else None,
-                ),
-            }
-            return self.async_show_form(
-                step_id="set_model",
-                data_schema=vol.Schema(fields),
-                description_placeholders={"name": node[CONF_NAME], "detected": ""},
-            )
-        node[CONF_RADIO_ID] = user_input.get(CONF_RADIO_ID)
-        node.update(_light_settings_from_input(user_input))
+        node[CONF_RADIO_ID] = radio_id
+        node.update(settings)
         return self.async_create_entry(data={CONF_NODES: nodes})
 
     async def async_step_remove_node(

@@ -131,6 +131,10 @@ async def test_join_adds_the_light_to_the_existing_entry(
         result = await hass.config_entries.flow.async_configure(
             result["flow_id"], {}  # accept the detected model
         )
+        assert result["step_id"] == "settings"
+        result = await hass.config_entries.flow.async_configure(
+            result["flow_id"], {}  # accept the model's default settings
+        )
         await hass.async_block_till_done()
 
     # No new entry -- the existing one gained a node.

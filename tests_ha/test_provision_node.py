@@ -171,13 +171,17 @@ async def _run_provision_flow(
         result["flow_id"], user_input
     )
     # A provisioning failure re-shows the provision_node form; success advances
-    # to the model step, which we complete to reach the created entry.
+    # to the model step, then a settings step, which we complete to reach the
+    # created entry.
     if result["type"] is not FlowResultType.FORM or result["step_id"] != "provision_model":
         return result
     model_input = {CONF_RADIO_ID: radio_id} if radio_id else {}
-    return await hass.config_entries.options.async_configure(
+    result = await hass.config_entries.options.async_configure(
         result["flow_id"], model_input
     )
+    if result["type"] is not FlowResultType.FORM or result["step_id"] != "node_settings":
+        return result
+    return await hass.config_entries.options.async_configure(result["flow_id"], {})
 
 
 async def test_provisioning_reuses_the_existing_network_key(

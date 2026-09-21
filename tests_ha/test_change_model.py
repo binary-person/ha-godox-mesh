@@ -60,6 +60,10 @@ async def test_single_node_goes_straight_to_the_model_step(hass: HomeAssistant) 
         result = await hass.config_entries.options.async_configure(
             result["flow_id"], {CONF_RADIO_ID: "003F"}  # SL200Bi -> SL200III Bi
         )
+        assert result["step_id"] == "node_settings"
+        result = await hass.config_entries.options.async_configure(
+            result["flow_id"], {}
+        )
         await hass.async_block_till_done()
 
     assert result["type"] is FlowResultType.CREATE_ENTRY
@@ -107,6 +111,10 @@ async def test_multi_node_picks_one_then_rewrites_only_it(hass: HomeAssistant) -
         result = await hass.config_entries.options.async_configure(
             result["flow_id"], {CONF_RADIO_ID: "003F"}
         )
+        assert result["step_id"] == "node_settings"
+        result = await hass.config_entries.options.async_configure(
+            result["flow_id"], {}
+        )
         await hass.async_block_till_done()
 
     nodes = {n[CONF_NODE_ADDRESS]: n for n in entry.options[CONF_NODES]}
@@ -116,21 +124,33 @@ async def test_multi_node_picks_one_then_rewrites_only_it(hass: HomeAssistant) -
 
 @pytest.mark.usefixtures("fake_ble")
 async def test_use_xy_offered_only_for_xy_models(hass: HomeAssistant) -> None:
-    """The set-model form shows use-xy for an xy model, hides it otherwise."""
+    """The settings step shows use-xy for an xy model, hides it otherwise.
+
+    It reflects the model *picked* on the preceding step, which is why the two
+    steps are split: the field can only follow a choice already submitted.
+    """
     from custom_components.godox_mesh.const import CONF_USE_XY
 
     def fields_for(schema):
         return {getattr(k, "schema", k) for k in schema}
 
+    async def settings_for(entry, radio_id: str):
+        result = await hass.config_entries.options.async_init(entry.entry_id)
+        result = await hass.config_entries.options.async_configure(
+            result["flow_id"], {"next_step_id": "change_model"}
+        )
+        assert result["step_id"] == "set_model"
+        result = await hass.config_entries.options.async_configure(
+            result["flow_id"], {CONF_RADIO_ID: radio_id}
+        )
+        assert result["step_id"] == "node_settings"
+        return fields_for(result["data_schema"].schema)
+
     # 00B6 (SL200 RF) supports xy.
     entry = await _entry(
         hass, [{CONF_NODE_ADDRESS: 2, CONF_NAME: "Key", CONF_RADIO_ID: "00B6"}]
     )
-    result = await hass.config_entries.options.async_init(entry.entry_id)
-    result = await hass.config_entries.options.async_configure(
-        result["flow_id"], {"next_step_id": "change_model"}
-    )
-    assert CONF_USE_XY in fields_for(result["data_schema"].schema)
+    assert CONF_USE_XY in await settings_for(entry, "00B6")
 
     # 003F (SL200III Bi) does not.
     entry2 = MockConfigEntry(
@@ -144,8 +164,4 @@ async def test_use_xy_offered_only_for_xy_models(hass: HomeAssistant) -> None:
     with patch(BLE_PATH, return_value=object()):
         assert await hass.config_entries.async_setup(entry2.entry_id)
         await hass.async_block_till_done()
-    result = await hass.config_entries.options.async_init(entry2.entry_id)
-    result = await hass.config_entries.options.async_configure(
-        result["flow_id"], {"next_step_id": "change_model"}
-    )
-    assert CONF_USE_XY not in fields_for(result["data_schema"].schema)
+    assert CONF_USE_XY not in await settings_for(entry2, "003F")

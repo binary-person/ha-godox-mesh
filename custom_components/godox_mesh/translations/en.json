@@ -37,13 +37,21 @@
         "title": "Which model is this?",
         "description": "{detected}Pick the light's model so Home Assistant can give it the right controls — its colour-temperature range, or brightness only for a fixed-daylight light. Leave it blank if your model is not listed; the light will still work with a standard 2800–6500 K colour-temperature control.",
         "data": {
-          "radio_id": "Model",
+          "radio_id": "Model"
+        },
+        "data_description": {
+          "radio_id": "Search by product name. This sets the colour-temperature range and controls; it does not change the light's identity."
+        }
+      },
+      "settings": {
+        "title": "Reading this light's state",
+        "description": "Choose how Home Assistant reads **{name}**.{note}",
+        "data": {
           "readback": "Show the light's actual state",
           "poll_cct": "Include colour temperature",
           "poll_interval": "Poll interval (seconds)"
         },
         "data_description": {
-          "radio_id": "Search by product name. This sets the colour-temperature range and controls; it does not change the light's identity.",
           "readback": "Poll the light and show what it is really doing instead of what was last sent. Also adds a battery sensor on battery-powered lights.",
           "poll_cct": "Leave on unless the colour temperature shown does not match your light -- a few report a stale value after a change made on the light's own dial.",
           "poll_interval": "How often to ask the light for its state, in seconds."
@@ -63,16 +71,10 @@
         "title": "Which model is this?",
         "description": "{detected}Pick the model of the light you just added so Home Assistant gives it the right colour-temperature range and controls. Leave it blank if your model is not listed; it will still work with a standard 2800–6500 K control.",
         "data": {
-          "radio_id": "Model",
-          "readback": "Show the light's actual state",
-          "poll_cct": "Include colour temperature",
-          "poll_interval": "Poll interval (seconds)"
+          "radio_id": "Model"
         },
         "data_description": {
-          "radio_id": "Search by product name. This sets the colour-temperature range and controls.",
-          "readback": "Poll the light and show what it is really doing instead of what was last sent. Also adds a battery sensor on battery-powered lights.",
-          "poll_cct": "Leave on unless the colour temperature shown does not match your light -- a few report a stale value after a change made on the light's own dial.",
-          "poll_interval": "How often to ask the light for its state, in seconds."
+          "radio_id": "Search by product name. This sets the colour-temperature range and controls."
         }
       }
     },
@@ -133,16 +135,10 @@
         "title": "Which model is this?",
         "description": "{detected}Pick the model of the light you just provisioned so Home Assistant gives it the right colour-temperature range and controls. Leave it blank if your model is not listed; it will still work with a standard 2800–6500 K colour-temperature control.",
         "data": {
-          "radio_id": "Model",
-          "readback": "Show the light's actual state",
-          "poll_cct": "Include colour temperature",
-          "poll_interval": "Poll interval (seconds)"
+          "radio_id": "Model"
         },
         "data_description": {
-          "radio_id": "Search by product name. This sets the colour-temperature range and controls.",
-          "readback": "Poll the light and show what it is really doing instead of what was last sent. Also adds a battery sensor on battery-powered lights.",
-          "poll_cct": "Leave on unless the colour temperature shown does not match your light -- a few report a stale value after a change made on the light's own dial.",
-          "poll_interval": "How often to ask the light for its state, in seconds."
+          "radio_id": "Search by product name. This sets the colour-temperature range and controls."
         }
       },
       "change_model": {
@@ -154,16 +150,24 @@
       },
       "set_model": {
         "title": "Configure this light",
-        "description": "{detected}Choose the model for **{name}** and how Home Assistant reads its state. Leave the model blank for a standard colour-temperature light.",
+        "description": "{detected}Choose the model for **{name}**. Leave the model blank for a standard colour-temperature light.",
         "data": {
-          "radio_id": "Model",
+          "radio_id": "Model"
+        },
+        "data_description": {
+          "radio_id": "Search by product name. This sets the colour-temperature range and controls; it does not change the light's identity."
+        }
+      },
+      "node_settings": {
+        "title": "Reading this light's state",
+        "description": "Choose how Home Assistant reads **{name}**.{note}",
+        "data": {
           "readback": "Show the light's actual state",
           "poll_cct": "Include colour temperature",
           "poll_interval": "Poll interval (seconds)",
           "use_xy": "Use CIE xy instead of hue and saturation"
         },
         "data_description": {
-          "radio_id": "Search by product name. This sets the colour-temperature range and controls; it does not change the light's identity.",
           "readback": "Poll the light and show what it is really doing instead of what was last sent. Also adds a battery sensor on battery-powered lights.",
           "poll_cct": "Leave on unless the colour temperature shown does not match your light -- a few report a stale value after a change made on the light's own dial.",
           "poll_interval": "How often to ask the light for its state, in seconds.",

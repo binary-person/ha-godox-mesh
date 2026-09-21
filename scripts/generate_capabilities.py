@@ -420,6 +420,13 @@ def main() -> int:
         for rid, entry in notes.items()
         if not rid.startswith("_") and isinstance(entry, dict)
     }
+    # The same file's `notes` text, surfaced on the config flow's settings step
+    # so a model's pre-filled defaults come with the reason behind them.
+    note_text = {
+        rid.upper(): str(entry.get("notes") or "")
+        for rid, entry in notes.items()
+        if not rid.startswith("_") and isinstance(entry, dict)
+    }
 
     table: dict[str, dict] = {}
     skipped: list[str] = []
@@ -489,6 +496,9 @@ def main() -> int:
             # (docs/model_notes.json). Fallback: readback off, poll_cct on.
             "readback_default": bool(defaults.get(rid, {}).get("readback", False)),
             "poll_cct_default": bool(defaults.get(rid, {}).get("poll_cct", True)),
+            # A one-line known quirk shown on the settings step, from the same
+            # curated file. Empty for models without a note.
+            "note": note_text.get(rid, ""),
         }
 
     if not table:

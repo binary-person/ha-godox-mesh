@@ -133,6 +133,31 @@ async def test_a_light_that_does_not_answer_stays_usable(hass: HomeAssistant) ->
 
 
 @pytest.mark.usefixtures("fake_ble")
+async def test_a_node_that_does_not_answer_keeps_the_connection(
+    hass: HomeAssistant,
+) -> None:
+    """Polling an off node must not tear down the shared proxy connection.
+
+    The command fails at the mesh level -- the node did not reply -- while the
+    proxy connection is still up. Dropping it would make every poll of an off
+    light re-open the connection.
+    """
+    from custom_components.godox_mesh._lib import GodoxController
+
+    # Fail the request itself, so it flows through the link's own error handling
+    # rather than being short-circuited at the link method.
+    with patch.object(
+        GodoxController,
+        "request_status",
+        AsyncMock(side_effect=TimeoutError("node did not answer")),
+    ):
+        entry = await _setup(hass, readback=True)
+
+    # The immediate poll failed, but the proxy connection is still held.
+    assert entry.runtime_data.link._controller.is_connected
+
+
+@pytest.mark.usefixtures("fake_ble")
 async def test_colour_temperature_polling_can_be_turned_off(
     hass: HomeAssistant,
 ) -> None:

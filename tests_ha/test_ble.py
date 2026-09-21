@@ -46,6 +46,37 @@ def test_dropped_connection_reads_as_not_connected() -> None:
     assert client.is_connected is False
 
 
+def test_an_unsolicited_drop_reports_to_on_drop() -> None:
+    """A connection dropping on its own tells the link, with the address."""
+    dropped: list[str] = []
+    client = HomeAssistantBleakClient(
+        MagicMock(), "AA:BB:CC:DD:EE:FF", "Light", on_drop=dropped.append
+    )
+    client._on_disconnected(MagicMock())
+    assert dropped == ["AA:BB:CC:DD:EE:FF"]
+
+
+async def test_a_deliberate_close_does_not_report_a_drop() -> None:
+    """Closing the connection ourselves must not look like an unreliable node."""
+    dropped: list[str] = []
+    client = HomeAssistantBleakClient(
+        MagicMock(), "AA:BB:CC:DD:EE:FF", "Light", on_drop=dropped.append
+    )
+    underlying = MagicMock()
+    underlying.disconnect = _AsyncNoop()
+    client._client = underlying
+
+    # A real stack fires the disconnect callback during our own disconnect(); it
+    # must be suppressed because _closing was set first.
+    async def disconnect_and_fire(*_a: object, **_k: object) -> None:
+        client._on_disconnected(underlying)
+
+    underlying.disconnect = disconnect_and_fire
+    await client.disconnect()
+
+    assert dropped == []
+
+
 async def test_write_before_connect_raises_device_not_found() -> None:
     """Writing without a connection is a clear error, not an AttributeError."""
     client = _client()

@@ -13,6 +13,7 @@ the library actually uses, while connecting the Home Assistant way.
 from __future__ import annotations
 
 import logging
+from collections.abc import Callable
 from typing import Any
 
 from bleak_retry_connector import BleakClientWithServiceCache, establish_connection
@@ -45,6 +46,8 @@ class HomeAssistantBleakClient:
         name: str,
         *,
         use_services_cache: bool = True,
+        max_attempts: int = 4,
+        on_drop: Callable[[str], None] | None = None,
     ) -> None:
         """Initialize the client wrapper.
 
@@ -55,11 +58,25 @@ class HomeAssistantBleakClient:
         instead. Reusing the cached table then hides the very characteristic
         provisioning has to write to, and the exchange times out waiting for a
         reply that was never solicited.
+
+        ``max_attempts`` bounds ``bleak-retry-connector``'s own retries, which
+        are all to *this one* address. The mesh link keeps it low so a node
+        that will not connect is abandoned quickly and another can be tried;
+        provisioning, which has no other node to fall back to, keeps the
+        library default.
+
+        ``on_drop`` is called with the address when the connection drops on its
+        own -- a supervision timeout, the node going away -- but not when it is
+        closed deliberately here, so the link can tell an unreliable node from
+        one it chose to let go of.
         """
         self._hass = hass
         self._address = address
         self._name = name
         self._use_services_cache = use_services_cache
+        self._max_attempts = max_attempts
+        self._on_drop = on_drop
+        self._closing = False
         self._client: BleakClientWithServiceCache | None = None
         self._dropped = False
 
@@ -84,6 +101,10 @@ class HomeAssistantBleakClient:
     def _on_disconnected(self, _client: Any) -> None:
         _LOGGER.debug("connection to %s dropped", self._address)
         self._dropped = True
+        # Only an *unsolicited* drop signals an unreliable node; a disconnect we
+        # asked for (idle close, release, shutdown) sets _closing first.
+        if self._on_drop is not None and not self._closing:
+            self._on_drop(self._address)
 
     @property
     def mtu_size(self) -> int | None:
@@ -102,6 +123,7 @@ class HomeAssistantBleakClient:
         if self.is_connected:
             return
         self._dropped = False
+        self._closing = False
         device = self._resolve()
         if device is None:
             raise DeviceNotFound(
@@ -117,10 +139,14 @@ class HomeAssistantBleakClient:
             ble_device_callback=self._resolve,
             timeout=CONNECT_TIMEOUT,
             use_services_cache=self._use_services_cache,
+            max_attempts=self._max_attempts,
         )
 
     async def disconnect(self) -> None:
         """Close the connection if one is open."""
+        # Mark the close as deliberate before it happens, so the disconnect
+        # callback does not report it as an unreliable node dropping.
+        self._closing = True
         client, self._client = self._client, None
         self._dropped = False
         if client is not None:

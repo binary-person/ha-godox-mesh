@@ -217,6 +217,11 @@ class GodoxCapabilities:
     #: first configured; a node's own stored value wins once it has one.
     readback_default: bool = False
     poll_cct_default: bool = True
+    #: A one-line known quirk for this model, from ``docs/model_notes.json``.
+    #: Shown on the settings step so the pre-filled defaults are explained
+    #: (why colour-temperature polling is off for a model that reads back
+    #: stale, say). Empty for a model no one has recorded a note against.
+    note: str = ""
 
     @property
     def has_selfie_cct(self) -> bool:
@@ -442,6 +447,7 @@ def _load_table() -> dict[str, GodoxCapabilities]:
             selfie_max_kelvin=int(entry.get("selfie_max_kelvin", 0)),
             readback_default=bool(entry.get("readback_default", False)),
             poll_cct_default=bool(entry.get("poll_cct_default", True)),
+            note=str(entry.get("note") or ""),
         )
         for rid, entry in raw.items()
     }

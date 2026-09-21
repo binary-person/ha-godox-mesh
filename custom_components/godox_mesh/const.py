@@ -113,6 +113,42 @@ SEQUENCE_BLOCK_SIZE: Final = 256
 # the adapter's connection slot is released when the lights are idle.
 IDLE_DISCONNECT_SECONDS: Final = 300.0
 
+# bleak-retry-connector's per-address retry count. Held at one attempt: every
+# retry it does is to the *same* node (the gateway is chosen before the connect),
+# so retrying there only delays trying a different node. One try, then the link
+# re-selects the head of the gateway list -- which drops the node that just
+# failed and picks up any that advertised in the meantime -- and a node re-tries
+# on its own next advertisement anyway.
+MESH_CONNECT_MAX_ATTEMPTS: Final = 1
+
+# A command that fails while the proxy connection still reports connected does
+# not drop it -- an off node that ignores a status poll must not cost the shared
+# connection every other light rides on. But a *run* of failures with nothing
+# succeeding in between means the connection has most likely wedged silently
+# (the disconnect never surfaced), so after this many the link forces a clean
+# reconnect. A single sibling command succeeding resets the count, so one off
+# light among healthy ones never trips it.
+MAX_CONSECUTIVE_FAILURES: Final = 3
+
+# A mesh node whose most recent advertisement is younger than this is treated as
+# "fresh" and tried before one still lingering in Home Assistant's device cache
+# after it went quiet. Only a ranking hint -- a stale node is still tried, just
+# second -- so erring short is safe; a node that is genuinely connected stops
+# advertising and would look stale, which is why freshness never *excludes* a
+# candidate, and the currently-used node is protected by stickiness regardless.
+FRESH_ADVERT_SECONDS: Final = 60.0
+
+# A connection that drops on its own within this many seconds of opening did not
+# hold a useful session -- the node "will not hold". Such a node is deprioritised
+# so a steadier sibling is tried first. A drop after a longer session is treated
+# as a one-off blip, and the node is reconnected to as normal.
+SHORT_HOLD_SECONDS: Final = 60.0
+
+# How long a node that dropped quickly is kept below steadier nodes in the
+# gateway order. It is only a ranking penalty -- the node is still used when it
+# is the only one reachable, and stickiness keeps a settled sibling once chosen.
+DROP_PENALTY_SECONDS: Final = 180.0
+
 # How often to poll a light for battery charge. Battery moves slowly and
 # each poll wakes the shared connection, so this is deliberately infrequent.
 BATTERY_POLL_SECONDS: Final = 600.0

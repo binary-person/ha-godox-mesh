@@ -33,8 +33,13 @@ def _proxy_advert(
     id_type: int = PROXY_ID_TYPE_NETWORK_ID,
     rssi: int = -60,
     service_data: dict | None = None,
+    last_seen: float = 0.0,
 ):
-    """An advertisement from a provisioned node running the Proxy feature."""
+    """An advertisement from a provisioned node running the Proxy feature.
+
+    ``last_seen`` is the monotonic timestamp of the advert; pass a recent one
+    (``time.monotonic() - age``) to exercise the freshness ranking.
+    """
     from bleak.backends.device import BLEDevice
     from bleak.backends.scanner import AdvertisementData
     from homeassistant.components.bluetooth import BluetoothServiceInfoBleak
@@ -64,7 +69,7 @@ def _proxy_advert(
         device=device,
         advertisement=advertisement,
         connectable=True,
-        time=0,
+        time=last_seen,
         tx_power=None,
     )
 
@@ -144,9 +149,14 @@ async def test_keeps_the_current_gateway(hass: HomeAssistant, monkeypatch) -> No
     assert chosen == "AA:other"
 
 
-async def test_prefers_the_entry_light_when_no_current(
+async def test_strongest_node_wins_when_no_current(
     hass: HomeAssistant, monkeypatch
 ) -> None:
+    """With no current gateway, the strongest reachable node is chosen.
+
+    The configured light gets no special weight -- a gateway is pure transport,
+    so which node the mesh is entered through does not matter.
+    """
     monkeypatch.setattr(
         DISCOVERY,
         lambda *a, **k: [_proxy_advert("AA:other", rssi=-30), _proxy_advert(ADDRESS)],
@@ -154,7 +164,7 @@ async def test_prefers_the_entry_light_when_no_current(
     chosen = async_select_gateway(
         hass, network_key=NET_KEY, preferred=ADDRESS, current=None
     )
-    assert chosen == ADDRESS
+    assert chosen == "AA:other"
 
 
 async def test_falls_back_to_another_node_when_the_entry_light_is_gone(
@@ -206,10 +216,84 @@ async def test_a_known_node_is_used_even_without_a_network_advert(
     assert chosen == "AA:known"
 
 
-async def test_known_address_beats_the_network_scan(
+# --- freshness ranking ---------------------------------------------------
+
+
+async def test_a_freshly_heard_node_beats_a_stale_configured_one(
     hass: HomeAssistant, monkeypatch
 ) -> None:
-    """A known node in range is chosen over an unknown Network-ID match."""
+    """An off configured light lingering in the cache yields to a live sibling.
+
+    This is the failover-speed win: the preferred node was last heard minutes
+    ago (it is probably off), while a sibling is advertising now, so selection
+    hops straight to the live sibling instead of stalling a full connect timeout
+    on the preferred.
+    """
+    import time
+
+    now = time.monotonic()
+    monkeypatch.setattr(
+        DISCOVERY,
+        lambda *a, **k: [
+            _proxy_advert(ADDRESS, rssi=-30, last_seen=now - 300),  # stale, strong
+            _proxy_advert("AA:live", rssi=-80, last_seen=now - 1),  # fresh, weak
+        ],
+    )
+    chosen = async_select_gateway(
+        hass, network_key=NET_KEY, preferred=ADDRESS, current=None
+    )
+    assert chosen == "AA:live"
+
+
+async def test_configured_node_gets_no_special_weight(
+    hass: HomeAssistant, monkeypatch
+) -> None:
+    """Among equally-fresh nodes the strongest wins, configured or not."""
+    import time
+
+    now = time.monotonic()
+    monkeypatch.setattr(
+        DISCOVERY,
+        lambda *a, **k: [
+            _proxy_advert("AA:other", rssi=-30, last_seen=now - 1),  # fresh, strong
+            _proxy_advert(ADDRESS, rssi=-80, last_seen=now - 1),  # fresh, weak
+        ],
+    )
+    chosen = async_select_gateway(
+        hass, network_key=NET_KEY, preferred=ADDRESS, current=None
+    )
+    assert chosen == "AA:other"
+
+
+async def test_a_stale_node_is_still_used_when_it_is_all_there_is(
+    hass: HomeAssistant, monkeypatch
+) -> None:
+    """Freshness only ranks; a stale-cached node is still tried, never excluded.
+
+    A node that is genuinely connected stops advertising and would look stale,
+    so freshness must never remove a candidate outright.
+    """
+    import time
+
+    now = time.monotonic()
+    monkeypatch.setattr(
+        DISCOVERY, lambda *a, **k: [_proxy_advert(ADDRESS, last_seen=now - 999)]
+    )
+    chosen = async_select_gateway(
+        hass, network_key=NET_KEY, preferred=ADDRESS, current=None
+    )
+    assert chosen == ADDRESS
+
+
+async def test_a_stronger_node_wins_whether_known_or_not(
+    hass: HomeAssistant, monkeypatch
+) -> None:
+    """The strongest reachable node wins; a known MAC gets no priority.
+
+    Knowing a node's MAC only widens the list (it catches a node advertising
+    Node Identity rather than the Network ID); it does not make a weaker node a
+    better gateway than a stronger one.
+    """
     monkeypatch.setattr(
         DISCOVERY,
         lambda *a, **k: [
@@ -224,4 +308,116 @@ async def test_known_address_beats_the_network_scan(
         current=None,
         known_macs=("AA:known",),
     )
-    assert chosen == "AA:known"
+    assert chosen == "AA:unknown"
+
+
+async def test_a_failed_node_is_off_the_list_until_it_advertises_again(
+    hass: HomeAssistant, monkeypatch
+) -> None:
+    """The whole policy in one test: a failed node rejoins only on its own advert.
+
+    While its last advert predates its failure it is excluded (dropped from the
+    list); once it advertises again -- proof it is alive -- it is back, with no
+    separate state to clear.
+    """
+    import time
+
+    now = time.monotonic()
+
+    # Its last advert is older than when it failed: off the list, so selection
+    # has nothing and degrades to the fallback.
+    monkeypatch.setattr(
+        DISCOVERY, lambda *a, **k: [_proxy_advert(ADDRESS, last_seen=now - 5)]
+    )
+    chosen = async_select_gateway(
+        hass,
+        network_key=NET_KEY,
+        preferred="PP:PP",
+        current=None,
+        fail_time={ADDRESS: now},
+    )
+    assert chosen == "PP:PP"
+
+    # A newer advert than the failure puts it back on the list.
+    monkeypatch.setattr(
+        DISCOVERY, lambda *a, **k: [_proxy_advert(ADDRESS, last_seen=now + 1)]
+    )
+    chosen = async_select_gateway(
+        hass,
+        network_key=NET_KEY,
+        preferred="PP:PP",
+        current=None,
+        fail_time={ADDRESS: now},
+    )
+    assert chosen == ADDRESS
+
+
+# --- instability ranking -------------------------------------------------
+
+
+async def test_a_recently_dropped_node_sinks_below_a_steady_one(
+    hass: HomeAssistant, monkeypatch
+) -> None:
+    """A node that will not hold is ranked below a steadier one, weaker or not."""
+    import time
+
+    now = time.monotonic()
+    monkeypatch.setattr(
+        DISCOVERY,
+        lambda *a, **k: [
+            _proxy_advert("AA:flaky", rssi=-30),  # stronger, but just dropped
+            _proxy_advert("AA:steady", rssi=-80),  # weaker, steady
+        ],
+    )
+    chosen = async_select_gateway(
+        hass,
+        network_key=NET_KEY,
+        preferred=ADDRESS,
+        current=None,
+        unstable_since={"AA:flaky": now},
+    )
+    assert chosen == "AA:steady"
+
+
+async def test_stickiness_yields_for_a_current_that_keeps_dropping(
+    hass: HomeAssistant, monkeypatch
+) -> None:
+    """The point of the fix: do not reconnect to the node that just dropped."""
+    import time
+
+    now = time.monotonic()
+    monkeypatch.setattr(
+        DISCOVERY,
+        lambda *a, **k: [
+            _proxy_advert("AA:flaky", rssi=-30),
+            _proxy_advert("AA:steady", rssi=-80),
+        ],
+    )
+    chosen = async_select_gateway(
+        hass,
+        network_key=NET_KEY,
+        preferred=ADDRESS,
+        current="AA:flaky",
+        unstable_since={"AA:flaky": now},
+    )
+    assert chosen == "AA:steady"
+
+
+async def test_a_flaky_node_is_still_used_when_it_is_the_only_one(
+    hass: HomeAssistant, monkeypatch
+) -> None:
+    """The penalty only ranks; the sole node is still used, not abandoned."""
+    import time
+
+    now = time.monotonic()
+    monkeypatch.setattr(
+        DISCOVERY, lambda *a, **k: [_proxy_advert("AA:flaky", rssi=-30)]
+    )
+    chosen = async_select_gateway(
+        hass,
+        network_key=NET_KEY,
+        preferred=ADDRESS,
+        current="AA:flaky",
+        unstable_since={"AA:flaky": now},
+    )
+    assert chosen == "AA:flaky"

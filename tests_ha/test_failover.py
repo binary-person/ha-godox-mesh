@@ -137,6 +137,30 @@ async def test_network_survives_losing_the_configured_light(
     assert hass.states.get("light.fill_light").state == "on"
 
 
+async def test_a_gateway_that_advertises_but_will_not_connect_is_abandoned(
+    hass: HomeAssistant, two_node_entry, unplugged
+) -> None:
+    """A light that advertises but refuses connections must not trap the link.
+
+    A light can keep advertising -- so it looks reachable and the sticky
+    ``preferred`` bias keeps choosing it -- while being unable to hold a
+    connection. The link must demote it after a failed attempt and enter the
+    mesh through a sibling within the same command, rather than hammering it.
+    """
+    link = two_node_entry.runtime_data.link
+    unplugged.unplug(ADDRESS)  # will not connect ...
+
+    # ... but is still advertising, and more strongly than the sibling.
+    with patch(
+        DISCOVERY,
+        return_value=[_advert(ADDRESS, rssi=-30), _advert(SECOND_LIGHT, rssi=-80)],
+    ):
+        await _turn_on(hass, "light.fill_light")
+
+    assert link.gateway_address == SECOND_LIGHT
+    assert hass.states.get("light.fill_light").state == "on"
+
+
 async def test_entity_identity_survives_failover(
     hass: HomeAssistant, two_node_entry, unplugged
 ) -> None:
