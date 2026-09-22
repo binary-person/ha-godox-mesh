@@ -49,11 +49,13 @@
         "data": {
           "readback": "Show the light's actual state",
           "poll_cct": "Include colour temperature",
+          "poll_brightness": "Include brightness",
           "poll_interval": "Poll interval (seconds)"
         },
         "data_description": {
           "readback": "Poll the light and show what it is really doing instead of what was last sent. Also adds a battery sensor on battery-powered lights.",
           "poll_cct": "Leave on unless the colour temperature shown does not match your light -- a few report a stale value after a change made on the light's own dial.",
+          "poll_brightness": "Leave on unless the brightness shown does not match your light -- turn off to keep the brightness you set instead of the light's reported level.",
           "poll_interval": "How often to ask the light for its state, in seconds."
         }
       },
@@ -164,12 +166,14 @@
         "data": {
           "readback": "Show the light's actual state",
           "poll_cct": "Include colour temperature",
+          "poll_brightness": "Include brightness",
           "poll_interval": "Poll interval (seconds)",
           "use_xy": "Use CIE xy instead of hue and saturation"
         },
         "data_description": {
           "readback": "Poll the light and show what it is really doing instead of what was last sent. Also adds a battery sensor on battery-powered lights.",
           "poll_cct": "Leave on unless the colour temperature shown does not match your light -- a few report a stale value after a change made on the light's own dial.",
+          "poll_brightness": "Leave on unless the brightness shown does not match your light -- turn off to keep the brightness you set instead of the light's reported level.",
           "poll_interval": "How often to ask the light for its state, in seconds.",
           "use_xy": "For colour-meter workflows. Replaces the hue/saturation and direct-channel controls with x and y sliders. Only for models that accept the xy command."
         }

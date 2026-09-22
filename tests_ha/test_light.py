@@ -106,7 +106,29 @@ async def test_brightness_is_scaled_to_percent(
 
     percent = mock_commands["set_params"].await_args.kwargs["brightness"]
     assert 1 <= percent <= 100
-    assert percent == 51
+    # 128/255 = 50.196 %, which rounds to the nearest whole percent.
+    assert percent == 50
+
+
+@pytest.mark.parametrize(
+    ("brightness", "expected"),
+    # 255 does not divide into 100, so a "clean" percent lands just above the
+    # integer after the 0-255 round trip (45 % -> 115 -> 45.098 %). Rounding to
+    # nearest keeps it at 45; a ceil would snap the light's panel to 46.
+    [(115, 45), (189, 74), (191, 75), (66, 26), (102, 40)],
+)
+async def test_brightness_does_not_round_up_a_percent(
+    hass: HomeAssistant, setup_entry, mock_commands, brightness, expected
+) -> None:
+    """A whole-percent model gets the nearest percent, not the next one up."""
+    await hass.services.async_call(
+        "light",
+        SERVICE_TURN_ON,
+        {ATTR_ENTITY_ID: ENTITY, ATTR_BRIGHTNESS: brightness},
+        blocking=True,
+    )
+
+    assert mock_commands["set_params"].await_args.kwargs["brightness"] == expected
 
 
 async def test_lowest_brightness_never_reaches_zero(
@@ -160,7 +182,7 @@ async def test_turn_on_with_no_arguments_reuses_last_values(
     )
 
     assert mock_commands["set_params"].await_args.kwargs["cct"] == 3200
-    assert mock_commands["set_params"].await_args.kwargs["brightness"] == 51
+    assert mock_commands["set_params"].await_args.kwargs["brightness"] == 50
 
 
 async def test_turn_off(hass: HomeAssistant, setup_entry, mock_commands) -> None:

@@ -6,6 +6,7 @@ from unittest.mock import patch
 
 import pytest
 from custom_components.godox_mesh.const import (
+    CONF_MAC,
     CONF_MESH,
     CONF_MODEL,
     CONF_NODE_ADDRESS,
@@ -149,3 +150,53 @@ async def test_device_can_be_deleted_from_the_ui(
     )
 
     assert await async_remove_config_entry_device(hass, two_light_entry, device)
+
+
+async def test_deleting_a_light_lets_it_be_rediscovered(
+    hass: HomeAssistant, fake_ble
+) -> None:
+    """A deleted light's address is cleared from HA's discovery match history.
+
+    A provisioned light keeps advertising the proxy service, but HA holds its
+    address in the match history, so without clearing it the unchanged advert
+    stays suppressed and the light is not offered again until a restart.
+    """
+    from custom_components.godox_mesh import async_remove_config_entry_device
+
+    node_mac = "11:22:33:44:55:66"
+    entry = MockConfigEntry(
+        domain=DOMAIN,
+        title="Studio",
+        unique_id=ADDRESS,
+        data={CONF_ADDRESS: ADDRESS, CONF_MESH: dict(MESH_STATE)},
+        options={
+            CONF_NODES: [
+                {CONF_NODE_ADDRESS: 2, CONF_NAME: "Key Light", CONF_MODEL: None},
+                {
+                    CONF_NODE_ADDRESS: 3,
+                    CONF_NAME: "Fill Light",
+                    CONF_MODEL: None,
+                    CONF_MAC: node_mac,
+                },
+            ]
+        },
+    )
+    entry.add_to_hass(hass)
+    with patch(
+        "custom_components.godox_mesh.bluetooth.async_ble_device_from_address",
+        return_value=object(),
+    ):
+        assert await hass.config_entries.async_setup(entry.entry_id)
+        await hass.async_block_till_done()
+
+    device = next(
+        d
+        for d in dr.async_entries_for_config_entry(dr.async_get(hass), entry.entry_id)
+        if d.name == "Fill Light"
+    )
+    with patch(
+        "custom_components.godox_mesh.bluetooth.async_rediscover_address"
+    ) as rediscover:
+        assert await async_remove_config_entry_device(hass, entry, device)
+
+    rediscover.assert_any_call(hass, node_mac)

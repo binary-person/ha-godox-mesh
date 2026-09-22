@@ -203,6 +203,50 @@ async def test_colour_temperature_polling_can_be_turned_off(
     assert state.attributes[ATTR_COLOR_TEMP_KELVIN] != 6500
 
 
+@pytest.mark.usefixtures("fake_ble")
+async def test_brightness_polling_can_be_turned_off(hass: HomeAssistant) -> None:
+    """A user whose light reports a wrong brightness can opt out of trusting it.
+
+    On/off and colour temperature keep updating; only the brightness level is
+    left at what was last commanded. This is the escape hatch for a light that
+    reports a brightness which is not its real setting (some do after a firmware
+    glitch, until power-cycled).
+    """
+    from custom_components.godox_mesh.const import CONF_POLL_BRIGHTNESS
+
+    entry = MockConfigEntry(
+        domain=DOMAIN,
+        title="Key",
+        unique_id=ADDRESS,
+        data={CONF_ADDRESS: ADDRESS, CONF_MESH: dict(MESH_STATE)},
+        options={
+            CONF_NODES: [
+                {CONF_NODE_ADDRESS: 2, CONF_NAME: "Key", CONF_RADIO_ID: "003F"}
+            ],
+            CONF_READBACK: True,
+            CONF_POLL_BRIGHTNESS: False,
+        },
+    )
+    entry.add_to_hass(hass)
+    status = parse_status_response(bytes.fromhex(PANEL_WRITE))  # reports 77%
+    assert status.brightness == 77
+    with (
+        patch(BLE_PATH, return_value=object()),
+        patch.object(
+            GodoxMeshLink, "async_request_status", AsyncMock(return_value=status)
+        ),
+    ):
+        assert await hass.config_entries.async_setup(entry.entry_id)
+        await hass.async_block_till_done()
+
+    state = hass.states.get(ENTITY)
+    # The reported 77% (~196 on the 0-255 scale) was not applied: the level
+    # stays at what was last commanded (the entity's default of full).
+    assert state.attributes[ATTR_BRIGHTNESS] == 255
+    # ... but on/off is still inferred from the poll, which reported non-zero.
+    assert state.state == "on"
+
+
 async def _setup_nodes(hass: HomeAssistant, nodes: list[dict], **entry_opts):
     """Set up an entry with explicit node dicts and optional entry-wide options."""
     entry = MockConfigEntry(

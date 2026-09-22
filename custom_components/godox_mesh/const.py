@@ -77,6 +77,10 @@ CONF_READBACK: Final = "readback"
 # reports what it is given, and this lets a user switch colour-temperature
 # polling off if their light is one of the wrong ones.
 CONF_POLL_CCT: Final = "poll_cct"
+# Whether to trust the light's reported brightness. On by default; a user can
+# switch it off to keep the commanded brightness if their light reports a wrong
+# level (some do after a firmware glitch), while still reading colour and state.
+CONF_POLL_BRIGHTNESS: Final = "poll_brightness"
 # How often (seconds) to poll a light for its live state, when readback is on.
 # Per-node; the entry-wide value, if any, is only a migration fallback.
 CONF_POLL_INTERVAL: Final = "poll_interval"

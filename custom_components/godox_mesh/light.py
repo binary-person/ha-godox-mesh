@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import logging
-import math
 from datetime import timedelta
 from typing import Any
 
@@ -112,6 +111,7 @@ class GodoxLight(LightEntity, RestoreEntity):
         # availability signal and stays available (the default).
         self._poll_failures = 0
         self._poll_cct = node.poll_cct
+        self._poll_brightness = node.poll_brightness
         caps = node.capabilities
         # Controls come from the model's capabilities, not a hardcoded range: a
         # fixed-daylight light is brightness-only, a bi-colour light exposes its
@@ -360,14 +360,17 @@ class GodoxLight(LightEntity, RestoreEntity):
 
         Home Assistant's 0-255 is finer than whole percent but coarser than the
         tenths the protocol can encode, so on a model that accepts tenths the
-        value is kept fractional rather than rounded up to the next percent.
-        Models that only take whole percent still round up, which is what they
-        did before: it guarantees a non-zero brightness never becomes an off.
+        value is kept fractional rather than rounded to the nearest percent.
+        Models that only take whole percent round to nearest, with a floor of 1
+        so a non-zero brightness never becomes an off. Rounding up instead would
+        bias every setting a percent high: 255 does not divide into 100, so the
+        0-255 round trip lands just above the integer (45 -> 45.098), which a
+        ceil would snap to 46 on the light's panel.
         """
         raw = brightness_to_value(BRIGHTNESS_SCALE, self._attr_brightness or 255)
         if self._node.capabilities.brightness_steps == 1000:
             return round(raw, 1)
-        return float(math.ceil(raw))
+        return float(max(1, round(raw)))
 
     async def async_turn_on(self, **kwargs: Any) -> None:
         """Turn the light on, and apply brightness, colour or effect.
@@ -581,9 +584,13 @@ class GodoxLight(LightEntity, RestoreEntity):
             return
         self._mark_reachable()
         if status.brightness:
-            self._attr_brightness = value_to_brightness(
-                BRIGHTNESS_SCALE, status.brightness
-            )
+            # On/off is inferred from the poll regardless; the reported level is
+            # trusted only when brightness readback is on. Off keeps the level
+            # last commanded -- useful if a light reports a wrong brightness.
+            if self._poll_brightness:
+                self._attr_brightness = value_to_brightness(
+                    BRIGHTNESS_SCALE, status.brightness
+                )
             self._attr_is_on = True
         elif status.brightness == 0:
             self._attr_is_on = False

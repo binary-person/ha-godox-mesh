@@ -14,6 +14,7 @@ from .const import (
     CONF_MAC,
     CONF_MESH,
     CONF_MODEL,
+    CONF_POLL_BRIGHTNESS,
     CONF_POLL_CCT,
     CONF_POLL_INTERVAL,
     CONF_RADIO_ID,
@@ -124,9 +125,20 @@ async def async_unload_entry(hass: HomeAssistant, entry: GodoxConfigEntry) -> bo
 
 
 async def async_remove_entry(hass: HomeAssistant, entry: GodoxConfigEntry) -> None:
-    """Clean up storage and allow the device to be discovered again."""
+    """Clean up storage and allow every light on it to be discovered again."""
     await GodoxSequenceStore(hass, entry.entry_id).async_remove()
-    bluetooth.async_rediscover_address(hass, entry.data[CONF_ADDRESS])
+    # A provisioned light keeps advertising the proxy service, but HA holds each
+    # address in its discovery match history, so a removed light would not be
+    # offered again until a restart. Clear the primary and every provisioned
+    # node so all of them can be rediscovered at once.
+    addresses = {entry.data[CONF_ADDRESS]}
+    addresses |= {
+        node[CONF_MAC]
+        for node in entry.options.get(CONF_NODES, [])
+        if node.get(CONF_MAC)
+    }
+    for address in addresses:
+        bluetooth.async_rediscover_address(hass, address)
 
 
 async def async_remove_config_entry_device(
@@ -142,15 +154,21 @@ async def async_remove_config_entry_device(
         for domain, identifier in device.identifiers
         if domain == DOMAIN and "_" in identifier
     }
-    remaining = [
-        node
-        for node in entry.options.get(CONF_NODES, [])
-        if node[CONF_NODE_ADDRESS] not in removed
-    ]
-    if remaining != list(entry.options.get(CONF_NODES, [])):
+    nodes = entry.options.get(CONF_NODES, [])
+    removed_nodes = [node for node in nodes if node[CONF_NODE_ADDRESS] in removed]
+    remaining = [node for node in nodes if node[CONF_NODE_ADDRESS] not in removed]
+    if remaining != list(nodes):
         hass.config_entries.async_update_entry(
             entry, options={**entry.options, CONF_NODES: remaining}
         )
+    # Deleting a light leaves its address in HA's discovery match history, so it
+    # would not be offered again until a restart even though it keeps
+    # advertising. Clear each removed light so it can be rediscovered right away.
+    addresses = {node[CONF_MAC] for node in removed_nodes if node.get(CONF_MAC)}
+    if not remaining and (primary := entry.data.get(CONF_ADDRESS)):
+        addresses.add(primary)
+    for address in addresses:
+        bluetooth.async_rediscover_address(hass, address)
     return True
 
 
@@ -204,6 +222,7 @@ def _nodes_from_entry(entry: GodoxConfigEntry) -> list[GodoxNode]:
                 name=entry.title,
                 readback=bool(opts.get(CONF_READBACK, False)),
                 poll_cct=bool(opts.get(CONF_POLL_CCT, True)),
+                poll_brightness=bool(opts.get(CONF_POLL_BRIGHTNESS, True)),
                 use_xy=bool(opts.get(CONF_USE_XY, False)),
                 poll_interval=int(opts.get(CONF_POLL_INTERVAL, DEFAULT_POLL_INTERVAL)),
             )
@@ -217,6 +236,7 @@ def _nodes_from_entry(entry: GodoxConfigEntry) -> list[GodoxNode]:
             mac=node.get(CONF_MAC),
             readback=bool(setting(node, CONF_READBACK, False)),
             poll_cct=bool(setting(node, CONF_POLL_CCT, True)),
+            poll_brightness=bool(setting(node, CONF_POLL_BRIGHTNESS, True)),
             use_xy=bool(setting(node, CONF_USE_XY, False)),
             poll_interval=int(setting(node, CONF_POLL_INTERVAL, DEFAULT_POLL_INTERVAL)),
         )

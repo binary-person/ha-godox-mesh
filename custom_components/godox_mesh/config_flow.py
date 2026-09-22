@@ -45,6 +45,7 @@ from .const import (
     CONF_NUM_ELEMENTS,
     CONF_MAC,
     CONF_NODES,
+    CONF_POLL_BRIGHTNESS,
     CONF_POLL_CCT,
     CONF_POLL_INTERVAL,
     CONF_RADIO_ID,
@@ -164,6 +165,7 @@ def _light_settings_fields(
     *,
     readback: bool,
     poll_cct: bool,
+    poll_brightness: bool,
     poll_interval: int,
     use_xy: bool | None = None,
 ) -> dict:
@@ -171,11 +173,13 @@ def _light_settings_fields(
 
     ``poll_cct`` is offered only for colour-temperature models; ``use_xy`` only
     when ``use_xy`` is not ``None`` and the model supports it (post-setup, where
-    the model is known). Defaults pre-fill the rendered form: bool fields via
+    the model is known). Brightness applies to every light, so its toggle is
+    always offered. Defaults pre-fill the rendered form: bool fields via
     ``default=``, the number field via ``suggested_value``.
     """
     fields: dict[Any, Any] = {
         vol.Required(CONF_READBACK, default=readback): bool,
+        vol.Required(CONF_POLL_BRIGHTNESS, default=poll_brightness): bool,
     }
     if caps.supports_cct:
         fields[vol.Required(CONF_POLL_CCT, default=poll_cct)] = bool
@@ -202,7 +206,7 @@ def _light_settings_fields(
 def _light_settings_from_input(user_input: dict[str, Any]) -> dict[str, Any]:
     """Extract the per-light settings a step's form submitted, for a node dict."""
     settings: dict[str, Any] = {}
-    for key in (CONF_READBACK, CONF_POLL_CCT, CONF_USE_XY):
+    for key in (CONF_READBACK, CONF_POLL_CCT, CONF_POLL_BRIGHTNESS, CONF_USE_XY):
         if key in user_input:
             settings[key] = bool(user_input[key])
     if CONF_POLL_INTERVAL in user_input:
@@ -736,6 +740,7 @@ class GodoxConfigFlow(ConfigFlow, domain=DOMAIN):
                         caps,
                         readback=caps.readback_default,
                         poll_cct=caps.poll_cct_default,
+                        poll_brightness=caps.poll_brightness_default,
                         poll_interval=DEFAULT_POLL_INTERVAL,
                     )
                 ),
@@ -969,6 +974,7 @@ class GodoxOptionsFlow(OptionsFlow):
                 )
                 readback = caps.readback_default
                 poll_cct = caps.poll_cct_default
+                poll_brightness = caps.poll_brightness_default
                 poll_interval = DEFAULT_POLL_INTERVAL
                 use_xy: bool | None = None
             else:
@@ -984,6 +990,11 @@ class GodoxOptionsFlow(OptionsFlow):
                 name = node[CONF_NAME]
                 readback = current.readback if current else caps.readback_default
                 poll_cct = current.poll_cct if current else caps.poll_cct_default
+                poll_brightness = (
+                    current.poll_brightness
+                    if current
+                    else caps.poll_brightness_default
+                )
                 poll_interval = (
                     current.poll_interval if current else DEFAULT_POLL_INTERVAL
                 )
@@ -999,6 +1010,7 @@ class GodoxOptionsFlow(OptionsFlow):
                         caps,
                         readback=readback,
                         poll_cct=poll_cct,
+                        poll_brightness=poll_brightness,
                         poll_interval=poll_interval,
                         use_xy=use_xy,
                     )

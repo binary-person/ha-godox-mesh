@@ -169,15 +169,16 @@ async def test_tenths_of_a_percent_reach_the_end_byte(
 
 
 @pytest.mark.usefixtures("fake_ble")
-async def test_whole_percent_model_still_rounds_up(
+async def test_whole_percent_model_rounds_to_nearest(
     hass: HomeAssistant, sent
 ) -> None:
-    """A luminance-100 model keeps the old behaviour, tenths byte at zero."""
+    """A luminance-100 model gets the nearest whole percent, tenths byte zero."""
     await _setup(hass, BICOLOUR_MODEL)
     await _turn_on(hass, **{ATTR_BRIGHTNESS: 128, ATTR_COLOR_TEMP_KELVIN: 5600})
 
     frame = sent[-1]
-    assert frame[1] == 51
+    # 128/255 = 50.196 %, which rounds to 50 rather than snapping up to 51.
+    assert frame[1] == 50
     assert frame[6] == 0
 
 

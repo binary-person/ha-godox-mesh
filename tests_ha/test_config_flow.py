@@ -7,6 +7,7 @@ from unittest.mock import patch
 
 from custom_components.godox_mesh.const import (
     CONF_MAC,
+    CONF_POLL_BRIGHTNESS,
     CONF_POLL_CCT,
     CONF_POLL_INTERVAL,
     CONF_RADIO_ID,
@@ -213,6 +214,8 @@ async def test_pasted_mesh_state_creates_an_entry(hass: HomeAssistant) -> None:
             # colour-temperature polling off.
             CONF_READBACK: True,
             CONF_POLL_CCT: False,
+            # Brightness readback defaults on for every model.
+            CONF_POLL_BRIGHTNESS: True,
             CONF_POLL_INTERVAL: 10,
         }
     ]

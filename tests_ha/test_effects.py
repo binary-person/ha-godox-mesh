@@ -73,7 +73,7 @@ async def test_selecting_an_effect_sends_the_effect_command(
     set_effect.assert_awaited_once()
     assert set_effect.await_args.args[0] == 2          # node address
     assert set_effect.await_args.kwargs["effect"] == 4
-    assert set_effect.await_args.kwargs["brightness_pct"] == 51
+    assert set_effect.await_args.kwargs["brightness_pct"] == 50
     assert hass.states.get(ENTITY).attributes[ATTR_EFFECT] == "Effect 4"
 
 

@@ -26,6 +26,7 @@ class GodoxNode:
     #: (node value, else legacy entry-wide value, else the hard default).
     readback: bool = False
     poll_cct: bool = True
+    poll_brightness: bool = True
     use_xy: bool = False
     poll_interval: int = 30
 
