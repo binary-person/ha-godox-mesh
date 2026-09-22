@@ -204,18 +204,21 @@ temperature are mutually exclusive in the protocol, so doing either clears the
 other. A model the table does not know falls back to a small set named by
 number.
 
-**Effect speed** is a separate `number` entity, because Home Assistant's light
+**Effect gear** is a separate `number` entity, because Home Assistant's light
 platform has no concept of it. Set it before picking an effect, or change it
 while one is running — it re-sends the effect and takes hold at once. It appears
-only for the 55 models with at least one multi-speed effect.
+only for the 55 models with at least one multi-gear effect. The value is the
+effect's gear index, not a slow-to-fast speed: the firmware decides what each
+gear looks like, and the catalogue gives only a count, so the numbers carry no
+guaranteed direction.
 
 **Most effects ignore it**, and you can see which before choosing: the effect
-list annotates the ones that have speeds — *Lightning (2 speeds)* — and leaves
+list annotates the ones that have gears — *Lightning (2 gears)* — and leaves
 the rest plain. On an SL200III Bi two of seven are annotated; on a TL60,
 thirteen of fourteen.
 
 Once an effect is running the slider re-bounds itself to that effect, so it
-collapses to a single position on one that has no speeds. Both the plain and
+collapses to a single position on one that has one gear. Both the plain and
 annotated names work in automations.
 
 The same information is in the entity's attributes:
@@ -223,15 +226,15 @@ The same information is in the entity's attributes:
 | attribute | |
 |---|---|
 | `applies_to_effects` | the effects on this light that respond to the slider |
-| `speeds_per_effect` | how many steps each of those accepts |
+| `gears_per_effect` | how many gears each of those accepts |
 
-An SL200III Bi lists two (Flash Light and Lightning, two speeds each); a TL60
+An SL200III Bi lists two (Flash Light and Lightning, two gears each); a TL60
 lists thirteen, most with three. The value is clamped per effect, so asking for
-speed 2 while running a one-speed effect sends 0 rather than being rejected.
+gear 2 while running a one-gear effect sends 0 rather than being rejected.
 
-Speed is deliberately *not* folded into the effect list. It would read well on a
-light like the SL200III (7 effects becoming 9 entries), but 51 of the 55
-affected models have three-speed effects, which would turn a 14-entry dropdown
+The gear is deliberately *not* folded into the effect list. It would read well on
+a light like the SL200III (7 effects becoming 9 entries), but 51 of the 55
+affected models have three-gear effects, which would turn a 14-entry dropdown
 into 39 rows of near-duplicates.
 
 **Fan speed** is a separate `select` entity, for the 73 models that expose
@@ -249,7 +252,7 @@ report something will always show you what Home Assistant last sent it:
 | Colour temperature | yes, **can be switched off** | turn off *Include colour temperature* |
 | Battery | yes, battery models | — |
 | Effect | **no** | shows the last effect you selected |
-| Effect speed | **no** | shows the last speed you selected |
+| Effect gear | **no** | shows the last gear you selected |
 | Fan speed | **no** | shows the last speed you selected |
 
 Effect and fan are write-only: no status record reports them, and Godox's own
@@ -376,7 +379,7 @@ per-model catalogue rather than from code. Counts are out of 186 mesh models:
 | Hue / saturation (HSI) | 86 | `light` |
 | Direct RGBW / RGBWW channels | 81 | `light` |
 | Effects | 177 | `light` effect list |
-| Effect speed | 177 | `number` |
+| Effect gear | 177 | `number` |
 | Lighting gels | 70 | `select` |
 | Green/magenta tint | 83 | `number` |
 | Fan speed | 73 | `select` |

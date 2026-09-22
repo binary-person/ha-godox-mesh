@@ -28,7 +28,7 @@ from tests_ha.conftest import ADDRESS, MESH_STATE
 
 BLE_PATH = "custom_components.godox_mesh.bluetooth.async_ble_device_from_address"
 LIGHT = "light.light"
-SPEED = "number.light_effect_speed"
+SPEED = "number.light_effect_gear"
 
 # SL200III Bi: older effect generation, Flash and Lightning have two speed
 # steps and the rest have one.
@@ -209,7 +209,7 @@ async def test_the_control_says_which_effects_respond_to_it(
     attributes = hass.states.get(SPEED).attributes
 
     assert attributes["applies_to_effects"] == ["Flash Light", "Lightning"]
-    assert attributes["speeds_per_effect"] == {"Flash Light": 2, "Lightning": 2}
+    assert attributes["gears_per_effect"] == {"Flash Light": 2, "Lightning": 2}
     assert attributes["ignored_by_other_effects"] is True
 
 
@@ -260,7 +260,7 @@ async def test_the_effect_list_says_which_effects_have_speeds(
     await _setup(hass, WITH_SPEED)
     effects = hass.states.get(LIGHT).attributes[ATTR_EFFECT_LIST]
 
-    assert "Lightning (2 speeds)" in effects
+    assert "Lightning (2 gears)" in effects
     assert "Candle" in effects, "single-speed effects stay plain"
 
 
@@ -276,7 +276,7 @@ async def test_an_annotated_effect_still_resolves_to_its_symbol(
             "light", "turn_on",
             {
                 ATTR_ENTITY_ID: LIGHT,
-                ATTR_EFFECT: "Lightning (2 speeds)",
+                ATTR_EFFECT: "Lightning (2 gears)",
                 ATTR_BRIGHTNESS: 255,
             },
             blocking=True,
@@ -315,7 +315,7 @@ async def test_a_state_saved_before_annotation_restores(hass: HomeAssistant) -> 
     mock_restore_cache(hass, [State(LIGHT, STATE_ON, {EFFECT_ATTR: "Lightning"})])
     await _setup(hass, WITH_SPEED)
 
-    assert hass.states.get(LIGHT).attributes[EFFECT_ATTR] == "Lightning (2 speeds)"
+    assert hass.states.get(LIGHT).attributes[EFFECT_ATTR] == "Lightning (2 gears)"
 
 
 @pytest.mark.usefixtures("fake_ble")

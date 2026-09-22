@@ -135,7 +135,7 @@ async def test_a_known_model_offers_named_effects(
 
     # Multi-speed effects say how many; single-speed ones stay plain, so the
     # annotation carries information rather than decorating everything.
-    assert "Lightning (2 speeds)" in effects
+    assert "Lightning (2 gears)" in effects
     assert "Candle" in effects
     assert not any(name.startswith("Effect ") for name in effects[1:])
 

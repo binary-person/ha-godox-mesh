@@ -65,15 +65,15 @@ class GodoxEffect:
     def label(self) -> str:
         """The name to show in a light's effect list.
 
-        An effect with a small, discrete set of speeds says so, because the
+        An effect with a small, discrete set of gears says so, because the
         count is per-effect and there is nowhere else the user would see it
         before choosing. An effect on the newer generation has a continuous
-        0-100 speed instead, where "(101 speeds)" would be noise, and the
-        single-speed majority of the older generation is left plain too -- so
+        0-100 range instead, where "(101 gears)" would be noise, and the
+        single-gear majority of the older generation is left plain too -- so
         the annotation means something whenever it appears.
         """
         if 0 < self.speed_max < 10:
-            return f"{self.name} ({self.speed_max + 1} speeds)"
+            return f"{self.name} ({self.speed_max + 1} gears)"
         return self.name
 
     @property

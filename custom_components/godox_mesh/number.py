@@ -73,10 +73,16 @@ async def async_setup_entry(
 
 
 class GodoxEffectSpeedNumber(NumberEntity, RestoreEntity):
-    """Speed the light runs its effects at."""
+    """Which gear an effect runs at.
+
+    The value is the effect's gear index -- what the catalogue calls ``gear`` --
+    not a slow-to-fast speed. The firmware decides what each gear looks like, and
+    the catalogue gives only a count, so the numbers carry no guaranteed
+    direction; the control is named "Effect gear" to say so.
+    """
 
     _attr_has_entity_name = True
-    _attr_translation_key = "effect_speed"
+    _attr_translation_key = "effect_gear"
     _attr_assumed_state = True
     _attr_mode = NumberMode.SLIDER
     _attr_native_min_value = 0
@@ -92,7 +98,7 @@ class GodoxEffectSpeedNumber(NumberEntity, RestoreEntity):
         node_id = f"{entry_address}_{node.address:04x}"
         # The light entity's unique id, which keys the effect-changed signal.
         self._light_unique_id = node_id
-        self._attr_unique_id = f"{node_id}_effect_speed"
+        self._attr_unique_id = f"{node_id}_effect_gear"
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, node_id)},
             connections=(
@@ -104,14 +110,14 @@ class GodoxEffectSpeedNumber(NumberEntity, RestoreEntity):
 
     @property
     def native_max_value(self) -> float:
-        """The number of speeds the *running* effect accepts.
+        """The number of gears the *running* effect accepts.
 
-        Each effect has its own count -- often one, meaning the speed is
+        Each effect has its own count -- often one, meaning the gear is
         ignored -- so a fixed maximum taken from the model as a whole tells the
         user nothing about the effect they just chose. Following the running
         effect makes the control describe itself: the slider collapses to a
-        single position on an effect that has no speeds, and widens on one that
-        does. Falls back to the model's widest before any effect is chosen.
+        single position on an effect that has one gear, and widens on one with
+        more. Falls back to the model's widest before any effect is chosen.
         """
         running = self._data.current_effect.get(self._node.address)
         if running:
@@ -149,12 +155,12 @@ class GodoxEffectSpeedNumber(NumberEntity, RestoreEntity):
 
     @property
     def extra_state_attributes(self) -> dict[str, object]:
-        """Which of this model's effects the speed actually applies to.
+        """Which of this model's effects the gear actually applies to.
 
-        Godox gives each effect its own number of speed steps and most have
-        one, so a single slider cannot describe the model on its own. Listing
-        the responsive effects here is what makes it usable: set the speed,
-        then pick one of these.
+        Godox gives each effect its own number of gears and most have one, so a
+        single slider cannot describe the model on its own. Listing the
+        responsive effects here is what makes it usable: pick one of these to
+        have the gear matter.
         """
         responsive = {
             effect.name: effect.speed_max + 1
@@ -163,7 +169,7 @@ class GodoxEffectSpeedNumber(NumberEntity, RestoreEntity):
         }
         return {
             "applies_to_effects": sorted(responsive),
-            "speeds_per_effect": responsive,
+            "gears_per_effect": responsive,
             "ignored_by_other_effects": True,
         }
 

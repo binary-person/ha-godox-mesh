@@ -188,8 +188,8 @@
   },
   "entity": {
     "number": {
-      "effect_speed": {
-        "name": "Effect speed"
+      "effect_gear": {
+        "name": "Effect gear"
       },
       "tint": {
         "name": "Green / magenta"
