@@ -43,6 +43,7 @@ from .const import (
     MAX_POLL_INTERVAL,
     MIN_POLL_INTERVAL,
     SIGNAL_EFFECT_CHANGED,
+    SIGNAL_EFFECT_SPEED_CHANGED,
     SIGNAL_CCT_RANGE_CHANGED,
     SIGNAL_TINT_CHANGED,
     SIGNAL_XY_CHANGED,
@@ -190,6 +191,14 @@ class GodoxLight(LightEntity, RestoreEntity):
                     self._coordinate_changed,
                 )
             )
+        if self._effects:
+            self.async_on_remove(
+                async_dispatcher_connect(
+                    self.hass,
+                    SIGNAL_EFFECT_SPEED_CHANGED.format(node_id=self._attr_unique_id),
+                    self._effect_speed_changed,
+                )
+            )
         if self._node.readback:
             # Poll on a per-light timer rather than Home Assistant's platform
             # loop, so each light can have its own interval. Poll once now for
@@ -285,6 +294,18 @@ class GodoxLight(LightEntity, RestoreEntity):
         if not self._attr_is_on or self._attr_color_mode is not ColorMode.COLOR_TEMP:
             return
         self.hass.async_create_task(self._async_send_color(self._brightness_pct()))
+
+    @callback
+    def _effect_speed_changed(self) -> None:
+        """Re-send the running effect so a new speed takes effect immediately.
+
+        Speed rides the effect frame, so -- like tint -- it applies only when
+        that frame is sent again; without this the slider would do nothing until
+        the effect was picked afresh.
+        """
+        if not self._attr_is_on or self._attr_effect is None:
+            return
+        self.hass.async_create_task(self._async_send_effect(self._brightness_pct()))
 
     def _effect_symbol(self, name: str) -> int:
         """Map a displayed effect name back to this model's wire symbol."""
@@ -392,20 +413,7 @@ class GodoxLight(LightEntity, RestoreEntity):
         # what the light is at or picking a gel would jump it to full.
         self._data.brightness_pct[self._node.address] = brightness_pct
         if self._attr_effect is not None:
-            effect = self._node.capabilities.effect_by_name(self._attr_effect)
-            # Speed comes from the separate number entity, clamped to what this
-            # particular effect accepts -- they differ within one model.
-            speed = min(
-                self._data.effect_speeds.get(self._node.address, 0),
-                effect.speed_max if effect else 0,
-            )
-            await self._link.async_set_effect(
-                self._node.address,
-                effect=self._effect_symbol(self._attr_effect),
-                brightness_pct=brightness_pct,
-                speed=speed,
-                effect_version=self._node.capabilities.effect_version,
-            )
+            await self._async_send_effect(brightness_pct)
         else:
             await self._async_send_color(brightness_pct)
         self._attr_is_on = True
@@ -430,6 +438,25 @@ class GodoxLight(LightEntity, RestoreEntity):
             async_dispatcher_send(
                 self.hass, SIGNAL_XY_CHANGED.format(node_id=self._attr_unique_id)
             )
+
+    async def _async_send_effect(self, brightness_pct: float) -> None:
+        """Send the current effect at the current speed."""
+        if self._attr_effect is None:
+            return
+        effect = self._node.capabilities.effect_by_name(self._attr_effect)
+        # Speed comes from the separate number entity, clamped to what this
+        # particular effect accepts -- they differ within one model.
+        speed = min(
+            self._data.effect_speeds.get(self._node.address, 0),
+            effect.speed_max if effect else 0,
+        )
+        await self._link.async_set_effect(
+            self._node.address,
+            effect=self._effect_symbol(self._attr_effect),
+            brightness_pct=brightness_pct,
+            speed=speed,
+            effect_version=self._node.capabilities.effect_version,
+        )
 
     async def _async_send_color(self, brightness_pct: float) -> None:
         """Send whichever colour command matches the light's current mode."""

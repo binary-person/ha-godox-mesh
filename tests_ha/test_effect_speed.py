@@ -145,6 +145,57 @@ async def test_speed_is_clamped_to_what_the_effect_supports(
 
 
 @pytest.mark.usefixtures("fake_ble")
+async def test_changing_speed_re_sends_the_running_effect(
+    hass: HomeAssistant,
+) -> None:
+    """Changing the speed of a running effect applies at once, like the tint control."""
+    await _setup(hass, WITH_SPEED)
+
+    # A two-speed effect is running (light on).
+    with patch.object(GodoxMeshLink, "async_set_effect", new=AsyncMock()):
+        await hass.services.async_call(
+            "light", "turn_on",
+            {ATTR_ENTITY_ID: LIGHT, ATTR_EFFECT: "Lightning", ATTR_BRIGHTNESS: 255},
+            blocking=True,
+        )
+    await hass.async_block_till_done()
+
+    # Changing the speed re-sends the effect with the new speed, without the
+    # user having to pick the effect again.
+    with patch.object(GodoxMeshLink, "async_set_effect", new=AsyncMock()) as set_effect:
+        await hass.services.async_call(
+            NUMBER_DOMAIN,
+            SERVICE_SET_VALUE,
+            {ATTR_ENTITY_ID: SPEED, ATTR_VALUE: 1},
+            blocking=True,
+        )
+        await hass.async_block_till_done()
+
+    assert set_effect.await_count == 1
+    assert set_effect.await_args.kwargs["speed"] == 1
+    assert set_effect.await_args.kwargs["effect"] == 3  # Lightning
+
+
+@pytest.mark.usefixtures("fake_ble")
+async def test_changing_speed_with_no_effect_running_sends_nothing(
+    hass: HomeAssistant,
+) -> None:
+    """With no effect running, setting the speed only records it for next time."""
+    await _setup(hass, WITH_SPEED)  # light off, no effect
+
+    with patch.object(GodoxMeshLink, "async_set_effect", new=AsyncMock()) as set_effect:
+        await hass.services.async_call(
+            NUMBER_DOMAIN,
+            SERVICE_SET_VALUE,
+            {ATTR_ENTITY_ID: SPEED, ATTR_VALUE: 1},
+            blocking=True,
+        )
+        await hass.async_block_till_done()
+
+    set_effect.assert_not_awaited()
+
+
+@pytest.mark.usefixtures("fake_ble")
 async def test_the_control_says_which_effects_respond_to_it(
     hass: HomeAssistant,
 ) -> None:

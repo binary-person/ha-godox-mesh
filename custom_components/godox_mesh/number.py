@@ -43,6 +43,7 @@ from homeassistant.helpers.restore_state import RestoreEntity
 from .const import (
     DOMAIN,
     SIGNAL_EFFECT_CHANGED,
+    SIGNAL_EFFECT_SPEED_CHANGED,
     SIGNAL_TINT_CHANGED,
     SIGNAL_XY_CHANGED,
 )
@@ -183,11 +184,18 @@ class GodoxEffectSpeedNumber(NumberEntity, RestoreEntity):
             self._data.effect_speeds[self._node.address] = restored
 
     async def async_set_native_value(self, value: float) -> None:
-        """Record the speed the next effect command should use."""
+        """Record the speed and ask the light to apply it to a running effect."""
         speed = int(value)
         self._data.effect_speeds[self._node.address] = speed
         self._attr_native_value = speed
         self.async_write_ha_state()
+        # Like tint, speed rides the effect frame, so signal the light to re-send
+        # its running effect rather than reconstruct the frame here. When no
+        # effect is running the light ignores it and the value is used next time.
+        async_dispatcher_send(
+            self.hass,
+            SIGNAL_EFFECT_SPEED_CHANGED.format(node_id=self._light_unique_id),
+        )
 
 
 class GodoxTintNumber(NumberEntity, RestoreEntity):

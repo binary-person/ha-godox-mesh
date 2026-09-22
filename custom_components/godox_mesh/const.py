@@ -23,6 +23,12 @@ EFFECT_OFF: Final = "Off"
 #: maximum does not follow the running effect cannot tell the user that.
 SIGNAL_EFFECT_CHANGED: Final = "godox_mesh_effect_changed_{node_id}"
 
+#: Dispatcher signal, formatted the same way, sent when the effect-speed control
+#: changes. Speed rides the effect frame, so -- like tint -- the light re-sends
+#: the running effect on this signal, and the change takes effect at once rather
+#: than waiting for the effect to be picked again.
+SIGNAL_EFFECT_SPEED_CHANGED: Final = "godox_mesh_effect_speed_changed_{node_id}"
+
 #: Dispatcher signal, formatted the same way, sent when a light's green/magenta
 #: tint changes. Tint has no command of its own -- it rides the
 #: colour-temperature frame -- so the light re-sends that frame on this signal,

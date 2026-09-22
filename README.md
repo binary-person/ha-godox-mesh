@@ -205,7 +205,8 @@ other. A model the table does not know falls back to a small set named by
 number.
 
 **Effect speed** is a separate `number` entity, because Home Assistant's light
-platform has no concept of it. Set the speed, then pick an effect. It appears
+platform has no concept of it. Set it before picking an effect, or change it
+while one is running — it re-sends the effect and takes hold at once. It appears
 only for the 55 models with at least one multi-speed effect.
 
 **Most effects ignore it**, and you can see which before choosing: the effect
@@ -306,15 +307,13 @@ Every mesh command consumes a sequence number, and a node silently drops any
 message at or below the highest it has already seen — its replay protection
 list. No error is reported; commands simply do nothing.
 
-It usually means the stored counter is behind the light's, which happens if the
-Godox app or the CLI has driven the light since Home Assistant last did.
+It means the stored counter is behind the light's — most often after importing
+mesh state (**Use existing mesh keys**) whose `sequence_number` is lower than
+what the light has already accepted.
 
 The integration keeps its counter ahead of use and persists it before sending,
-so it recovers on its own in normal operation. If a light stays unresponsive,
+so in normal operation it recovers on its own. If a light stays unresponsive,
 re-import its mesh state with a higher `sequence_number`, or re-provision it.
-
-**Do not drive one light from both Home Assistant and the CLI** without
-re-syncing the counter between them.
 
 ### The light will not connect
 
