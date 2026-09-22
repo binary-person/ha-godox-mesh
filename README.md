@@ -73,7 +73,9 @@ Nothing is installed from PyPI — the library ships inside the integration.
 
 ## Setup
 
-The config flow offers two paths.
+The config flow offers two paths to get the keys. After either, you pick which
+model the light is (which sets its controls) and how its state is read, on the
+two steps that follow.
 
 ### Provision this light
 
@@ -120,12 +122,15 @@ After adding the first light, use **Configure** on the integration:
 - **Provision a new light onto this network** — factory reset the light, pick
   it from the list. It joins using the keys this entry already holds, is
   assigned the next free unicast address, and has the application key bound.
-- **Add a light that is already provisioned** — for a light you enrolled onto
-  this same network yourself, give its name and unicast address.
+- **Configure a light** — set a light's model and how its state is read
+  (readback and colour-temperature polling), correcting a wrong model pick
+  without removing and re-adding it.
 - **Remove a light** — removes its entity and device. The last light cannot be
   removed; delete the integration entry instead.
 
-All of them share one Bluetooth connection. This is the slot-efficient shape.
+A factory-reset light can also be added to an existing mesh straight from the
+**Add device** button. All lights on one entry share a single Bluetooth
+connection; this is the slot-efficient shape.
 
 ### One entry per light
 
@@ -145,27 +150,38 @@ than you have slots.
 
 A Bluetooth Mesh network is entered through any one node: Home Assistant opens
 an ordinary connection to a single light, and that light relays to the rest of
-the mesh.
+the mesh. Unplugging the light an entry was created against no longer takes the
+network down — the connection moves to another node.
 
-The node is chosen dynamically, two ways. First by **known address**: the BLE
-address of each light provisioned onto the mesh is recorded, so a reachable one
-can be connected to directly — this is what makes failover prompt, since a
-just-reconnected node advertises Node Identity for a while rather than the
-Network ID. Then by **Network ID**: proxy-capable nodes advertise the network's
-Network ID, so any light on this network can be recognised — even one this
-install never provisioned — and entered through whichever is reachable.
-Unplugging the light an entry was created against no longer takes the network
-down.
+A node is recognised as belonging to this network two ways. By **known
+address**: the BLE address of each light provisioned onto the mesh is recorded,
+so a reachable one can be used directly — including right after a reconnect,
+when it advertises Node Identity rather than the Network ID. And by **Network
+ID**: proxy-capable nodes advertise the network's Network ID, so any light on
+the network is recognised, even one this install never provisioned.
 
-Selection is sticky: keep the node in use, otherwise prefer the light the entry
-was created against, otherwise the strongest signal (known addresses before
-Network-ID matches). Each reconnect costs a beacon echo and two filter messages,
-so churning between nodes as signal drifts would be worse than staying put. If
-nothing of this network is reachable, this falls back to the configured
-address, so behaviour is never worse than a fixed gateway.
+From those, the node to connect through is the head of a short list:
 
-The connection is held for five minutes of idle time, then released so the
-adapter's slot is free.
+- A reachable node is a candidate unless it has failed to connect more recently
+  than it last advertised. A failed connection takes a node off the list; its
+  own next advertisement — proof it is back — puts it on again.
+- The node already in use is kept, so the connection does not churn as signal
+  drifts (each reconnect costs a beacon echo and two filter messages).
+  Otherwise the list is ordered freshly-heard nodes first — ahead of ones only
+  lingering in Home Assistant's device cache after going quiet — then by signal
+  strength. Which node it is does not matter, so the configured light gets no
+  special weight; it is only the fallback when nothing is reachable.
+- Each node gets one connection attempt before the next is tried, so a light
+  that advertises but will not connect is passed over for a sibling within one
+  command rather than retried on the same dead address.
+- A node that drops its connection soon after opening is ranked below steadier
+  ones, and the connection is handed to a sibling instead of reopened on the
+  flaky node. This is a ranking penalty only — a node that is the sole one
+  reachable is still used.
+
+If nothing of this network is reachable, selection falls back to the configured
+address, so behaviour is never worse than a fixed gateway. The connection is
+held for five minutes of idle time, then released so the adapter's slot is free.
 
 ## What the entity does
 
@@ -262,6 +278,11 @@ commanded:
   setting, turn off *Include colour temperature*.
 - **Battery** is read the same way, on stock firmware.
 
+With polling on, a light that stops answering — powered off, or out of range —
+shows **unavailable** after a few missed polls, and comes back when it answers
+again. A light without polling has no such signal, so it always shows its last
+commanded state and stays available.
+
 With polling off, every entity is `assumed_state` and shows what was last
 commanded. See [docs/readback-hardware-findings.md](docs/readback-hardware-findings.md)
 for exactly what was measured, on which light.
@@ -273,10 +294,9 @@ stock firmware. Enable polling and a sensor appears for each battery-capable
 model. Mains-powered lights (most of the range, including the SL200III Bi) have
 no battery and get no sensor.
 
-> Measured honestly: the battery record was only ever read from a *mains*
-> light, which answers a constant 100 %. That it responds on stock firmware is
-> measured; that a real battery light reports a *changing* percentage is
-> expected but untested.
+> The battery record was only ever read from a *mains* light, which answers a
+> constant 100 %. That it responds on stock firmware is measured; that a real
+> battery light reports a *changing* percentage is expected but untested.
 
 ## Troubleshooting
 
@@ -286,9 +306,8 @@ Every mesh command consumes a sequence number, and a node silently drops any
 message at or below the highest it has already seen — its replay protection
 list. No error is reported; commands simply do nothing.
 
-This is the most confusing failure this integration has, and it usually means
-the stored counter is behind the light's. It happens if the Godox app or the
-CLI has driven the light since Home Assistant last did.
+It usually means the stored counter is behind the light's, which happens if the
+Godox app or the CLI has driven the light since Home Assistant last did.
 
 The integration keeps its counter ahead of use and persists it before sending,
 so it recovers on its own in normal operation. If a light stays unresponsive,
@@ -317,7 +336,9 @@ necessarily gone.
 Discovery matches the Bluetooth Mesh service UUIDs only, so any mesh node in
 range may appear. This is deliberate: filtering on the advertised name would
 fail silently for any model that names itself differently. The picker sorts
-likely Godox devices to the top and hides nothing.
+likely Godox devices to the top and hides nothing — except a light already
+added, whose address (and those of every light provisioned onto its mesh) is
+remembered so it is not offered again.
 
 ### Re-provisioning
 

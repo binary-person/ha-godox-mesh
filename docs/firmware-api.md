@@ -679,9 +679,9 @@ matching the offset recorded independently in
 
 ## Follow-up: the BT image was disassembled
 
-This document reasoned about the LK8620 image from its strings and structure,
-and reached two conclusions that a full TC32 disassembly later refined. See
-[bt-chip-firmware.md](bt-chip-firmware.md) for the disassembly; the corrections:
+The analysis above works from the LK8620 image's strings and structure; a full
+TC32 disassembly ([bt-chip-firmware.md](bt-chip-firmware.md)) later refined two
+points:
 
 - **"A dumb pipe" is true for control, not for status.** The BT chip forwards
   `0xF0/0xF3/0xF4/0xF5/0xFE` to the MCU, but it *terminates* status request

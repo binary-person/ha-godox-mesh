@@ -85,8 +85,7 @@ screens to show. Counts are out of the 186 mesh models in the table.
 | Battery charge | 25 | `sensor` |
 | Brightness in tenths of a percent | 53 | carried in the `light` commands |
 
-Two parts of that table turn on distinctions the catalogue does not make
-obvious:
+Two parts of that table turn on distinctions the catalogue does not spell out:
 
 - **Colour** is built by dedicated frames — `build_hsi_command` (`0xF1`) and
   `build_rgbw_command` (`0xF2`/`0xF9`) — not the generic `build_v2_command`.
@@ -187,8 +186,7 @@ does that the vendor app cannot.
 
 Both lights available while the colour half was written — an SL200III Bi and an
 SL60II Bi — are bi-colour, `effectVersion` 0, no tint, no gels. So none of it
-has been seen to work. That is not all equally uncertain, though, and it is
-worth being precise about where the risk sits.
+has been seen to work. The uncertainty is not uniform, though:
 
 **Near-certain: the frames.** Every command here is built to the byte layout
 read straight out of the vendor app's `GodoxCommandApi`, over the same CRC and

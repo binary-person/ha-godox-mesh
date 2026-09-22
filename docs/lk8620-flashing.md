@@ -51,10 +51,10 @@ sound — and inventories exactly which lights it applies to.
 
 Stock firmware answers vendor status request `0xFD` from a RAM cache that is
 seeded with a boot default and refilled when the MCU volunteers a frame. On
-hardware that cache turns out to track brightness live, and colour temperature
-live for anything commanded over the mesh, so the premise below is narrower
-than it was written to be — what is actually missing is only panel-changed
-colour temperature, and the patch does not recover it. One combined patch
+hardware that cache tracks brightness live, and colour temperature live for
+anything commanded over the mesh, so the premise below is narrower than it
+appears — what is actually missing is only panel-changed colour temperature,
+and the patch does not recover it. One combined patch
 attempts this in
 three parts:
 

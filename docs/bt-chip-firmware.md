@@ -2,12 +2,11 @@
 
 > [!IMPORTANT]
 > **Superseded in part by [readback-hardware-findings.md](readback-hardware-findings.md).**
-> This document's conclusion that readback is impossible on stock firmware was
-> drawn from static analysis and is **wrong**. Testing on a real SL200III Bi
-> showed the status request was being built with the wrong end byte: selecting
-> the `0xA0` record returns live brightness on stock firmware. Only *panel*
-> colour-temperature changes are missing. The mechanism described below is
-> otherwise accurate.
+> Readback is *not* impossible on stock firmware. Selecting the `0xA0` record —
+> rather than padding the status request's end byte to `0xFF` — returns live
+> brightness, verified on an SL200III Bi; only *panel* colour-temperature
+> changes are missing. The static-analysis mechanism below is otherwise
+> accurate.
 
 
 > [!NOTE]

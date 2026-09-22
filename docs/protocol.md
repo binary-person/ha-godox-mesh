@@ -1,12 +1,5 @@
 # Godox Bluetooth Mesh vendor protocol
 
-> [!IMPORTANT]
-> The status-reply section below described the reply as a constant. That is
-> **wrong**: the request's end byte selects which record is reported, and the
-> `0xA0` record carries live data. See
-> [readback-hardware-findings.md](readback-hardware-findings.md).
-
-
 What the lights speak, how far it has been mapped, and where each fact came
 from. Sources are marked:
 
@@ -86,18 +79,11 @@ temperature cmp #0x1c  -> minimum 28   (2800 K)
 
 ### Effect identifiers
 
-> [!WARNING]
-> This section previously stated that the LK8620 mesh firmware's `0xF3` handler
-> compares byte `[2]` against `1, 3, 4, 5, 6, 7, 8`. **That is not in the
-> image.** Disassembly finds `tcmp #0xFD` and `tcmp #0xFC` (the status handlers
-> this document describes elsewhere) but no `tcmp #0xF3` at all — consistent
-> with [bt-chip-firmware.md](bt-chip-firmware.md), which says the mesh chip
-> forwards `0xF3` to the MCU rather than decoding it. Where that value set came
-> from is unknown; it happens to equal one particular light's symbols.
-
-Effect symbols are decoded by the **MCU**, not the mesh chip. The MCU images
-that carry an effect table accept a contiguous range: ML100R's is symbols
-1–16.
+Effect symbols are decoded by the **MCU**, not the mesh chip: the LK8620 mesh
+image has no `0xF3` comparison (disassembly finds the `0xFD`/`0xFC` status
+handlers but no `tcmp #0xF3`), and forwards `0xF3` to the MCU, as
+[bt-chip-firmware.md](bt-chip-firmware.md) describes. The MCU images that carry
+an effect table accept a contiguous range: ML100R's is symbols 1–16.
 
 That set is **this model's**, not a universal one. Godox's catalogue gives each
 model its own effect list, and the wire symbol is the catalogue id minus one.
