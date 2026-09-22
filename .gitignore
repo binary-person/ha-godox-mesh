@@ -35,3 +35,6 @@ tools/tc32/generate_sleigh.py
 .coverage.*
 htmlcov/
 .pytest_cache/
+
+# macOS
+.DS_Store
