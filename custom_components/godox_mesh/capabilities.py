@@ -534,9 +534,15 @@ def radio_id_from_manufacturer_data(
     identifies any of the 190 mesh models without a per-model name list.
 
     The vendor app reads bytes 7 and 6 of the manufacturer blob *including* the
-    two-byte company id. Bleak strips the company id and hands it back as the
-    dict key, so the blob is reassembled here rather than shifting the offsets,
-    to keep this readable against the original.
+    two-byte company id. Bleak strips that company id and hands it back as the
+    dict key, so the blob is reassembled here -- company id back on the front --
+    rather than shifting the offsets, to keep this readable against the original.
+
+    The "company id" is *not* a registered vendor identifier here (it is not
+    Telink's ``0x0211``): these lights put the low two bytes of their own BLE
+    address there, little-endian, so it differs per light. That does not matter
+    -- the model id is at a fixed offset in the reassembled blob whatever the key
+    is -- which is why every key present is tried rather than a fixed one.
 
     Parameters
     ----------
@@ -551,9 +557,11 @@ def radio_id_from_manufacturer_data(
 
     Examples
     --------
-    >>> radio_id_from_manufacturer_data({0x0211: bytes(4) + b"\x3f\x00" + bytes(4)})
+    >>> # The key is the light's own BLE address suffix, not a registered vendor
+    >>> # id; the radioId sits at a fixed offset regardless of the key.
+    >>> radio_id_from_manufacturer_data({0x3412: bytes(4) + b"\x3f\x00" + bytes(2)})
     '003F'
-    >>> radio_id_from_manufacturer_data({0x0211: b"\x00"}) is None
+    >>> radio_id_from_manufacturer_data({0x3412: b"\x00"}) is None
     True
     >>> radio_id_from_manufacturer_data(None) is None
     True

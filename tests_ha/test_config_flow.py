@@ -85,6 +85,67 @@ async def test_bluetooth_discovery_offers_both_setup_paths(hass: HomeAssistant) 
     assert set(options) == {"mesh_state", "provision"}
 
 
+async def test_discovery_waits_for_the_model_id_before_naming(
+    hass: HomeAssistant,
+) -> None:
+    """Discovery on a packet without the model id waits for one that carries it.
+
+    These lights alternate advert packets; discovery often fires on the
+    proxy-service one, which has no manufacturer data, so without the wait the
+    light would be named the bare GD_LED instead of its model.
+    """
+    from unittest.mock import AsyncMock
+
+    # An advert that does carry radioId 003F (SL200III Bi), returned by the wait.
+    model_advert = _service_info(
+        manufacturer_data={0x0211: bytes(4) + b"\x3f\x00" + bytes(2)}
+    )
+    with (
+        patch(
+            "custom_components.godox_mesh.config_flow.async_last_service_info",
+            return_value=None,
+        ),
+        patch(
+            "custom_components.godox_mesh.config_flow.async_process_advertisements",
+            AsyncMock(return_value=model_advert),
+        ),
+    ):
+        result = await hass.config_entries.flow.async_init(
+            DOMAIN,
+            context={"source": SOURCE_BLUETOOTH},
+            data=_service_info(),  # the triggering packet: no manufacturer data
+        )
+
+    assert result["step_id"] == "setup_method"
+    assert result["description_placeholders"]["name"] == "SL200IIIBi (EEFF)"
+
+
+async def test_discovery_falls_back_to_the_bare_name_on_timeout(
+    hass: HomeAssistant,
+) -> None:
+    """If no model-carrying advert arrives in time, the advertised name is kept."""
+    from unittest.mock import AsyncMock
+
+    with (
+        patch(
+            "custom_components.godox_mesh.config_flow.async_last_service_info",
+            return_value=None,
+        ),
+        patch(
+            "custom_components.godox_mesh.config_flow.async_process_advertisements",
+            AsyncMock(side_effect=TimeoutError),
+        ),
+    ):
+        result = await hass.config_entries.flow.async_init(
+            DOMAIN,
+            context={"source": SOURCE_BLUETOOTH},
+            data=_service_info(),
+        )
+
+    assert result["step_id"] == "setup_method"
+    assert result["description_placeholders"]["name"] == "GD_LED (EEFF)"
+
+
 async def test_setup_method_choice_routes_to_the_selected_step(
     hass: HomeAssistant,
 ) -> None:
@@ -227,7 +288,7 @@ async def test_a_provisioned_node_is_not_offered_as_a_new_discovery(
     the entry (not as the entry's unique id), so the framework's own dedupe would
     otherwise re-offer a light we already manage.
     """
-    node_mac = "A4:C1:38:85:56:81"
+    node_mac = "11:22:33:44:55:66"
     entry = MockConfigEntry(
         domain=DOMAIN,
         unique_id=ADDRESS,
@@ -252,7 +313,7 @@ async def test_a_provisioned_node_is_not_offered_as_a_new_discovery(
 
 async def test_the_user_picker_hides_a_provisioned_node(hass: HomeAssistant) -> None:
     """The manual picker also omits a light already provisioned onto a mesh."""
-    node_mac = "A4:C1:38:85:56:81"
+    node_mac = "11:22:33:44:55:66"
     other = "99:99:99:99:99:99"
     entry = MockConfigEntry(
         domain=DOMAIN,

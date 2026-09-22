@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import sys
 from pathlib import Path
-from unittest.mock import patch
+from unittest.mock import AsyncMock, patch
 
 import pytest
 from homeassistant.config_entries import ConfigEntry
@@ -110,6 +110,29 @@ class FakeBleakClient:
 
     async def stop_notify(self, _characteristic) -> None:
         self._notify = None
+
+
+@pytest.fixture(autouse=True)
+def _instant_discovery_model_wait():
+    """Resolve the config flow's model-id wait instantly.
+
+    On a Bluetooth discovery the flow waits for an advert carrying the model id
+    (``async_process_advertisements``), which would otherwise block on the real
+    Bluetooth manager that the tests do not set up. Default to "none arrived" so
+    discovery falls back to the advertised name at once; the tests that exercise
+    the wait re-patch these two names for their own scope.
+    """
+    with (
+        patch(
+            "custom_components.godox_mesh.config_flow.async_process_advertisements",
+            AsyncMock(side_effect=TimeoutError),
+        ),
+        patch(
+            "custom_components.godox_mesh.config_flow.async_last_service_info",
+            return_value=None,
+        ),
+    ):
+        yield
 
 
 @pytest.fixture

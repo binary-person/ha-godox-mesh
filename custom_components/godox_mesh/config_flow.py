@@ -12,8 +12,11 @@ from ._lib.config_session import ConfigSession
 from ._lib.provisioning import ProvisioningSession
 
 from homeassistant.components.bluetooth import (
+    BluetoothScanningMode,
     BluetoothServiceInfoBleak,
     async_discovered_service_info,
+    async_last_service_info,
+    async_process_advertisements,
 )
 from homeassistant.config_entries import (
     ConfigEntry,
@@ -50,6 +53,7 @@ from .const import (
     DEFAULT_NODE_ADDRESS,
     DEFAULT_POLL_INTERVAL,
     DEFAULT_PROVISIONER_ADDRESS,
+    DISCOVERY_MODEL_WAIT_SECONDS,
     DOMAIN,
     ELEMENTS_PER_NODE,
     INTEGRATION_TITLE,
@@ -340,11 +344,49 @@ class GodoxConfigFlow(ConfigFlow, domain=DOMAIN):
         if not discovery_info.connectable:
             return self.async_abort(reason="not_connectable")
 
+        discovery_info = await self._async_advert_with_model(discovery_info)
         self._discovery = discovery_info
         self._address = discovery_info.address
         self._title = _display_name(discovery_info)
         self.context["title_placeholders"] = {"name": self._title or INTEGRATION_TITLE}
         return await self.async_step_setup_method()
+
+    async def _async_advert_with_model(
+        self, service_info: BluetoothServiceInfoBleak
+    ) -> BluetoothServiceInfoBleak:
+        """Return an advert that carries the model id, waiting briefly for one.
+
+        These lights alternate advert packets, and only one carries the
+        manufacturer data with the ``radioId``; discovery often fires on the
+        proxy-service packet, which has none, so the light would be named the
+        bare ``GD_LED``. Home Assistant merges packets per address, so its stored
+        advert may already have it; otherwise wait a short while for one that
+        does. Falls back to what triggered discovery if none arrives.
+        """
+        if radio_id_from_manufacturer_data(service_info.manufacturer_data):
+            return service_info
+        merged = async_last_service_info(
+            self.hass, service_info.address, connectable=service_info.connectable
+        )
+        if merged is not None and radio_id_from_manufacturer_data(
+            merged.manufacturer_data
+        ):
+            return merged
+        try:
+            return await async_process_advertisements(
+                self.hass,
+                lambda info: radio_id_from_manufacturer_data(info.manufacturer_data)
+                is not None,
+                {"address": service_info.address, "connectable": service_info.connectable},
+                BluetoothScanningMode.ACTIVE,
+                DISCOVERY_MODEL_WAIT_SECONDS,
+            )
+        except Exception as err:  # noqa: BLE001
+            # Best-effort naming: on timeout, or if the wait cannot run, keep the
+            # advertised name rather than failing the discovery. The model is
+            # picked in the flow regardless.
+            _LOGGER.debug("no model-carrying advert for %s: %s", service_info.address, err)
+            return service_info
 
     async def async_step_user(
         self, user_input: dict[str, Any] | None = None

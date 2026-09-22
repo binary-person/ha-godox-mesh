@@ -83,6 +83,14 @@ CONF_POLL_INTERVAL: Final = "poll_interval"
 DEFAULT_POLL_INTERVAL: Final = 10
 MIN_POLL_INTERVAL: Final = 5
 MAX_POLL_INTERVAL: Final = 3600
+
+# How long a Bluetooth discovery waits for an advert that carries the model id
+# before naming the light. These lights alternate advert packets and discovery
+# often fires on the one without the manufacturer data, so a brief wait lets the
+# discovered card show the model rather than the bare advertised name. The mesh
+# packet is broadcast every few seconds, so this rarely runs to the end; on
+# timeout the light is named from what triggered discovery.
+DISCOVERY_MODEL_WAIT_SECONDS: Final = 15
 # Each node has its own device key, needed only to re-bind the application key.
 CONF_DEVICE_KEY: Final = "device_key"
 # The node's own BLE address, captured when it was provisioned/joined. Any node
