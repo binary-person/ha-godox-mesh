@@ -152,7 +152,7 @@ async def test_pasted_mesh_state_creates_an_entry(hass: HomeAssistant) -> None:
             # colour-temperature polling off.
             CONF_READBACK: True,
             CONF_POLL_CCT: False,
-            CONF_POLL_INTERVAL: 30,
+            CONF_POLL_INTERVAL: 10,
         }
     ]
 

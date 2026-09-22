@@ -80,7 +80,7 @@ CONF_POLL_CCT: Final = "poll_cct"
 # How often (seconds) to poll a light for its live state, when readback is on.
 # Per-node; the entry-wide value, if any, is only a migration fallback.
 CONF_POLL_INTERVAL: Final = "poll_interval"
-DEFAULT_POLL_INTERVAL: Final = 30
+DEFAULT_POLL_INTERVAL: Final = 10
 MIN_POLL_INTERVAL: Final = 5
 MAX_POLL_INTERVAL: Final = 3600
 # Each node has its own device key, needed only to re-bind the application key.
