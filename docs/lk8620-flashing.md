@@ -36,7 +36,7 @@ sound — and inventories exactly which lights it applies to.
 >   did not appear. The ceiling is the light's MCU, which no BLE-side patch can
 >   lift.
 >
-> What remains useful here is the *flashing pipeline*, which is now
+> What remains useful here is the *flashing pipeline*, which is
 > hardware-proven: stock → patched → debug image → back to stock, with the
 > reported version changing each time. Keep it for firmware work; do not use it
 > expecting better readback.
@@ -367,9 +367,8 @@ count, and not something a BT-side patch reaches.
 
 ## Pinned images and checksums
 
-Recorded here because the integration no longer carries them: it used to
-offer flashing from its options flow, and that was removed once hardware
-testing showed the patch delivers nothing. `tools/lk8620/` still builds and
+Recorded here rather than in the integration, which does not flash firmware:
+hardware testing showed the patch delivers nothing. `tools/lk8620/` still builds and
 writes these images.
 
 | chip | stock SHA-256 | patched SHA-256 |

@@ -63,8 +63,8 @@ SL60II commanded 25% / 3100K  ->  a0 19 1f 32 ff ff 03
 SL60II panel     31% / 6500K  ->  a0 1f 41 32 ff ff 03    <- live and correct
 ```
 
-The rule therefore discarded good data on that model, on both command echoes and
-panel changes. It has been removed: the colour temperature is now reported as
+The rule would discard good data on that model, on both command echoes and
+panel changes, so it is not applied: the colour temperature is reported as
 received.
 
 Byte 6 differs by source across the samples so far (`0x00`/`0x03` where the value

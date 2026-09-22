@@ -355,8 +355,8 @@ dispatch range: the only reference to either counter there is the `0xE0` clear.
 
 **Polling is impossible.** The complete receive dispatch is enumerated above
 and contains no query of any kind. Nothing an external client sends can make
-the light report. This is now firmware evidence rather than inference from the
-app decompile.
+the light report. This is firmware evidence, not inference from the app
+decompile.
 
 **Passive listening is unresolved.** The light genuinely emits status frames
 when its own controls are used — that is more than section 6 concluded. What

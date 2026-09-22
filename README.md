@@ -150,8 +150,8 @@ than you have slots.
 
 A Bluetooth Mesh network is entered through any one node: Home Assistant opens
 an ordinary connection to a single light, and that light relays to the rest of
-the mesh. Unplugging the light an entry was created against no longer takes the
-network down — the connection moves to another node.
+the mesh. If the light an entry was created against is unplugged, the connection
+moves to another node, so the rest of the mesh stays reachable.
 
 A node is recognised as belonging to this network two ways. By **known
 address**: the BLE address of each light provisioned onto the mesh is recorded,

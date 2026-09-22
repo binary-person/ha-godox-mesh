@@ -576,7 +576,7 @@ LP400R, LP600R, LP1200R, ML100R, ML80Bi, AD00-02.
 All 16 are ARM Cortex-M and all 16 carry the Godox CRC8 table, so every one
 contains a V2/V3 handler.
 
-The **complete corpus is now downloaded** — all three BT images plus all 59 MCU
+The **complete corpus is downloaded** — all three BT images plus all 59 MCU
 images, per-chip, with hashes, per-model verification and analysis in
 [../reverse-artifacts/firmware-inventory.md](../reverse-artifacts/firmware-inventory.md):
 

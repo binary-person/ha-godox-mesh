@@ -53,17 +53,17 @@ The bi-colour ranges present among mesh products, all handled from the table:
 2000-10000 ×8      2500-10000 ×6      2700-6500 ×5     (plus a few more)
 ```
 
-### What full support needs — the CCT range is now data-driven (done)
+### What full support needs — the CCT range is data-driven (done)
 
-The colour-temperature range and daylight-vs-bi-colour decision are now per
-model, from a bundled capability table (`capabilities_data.json`, distilled from
+The colour-temperature range and daylight-vs-bi-colour decision are per model,
+from a bundled capability table (`capabilities_data.json`, distilled from
 `product.json`) keyed by `radioId`. The config flow asks which model the light is
 and the entity builds its controls from the lookup: the model's real Kelvin
 range, or `ColorMode.BRIGHTNESS` for a fixed-daylight light. An unknown model
 falls back to a safe 2800–6500 K colour-temperature light. Adding a model is a
-new table row, not new code. The node-address allocator was also fixed to stride
-by the two-element node size, so a second light on one network no longer collides
-with the first light's element 1.
+new table row, not new code. The node-address allocator strides by the
+two-element node size, so a second light on one network does not land on the
+first light's element 1.
 
 ### What each model gets
 
@@ -130,13 +130,13 @@ implemented except the rows below.
 
 | Command(s) | Models | Why not |
 |---|---|---|
-| `openPaUpgrade` | all | `0xFD` data byte 4 -- the OTA gate. Documented in [ota-login-gate.md](ota-login-gate.md); the integration no longer flashes anything, so nothing here needs to open it. |
+| `openPaUpgrade` | all | `0xFD` data byte 4 -- the OTA gate. Documented in [ota-login-gate.md](ota-login-gate.md); the integration does not flash firmware, so nothing here needs to open it. |
 | `enableGodoxGattAgreementNotify`, `sendGodoxGattAgreementData` and 8 pixel methods | 1 | The LT1's bulk-data path, a raw GATT write on `fff0`/`fff3` rather than a mesh PDU. Library-only. |
 | 8 motion / electronic methods | 12 | Drive an accessory's motors -- angle, calibration, smoothness -- not the light. That is a `cover` for a different device. |
 | `changeLightXYEx` gamut byte | 40 | **The app never calls it.** `build_xy_command` accepts `color_gamut` for a caller who knows better; no catalogue field says which gamut a model wants. |
 | `changeLightFXRainbow` | ? | **The app never calls it** either, and Rainbow has no `FxSymbolType` entry, so nothing says which models offer it. `build_fx_rainbow_command` exists but nothing sends it: it shares selector 19 with Pixel Candle and is told apart only by frame length, so guessing wrong runs the wrong effect. |
 
-Everything else is now implemented: `changeControlModeParam` and
+Everything else is implemented: `changeControlModeParam` and
 `changeSmoothnessParam` as `select` entities on the 10 and 12 models that list
 them, `onLightMotionRecognize` as a `switch` on the 7 with `attachmentSupport`,
 `changeSelfieModeParam` as a colour-temperature range swap on the 2 models with
@@ -271,8 +271,8 @@ the sole exception so far. The hard ceiling is the MCU, not the chip.
 
 Each of these lights occupies **two** unicast addresses — element 0 (the vendor
 model and most SIG models) and element 1 (Light CTL Temperature). The allocator
-now strides by the element count, so a second light onto one network no longer
-lands its primary address on the first light's element 1. (A per-node query for
+strides by the element count, so a second light onto one network does not land
+its primary address on the first light's element 1. (A per-node query for
 a SIG model on element 1 must still target `node_address + 1` — relevant only if
 the standard models are ever used, which they are not for control.)
 
